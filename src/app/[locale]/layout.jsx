@@ -1,4 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { Archivo, Inter, JetBrains_Mono } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/Header';
@@ -27,11 +28,12 @@ export const viewport = {
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
+  const messages = await getMessages();
 
   return (
     <html lang={locale} className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
           <StructuredData />
           <Header />
           {children}
