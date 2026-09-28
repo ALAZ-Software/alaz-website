@@ -1,0 +1,502 @@
+{
+  "media": {
+    "earth": "https://horizons-cdn.hostinger.com/1a631f12-80cd-4d30-a12d-eb3a1c5bb682/a97baae44687d408c5ec3f5358f4a507.png",
+    "server": "https://images.hostinger.com/b7153917-045b-4d9f-a8e9-d3267bf93605.png",
+    "wafer": "https://images.hostinger.com/79819ca9-2b4f-40a0-b628-39c7e7abb02c.png",
+    "conduits": "https://images.hostinger.com/34b5c8dc-aea2-4a15-a1ea-7d23314bd149.png",
+    "laboratory": "https://images.hostinger.com/5409df7a-b8d7-46c1-935f-e8bb5f9de990.png"
+  },
+  "services": [
+    {
+      "number": "01",
+      "title": "SYSTEM ARCHITECTURE",
+      "category": "INFRASTRUCTURE / RESILIENCE",
+      "description": "Resilient, observable infrastructure for systems that cannot afford to go down.",
+      "detail": "From the first service diagram to production, we design for clarity and scale. Every dependency is deliberate, every failure mode mapped, every deploy reversible."
+    },
+    {
+      "number": "02",
+      "title": "NATIVE PERFORMANCE",
+      "category": "ENGINEERING / OPTIMIZATION",
+      "description": "Sub-second loads and zero jank. We cut bytes and main-thread work, not corners.",
+      "detail": "We profile the real critical path, prune the bundle, and move rendering to the server. The result ships fewer kilobytes and responds on the first interaction."
+    },
+    {
+      "number": "03",
+      "title": "DIGITAL ECOSYSTEMS",
+      "category": "INTEGRATION / PRODUCT",
+      "description": "APIs, data flows, and product surfaces wired into one coherent system.",
+      "detail": "Complexity belongs behind the interface. We connect products, data, and workflows with typed contracts and clear boundaries, so the system stays legible as it grows."
+    }
+  ],
+  "projects": [
+    {
+      "slug": "alpha",
+      "number": "01",
+      "name": "ALPHA",
+      "discipline": "SYSTEM DESIGN",
+      "type": "CLOUD INFRASTRUCTURE",
+      "image": "https://images.hostinger.com/b7153917-045b-4d9f-a8e9-d3267bf93605.png",
+      "summary": "A cloud foundation rebuilt for zero-downtime migration and horizontal scale.",
+      "challenge": "Replace a fragmented infrastructure layer with a fault-tolerant platform, without taking business-critical services offline.",
+      "approach": "We mapped every service dependency, stood up an observable deployment pipeline, and cut an incremental migration path with rollback at each stage.",
+      "outcome": "A zero-downtime cutover strategy and a foundation that absorbs new workloads without rework.",
+      "markers": [
+        "ZERO-DOWNTIME STRATEGY",
+        "FAULT-TOLERANT DESIGN",
+        "OBSERVABLE SYSTEMS"
+      ]
+    },
+    {
+      "slug": "beta",
+      "number": "02",
+      "name": "BETA",
+      "discipline": "NATIVE PERFORMANCE",
+      "type": "SILICON LOGIC",
+      "image": "https://images.hostinger.com/79819ca9-2b4f-40a0-b628-39c7e7abb02c.png",
+      "summary": "The critical path profiled and trimmed for sub-second interaction.",
+      "challenge": "Locate the friction between hardware limits, application logic, and what the user actually waits on.",
+      "approach": "We profiled the computational hot paths, simplified the execution model, and moved rendering off the client where it did not need to be.",
+      "outcome": "A focused optimization blueprint: leaner computation, fewer shipped bytes, and interactions that respond on the first event.",
+      "markers": [
+        "EXECUTION PATH AUDIT",
+        "LOGIC OPTIMIZATION",
+        "PERFORMANCE-FIRST UI"
+      ]
+    }
+  ],
+  "blogPosts": [
+    {
+      "slug": "cost-of-a-slow-website",
+      "title": "What Does a Slow Website Actually Cost Your Business?",
+      "excerpt": "A 0.1s delay hits revenue harder than most pricing changes. Data from Google, Deloitte, and Portent on how page load time drives conversions, burns ad spend, and reshapes search rankings.",
+      "tag": "PERFORMANCE",
+      "date": "2025-09-29",
+      "dateLabel": "SEP 29, 2025",
+      "cover": "https://images.hostinger.com/fa2db1a1-b7b8-4447-ba3d-7661427c1fcb.png",
+      "author": {
+        "name": "The ALAZ Team",
+        "role": "ENGINEERING STUDIO"
+      },
+      "content": "Teams spend weeks polishing a hero animation, tuning the easing curve on a dropdown, and arguing over the exact shade of a gradient. Then they ship it on a page that takes 4.2 seconds to become interactive and wonder why the conversion rate drifts downward every quarter.\n\nSpeed is not a developer chore. It is a balance sheet item. Every hundred milliseconds of latency shows up somewhere — in checkout completions, in cost per acquisition, in whether a paid visitor ever sees your form. This post pulls the actual numbers so you can stop treating performance as a nice-to-have and start treating it as a revenue metric.\n\n## The cost of a 0.1-second delay in retail\n\nThe most cited number in this conversation comes from the Deloitte and Google study *Milliseconds Make Millions*. They instrumented real retail and travel sites across Europe and measured what happened when mobile load times improved by just 0.1 seconds.\n\n- **Retail conversions rose 8.4%** on a 0.1s improvement.\n- **Average order value rose 9.2%** in retail — people not only bought more often, they spent more.\n- **Travel conversions rose 10.1%** — the most speed-sensitive category in the study.\n\nA tenth of a second. That is less time than a human blink, and it moved conversion by close to ten percent.\n\nAmazon established the benchmark years before this study: every 100ms of latency costs them roughly 1% in sales. Amazon runs at a scale where 1% is a staggering number, but the ratio holds at smaller scales too. If your store does $500K a month online, a 300ms improvement is plausibly worth five figures annually — before you touch pricing, ad spend, or product mix.\n\nThe takeaway is uncomfortable for teams that prioritize visual polish over load time. A faster page with a simpler design will out-convert a slower page with a prettier one, almost every time.\n\n## Burning ad budgets on unrendered pixels\n\nGoogle's mobile page speed data lays out the bounce curve, and it is brutal.\n\n- Bounce rate jumps **32%** when page load moves from 1 second to 3 seconds.\n- Bounce rate jumps **90%** when page load reaches 5 seconds.\n\nNow follow the money. You pay $2.40 per click on a competitive keyword. The visitor lands. The page is still loading at 3 seconds — the analytics pixel has not fired, the conversion form has not rendered, the headline has not painted. The visitor leaves. You paid for a click that never reached your funnel.\n\nThis is the silent budget drain most marketing dashboards miss. The ad platform reports a click. Your analytics reports nothing — because the visitor bounced before the tag loaded. The spend looks like it produced zero traffic, when really it produced traffic that your own site could not receive.\n\nThe fix is not to spend more on ads to compensate for a leaky page. The fix is to stop the leak. A page that renders its critical content in under 2 seconds turns that same ad budget into measurable sessions and measurable conversions. Your cost per acquisition drops without touching the campaign.\n\n## B2B pipelines and dropped leads\n\nB2B tells the same story, but the stakes are higher because the deal sizes are larger and the sales cycles are longer.\n\nPortent's conversion study found that a B2B site loading in 1 second converts **3x higher** than a site loading in 5 seconds, and **5x higher** than a site loading in 10 seconds. The curve is not linear — it falls off a cliff.\n\nThere is a second-order effect here that teams underweight. A slow B2B site reads as an implicit signal of outdated infrastructure. A CTO evaluating your platform is also evaluating your engineering. A 6-second load time tells them, before they read a single feature page, that your team does not prioritize performance. That is not the first impression you want when you are asking someone to trust you with their data, their workflow, or a six-figure annual contract.\n\nSpeed is a credibility signal in B2B. It is the difference between a demo that feels modern and a demo that feels like it was built in 2015 and never revisited.\n\n## Search rankings and Core Web Vitals\n\nSpeed is also a direct Google ranking factor, not just a conversion factor. Google measures it through Core Web Vitals, and two metrics matter most right now.\n\n- **Largest Contentful Paint (LCP)** measures when the largest visible element paints. Google wants it under 2.5 seconds. A heavy hero image, a blocking stylesheet, or a slow server response pushes it past the threshold and dents your ranking.\n- **Interaction to Next Paint (INP)** measures how quickly the page responds to a user tap or click. Google wants it under 200ms. INP replaced First Input Delay in 2024, and it is far stricter — it catches the long JavaScript tasks that freeze the main thread after the page looks \"loaded.\"\n\nThere is a crawl-budget angle too. Heavy client-side scripts force Googlebot to execute JavaScript, queue render, and revisit pages it could have indexed from raw HTML. On large sites, that burns crawl budget — Google indexes fewer pages per visit, and deep content takes longer to surface. A server-rendered page hands the crawler ready HTML and moves on.\n\nThe ranking impact compounds the conversion impact. A faster page converts better *and* ranks better *and* gets crawled more efficiently. A slower page loses on all three fronts at once.\n\n## Performance engineering strategy\n\nThe instinct when a site is slow is to upgrade the server. That is rarely the right first move. Most performance problems are architectural, not infrastructural, and a bigger server will not fix a 3MB JavaScript bundle.\n\nThree fixes move the needle more than any server upgrade.\n\n**Prune unnecessary JavaScript.** Every library you import is parsed, compiled, and executed on someone's phone. Audit your bundle. Drop the carousel library for a CSS scroll-snap container. Drop the animation library for the four transitions you actually use. Drop the date picker that ships 40KB for a native input. The fastest line of JavaScript is the one you never ship.\n\n**Adopt a server-first architecture.** Frameworks like Next.js let you render HTML on the server or at build time, so the browser receives a real page instead of an empty shell and a script tag. Server-side rendering and static site generation cut time-to-content dramatically and hand search crawlers ready HTML. The client hydrates only what needs to be interactive.\n\n**Enforce modern image optimization.** Images are usually the heaviest bytes on a page. Serve WebP or AVIF instead of JPEG — 25–50% smaller at the same quality. Set explicit width and height to prevent layout shift. Lazy-load everything below the fold. Strip metadata from production assets. These are not optional refinements; they are the baseline.\n\nNone of this requires a bigger server. It requires discipline at the architecture layer, where the decisions are made once and pay off every single pageview for the life of the site.\n\n## References & sources\n\n- Deloitte Digital & Google — *Milliseconds Make Millions* (retail and travel conversion impact of 0.1s load improvements)\n- Google — *Mobile Page Speed: Bounce Rate by Load Time* (1s → 3s → 5s bounce escalation)\n- Portent — *Site Speed and Conversion Rate Study* (B2B conversion rates by load time)\n- Google — *Core Web Vitals: LCP and INP* technical documentation\n\n## Run the audit\n\nIf you have not measured your load time this quarter, you are guessing. Run a Lighthouse pass. Check your LCP and INP against the thresholds. Open your network tab and sort by transfer size. The numbers will tell you exactly where the budget is leaking.\n\nIf the audit surfaces work you do not have the bandwidth to take on, that is what we do. ALAZ engineers high-performance web frontends — server-first architectures, disciplined bundle budgets, and image pipelines that ship the smallest viable byte. We modernize legacy stacks without rewriting the business logic underneath.\n\nEmail `hello@alaz.pro`. Send a URL and a Lighthouse report if you have one. We will tell you, plainly, what is slow, what it is costing you, and what it takes to fix it."
+    },
+    {
+      "slug": "we-are-officially-live",
+      "title": "We Are Live: Building Software That Actually Moves the Needle",
+      "excerpt": "ALAZ is open. Why this studio exists, how we engineer, and what we're offering to teams that value speed and reliability over polish-as-a-smokescreen.",
+      "tag": "LAUNCH",
+      "date": "2025-09-27",
+      "dateLabel": "SEP 27, 2025",
+      "cover": "https://images.hostinger.com/da80e49f-b638-479c-b8a6-486217e4ecb8.png",
+      "author": {
+        "name": "The ALAZ Team",
+        "role": "ENGINEERING STUDIO"
+      },
+      "content": "ALAZ is open for business. This is the first post on a studio I built to fix something that genuinely frustrates me.\n\n## The starting point\n\nI've spent years untangling web apps that should have been simple. Bloated bundles. Interfaces that judder on a mid-range phone. State scattered across four libraries because someone picked a tool and never revisited the decision. Dashboards that take six seconds to become interactive and still ship to production.\n\nMost of that pain is not a technology problem. It's a discipline problem. Decisions get made once, under deadline pressure, and then frozen. The codebase inherits them. Every new feature pays the tax.\n\nALAZ exists to stop paying that tax.\n\n## Our engineering ethos\n\nWe build against a short list of convictions.\n\n- **Speed is a feature.** Sub-second load times are not a stretch goal. They are the baseline. A page that loads in 2.3 seconds has already lost half the room.\n- **Architecture is a communication tool.** Clean state management and predictable rendering are not vanity. They are how a team of five keeps shipping after month twelve.\n- **TypeScript is non-negotiable.** Types catch the bugs that reviews miss. They let you refactor without flinching.\n- **Modular beats monolithic.** Small, replaceable pieces win every time the requirements change. They always change.\n\nNone of this is exotic. The bar is low because most teams optimize for the demo, not for month eighteen. We optimize for month eighteen.\n\nWe work in the modern frontend stack — Next.js, TypeScript, the React ecosystem — because it lets us ship fast without shipping fragile. The tooling is mature. The patterns are boring in the best way. Boring means predictable. Predictable means we can reason about the system at 2am when something breaks.\n\n## What we're building\n\nALAZ ships two things.\n\nFirst, high-performance web solutions. Marketing sites that hit 100 on Core Web Vitals without looking like a placeholder. Product surfaces that stay responsive under real data, not the demo dataset someone demoed once.\n\nSecond, specialized applications. Internal tools, dashboards, and client-facing platforms where the logic is the product and the interface has to get out of the way.\n\nWe take end-to-end frontend execution for teams that value speed and reliability over polish-as-a-smokescreen. You will not get a 40-page proposal. You will get a working branch, a clear architecture decision record, and code you can read at a glance.\n\nPerformance budgets get committed in the first sprint, not bolted on before launch. Accessibility is part of the build, not an audit at the end. If a feature slows the critical path, we say so before we ship it.\n\n## The invitation\n\nIf you're a founder with a prototype that needs to become real, an engineer who's tired of apologizing for the codebase, or a company that wants a partner instead of a vendor — let's talk.\n\nEmail `hello@alaz.pro`. Tell me what you're building and what's in the way. I read every message and I reply like a person, not an auto-responder.\n\nWe're live. Let's build something that holds up."
+    }
+  ],
+  "nav": {
+    "linkLabels": [
+      "CASE STUDIES",
+      "BLOG",
+      "ABOUT",
+      "SERVICES"
+    ],
+    "cta": "START A PROJECT"
+  },
+  "footer": {
+    "eyebrow": "ALAZ / ENGINEERING STUDIO",
+    "talk": "HAVE A SYSTEM IN MIND?",
+    "copyright": "© 2025 ALAZ ENGINEERING. ALL RIGHTS RESERVED.",
+    "backTop": "BACK TO TOP ↑",
+    "linkLabels": [
+      "BLOG",
+      "LEGAL",
+      "PRIVACY"
+    ]
+  },
+  "home": {
+    "meta": {
+      "title": "ALAZ — Software Architecture & Engineering Studio",
+      "description": "ALAZ designs resilient software architecture, native performance, and connected digital ecosystems. No bullshit. Just action."
+    },
+    "hero": {
+      "status": "SYSTEM_ACTIVE",
+      "toplineRight": "ENGINEERING STUDIO / EST. 2025",
+      "kicker": "INDEPENDENT SOFTWARE ARCHITECTURE STUDIO",
+      "taglineTop": "NO BULLSHIT.",
+      "taglineBottom": "JUST ACTION.",
+      "intro": "We architect the systems that make ambitious ideas operational. Built with intent. Engineered to last.",
+      "scrollCta": "SCROLL TO EXPLORE",
+      "bottomNote": "PRECISION IS THE STANDARD. NOT THE GOAL."
+    },
+    "signal": {
+      "a": "ALAZ / SYSTEMS THINKING",
+      "b": "ENGINEERING WITHOUT COMPROMISE"
+    },
+    "validation": {
+      "eyebrowLeft": "01 / EXTERNAL SIGNAL",
+      "eyebrowRight": "TESTIMONIALS // 03",
+      "heading": [
+        "VALIDATION"
+      ],
+      "lead": "The strongest systems earn their reputation in production."
+    },
+    "ticker": [
+      "TRUSTED PARTNERSHIP",
+      "CLIENT SUCCESS",
+      "ARCHITECTURAL INTEGRITY",
+      "UNCOMPROMISING PRECISION"
+    ],
+    "capabilities": {
+      "eyebrowLeft": "02 / WHAT WE DO",
+      "eyebrowRight": "DISCIPLINE OVER DECORATION",
+      "heading": [
+        "CORE",
+        "CAPABILITIES"
+      ],
+      "exploreCta": "EXPLORE SERVICES"
+    },
+    "selected": {
+      "eyebrowLeft": "03 / THE OUTPUT",
+      "eyebrowRight": "SELECTED PROJECTS // 02",
+      "heading": [
+        "SELECTED",
+        "WORKS"
+      ],
+      "viewAllCta": "VIEW ALL PROJECTS",
+      "imageAlt": "{name} {type} engineering visual",
+      "numberSuffix": "PROJECT"
+    },
+    "start": {
+      "eyebrowLeft": "04 / INITIATE",
+      "eyebrowRight": "READY WHEN YOU ARE",
+      "badge": "COMMAND SEQUENCE READY",
+      "heading": [
+        "START",
+        "PROJECT"
+      ],
+      "paragraph": "The next great system starts with a conversation.",
+      "button": "START SEQUENCE",
+      "bottomNote": "DESIGNED WITH INTENT / BUILT TO ENDURE"
+    }
+  },
+  "testimonials": [
+    {
+      "number": "01",
+      "quote": "“They brought order to a system that had become impossible to reason about. The new architecture gave our team a clear path forward without slowing down delivery.”",
+      "name": "MERVE T.",
+      "role": "PROJECT MANAGER",
+      "focus": "ARCHITECTURE"
+    },
+    {
+      "number": "02",
+      "quote": "“What stood out was the discipline. Every technical decision had a reason behind it, and the engineering never lost sight of the product we were trying to build.”",
+      "name": "BURAK Y.",
+      "role": "PRODUCT OWNER",
+      "focus": "EXECUTION"
+    },
+    {
+      "number": "03",
+      "quote": "“We needed more than a polished interface. We needed a reliable foundation underneath it. ALAZ understood that distinction from the first conversation.”",
+      "name": "SELIN A.",
+      "role": "E-COMMERCE DIRECTOR",
+      "focus": "RELIABILITY"
+    }
+  ],
+  "about": {
+    "meta": {
+      "title": "About ALAZ — The Engineering Manifesto",
+      "description": "ALAZ is an independent software architecture and engineering studio. We engineer permanence, favor data over dogma, and build with brutal efficiency."
+    },
+    "eyebrowLeft": "STUDIO / 001",
+    "eyebrowRight": "OUR OPERATING PRINCIPLES",
+    "kicker": "NOT AN AGENCY. AN ENGINEERING PRACTICE.",
+    "heading": [
+      "WE ENGINEER",
+      "PERMANENCE"
+    ],
+    "introText": "We exist to make complex systems simple enough to trust and strong enough to endure.",
+    "introNote": "ALAZ / MANIFESTO 2025",
+    "imageAlt": "Architectural engineering laboratory with precision workstations",
+    "imageCaption": "FIG. 01 — THE PRACTICE OF PRECISION",
+    "principlesEyebrowLeft": "01 / THE MANIFESTO",
+    "principlesEyebrowRight": "THREE PRINCIPLES / ONE STANDARD",
+    "principles": [
+      {
+        "number": "01",
+        "title": "DATA OVER DOGMA",
+        "body": "Decisions deserve evidence. We question assumptions, measure what matters, and let reality shape the solution."
+      },
+      {
+        "number": "02",
+        "title": "BRUTAL EFFICIENCY",
+        "body": "Every layer should earn its place. We remove complexity instead of hiding it behind a better-looking interface."
+      },
+      {
+        "number": "03",
+        "title": "ENGINEER PERMANENCE",
+        "body": "The best work outlasts the launch. We build maintainable foundations that stay useful when the brief changes."
+      }
+    ],
+    "disciplinesEyebrowLeft": "02 / OUR DISCIPLINES",
+    "disciplinesEyebrowRight": "THE WORK BEHIND THE WORK",
+    "disciplinesHeading": [
+      "ENGINEERING",
+      "IS THE MEDIUM"
+    ],
+    "endTextTop": "GOOD SYSTEMS ARE INVISIBLE.",
+    "endTextBottom": "THE IMPACT ISN'T.",
+    "startCta": "START A PROJECT"
+  },
+  "archive": {
+    "meta": {
+      "title": "Case Studies — ALAZ Engineering",
+      "description": "Explore ALAZ engineering case studies in cloud infrastructure, system design, and native performance."
+    },
+    "eyebrowLeft": "INDEX / 001",
+    "eyebrowRight": "ARCHIVE / SELECTED WORK",
+    "kicker": "AN INDEX OF WHAT WE BUILD",
+    "heading": [
+      "THE WORK"
+    ],
+    "introText": "Technical challenges. Considered solutions. Systems engineered for what comes next.",
+    "introNote": "PROJECTS ON FILE / 002",
+    "tableHeaders": [
+      "NO.",
+      "PROJECT / DISCIPLINE",
+      "SCOPE",
+      "VIEW"
+    ],
+    "noteLeft": "END OF INDEX",
+    "noteRight": "MORE SYSTEMS IN DEVELOPMENT"
+  },
+  "caseStudy": {
+    "notFoundHeading": "PROJECT NOT FOUND.",
+    "backToArchive": "BACK TO ARCHIVE",
+    "allCaseStudies": "← ALL CASE STUDIES",
+    "projectLabel": "PROJECT",
+    "metaTitleTemplate": "{name} — ALAZ Case Study",
+    "metaDescriptionTemplate": "{name}: {summary} Read this ALAZ engineering case study.",
+    "imageAlt": "{name} technical engineering visual",
+    "selectedWorkLabel": "ALAZ / SELECTED WORK",
+    "challengeEyebrow": "01 / THE CHALLENGE",
+    "challengeHeading": [
+      "BUILD FOR",
+      "WHAT'S NEXT."
+    ],
+    "approachEyebrow": "02 / THE APPROACH",
+    "approachHeading": [
+      "PRECISION",
+      "AT EVERY LAYER."
+    ],
+    "outcomeEyebrow": "03 / THE OUTCOME",
+    "outcomeHeading": [
+      "LESS NOISE.",
+      "MORE SIGNAL."
+    ],
+    "deliverableLabel": "DELIVERABLE",
+    "nextProjectLabel": "NEXT PROJECT",
+    "contactPrompt": "HAVE A COMPLEX CHALLENGE?",
+    "contactCta": "LET'S TALK"
+  },
+  "blogIndex": {
+    "meta": {
+      "title": "Blog — ALAZ Engineering Studio",
+      "description": "Field notes on software architecture, high-performance web engineering, and building systems that hold up. Written by the ALAZ engineering studio."
+    },
+    "eyebrowLeft": "BLOG / 001",
+    "eyebrowRight": "FIELD NOTES FROM THE STUDIO",
+    "kicker": "ENGINEERING, IN PLAIN LANGUAGE.",
+    "heading": [
+      "THE",
+      "BLOG"
+    ],
+    "introText": "Notes on architecture, performance, and the craft of shipping software that holds up past the launch demo.",
+    "introNote": "ALAZ / WRITING 2025",
+    "articlesAriaLabel": "Blog articles",
+    "readMinutesSuffix": "MIN READ",
+    "readCta": "READ",
+    "noteLeft": "MORE FIELD NOTES INCOMING.",
+    "noteRight": "ALAZ / BLOG"
+  },
+  "blogPost": {
+    "notFoundHeading": "POST NOT FOUND.",
+    "backToBlogCta": "BACK TO BLOG",
+    "allFieldNotes": "← ALL FIELD NOTES",
+    "blogLabelPrefix": "BLOG",
+    "readingSuffix": "MIN READ",
+    "fieldNotesLabel": "ALAZ / FIELD NOTES",
+    "authorIntroBefore": "ALAZ is an independent software architecture and web engineering studio. Reach us at ",
+    "authorIntroAfter": ".",
+    "nextNoteLabel": "NEXT FIELD NOTE",
+    "contactPrompt": "WANT TO BUILD SOMETHING THAT HOLDS UP?",
+    "contactCta": "START A PROJECT",
+    "metaTitleTemplate": "{title} — ALAZ Blog",
+    "coverAlt": "{title} — cover visual"
+  },
+  "intake": {
+    "meta": {
+      "title": "Start a Project — ALAZ Engineering",
+      "description": "Tell ALAZ about your software architecture, engineering, or digital systems project. Begin a focused project inquiry."
+    },
+    "sectionTopLeft": "PROJECT INTAKE / SECURE TRANSMISSION",
+    "sectionTopRight": "ALAZ / NEW ENGAGEMENT",
+    "completeEyebrow": "PROJECT INQUIRY RECEIVED / 001",
+    "completeHeading": [
+      "REQUEST",
+      "RECEIVED"
+    ],
+    "completeMessageTemplate": "Thank you, {name}. Your project inquiry is safely in our queue. We'll review it and contact you at {email}.",
+    "completeCta": "RETURN TO HOME",
+    "headingEyebrow": "LET'S BUILD SOMETHING THAT LASTS",
+    "headingLines": [
+      "START A",
+      "PROJECT"
+    ],
+    "introParagraph": "Good work starts with the right questions. Tell us what you're building.",
+    "asideLabel": "YOUR BRIEF / IN THREE PARTS",
+    "steps": [
+      "THE SCOPE",
+      "THE CHALLENGE",
+      "YOUR DETAILS"
+    ],
+    "asideParagraph": "We only ask what we need to understand your challenge. No generic sales pitch. No unnecessary calls.",
+    "asideStatus": "STATUS: ACCEPTING NEW INQUIRIES",
+    "stepLabels": [
+      "PROJECT TYPE",
+      "PROJECT CONTEXT",
+      "CONTACT DETAILS"
+    ],
+    "percentCompleteTemplate": "{percent}% COMPLETE",
+    "step0": {
+      "heading": "WHAT ARE WE BUILDING?",
+      "paragraph": "Select the discipline closest to your project.",
+      "groupAriaLabel": "Project type"
+    },
+    "types": [
+      {
+        "name": "Web App",
+        "detail": "Platforms & products"
+      },
+      {
+        "name": "Mobile App",
+        "detail": "Native experiences"
+      },
+      {
+        "name": "Infrastructure",
+        "detail": "Systems & architecture"
+      },
+      {
+        "name": "Custom",
+        "detail": "Something different"
+      }
+    ],
+    "typeIndexSuffix": "TYPE",
+    "errors": {
+      "projectType": "Select a project type to continue.",
+      "projectName": "Enter a project name.",
+      "brief": "Tell us a little more about the challenge (at least 20 characters).",
+      "name": "Enter your name.",
+      "email": "Enter a valid email address."
+    },
+    "step1": {
+      "heading": "DEFINE THE CHALLENGE.",
+      "paragraph": "Start with the problem. We'll find the right architecture together."
+    },
+    "fields": {
+      "projectName": {
+        "label": "PROJECT NAME",
+        "placeholder": "A working title is fine"
+      },
+      "brief": {
+        "label": "WHAT ARE YOU TRYING TO SOLVE?",
+        "placeholder": "Tell us about the system, the challenge, and what success would look like..."
+      },
+      "timeline": {
+        "label": "IDEAL TIMELINE",
+        "placeholder": "Select a timeframe"
+      },
+      "budget": {
+        "label": "BUDGET RANGE",
+        "placeholder": "Select a range"
+      },
+      "name": {
+        "label": "YOUR NAME",
+        "placeholder": "Your full name"
+      },
+      "email": {
+        "label": "EMAIL ADDRESS",
+        "placeholder": "you@company.com"
+      },
+      "company": {
+        "label": "COMPANY / ORGANIZATION",
+        "optional": "OPTIONAL",
+        "placeholder": "Where you work"
+      }
+    },
+    "timelineOptions": [
+      "As soon as possible",
+      "1–3 months",
+      "3–6 months",
+      "Exploring options"
+    ],
+    "budgetOptions": [
+      "Under $25k",
+      "$25k–$50k",
+      "$50k–$100k",
+      "$100k+",
+      "To be discussed"
+    ],
+    "step2": {
+      "heading": "WHO'S ON THE OTHER END?",
+      "paragraph": "Give us a way to get back to you about your project."
+    },
+    "privacyNoteBefore": "YOUR DETAILS ARE USED ONLY TO RESPOND TO THIS INQUIRY. ",
+    "privacyNoteCta": "PRIVACY POLICY ↗",
+    "submitErrorFallback": "The transmission could not be completed. Please try again.",
+    "prevStep": "PREVIOUS STEP",
+    "continueCta": "CONTINUE",
+    "submitCta": "SEND INQUIRY",
+    "submittingCta": "TRANSMITTING...",
+    "formNotation": "ALAZ / 2025"
+  },
+  "legal": {
+    "sectionTopLeft": "ALAZ / INFORMATION",
+    "documentLabel": "DOCUMENT / 2025",
+    "backToHome": "← BACK TO HOME",
+    "legal": {
+      "title": "LEGAL",
+      "meta": {
+        "title": "Legal — ALAZ",
+        "description": "Legal information about the ALAZ engineering website."
+      },
+      "h1": "WEBSITE INFORMATION",
+      "p1": "This website presents ALAZ's engineering practice and provides a way to initiate a project inquiry. Submitting an inquiry does not create a service agreement or guarantee project acceptance.",
+      "h2": "CONTENT & AVAILABILITY",
+      "p2": "Information is provided for general purposes and may change. Project scope, deliverables, and terms are established only through a separate written agreement."
+    },
+    "privacy": {
+      "title": "PRIVACY",
+      "meta": {
+        "title": "Privacy — ALAZ",
+        "description": "Learn how ALAZ handles information submitted through the project inquiry form."
+      },
+      "h1": "YOUR INFORMATION",
+      "p1": "When you submit a project inquiry, we collect the contact details and project information you choose to provide. We use it to review your inquiry and respond to you. We do not sell this information.",
+      "h2": "RETENTION & REQUESTS",
+      "p2Before": "Inquiries are retained for as long as needed to respond and manage our correspondence. To ask about your information or request its removal, email ",
+      "p2After": ".",
+      "h3": "THIRD-PARTY CONTENT",
+      "p3": "This website may use externally hosted fonts and imagery. These providers may receive standard browser request information when their resources load."
+    },
+    "notFound": {
+      "title": "PAGE NOT FOUND",
+      "meta": {
+        "title": "Page Not Found — ALAZ",
+        "description": "The requested ALAZ page could not be found."
+      },
+      "body": "This route does not exist. Return to the beginning."
+    }
+  }
+}

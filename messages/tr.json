@@ -1,0 +1,501 @@
+{
+  "media": {
+    "earth": "https://horizons-cdn.hostinger.com/1a631f12-80cd-4d30-a12d-eb3a1c5bb682/a97baae44687d408c5ec3f5358f4a507.png",
+    "server": "https://images.hostinger.com/b7153917-045b-4d9f-a8e9-d3267bf93605.png",
+    "wafer": "https://images.hostinger.com/79819ca9-2b4f-40a0-b628-39c7e7abb02c.png",
+    "conduits": "https://images.hostinger.com/34b5c8dc-aea2-4a15-a1ea-7d23314bd149.png",
+    "laboratory": "https://images.hostinger.com/5409df7a-b8d7-46c1-935f-e8bb5f9de990.png"
+  },
+  "services": [
+    {
+      "number": "01",
+      "title": "SİSTEM MİMARİSİ",
+      "category": "ALTYAPI / DAYANIKLILIK",
+      "description": "Kesintiye tahammülü olmayan sistemler için dayanıklı, gözlemlenebilir altyapı.",
+      "detail": "İlk servis diyagramından üretim dağıtımına kadar netlik ve ölçek için tasarlıyoruz. Her bağımlılık bilinçli, her hata durumu haritalanmış, her dağıtım geri alınabilir."
+    },
+    {
+      "number": "02",
+      "title": "DOĞAL PERFORMANS",
+      "category": "MÜHENDİSLİK / OPTİMİZASYON",
+      "description": "Bir saniyenin altında yükleme, sıfır takılma. Baytı ve ana iş parçacığı işini budarız, köşeyi değil.",
+      "detail": "Gerçek kritik yolu profilleriz, paketi budarız ve renderı sunucuya taşırız. Sonuç daha az kilobayt ve ilk etkileşimde yanıt veren arayüz."
+    },
+    {
+      "number": "03",
+      "title": "DİJİTAL EKOSİSTEMLER",
+      "category": "ENTEGRASYON / ÜRÜN",
+      "description": "API'ler, veri akışları ve ürün yüzeyleri tek tutarlı sisteme bağlı.",
+      "detail": "Karmaşıklık arayüzün arkasında kalmalı. Ürünleri, veriyi ve iş akışlarını tipli sözleşmelerle ve net sınırlarla bağlıyoruz; sistem büyüdükçe okunabilir kalsın."
+    }
+  ],
+  "projects": [
+    {
+      "slug": "alpha",
+      "number": "01",
+      "name": "ALPHA",
+      "discipline": "SİSTEM TASARIMI",
+      "type": "BULUT ALTYAPISI",
+      "image": "https://images.hostinger.com/b7153917-045b-4d9f-a8e9-d3267bf93605.png",
+      "summary": "Sıfır kesintili geçiş ve yatay ölçek için yeniden inşa edilmiş bulut temeli.",
+      "challenge": "Parçalanmış bir altyapı katmanını, iş kritik servisleri durdurmadan hata toleranslı bir platformla değiştirmek.",
+      "approach": "Her servis bağımlılığını haritaladık, gözlemlenebilir bir dağıtım hattı kurduk ve her aşamada geri alma garantisi olan kademeli bir geçiş yolu çıkardık.",
+      "outcome": "Sıfır kesintili geçiş stratejisi ve yeni iş yüklerini baştan iş gerektirmeden özümseyen bir temel.",
+      "markers": [
+        "SIFIR-KESİNTİ STRATEJİSİ",
+        "HATA TOLERANSLI TASARIM",
+        "GÖZLEMLENEBİLİR SİSTEMLER"
+      ]
+    },
+    {
+      "slug": "beta",
+      "number": "02",
+      "name": "BETA",
+      "discipline": "DOĞAL PERFORMANS",
+      "type": "SİLİKON MANTIĞI",
+      "image": "https://images.hostinger.com/79819ca9-2b4f-40a0-b628-39c7e7abb02c.png",
+      "summary": "Bir saniyenin altında etkileşim için profillenip budanmış kritik yol.",
+      "challenge": "Donanım sınırları, uygulama mantığı ve kullanıcının gerçekten beklediği şey arasındaki sürtünmeyi bulmak.",
+      "approach": "Hesaplama sıcak yollarını profilledik, yürütme modelini sadeleştirdik ve istemcide kalması gerekmeyen renderı sunucuya taşıdık.",
+      "outcome": "Odaklanmış bir optimizasyon planı: daha yalın hesaplama, daha az gönderilen bayt ve ilk olayda yanıt veren etkileşim.",
+      "markers": [
+        "YÜRÜTME YOLU DENETİMİ",
+        "MANTIK OPTİMİZASYONU",
+        "PERFORMANS ÖNCELİKLİ ARAYÜZ"
+      ]
+    }
+  ],
+  "blogPosts": [
+    {
+      "slug": "cost-of-a-slow-website",
+      "title": "Yavaş Bir Web Sitesi İşinize Gerçekte Ne Kadara Mal Oluyor?",
+      "excerpt": "0.1 saniyelik bir gecikme, çoğu fiyat değişikliğinden daha sert gelir kaybına yol açar. Google, Deloitte ve Portent verileri: sayfa yükleme süresi dönüşümleri nasıl yönlendiriyor, reklam bütçesini nasıl yakıyor ve arama sıralamalarını nasıl şekillendiriyor.",
+      "tag": "PERFORMANS",
+      "date": "2025-09-29",
+      "dateLabel": "29 EYL 2025",
+      "cover": "https://images.hostinger.com/fa2db1a1-b7b8-4447-ba3d-7661427c1fcb.png",
+      "author": {
+        "name": "ALAZ Ekibi",
+        "role": "MÜHENDİSLİK STÜDYOSU"
+      },
+      "content": "Ekipler haftalarını bir hero animasyonunu cilalayarak, bir açılır menünün easing eğrisini ayarlayarak ve bir gradyanın tam tonu üzerine tartışarak geçirir. Sonra bunu etkileşime geçmenin 4.2 saniye sürdüğü bir sayfada yayınlar ve dönüşüm oranının her çeyrek neden aşağı kaydığını merak eder.\n\nHız bir geliştirici işi değil. Bir bilançoyu ilgilendiren kalemdir. Her yüz milisaniyelik gecikme bir yerlerde ortaya çıkar — ödeme tamamlamalarında, edinme başına maliyette, ücretli bir ziyaretçinin formunuzu hiç görüp görmeyeceğinde. Bu yazı gerçek sayıları derliyor; böylece performansa \"olsa iyi olur\" demeyi bırakıp bir gelir metriği olarak ele almaya başlayabilirsiniz.\n\n## Perakendede 0.1 saniyelik gecikmenin maliyeti\n\nBu konuşmadaki en çok atıf alan sayı Deloitte ve Google çalışması *Milliseconds Make Millions* kaynaklanıyor. Avrupa genelinde gerçek perakende ve seyahat sitelerini ölçümlediler ve mobil yükleme süreleri yalnızca 0.1 saniye iyileştiğinde ne olduğunu gözlemlediler.\n\n- **Perakende dönüşümleri 0.1 saniyelik iyileşmede %8.4 arttı.**\n- **Perakendede ortalama sipariş değeri %9.2 arttı** — insanlar yalnızca daha sık almakla kalmadı, daha fazla harcadı.\n- **Seyahat dönüşümleri %10.1 arttı** — çalışmadaki en hız-duyarlı kategori.\n\nOnda bir saniye. Bu, bir insan göz kırpmasından daha kısa bir süre ve dönüşümü neredeyse yüzde on hareket ettirdi.\n\nAmazon bu çalışmadan yıllar önce standardı belirlemişti: her 100ms gecikme onlara kabaca %1 satış kaybettiriyor. Amazon'un ölçeğinde %1 rakamı şaşırtıcıdır, ama oran daha küçük ölçeklerde de geçerli. Mağazanız ayda 500 bin dolar online ciroya sahipse, 300ms'lik bir iyileşme yıllık beş haneli bir değere makul şekilde denk düşer — fiyatlandırmaya, reklam bütçesine veya ürün çeşitine dokunmadan.\n\nÇıkarılacak ders, görsel cila üzerine yükleme süresini önceliklendiren ekipler için rahatsız edici. Daha basit tasarımlı daha hızlı bir sayfa, daha şık ama daha yavaş bir sayfayı neredeyse her zaman dönüşümde geçer.\n\n## Render edilmemiş piksellerde yanan reklam bütçeleri\n\nGoogle'ın mobil sayfa hızı verileri hemen çıkma eğrisini seriyor ve eğri acımasız.\n\n- Sayfa yüklemesi 1 saniyeden 3 saniyeye çıktığında hemen çıkma oranı **%32** sıçrar.\n- Sayfa yüklemesi 5 saniyeye ulaştığında hemen çıkma oranı **%90** sıçrar.\n\nŞimdi parayı takip edin. Rekabetçi bir anahtar kelime için tıklama başına 2.40 dolar ödüyorsunuz. Ziyaretçi gelir. Sayfa hâlâ 3 saniyede yükleniyor — analiz pikseli ateşlenmedi, dönüşüm formu render olmadı, başlık çizilmedi. Ziyaretçi ayrılıyor. Hiç huniye ulaşmamış bir tıklama için ödediniz.\n\nBu, çoğu pazarlama panelinin gözden kaçırdığı sessiz bütçe kaybı. Reklam platformu bir tıklama raporlar. Analitiğiniz hiçbir şey raporlamaz — çünkü ziyaretçi etiket yüklenmeden çıktı. Harcama sıfır trafik üretmiş gibi görünür; oysa aslında sitenizin alamadığı bir trafiği üretti.\n\nÇözüm, sızdıran sayfayı telafi etmek için reklama daha fazla harcamak değil. Sızıntıyı durdurmak. Kritik içeriğini 2 saniyenin altında render eden bir sayfa, aynı reklam bütçesini ölçülebilir oturumlara ve ölçülebilir dönüşümlere çevirir. Kampanyaya dokunmadan edinme başına maliyetiniz düşer.\n\n## B2B boru hatları ve kayıp müşteri adayları\n\nB2B aynı hikayeyi anlatır, ama bahisler daha yüksektir çünkü anlaşma boyutları daha büyük ve satış döngüleri daha uzundur.\n\nPortent'in dönüşüm çalışması, 1 saniyede yüklenen bir B2B sitesinin 5 saniyede yüklenen bir siteden **3 kat** daha yüksek, 10 saniyede yüklenen bir siteden **5 kat** daha yüksek dönüştüğünü buldu. Eğri doğrusal değil — uçurumdan düşüyor.\n\nBurada ekiplerin yeterince ağırlık vermediği ikinci dereceden bir etki var. Yavaş bir B2B sitesi, güncel olmayan altyapının örtük bir sinyali olarak okunur. Platformunuzu değerlendiren bir CTO mühendisliğinizi de değerlendiriyor. 6 saniyelik bir yükleme süresi, tek bir özellik sayfasını okumadan önce, ekibinizin performansı önceliklendirmediğini söylüyor. Birinin verisiyle, iş akışıyla veya altı haneli yıllık bir sözleşmeyle güven istenirken istediğiniz ilk izlenim bu değildir.\n\nHız B2B'de bir güvenilirlik sinyalidir. Modern hissettiren bir demo ile 2015'te yapılmış ve bir daha el atılmamış hissettiren bir demo arasındaki farktır.\n\n## Arama sıralamaları ve Core Web Vitals\n\nHız ayrıca yalnızca bir dönüşüm faktörü değil, doğrudan bir Google sıralama faktörü. Google bunu Core Web Vitals üzerinden ölçer ve şu anda iki metrik en çok önem taşıyor.\n\n- **Largest Contentful Paint (LCP)** en büyük görünür öğenin ne zaman çizildiğini ölçer. Google bunun 2.5 saniyenin altında olmasını ister. Ağır bir hero görseli, engelleyen bir stil sayfası veya yavaş bir sunucu yanıtı eşiği aşırır ve sıralamanızı çizer.\n- **Interaction to Next Paint (INP)** sayfanın bir dokunuşa veya tıklamaya ne kadar hızlı yanıt verdiğini ölçer. Google bunun 200ms altında olmasını ister. INP, 2024'te First Input Delay'in yerini aldı ve çok daha katıdır — sayfa \"yüklü\" göründükten sonra ana iş parçacığını donduran uzun JavaScript görevlerini yakalar.\n\nBir tarama bütçesi açısı da var. Ağır istemci tarafı betikler Googlebot'u JavaScript yürütmeye, render sıraya almaya ve ham HTML'den indeksleyebileceği sayfaları yeniden ziyaret etmeye zorlar. Büyük sitelerde bu tarama bütçesini yakar — Google her ziyarette daha az sayfa indeksler ve derin içerik yüzeye çıkmak için daha uzun sürer. Sunucu tarafı render edilen bir sayfa tarayıcıya hazır HTML uzatır ve yoluna devam eder.\n\nSıralama etkisi, dönüşüm etkisini katlar. Daha hızlı bir sayfa daha iyi dönüştürür *ve* daha iyi sıralar *ve* daha verimli taranır. Daha yavaş bir sayfa üç cephede birden kaybeder.\n\n## Performans mühendisliği stratejisi\n\nBir site yavaş olduğunda içgüdü sunucuyu yükseltmektir. Bu nadiren doğru ilk hamledir. Çoğu performans sorunu altyapısal değil mimariseldir ve daha büyük bir sunucu 3MB'lık bir JavaScript paketini düzeltmez.\n\nÜç düzeltme herhangi bir sunucu yükseltmesinden daha çok iş yapar.\n\n**Gereksiz JavaScript'i buda.** İçe aktardığınız her kütüphane birinin telefonunda ayrıştırılır, derlenir ve yürütülür. Paketinizi denetleyin. Carousel kütüphanesini bir CSS scroll-snap kapsayıcısı için bırakın. Animasyon kütüphanesini gerçekte kullandığınız dört geçiş için bırakın. 40KB taşıyan tarih seçiciyi yerel bir input için bırakın. En hızlı JavaScript satırı hiç göndermediğiniz satırdır.\n\n**Sunucu öncelikli bir mimari benimse.** Next.js gibi çerçeveler HTML'i sunucuda veya derleme zamanında render etmenizi sağlar; böylece tarayıcı boş bir kabuk ve bir script etiketi yerine gerçek bir sayfa alır. Sunucu tarafı render ve statik site üretimi içerik-ulaşma süresini çarpıcı biçimde düşürür ve arama tarayıcılarına hazır HTML uzatır. İstemci yalnızca etkileşimli olması gerekeni hidrate eder.\n\n**Modern görsel optimizasyonunu uygula.** Görseller genellikle bir sayfadaki en ağır baytlardır. JPEG yerine WebP veya AVIF sunun — aynı kalitede %25–50 daha küçük. Düzen kaymasını önlemek için açık width ve height ayarlayın. Ekrandan aşağıdakilerin hepsini tembel yükle. Üretim varlıklarından metaverileri ayıklayın. Bunlar isteğe bağlı rafinmanlar değil; temeldir.\n\nBunların hiçbiri daha büyük bir sunucu gerektirmez. Mimari katmanda disiplin gerektirir; kararlar bir kez verilir ve sitenin ömrü boyunca her sayfa görüntülemesinde öder.\n\n## Kaynaklar\n\n- Deloitte Digital & Google — *Milliseconds Make Millions* (perakende ve seyahatte 0.1s yükleme iyileşmesinin dönüşüm etkisi)\n- Google — *Mobile Page Speed: Bounce Rate by Load Time* (1s → 3s → 5s hemen çıkma tırmanışı)\n- Portent — *Site Speed and Conversion Rate Study* (yükleme süresine göre B2B dönüşüm oranları)\n- Google — *Core Web Vitals: LCP ve INP* teknik dokümantasyonu\n\n## Denetimi çalıştır\n\nBu çeyrek yükleme sürenizi ölçmediyseniz, tahmin yürütüyorsunuz. Bir Lighthouse turu atın. LCP ve INP'nizi eşiklere karşı kontrol edin. Ağ sekmenizi açın ve aktarım boyutuna göre sıralayın. Rakamlar bütçenin tam nerede sızdığını söyleyecek.\n\nDenetim, bütçeniz olmayan bir iş ortaya çıkarırsa, biz tam bunu yapıyoruz. ALAZ yüksek performanslı web ön yüzleri mühendislikle geliştirir — sunucu öncelikli mimariler, disiplinli paket bütçeleri ve en küçük uygulanabilir baytı gönderen görsel boru hatları. İş mantığına dokunmadan eski yığınları modernleştiririz.\n\n`hello@alaz.pro` adresine yazın. Bir URL ve varsa bir Lighthouse raporu gönderin. Size açıkça söyleyeceğiz: ne yavaş, size ne kadara mal oluyor ve düzeltmek ne gerektiriyor."
+    },
+    {
+      "slug": "we-are-officially-live",
+      "title": "Yayındayız: İğneyi Gerçekten Hareket Ettiren Yazılım İnşa Etmek",
+      "excerpt": "ALAZ açık. Bu stüdyo neden var, nasıl mühendislik yapıyoruz ve hız ile güvenilirliği ciladan-öncesi-sis-perdesi olarak gören ekiplere ne sunuyoruz.",
+      "tag": "YAYIN",
+      "date": "2025-09-27",
+      "dateLabel": "27 EYL 2025",
+      "cover": "https://images.hostinger.com/da80e49f-b638-479c-b8a6-486217e4ecb8.png",
+      "author": {
+        "name": "ALAZ Ekibi",
+        "role": "MÜHENDİSLİK STÜDYOSU"
+      },
+      "content": "ALAZ faaliyete geçti. Bunu, gerçekten canını sıkan bir şeyi düzeltmek için kurduğum bir stüdyonun ilk yazısı.\n\n## Başlangıç noktası\n\nYıllarımı basit olması gereken web uygulamalarını çözerek geçirdim. Şişmiş paketler. Orta seviye bir telefonda titreyen arayüzler. Birisi bir araç seçip kararı bir daha gözden geçirmediği için dört kütüphane boyunca dağılmış durum. Etkileşime geçmesi altı saniye süren ve yine de üretime gönderilen panolar.\n\nBu acının çoğu bir teknoloji sorunu değil. Bir disiplin sorunu. Kararlar bir kez, teslim baskısı altında verilir ve sonra donar. Kod tabanı onları miras alır. Her yeni özellik vergiyi öder.\n\nALAZ bu vergiyi ödemeyi bırakmak için var.\n\n## Mühendislik ethosemiz\n\nKısa bir inanç listesine göre inşa ediyoruz.\n\n- **Hız bir özelliktir.** Bir saniyenin altındaki yükleme süreleri bir uzatma hedefi değil. Temeldir. 2.3 saniyede yüklenen bir sayfa odanın yarısını çoktan kaybetmiştir.\n- **Mimari bir iletişim aracıdır.** Temiz durum yönetimi ve öngörülebilir render gösteriş değil. Beş kişilik bir ekibin on ikinci aydan sonra da göndermeye devam etmesinin yoludur.\n- **TypeScript pazarlıksızdır.** Tipler incelemelerin kaçırdığı hataları yakalar. Gözünüzü kırpmadan refactor yapmanızı sağlar.\n- **Modüler, monolitten üstündür.** Küçük, değiştirilebilir parçalar gereksinimler her değiştiğinde kazanır. Ve her zaman değişirler.\n\nBunların hiçbiri egzotik değil. Çoğu ekip demoya göre optimize ettiği için, on sekizinci aya göre değil; standart düşük. Biz on sekizinci aya göre optimize ediyoruz.\n\nModern ön yüz yığınında çalışıyoruz — Next.js, TypeScript, React ekosistemi — çünkü kırılgan yayınlamadan hızlı yayınlamamızı sağlıyor. Araçlar olgun. Örüntüler en iyi anlamda sıkıcı. Sıkıcı öngörülebilir demek. Öngörülebilir, gece yarısı saat iki bir şey bozulduğunda sistem hakkında akıl yürütebileceğimiz demek.\n\n## Ne inşa ediyoruz\n\nALAZ iki şey yayınlar.\n\nBirincisi, yüksek performanslı web çözümleri. Core Web Vitals'ta 100 vurup bir yer tutucu gibi görünmeyen pazarlama siteleri. Demo veri setinde değil, gerçek veri altında duyarlı kalan ürün yüzeyleri.\n\nİkincisi, uzmanlaşmış uygulamalar. Mantığın ürün olduğu ve arayüzün yoldan çekilmesi gereken iç araçlar, panolar ve müşteriye dönük platformlar.\n\nCiladan-öncesi-sis-perdesi yerine hız ve güvenilirliğe değer veren ekipler için uçtan uca ön yüz yürütmesini üstleniyoruz. 40 sayfalık bir teklif almayacaksınız. Çalışan bir dal, net bir mimari karar kaydı ve bir bakışta okunabilen kod alacaksınız.\n\nPerformans bütçeleri lansmandan önce değil ilk sprintte işlenir. Erişilebilirlik son denetimde değil yapının parçasıdır. Bir özellik kritik yolu yavaşlatırsa, yayınlamadan önce söylüyoruz.\n\n## Davet\n\nPrototipini gerçekleştirmesi gereken bir kurucu, koddan özür dileyen bir mühendis veya satıcı yerine bir ortak isteyen bir şirketseniz — konuşalım.\n\n`hello@alaz.pro` adresine yazın. Ne inşa ettiğinizi ve neyin yolda olduğunu söyleyin. Her mesajı okuyorum ve bir otomatik yanıtlayıcı gibi değil, bir insan gibi cevaplıyorum.\n\nYayındayız. Dayanan bir şey inşa edelim."
+    }
+  ],
+  "nav": {
+    "linkLabels": [
+      "VAKA ÇALIŞMALARI",
+      "BLOG",
+      "HAKKINDA",
+      "HİZMETLER"
+    ],
+    "cta": "PROJE BAŞLAT"
+  },
+  "footer": {
+    "eyebrow": "ALAZ / MÜHENDİSLİK STÜDYOSU",
+    "talk": "AKLINIZDA BİR SİSTEM Mİ VAR?",
+    "copyright": "© 2025 ALAZ MÜHENDİSLİK. TÜM HAKLARI SAKLIDIR.",
+    "backTop": "BAŞA DÖN ↑",
+    "linkLabels": [
+      "BLOG",
+      "YASAL",
+      "GİZLİLİK"
+    ]
+  },
+  "home": {
+    "meta": {
+      "title": "ALAZ — Yazılım Mimari & Mühendislik Stüdyosu",
+      "description": "ALAZ dayanıklı yazılım mimarisi, doğal performans ve bağlı dijital ekosistemler tasarlar. Lafı fazla değil. İşe odaklı."
+    },
+    "hero": {
+      "status": "SİSTEM_AKTİF",
+      "toplineRight": "MÜHENDİSLİK STÜDYOSU / KUR. 2025",
+      "kicker": "BAĞIMSIZ YAZILIM MİMARİSİ STÜDYOSU",
+      "taglineTop": "BOŞ LAF YOK.",
+      "taglineBottom": "SADECE İŞ.",
+      "intro": "İddialı fikirleri operasyonel kılan sistemlerin mimarisini yaparız. Niyetle tasarlandı. Dayanacak şekilde inşa edildi.",
+      "scrollCta": "KEŞFETMEK İÇİN KAYDIR",
+      "bottomNote": "İSABET STANDARTTIR. HEDEF DEĞİL."
+    },
+    "signal": {
+      "a": "ALAZ / SİSTEM DÜŞÜNCESİ",
+      "b": "TAVİZSİZ MÜHENDİSLİK"
+    },
+    "validation": {
+      "eyebrowLeft": "01 / DIŞ SİNYAL",
+      "eyebrowRight": "REFERANSLAR // 03",
+      "heading": [
+        "DOĞRULAMA"
+      ],
+      "lead": "En güçlü sistemler itibarlarını üretimde kazanırlar."
+    },
+    "ticker": [
+      "GÜVENİLİR ORTAKLIK",
+      "MÜŞTERİ BAŞARISI",
+      "MİMARİ BÜTÜNLÜK",
+      "TAVİZSİZ İSABET"
+    ],
+    "capabilities": {
+      "eyebrowLeft": "02 / NE YAPIYORUZ",
+      "eyebrowRight": "CİLA DEĞİL DİSİPLİN",
+      "heading": [
+        "ÇEKİRDEK",
+        "YETKİNLİKLER"
+      ],
+      "exploreCta": "HİZMETLERİ KEŞFET"
+    },
+    "selected": {
+      "eyebrowLeft": "03 / ÇIKTI",
+      "eyebrowRight": "SEÇİLMİŞ PROJELER // 02",
+      "heading": [
+        "SEÇİLMİŞ",
+        "İŞLER"
+      ],
+      "viewAllCta": "TÜM PROJELER",
+      "imageAlt": "{name} {type} mühendislik görseli",
+      "numberSuffix": "PROJE"
+    },
+    "start": {
+      "eyebrowLeft": "04 / BAŞLAT",
+      "eyebrowRight": "HAZIR OLDUĞUNUZDA",
+      "badge": "KOMUT DİZİSİ HAZIR",
+      "heading": [
+        "PROJE",
+        "BAŞLAT"
+      ],
+      "paragraph": "Bir sonraki büyük sistem bir sohbetle başlar.",
+      "button": "DİZİYİ BAŞLAT",
+      "bottomNote": "NİYETLE TASARLANDI / DAYANACAK ŞEKİLDE İNŞA EDİLDİ"
+    }
+  },
+  "testimonials": [
+    {
+      "number": "01",
+      "quote": "“Akıl yürütülmesi imkânsız hale gelmiş bir sisteme düzen getirdiler. Yeni mimari, teslimatı yavaşlatmadan ekibimize net bir yol haritası verdi.”",
+      "name": "MERVE T.",
+      "role": "PROJE YÖNETİCİSİ",
+      "focus": "MİMARİ"
+    },
+    {
+      "number": "02",
+      "quote": "“Öne çıkan şey disiplindi. Her teknik kararın arkasında bir neden vardı ve mühendislik, inşa etmeye çalıştığımız ürünü hiç gözden kaybetmedi.”",
+      "name": "BURAK Y.",
+      "role": "ÜRÜN SAHİBİ",
+      "focus": "YÜRÜTME"
+    },
+    {
+      "number": "03",
+      "quote": "“Cilalı bir arayüzden fazlasına ihtiyacımız vardı. Altında güvenilir bir temel lazımdı. ALAZ bu ayrımı ilk sohbetten anladı.”",
+      "name": "SELİN A.",
+      "role": "E-TİCARET DİREKTÖRÜ",
+      "focus": "GÜVENİLİRLİK"
+    }
+  ],
+  "about": {
+    "meta": {
+      "title": "ALAZ Hakkında — Mühendislik Manifestosu",
+      "description": "ALAZ bağımsız bir yazılım mimarisi ve mühendislik stüdyosudur. Kalıcılığı mühendislikle yaparız, dogmadan çok veriyi tercih ederiz ve acımasız verimlilikle inşa ederiz."
+    },
+    "eyebrowLeft": "STÜDYO / 001",
+    "eyebrowRight": "İŞLETME İLKELERİMİZ",
+    "kicker": "BİR AJANS DEĞİL. BİR MÜHENDİSLİK UYGULAMASI.",
+    "heading": [
+      "KALICILIĞI",
+      "MÜHENDİSLİKLE İNŞA EDERİZ"
+    ],
+    "introText": "Karmaşık sistemleri güvenecek kadar basit ve dayanacak kadar güçlü yapmak için varız.",
+    "introNote": "ALAZ / MANİFESTO 2025",
+    "imageAlt": "İsabetli iş istasyonlarıyla mimari mühendislik laboratuvarı",
+    "imageCaption": "ŞEK. 01 — İSABET UYGULAMASI",
+    "principlesEyebrowLeft": "01 / MANİFESTO",
+    "principlesEyebrowRight": "ÜÇ İLKE / TEK STANDART",
+    "principles": [
+      {
+        "number": "01",
+        "title": "DOGMA DEĞİL VERİ",
+        "body": "Kararlar kanıta dayanır. Varsayımları sorgularız, önemli olanı ölçeriz ve çözümü gerçeklik şekillendirir."
+      },
+      {
+        "number": "02",
+        "title": "ACIMASIZ VERİMLİLİK",
+        "body": "Her katman yerini hak etmeli. Karmaşıklığı daha iyi görünen bir arayüzün arkasına saklamak yerine kaldırırız."
+      },
+      {
+        "number": "03",
+        "title": "KALICILIĞI MÜHENDİSLİKLE İNŞA ET",
+        "body": "En iyi iş lansmanın ötesine geçer. Brief değiştiğinde yararlı kalan bakımı yapılabilir temeller inşa ederiz."
+      }
+    ],
+    "disciplinesEyebrowLeft": "02 / DİSİPLİNLERİMİZ",
+    "disciplinesEyebrowRight": "İŞİN ARKASINDAKİ İŞ",
+    "disciplinesHeading": [
+      "MÜHENDİSLİK",
+      "ORTAMDIR"
+    ],
+    "endTextTop": "İYİ SİSTEMLER GÖRÜNMEZ.",
+    "endTextBottom": "ETKİSİ GÖRÜNÜR.",
+    "startCta": "PROJE BAŞLAT"
+  },
+  "archive": {
+    "meta": {
+      "title": "Vaka Çalışmaları — ALAZ Mühendislik",
+      "description": "Bulut altyapısı, sistem tasarımı ve doğal performans alanlarında ALAZ mühendislik vaka çalışmalarını keşfedin."
+    },
+    "eyebrowLeft": "İNDEKS / 001",
+    "eyebrowRight": "ARŞİV / SEÇİLMİŞ İŞ",
+    "kicker": "İNŞA ETTİKLERİMİZİN BİR İNDEKSİ",
+    "heading": [
+      "İŞLER"
+    ],
+    "introText": "Teknik zorluklar. Düşünülmüş çözümler. Sonrası için mühendislikle inşa edilmiş sistemler.",
+    "introNote": "DOSYADAKİ PROJELER / 002",
+    "tableHeaders": [
+      "NO.",
+      "PROJE / DİSİPLİN",
+      "KAPSAM",
+      "GÖRÜNTÜLE"
+    ],
+    "noteLeft": "İNDEKS SONU",
+    "noteRight": "DAHA FAZLA SİSTEM GELİŞTİRİLİYOR"
+  },
+  "caseStudy": {
+    "notFoundHeading": "PROJE BULUNAMADI.",
+    "backToArchive": "ARŞİVE DÖN",
+    "allCaseStudies": "← TÜM VAKA ÇALIŞMALARI",
+    "projectLabel": "PROJE",
+    "metaTitleTemplate": "{name} — ALAZ Vaka Çalışması",
+    "metaDescriptionTemplate": "{name}: {summary} Bu ALAZ mühendislik vaka çalışmasını okuyun.",
+    "imageAlt": "{name} teknik mühendislik görseli",
+    "selectedWorkLabel": "ALAZ / SEÇİLMİŞ İŞ",
+    "challengeEyebrow": "01 / ZORLUK",
+    "challengeHeading": [
+      "SONRAKİ İÇİN",
+      "İNŞA ET."
+    ],
+    "approachEyebrow": "02 / YAKLAŞIM",
+    "approachHeading": [
+      "HER KATMANA",
+      "İSABET."
+    ],
+    "outcomeEyebrow": "03 / SONUÇ",
+    "outcomeHeading": [
+      "DAHA AZ GÜRÜLTÜ.",
+      "DAHA FAZLA SİNYAL."
+    ],
+    "deliverableLabel": "TESLİMAT",
+    "nextProjectLabel": "SONRAKİ PROJE",
+    "contactPrompt": "KARMAŞIK BİR ZORLUĞUNUZ MU VAR?",
+    "contactCta": "KONUŞALIM"
+  },
+  "blogIndex": {
+    "meta": {
+      "title": "Blog — ALAZ Mühendislik Stüdyosu",
+      "description": "Yazılım mimarisi, yüksek performanslı web mühendisliği ve dayanan sistemler inşa etme üzerine stüdyo notları. ALAZ mühendislik stüdyosu tarafından yazıldı."
+    },
+    "eyebrowLeft": "BLOG / 001",
+    "eyebrowRight": "STÜDYODAN NOTLAR",
+    "kicker": "MÜHENDİSLİK, SADE DİLDE.",
+    "heading": [
+      "BLOG"
+    ],
+    "introText": "Mimari, performans ve lansman demosunun ötesinde dayanan yazılım yayınlama zanaatı üzerine notlar.",
+    "introNote": "ALAZ / YAZIM 2025",
+    "articlesAriaLabel": "Blog yazıları",
+    "readMinutesSuffix": "DK OKUMA",
+    "readCta": "OKU",
+    "noteLeft": "DAHA FAZLA NOT GELİYOR.",
+    "noteRight": "ALAZ / BLOG"
+  },
+  "blogPost": {
+    "notFoundHeading": "YAZI BULUNAMADI.",
+    "backToBlogCta": "BLOGA DÖN",
+    "allFieldNotes": "← TÜM NOTLAR",
+    "blogLabelPrefix": "BLOG",
+    "readingSuffix": "DK OKUMA",
+    "fieldNotesLabel": "ALAZ / STÜDYO NOTLARI",
+    "authorIntroBefore": "ALAZ bağımsız bir yazılım mimarisi ve web mühendisliği stüdyosudur. Bize ",
+    "authorIntroAfter": " adresinden ulaşın.",
+    "nextNoteLabel": "SONRAKİ NOT",
+    "contactPrompt": "DAYANACAK BİR ŞEY İNŞA ETMEK Mİ İSTİYORSUNUZ?",
+    "contactCta": "PROJE BAŞLAT",
+    "metaTitleTemplate": "{title} — ALAZ Blog",
+    "coverAlt": "{title} — kapak görseli"
+  },
+  "intake": {
+    "meta": {
+      "title": "Proje Başlat — ALAZ Mühendislik",
+      "description": "ALAZ'a yazılım mimarisi, mühendislik veya dijital sistemler projenizi anlatın. Odaklanmış bir proje sorgusu başlatın."
+    },
+    "sectionTopLeft": "PROJE SORGUSU / GÜVENLİ İLETİM",
+    "sectionTopRight": "ALAZ / YENİ İŞ BİRLİĞİ",
+    "completeEyebrow": "PROJE SORGUSU ALINDI / 001",
+    "completeHeading": [
+      "İSTEK",
+      "ALINDI"
+    ],
+    "completeMessageTemplate": "Teşekkürler, {name}. Proje sorgunuz kuyruğumuza güvenle ulaştı. İnceleyip {email} adresinden sizinle iletişime geçeceğiz.",
+    "completeCta": "ANA SAYFAYA DÖN",
+    "headingEyebrow": "DAYANACAK BİR ŞEY İNŞA EDELİM",
+    "headingLines": [
+      "PROJE",
+      "BAŞLAT"
+    ],
+    "introParagraph": "İyi iş doğru sorularla başlar. Ne inşa ettiğinizi anlatın.",
+    "asideLabel": "BRIEFİNİZ / ÜÇ BÖLÜMDE",
+    "steps": [
+      "KAPSAM",
+      "ZORLUK",
+      "DETAYLARINIZ"
+    ],
+    "asideParagraph": "Zorluğunuzu anlamak için yalnızca gerekeni soruyoruz. Genel satış konuşması yok. Gereksiz arama yok.",
+    "asideStatus": "DURUM: YENİ SORGU KABUL EDİYOR",
+    "stepLabels": [
+      "PROJE TÜRÜ",
+      "PROJE BAĞLAMI",
+      "İLETİŞİM DETAYLARI"
+    ],
+    "percentCompleteTemplate": "%{percent} TAMAMLANDI",
+    "step0": {
+      "heading": "NE İNŞA EDİYORUZ?",
+      "paragraph": "Projenize en yakın disiplini seçin.",
+      "groupAriaLabel": "Proje türü"
+    },
+    "types": [
+      {
+        "name": "Web Uygulaması",
+        "detail": "Platformlar & ürünler"
+      },
+      {
+        "name": "Mobil Uygulama",
+        "detail": "Doğal deneyimler"
+      },
+      {
+        "name": "Altyapı",
+        "detail": "Sistemler & mimari"
+      },
+      {
+        "name": "Özel",
+        "detail": "Farklı bir şey"
+      }
+    ],
+    "typeIndexSuffix": "TÜR",
+    "errors": {
+      "projectType": "Devam etmek için bir proje türü seçin.",
+      "projectName": "Bir proje adı girin.",
+      "brief": "Zorluk hakkında biraz daha bilgi verin (en az 20 karakter).",
+      "name": "Adınızı girin.",
+      "email": "Geçerli bir e-posta adresi girin."
+    },
+    "step1": {
+      "heading": "ZORLUĞU TANIMLAYIN.",
+      "paragraph": "Sorundan başlayın. Doğru mimariyi birlikte buluruz."
+    },
+    "fields": {
+      "projectName": {
+        "label": "PROJE ADI",
+        "placeholder": "Geçici bir başlık yeterli"
+      },
+      "brief": {
+        "label": "NE ÇÖZMEYE ÇALIŞIYORSUNUZ?",
+        "placeholder": "Sistemden, zorluktan ve başarının nasıl görüneceğinden bahsedin..."
+      },
+      "timeline": {
+        "label": "İDEAL ZAMAN ÇİZELGESİ",
+        "placeholder": "Bir zaman dilimi seçin"
+      },
+      "budget": {
+        "label": "BÜTÇE ARALIĞI",
+        "placeholder": "Bir aralık seçin"
+      },
+      "name": {
+        "label": "ADINIZ",
+        "placeholder": "Tam adınız"
+      },
+      "email": {
+        "label": "E-POSTA ADRESİ",
+        "placeholder": "siz@sirket.com"
+      },
+      "company": {
+        "label": "ŞİRKET / KURULUŞ",
+        "optional": "İSTEĞE BAĞLI",
+        "placeholder": "Çalıştığınız yer"
+      }
+    },
+    "timelineOptions": [
+      "En kısa sürede",
+      "1–3 ay",
+      "3–6 ay",
+      "Seçenekleri değerlendiriyorum"
+    ],
+    "budgetOptions": [
+      "$25k altında",
+      "$25k–$50k",
+      "$50k–$100k",
+      "$100k+",
+      "Tartışılabilir"
+    ],
+    "step2": {
+      "heading": "DİĞER UÇTA KİM VAR?",
+      "paragraph": "Projenizle ilgili size geri dönebilmemiz için bir yol verin."
+    },
+    "privacyNoteBefore": "DETAYLARINIZ YALNIZCA BU SORGUYU YANITLAMAK İÇİN KULLANILIR. ",
+    "privacyNoteCta": "GİZLİLİK POLİTİKASI ↗",
+    "submitErrorFallback": "İletim tamamlanamadı. Lütfen tekrar deneyin.",
+    "prevStep": "ÖNCEKİ ADIM",
+    "continueCta": "DEVAM",
+    "submitCta": "SORGUYU GÖNDER",
+    "submittingCta": "İLETİLİYOR...",
+    "formNotation": "ALAZ / 2025"
+  },
+  "legal": {
+    "sectionTopLeft": "ALAZ / BİLGİ",
+    "documentLabel": "BELGE / 2025",
+    "backToHome": "← ANA SAYFAYA DÖN",
+    "legal": {
+      "title": "YASAL",
+      "meta": {
+        "title": "Yasal — ALAZ",
+        "description": "ALAZ mühendislik web sitesine dair yasal bilgiler."
+      },
+      "h1": "WEB SİTESİ BİLGİSİ",
+      "p1": "Bu web sitesi ALAZ'ın mühendislik uygulamasını sunar ve bir proje sorgusu başlatma yolu sağlar. Sorgu göndermek bir hizmet sözleşmesi oluşturmaz veya proje kabulünü garanti etmez.",
+      "h2": "İÇERİK VE UYGUNLUK",
+      "p2": "Bilgiler genel amaçlı sunulur ve değişebilir. Proje kapsamı, teslimatlar ve şartlar yalnızca ayrı bir yazılı anlaşma ile belirlenir."
+    },
+    "privacy": {
+      "title": "GİZLİLİK",
+      "meta": {
+        "title": "Gizlilik — ALAZ",
+        "description": "ALAZ'ın proje sorgu formu üzerinden gönderilen bilgileri nasıl işlediğini öğrenin."
+      },
+      "h1": "BİLGİLERİNİZ",
+      "p1": "Bir proje sorgusu gönderdiğinizde, paylaşmayı seçtiğiniz iletişim ve proje bilgilerini toplarız. Bununla sorgunuzu inceler ve size yanıt veririz. Bu bilgiyi satmıyoruz.",
+      "h2": "SAKLAMA VE TALEPLER",
+      "p2Before": "Sorgular, yanıtlamak ve yazışmamızı yönetmek için gereken süre boyunca saklanır. Bilginizle ilgili soru sormak veya kaldırılmasını talep etmek için ",
+      "p2After": " adresine yazın.",
+      "h3": "ÜÇÜNCÜ TARAF İÇERİK",
+      "p3": "Bu web sitesi harici olarak barındırılan fontlar ve görseller kullanabilir. Bu sağlayıcılar, kaynakları yüklendiğinde standart tarayıcı istek bilgileri alabilir."
+    },
+    "notFound": {
+      "title": "SAYFA BULUNAMADI",
+      "meta": {
+        "title": "Sayfa Bulunamadı — ALAZ",
+        "description": "İstenen ALAZ sayfası bulunamadı."
+      },
+      "body": "Bu rota mevcut değil. Başlangıca dönün."
+    }
+  }
+}
