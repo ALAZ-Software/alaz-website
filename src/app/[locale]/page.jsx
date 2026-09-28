@@ -119,21 +119,59 @@ export default async function HomePage() {
       </div>
 
 
-      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-[#111] pt-0 " id="work">
-        <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('selected.eyebrowLeft')}</span><span>{t('selected.eyebrowRight')}</span></div>
-        <div className="flex items-end justify-between gap-[30px] mt-[74px] mb-[60px] mobile:items-start mobile:flex-col mobile:mt-[55px] mobile:mb-[44px]"><h2 className="text-[length:clamp(64px,10.5vw,180px)] leading-[.85] tracking-[-.075em] font-black mobile:text-[length:clamp(57px,13vw,95px)] xs:text-[13vw]">{selectedHeading[0]}<br />{selectedHeading[1]}<span className="text-[#5f5f5f]">.</span></h2><Link href="/case-studies" className="inline-flex items-center justify-between gap-[30px] border border-[rgba(255,255,255,.65)] min-h-[49px] px-[18px] font-mono text-[10px] tracking-[.03em] whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-white hover:text-black xs:min-h-[46px]">{t('selected.viewAllCta')} <ArrowUpRight size={16} /></Link></div>
-        <div className="flex flex-col gap-[72px] mobile:gap-[54px]">{projects.map(project => <Link href={`/case-studies/${project.slug}`} className="group block" key={project.slug}>
-          <div className="h-[clamp(310px,48vw,720px)] overflow-hidden relative bg-[#191919] after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(180deg,rgba(0,0,0,.28),transparent_35%,rgba(0,0,0,.2))] after:pointer-events-none mobile:h-[length:clamp(260px,60vw,460px)] xs:h-[260px]">
-            <Image src={project.image} alt={t('selected.imageAlt', { name: project.name, type: project.type })} fill sizes="100vw" className="object-cover [filter:grayscale(1)_brightness(.78)] transition-[transform,filter] duration-[600ms] ease-in-out group-hover:scale-[1.035] group-hover:[filter:grayscale(1)_brightness(.96)]" />
-            <span className="absolute top-[30px] left-[32px] text-white z-[1] font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6]">ALAZ / {project.number}</span>
-            <span className="w-[54px] h-[54px] grid place-items-center border border-[rgba(255,255,255,.7)] absolute right-[28px] bottom-[28px] z-[1] transition-colors duration-200 group-hover:bg-white group-hover:text-black"><ArrowUpRight size={23} strokeWidth={1.5} /></span>
-          </div>
-          <div className="grid grid-cols-[17%_1fr_auto] items-start gap-[20px] border-b border-line pt-[26px] px-0 pb-[31px] mobile:grid-cols-1 mobile:py-[20px] mobile:pb-[25px] mobile:gap-[10px]">
-            <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim pt-[8px]">{project.number} / {t('selected.numberSuffix')}</span>
-            <div><h3 className="text-[length:clamp(23px,3vw,43px)] font-extrabold tracking-[-.055em] leading-[1.1] mobile:text-[length:clamp(22px,5vw,32px)]">{project.name} <span className="text-[#838383] mobile:block mobile:mt-[6px]">— {project.discipline}</span></h3><p className="text-mute text-[13px] mt-[12px] mobile:mt-[8px] mobile:leading-[1.5]">{project.summary}</p></div>
-            <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim pt-[8px] flex items-center gap-[15px] tablet:hidden">{project.type} <ArrowRight size={14} /></span>
-          </div>
-        </Link>)}</div>
+      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-[#111] pt-0 pb-[60px]" id="work">
+        <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
+          <span>{t('selected.eyebrowLeft')}</span>
+          <span>{t('selected.eyebrowRight')}</span>
+        </div>
+        <div className="flex items-end justify-between gap-[30px] mt-[74px] mb-[60px] mobile:items-start mobile:flex-col mobile:mt-[55px] mobile:mb-[44px]">
+          <h2 className="text-[length:clamp(64px,10.5vw,180px)] leading-[.85] tracking-[-.075em] font-black mobile:text-[length:clamp(57px,13vw,95px)] xs:text-[13vw]">
+            {selectedHeading[0]}<br />{selectedHeading[1]}<span className="text-[#5f5f5f]">.</span>
+          </h2>
+          <Link href="/case-studies" className="inline-flex items-center justify-between gap-[30px] border border-[rgba(255,255,255,.65)] min-h-[49px] px-[18px] font-mono text-[10px] tracking-[.03em] whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-white hover:text-black xs:min-h-[46px]">
+            {t('selected.viewAllCta')} <ArrowUpRight size={16} />
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 gap-x-[36px] gap-y-[56px] mobile:grid-cols-1 mobile:gap-y-[44px]">
+          {projects.map((project) => (
+            <Link href={`/case-studies/${project.slug}`} className="group flex flex-col" key={project.slug}>
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#161616] border border-line/70 after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(180deg,rgba(0,0,0,.2),transparent_40%,rgba(0,0,0,.35))] after:pointer-events-none">
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={t('selected.imageAlt', { name: project.name, type: project.type })}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover [filter:grayscale(1)_brightness(.8)] transition-[transform,filter] duration-500 ease-out group-hover:scale-[1.03] group-hover:[filter:grayscale(1)_brightness(1)]"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-[24px] bg-[#141414]">
+                    <span className="font-mono text-[11px] tracking-[.1em] text-dim uppercase">ALAZ / SPECIMEN {project.number}</span>
+                    <span className="font-mono text-[9px] text-[#555] tracking-[.08em] mt-[6px]">// ASSET IN PROGRESS</span>
+                  </div>
+                )}
+                <span className="absolute top-[20px] left-[20px] text-white z-[1] font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] bg-black/60 backdrop-blur-md px-[10px] py-[4px] border border-white/10">
+                  ALAZ / {project.number}
+                </span>
+                <span className="w-[42px] h-[42px] grid place-items-center border border-white/20 bg-black/60 backdrop-blur-md absolute right-[20px] bottom-[20px] z-[1] transition-all duration-200 group-hover:bg-white group-hover:text-black">
+                  <ArrowUpRight size={18} strokeWidth={1.5} />
+                </span>
+              </div>
+              <div className="pt-[22px] pb-[20px] border-b border-line flex flex-col">
+                <div className="flex items-center justify-between font-mono text-[10px] tracking-[.085em] text-dim mb-[8px]">
+                  <span>{project.number} / {project.discipline}</span>
+                  <span className="tablet:hidden">{project.type}</span>
+                </div>
+                <h3 className="text-[length:clamp(22px,2.2vw,34px)] font-extrabold tracking-[-.05em] leading-[1.15] text-white transition-colors group-hover:text-[#eee]">
+                  {project.name}
+                </h3>
+                <p className="text-mute text-[13px] leading-[1.6] mt-[8px] line-clamp-2">
+                  {project.summary}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="min-h-[680px] relative bg-[#090909] overflow-hidden mobile:min-h-[650px]" id="contact">

@@ -36,7 +36,8 @@ export default async function CaseStudyPage({ params }) {
     </main>
   );
 
-  const next = projects.find(item => item.slug !== slug);
+  const currentIndex = projects.findIndex(item => item.slug === slug);
+  const next = projects[(currentIndex + 1) % projects.length] || projects[0];
   const challengeHeading = t.raw('challengeHeading');
   const approachHeading = t.raw('approachHeading');
   const outcomeHeading = t.raw('outcomeHeading');
@@ -60,7 +61,7 @@ export default async function CaseStudyPage({ params }) {
       <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[35px]">
         <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex justify-between text-dim pb-[125px] mobile:pb-[70px]">
           <span>{t('selectedWorkLabel')}</span>
-          <span>{project.number} / 02</span>
+          <span>{project.number} / {String(projects.length).padStart(2, '0')}</span>
         </div>
 
         <div className="grid grid-cols-2 gap-[50px] py-[65px] border-t border-line mobile:grid-cols-1 mobile:gap-0 mobile:py-[50px]">

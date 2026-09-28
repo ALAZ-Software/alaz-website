@@ -6,7 +6,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { Link, usePathname } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 
-const NAV_HREFS = ['/case-studies', '/blog', '/about', '/about#services'];
+const NAV_HREFS = ['/case-studies', '/about', '/services', '/blog'];
 const NATIVE_LANGUAGE_NAMES = { en: 'İNGİLİZCE', tr: 'TÜRKÇE' };
 
 export default function Header() {

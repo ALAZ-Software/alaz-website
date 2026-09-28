@@ -63,6 +63,23 @@
         "MANTIK OPTİMİZASYONU",
         "PERFORMANS ÖNCELİKLİ ARAYÜZ"
       ]
+    },
+    {
+      "slug": "gamma",
+      "number": "03",
+      "name": "GAMMA",
+      "discipline": "DAĞITIK SİSTEMLER",
+      "type": "ÇEKİRDEK MİMARİ",
+      "image": "https://images.hostinger.com/34b5c8dc-aea2-4a15-a1ea-7d23314bd149.png",
+      "summary": "Sıfır veri kaybı için tasarlanmış gerçek zamanlı veri akışı ve yüksek verimli backend altyapısı.",
+      "challenge": "Yoğun eşzamanlı yazma yükleri altında tutarlılığı koruyan çok bölgeli bir veri hattı tasarlamak.",
+      "approach": "Bölümlendirilmiş olay kuyrukları, izole hata alanları ve açık kurtarma protokolleri geliştirdik.",
+      "outcome": "Milisaniyenin altında olay yönlendirme, eksiksiz veri denetlenebilirliği ve tepe anlarda sıfır bozulma.",
+      "markers": [
+        "AKIŞ MİMARİSİ",
+        "EŞZAMANLI ÖLÇEK",
+        "GÜVENLİ SİSTEMLER"
+      ]
     }
   ],
   "blogPosts": [
@@ -98,11 +115,215 @@
   "nav": {
     "linkLabels": [
       "VAKA ÇALIŞMALARI",
-      "BLOG",
       "HAKKINDA",
-      "HİZMETLER"
+      "HİZMETLER",
+      "BLOG"
     ],
     "cta": "PROJE BAŞLAT"
+  },
+  "servicesPage": {
+    "meta": {
+      "title": "Yazılım Geliştirme ve Mimari Hizmetleri | ALAZ",
+      "description": "Girişimler ve şirketler için özel web uygulamaları, ölçeklenebilir bulut mimarisi ve yüksek performanslı arayüzler geliştiriyoruz. Mühendislik odaklı, temiz kod.",
+      "keywords": [
+        "özel yazılım geliştirme",
+        "web uygulaması geliştirme",
+        "yazılım mimarisi",
+        "bulut altyapı",
+        "performans optimizasyonu",
+        "API geliştirme",
+        "sistem entegrasyonu",
+        "Next.js geliştirme",
+        "yazılım şirketi"
+      ]
+    },
+    "eyebrowLeft": "HİZMETLER / 001",
+    "eyebrowRight": "YAZILIM MÜHENDİSLİĞİ STÜDYOSU",
+    "kicker": "KALICI SİSTEMLER, DOĞRU MİMARİ VE TEMİZ KOD.",
+    "heading": [
+      "YAZILIM",
+      "MÜHENDİSLİĞİ"
+    ],
+    "introText": "Yıllarca ayakta kalacak web uygulamaları, dayanıklı bulut altyapıları ve güvenilir API entegrasyonları inşa ediyoruz.",
+    "introNote": "ALAZ / YETKİNLİKLER 2026",
+    "breadcrumbHome": "Ana Sayfa",
+    "overviewEyebrowLeft": "YETENEKLER / 002",
+    "overviewEyebrowRight": "PRATİK DETAYLAR",
+    "overviewTitle": [
+      "NELER",
+      "YAPIYORUZ"
+    ],
+    "overviewText": "Yazılım projeleri gösterişe odaklanıp mühendislik temellerini unuttuğunda çöker. Ne yaptığımızı, ne teslim ettiğimizi ve hangi teknolojileri kullandığımızı net şekilde aşağıda bulabilirsiniz.",
+    "itemLabels": {
+      "whatItIs": "KAPSAM VE YAKLAŞIM",
+      "deliverables": "TESLİM EDİLENLER",
+      "stack": "TEKNOLOJİ YIĞINI",
+      "outcome": "SOMUT ÇIKTI",
+      "bestFor": "KİMLER İÇİN UYGUN"
+    },
+    "items": [
+      {
+        "id": "ozel-yazilim-gelistirme",
+        "number": "01",
+        "title": "ÖZEL WEB UYGULAMALARI VE DİJİTAL ÜRÜNLER",
+        "category": "FULL-STACK / ÜRÜN GELİŞTİRME",
+        "description": "Şablonlara sığınmayan; güvenilirlik, hız ve uzun ömürlülük gözetilerek kodlanan web uygulamaları, SaaS platformları ve şirket içi araçlar.",
+        "whatItIs": "Çoğu web uygulaması plansız durum yönetimi, gereksiz paket yığınları ve karmaşık kod tabanları yüzünden tıkanır. Biz tip güvenli, modüler bileşen mimarisine sahip ve ekibinizin kolayca geliştirebileceği temiz yazılımlar üretiriz.",
+        "deliverables": [
+          "Full-stack web uygulamaları ve SaaS platformları",
+          "Yönetim panelleri, operasyon konsolları ve veri panoları",
+          "Yetkilendirme, kullanıcı ve ödeme altyapıları",
+          "Gelecekte baştan yazım gerektirmeyecek sağlam MVP sürümleri",
+          "Tamamen size ait, bağımsız ve dokümante edilmiş kod tabanı"
+        ],
+        "stack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Node.js",
+          "PostgreSQL",
+          "Tailwind CSS"
+        ],
+        "outcome": "Tüm hakları size ait, test edilmiş ve ilk günden itibaren ölçeklenmeye hazır bir yazılım.",
+        "bestFor": "Fikrini hızla ama sağlam bir temelle canlıya almak isteyen girişimciler ve karmaşık Excel tablolarından kurtulmak isteyen şirketler."
+      },
+      {
+        "id": "sistem-mimarisi-bulut",
+        "number": "02",
+        "title": "SİSTEM MİMARİSİ VE BULUT ALTYAPISI",
+        "category": "ALTYAPI / DAYANIKLILIK",
+        "description": "Kullanıcı sayısı arttığında çökmeyen, hata anında kendini toparlayan ve otomatik dağıtılan bulut sistemleri.",
+        "whatItIs": "Ölçeklenmek kötü koda daha pahalı sunucu kiralamak değildir. Veritabanı sorgularından kuyruk mekanizmalarına, önbellekten ağ trafiğine kadar tüm çalışma akışını düzenleriz. Sisteminiz bir sorun yaşamadan önce sizi uyaran altyapılar kurarız.",
+        "deliverables": [
+          "Altyapı denetimi ve teknik darboğaz analizleri",
+          "AWS, GCP ya da özel sunucularda güvenli bulut mimarisi",
+          "Sıfır kesintiyle canlıya alan otomatik CI/CD hatları",
+          "Merkezi loglama, gerçek zamanlı metrikler ve uyarı sistemleri",
+          "Veritabanı indeksleme, yedekleme ve migrasyon planları"
+        ],
+        "stack": [
+          "AWS",
+          "Docker",
+          "Linux",
+          "Nginx",
+          "PostgreSQL",
+          "Redis",
+          "GitHub Actions"
+        ],
+        "outcome": "Öngörülebilir sunucu maliyetleri, hatasız dağıtımlar ve yoğun trafikte teklemeyen bir altyapı.",
+        "bestFor": "Sık sık kesinti yaşayan, yayına çıkmaktan çekinen veya ilk kurulumunu aşmış büyüyen ekipler."
+      },
+      {
+        "id": "performans-muhendisligi",
+        "number": "03",
+        "title": "PERFORMANS VE FRONTEND OPTİMİZASYONU",
+        "category": "CORE WEB VITALS / HIZ",
+        "description": "Saniyeler süren yüklemeleri bitirip ilk tıklamada tepki veren, arama motorlarında öne çıkan yüksek performanslı arayüzler.",
+        "whatItIs": "Yavaş açılan bir site her gün müşteri ve para kaybettirir. Sadece hız test raporu sunup bırakmıyoruz; JavaScript paketlerini inceliyor, ana iş parçacığını tıkayan scriptleri temizliyor ve kritik render yollarını optimize ediyoruz.",
+        "deliverables": [
+          "Derinlemesine çalışma zamanı ve paket ağırlığı profillemesi",
+          "Yeşil Core Web Vitals skorları (LCP, INP, CLS iyileştirmesi)",
+          "Sunucu taraflı render (SSR) ve CDN kenar önbellek kurgusu",
+          "Görsel, font ve stil varlıklarının kayıpsız sıkıştırılması",
+          "Teknik SEO ve arama motoru tarama bütçesi optimizasyonu"
+        ],
+        "stack": [
+          "Next.js",
+          "React Server Components",
+          "Web Vitals",
+          "Edge CDN",
+          "Chrome DevTools"
+        ],
+        "outcome": "Anında yüklenen sayfalar, kusursuz Core Web Vitals metrikleri ve doğrudan dönüşümlere yansıyan hız artışı.",
+        "bestFor": "Sayfa hızının doğrudan satışa ve arama sıralamasına etki ettiği e-ticaret, medya ve SaaS siteleri."
+      },
+      {
+        "id": "api-entegrasyon",
+        "number": "04",
+        "title": "API TASARIMI VE SİSTEM ENTEGRASYONU",
+        "category": "ENTEGRASYON / ARKA OFİS",
+        "description": "Kopuk iş araçlarını birbirine bağlayan güvenilir REST ve GraphQL arayüzleri, ödeme ve veri senkronizasyon hatları.",
+        "whatItIs": "Hiçbir modern yazılım izole çalışmaz. Entegrasyonlar üstünkörü yapıldığında veri kayıpları ve sessiz çökmeler başlar. Üçüncü taraf servisler çökse bile kendi sisteminizi ayakta tutacak tip güvenli, hata toleranslı bağlantı katmanları kuruyoruz.",
+        "deliverables": [
+          "OpenAPI standartlarında dokümante edilmiş REST ve GraphQL servisleri",
+          "Ödeme altyapıları, CRM, ERP ve faturalandırma entegrasyonları",
+          "İdempotent ve hata anında tekrar deneyebilen webhook mekanizmaları",
+          "Arka plan veri akışları ve asenkron kuyruk yapıları",
+          "Yapay zeka ve LLM API'lerinin güvenli entegrasyonu"
+        ],
+        "stack": [
+          "TypeScript",
+          "Node.js",
+          "REST",
+          "GraphQL",
+          "Webhooks",
+          "OpenAPI",
+          "Redis"
+        ],
+        "outcome": "Farklı araçlar arasında pürüzsüz çalışan, veri kaybı yaşatmayan ve bakımı kolay tek bir ekosistem.",
+        "bestFor": "Birden fazla harici servisle haberleşen veya dış ortaklara açık API sunmak isteyen şirketler."
+      }
+    ],
+    "processEyebrowLeft": "NASIL ÇALIŞIRIZ / 003",
+    "processEyebrowRight": "FİKİRDEN CANLIYA",
+    "processTitle": [
+      "ÇALIŞMA",
+      "PRENSİBİMİZ"
+    ],
+    "processSteps": [
+      {
+        "number": "01",
+        "title": "Derinlemesine Keşif",
+        "body": "Tasarım süslerinden önce teknik gereksinimleri, iş modelini ve olası riskleri konuşuruz. Neyi yapacağımız kadar neyi yapmayacağımızı da netleştiririz."
+      },
+      {
+        "number": "02",
+        "title": "Mimari Planlama",
+        "body": "Kod yazmaya başlamadan önce veri modelini, servis sınırlarını ve teknik tercihleri planlarız. Belirsiz hiçbir şey bırakmayız."
+      },
+      {
+        "number": "03",
+        "title": "Aşamalı Geliştirme",
+        "body": "Kısa döngülerle çalışır, sürekli test ederiz. Slaytlar yerine staging ortamında çalışan canlı ekranları görürsünüz."
+      },
+      {
+        "number": "04",
+        "title": "Canlıya Alım ve Teslim",
+        "body": "Sıfır kesintiyle yayına çıkış, izleme sistemlerinin devreye alınması ve eksiksiz dokümantasyonla sistemi ekibinize devrederiz."
+      }
+    ],
+    "faqEyebrowLeft": "SSS / 004",
+    "faqEyebrowRight": "SIK SORULAN SORULAR",
+    "faqTitle": [
+      "MERAK EDİLENLER VE",
+      "NET CEVAPLAR"
+    ],
+    "faqs": [
+      {
+        "q": "ALAZ'ın klasik ajanslardan farkı nedir?",
+        "a": "Klasik ajanslar genellikle tasarım satar ve yazılım işini stajyerlere ya da taşeronlara yaptırır. ALAZ ise doğrudan mühendisler tarafından yönetilir. Kodunuzu yazan ve veritabanınızı tasarlayan kişilerle birebir iletişim kurarsınız."
+      },
+      {
+        "q": "Bir projenin tamamlanması ne kadar sürer?",
+        "a": "Odaklanmış bir MVP veya şirket içi araç genellikle 4 ile 8 hafta arasında canlıya alınır. Daha kapsamlı platformlar 2 ile 4 ay sürer. Keşif görüşmemizin ardından net bir takvim ve kapsam çıkarırız."
+      },
+      {
+        "q": "Hangi teknolojileri tercih ediyorsunuz?",
+        "a": "Geçici trendler yerine sahada kendini kanıtlamış teknolojileri seçiyoruz. Ana yığınımız TypeScript, Next.js, React, Node.js ve PostgreSQL üzerine kuruludur. Bu yapı hem hızlı geliştirmeyi hem de uzun yıllar sorunsuz çalışmayı sağlar."
+      },
+      {
+        "q": "Yazılım bittiğinde kodların sahibi kim olur?",
+        "a": "Tamamen siz olursunuz. Yazılan her satır kod, sunucu konfigürasyonu ve dokümantasyon ilk günden itibaren sizin mülkünüzdür. Herhangi bir sisteme bağımlı kalmazsınız."
+      },
+      {
+        "q": "Mevcut ve yavaş çalışan bir projeyi devralıp düzeltebilir misiniz?",
+        "a": "Evet. Hatalı mimarileri, yavaşlayan veritabanlarını ve performans sorunlarını analiz ediyor; her şeyi sıfırdan yazıp risk almak yerine mevcut projeyi stabilize edip hızlandırıyoruz."
+      },
+      {
+        "q": "Projeye nasıl başlayabiliriz?",
+        "a": "Proje formumuz üzerinden veya hello@alaz.pro adresine kısa bir e-posta ile ulaşabilirsiniz. İhtiyaçlarınızı inceleyip en geç 24 saat içinde doğrudan teknik bir görüşme planlarız."
+      }
+    ]
   },
   "footer": {
     "eyebrow": "ALAZ / MÜHENDİSLİK STÜDYOSU",
@@ -218,9 +439,18 @@
     ],
     "introText": "Karmaşık sistemleri güvenecek kadar basit ve dayanacak kadar güçlü yapmak için varız.",
     "introNote": "ALAZ / MANİFESTO 2025",
+    "originEyebrowLeft": "01 / İSİM",
+    "originEyebrowRight": "NEDEN ALAZ DİYORUZ",
+    "originLabel": "ALAZ, İSİM / TÜRKÇE, ESKİ",
+    "originWord": "ALAZ",
+    "originDefinition": "Alevin parlayan kenarı, ateşin için için yanmayı bırakıp gerçekten iş yapmaya başladığı nokta.",
+    "originParagraphs": [
+      "Alaz, bugün neredeyse hiç kullanılmayan eski bir Türkçe kelime. Demirciler ve çobanlar, bir ateşin sadece yanmayı bırakıp demiri dövecek kadar ısındığı anı anlatmak için kullanırlardı: ilk kıvılcım ya da sönmekte olan kor değil, o çalışan alev.",
+      "Yazılımı da aynı mantıkla üretiyoruz. Ortalık faaliyet üretmek kolay: daha fazla kod, daha fazla özellik, daha fazla toplantı. Zor olan, sistemin gerçek kullanıcılar ve gerçek trafik altında ayakta kalması; bir projeyi bitmiş sayabilmemiz için geçmesi gereken eşik de bu."
+    ],
     "imageAlt": "İsabetli iş istasyonlarıyla mimari mühendislik laboratuvarı",
     "imageCaption": "ŞEK. 01 — İSABET UYGULAMASI",
-    "principlesEyebrowLeft": "01 / MANİFESTO",
+    "principlesEyebrowLeft": "02 / MANİFESTO",
     "principlesEyebrowRight": "ÜÇ İLKE / TEK STANDART",
     "principles": [
       {
@@ -239,11 +469,41 @@
         "body": "En iyi iş lansmanın ötesine geçer. Brief değiştiğinde yararlı kalan bakımı yapılabilir temeller inşa ederiz."
       }
     ],
-    "disciplinesEyebrowLeft": "02 / DİSİPLİNLERİMİZ",
+    "disciplinesEyebrowLeft": "03 / DİSİPLİNLERİMİZ",
     "disciplinesEyebrowRight": "İŞİN ARKASINDAKİ İŞ",
     "disciplinesHeading": [
       "MÜHENDİSLİK",
       "ORTAMDIR"
+    ],
+    "breakImageAlt": "Stüdyo ışığı altında hassas işlenmiş devre ve kablo kanalları",
+    "breakImageCaption": "ŞEK. 02 — BAĞLAYAN SİSTEMLER",
+    "processEyebrowLeft": "04 / NASIL ÇALIŞIRIZ",
+    "processEyebrowRight": "TEK SÜREÇ / HER PROJE",
+    "processHeading": [
+      "DÖRT ADIM",
+      "SIFIR TAHMİN"
+    ],
+    "processSteps": [
+      {
+        "number": "01",
+        "title": "KEŞFET",
+        "body": "Çoğu ajansın atladığı soruları biz en baştan sorarız: bunu gerçekte kim kullanacak, yanlış giderse iş buna ne kaybeder. Bu ödev, kimse editörü açmadan önce bitmiş olur."
+      },
+      {
+        "number": "02",
+        "title": "TASARLA",
+        "body": "Bir sistem, repodan önce beyaz tahtada var olur. Önce yapısal olarak neyin doğru olması gerektiğine karar veririz, nasıl inşa edeceğimize değil."
+      },
+      {
+        "number": "03",
+        "title": "İNŞA ET",
+        "body": "Mimari sağlam olduğunda kodu yazmak asıl kolay kısım. Her parçanın tek başına test edilip güvenilebilmesi için aşamalar halinde teslim ederiz."
+      },
+      {
+        "number": "04",
+        "title": "SAĞLAMLAŞTIR",
+        "body": "Lansman bitiş çizgisi değil, yarı yol. Sistemi yük testinden geçirir, gerçekten işe yarayan bir dokümantasyon yazar ve sadece demoya değil gerçek trafiğe hazır şekilde teslim ederiz."
+      }
     ],
     "endTextTop": "İYİ SİSTEMLER GÖRÜNMEZ.",
     "endTextBottom": "ETKİSİ GÖRÜNÜR.",

@@ -63,6 +63,23 @@
         "LOGIC OPTIMIZATION",
         "PERFORMANCE-FIRST UI"
       ]
+    },
+    {
+      "slug": "gamma",
+      "number": "03",
+      "name": "GAMMA",
+      "discipline": "DISTRIBUTED SYSTEMS",
+      "type": "CORE ARCHITECTURE",
+      "image": "https://images.hostinger.com/34b5c8dc-aea2-4a15-a1ea-7d23314bd149.png",
+      "summary": "Real-time stream processing and high-throughput backend infrastructure designed for zero data loss.",
+      "challenge": "Architect a multi-region data pipeline that maintains consistency under heavy concurrent write loads.",
+      "approach": "We engineered partitioned event queues, isolated failure domains, and built explicit recovery protocols.",
+      "outcome": "Sub-millisecond event routing, complete data auditability, and zero degradation during peak bursts.",
+      "markers": [
+        "STREAM ARCHITECTURE",
+        "CONCURRENT SCALE",
+        "FAIL-SAFE SYSTEMS"
+      ]
     }
   ],
   "blogPosts": [
@@ -98,11 +115,214 @@
   "nav": {
     "linkLabels": [
       "CASE STUDIES",
-      "BLOG",
       "ABOUT",
-      "SERVICES"
+      "SERVICES",
+      "BLOG"
     ],
     "cta": "START A PROJECT"
+  },
+  "servicesPage": {
+    "meta": {
+      "title": "Software Development & Architecture Services | ALAZ",
+      "description": "We design and build production-grade web applications, resilient backend architectures, and fast frontend systems. Built by engineers, delivered cleanly.",
+      "keywords": [
+        "custom software development",
+        "web application development",
+        "software architecture",
+        "cloud infrastructure",
+        "performance optimization",
+        "API development",
+        "system integration",
+        "Next.js development"
+      ]
+    },
+    "eyebrowLeft": "SERVICES / 001",
+    "eyebrowRight": "SOFTWARE ENGINEERING PRACTICE",
+    "kicker": "SYSTEMS, ARCHITECTURE & CODE THAT LAST.",
+    "heading": [
+      "SOFTWARE",
+      "ENGINEERING"
+    ],
+    "introText": "We build web applications, cloud backends, and data integrations that stay fast under load and remain maintainable years down the line.",
+    "introNote": "ALAZ / CAPABILITIES 2026",
+    "breadcrumbHome": "Home",
+    "overviewEyebrowLeft": "CAPABILITIES / 002",
+    "overviewEyebrowRight": "PRACTICAL BREAKDOWN",
+    "overviewTitle": [
+      "WHAT WE",
+      "ACTUALLY DO"
+    ],
+    "overviewText": "Software projects break when teams prioritize vanity over fundamentals. Here is a clear breakdown of how we work, what we deliver, and the tech we trust.",
+    "itemLabels": {
+      "whatItIs": "THE PROBLEM & SCOPE",
+      "deliverables": "CORE DELIVERABLES",
+      "stack": "STACK",
+      "outcome": "REAL-WORLD OUTCOME",
+      "bestFor": "IDEAL FIT"
+    },
+    "items": [
+      {
+        "id": "custom-software-development",
+        "number": "01",
+        "title": "WEB APPLICATIONS & DIGITAL PRODUCTS",
+        "category": "FULL-STACK / PRODUCT",
+        "description": "Production web apps, SaaS dashboards, and bespoke internal tools engineered for reliability and long-term maintainability.",
+        "whatItIs": "Most web apps fail from accumulated technical debt, unreadable state, and sloppy dependencies. We build custom applications with strict type safety, modular component architectures, and clean database schemas that your in-house team can easily inherit.",
+        "deliverables": [
+          "Full-stack web applications and SaaS platforms",
+          "Internal tools, operator consoles, and dashboards",
+          "Clean data models, authentication, and permission layers",
+          "Turnkey MVPs built to scale without needing an immediate rewrite",
+          "Well-documented codebases with zero vendor lock-in"
+        ],
+        "stack": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Node.js",
+          "PostgreSQL",
+          "Tailwind CSS"
+        ],
+        "outcome": "A stable, thoroughly tested codebase you own outright. Ships quickly without cutting structural corners.",
+        "bestFor": "Founders launching serious MVPs, or teams replacing brittle legacy tools and messy spreadsheet workflows."
+      },
+      {
+        "id": "system-architecture-cloud",
+        "number": "02",
+        "title": "SYSTEM ARCHITECTURE & CLOUD INFRASTRUCTURE",
+        "category": "INFRASTRUCTURE / RESILIENCE",
+        "description": "Fault-tolerant cloud setups, automated CI/CD pipelines, and database architectures that handle growth without unexpected outages.",
+        "whatItIs": "Scaling is not about throwing larger servers at bad code. We inspect the entire operational loop: data layout, network bottlenecks, background queues, and caching. We set up infrastructure that alerts you before things break and recovers cleanly when they do.",
+        "deliverables": [
+          "Infrastructure audits and technical bottleneck analysis",
+          "Cloud environments on AWS, GCP, or bare-metal VPS",
+          "Automated CI/CD pipelines with zero-downtime deployments",
+          "Centralized logging, real-time metrics, and alerting",
+          "Relational database indexing, migration planning, and replication"
+        ],
+        "stack": [
+          "AWS",
+          "Docker",
+          "Linux",
+          "Nginx",
+          "PostgreSQL",
+          "Redis",
+          "GitHub Actions"
+        ],
+        "outcome": "Predictable server costs, automated release cycles, and an infrastructure baseline that does not buckle under traffic spikes.",
+        "bestFor": "Teams dealing with recurring downtime, slow deployment cycles, or systems outgrowing their initial prototype setup."
+      },
+      {
+        "id": "performance-engineering",
+        "number": "03",
+        "title": "PERFORMANCE & FRONTEND OPTIMIZATION",
+        "category": "CORE WEB VITALS / EFFICIENCY",
+        "description": "Trimming bundle sizes, eliminating layout jank, and achieving sub-second load times that keep visitors engaged and boost SEO.",
+        "whatItIs": "A slow website is an engineering failure that costs money every day. We do not just run audits and hand over checklists; we dive into JavaScript flame charts, strip out blocking third-party scripts, optimize critical render paths, and shift compute to the server.",
+        "deliverables": [
+          "In-depth runtime profiling and bundle weight decomposition",
+          "Core Web Vitals remediation (LCP, INP, CLS in the green)",
+          "Server-Side Rendering (SSR) and edge-caching architectures",
+          "Asset compression, responsive images, and subsetted font delivery",
+          "Technical SEO foundation and crawl budget optimization"
+        ],
+        "stack": [
+          "Next.js",
+          "React Server Components",
+          "Web Vitals",
+          "Edge CDN",
+          "Chrome DevTools"
+        ],
+        "outcome": "Instantaneous page transitions, top-tier Core Web Vitals scores, and measurable retention gains.",
+        "bestFor": "E-commerce, consumer platforms, and media sites where latency directly hurts revenue and conversion rates."
+      },
+      {
+        "id": "api-integration",
+        "number": "04",
+        "title": "API DESIGN & SYSTEM INTEGRATION",
+        "category": "INTEGRATION / BACKEND",
+        "description": "Clean REST and GraphQL interfaces, robust third-party integrations, and automated pipelines connecting fragmented tools.",
+        "whatItIs": "Modern products rarely run in isolation. When integrations are hacked together, silent sync failures and data corruption follow. We build typed API boundaries with explicit error handling, retries, and rate limiting so your external dependencies never compromise system integrity.",
+        "deliverables": [
+          "RESTful and GraphQL API design with OpenAPI specifications",
+          "Payment gateway, CRM, ERP, and billing engine integrations",
+          "Resilient webhook handlers with idempotency and replay safety",
+          "Background sync pipelines and event-driven architectures",
+          "Secure LLM and generative AI API implementations"
+        ],
+        "stack": [
+          "TypeScript",
+          "Node.js",
+          "REST",
+          "GraphQL",
+          "Webhooks",
+          "OpenAPI",
+          "Redis"
+        ],
+        "outcome": "Reliable data synchronization across your tools, with explicit error logging and zero data loss.",
+        "bestFor": "Businesses operating across multiple SaaS platforms, or platforms integrating deep third-party partner APIs."
+      }
+    ],
+    "processEyebrowLeft": "HOW WE WORK / 003",
+    "processEyebrowRight": "FROM IDEA TO PRODUCTION",
+    "processTitle": [
+      "HOW WE",
+      "OPERATE"
+    ],
+    "processSteps": [
+      {
+        "number": "01",
+        "title": "Deep Discovery",
+        "body": "We start with architecture questions, business constraints, and real failure modes. We clarify what needs building and what to intentionally leave out."
+      },
+      {
+        "number": "02",
+        "title": "System Blueprint",
+        "body": "Before touching implementation, we map data models, component hierarchies, and technical trade-offs. No ambiguous specs."
+      },
+      {
+        "number": "03",
+        "title": "Iterative Execution",
+        "body": "We ship working, test-covered code in short increments. You see functional builds on staging branches, not static slide decks."
+      },
+      {
+        "number": "04",
+        "title": "Production & Handover",
+        "body": "Zero-downtime cutover, observability configs, and comprehensive documentation. We ensure your team can operate the system with complete confidence."
+      }
+    ],
+    "faqEyebrowLeft": "FAQ / 004",
+    "faqEyebrowRight": "COMMON QUESTIONS",
+    "faqTitle": [
+      "QUESTIONS &",
+      "PRACTICAL ANSWERS"
+    ],
+    "faqs": [
+      {
+        "q": "How is ALAZ different from a traditional digital agency?",
+        "a": "Most agencies sell design presentations and outsource implementation to junior subcontractors. ALAZ is run by engineers. You work directly with the developers writing your code and designing your database, ensuring high technical standards and zero miscommunication."
+      },
+      {
+        "q": "What is the typical timeframe for a project?",
+        "a": "A focused MVP or internal tool usually takes 4 to 8 weeks from kick-off to production. Complex multi-service platforms take 2 to 4 months. After our discovery session, we provide a concrete timeline with clearly phased deliverables."
+      },
+      {
+        "q": "How do you select your technology stack?",
+        "a": "We prefer proven, stable technology over hype cycles. Our primary stack centers on TypeScript, Next.js, React, Node.js, and PostgreSQL because it combines rapid developer velocity with bulletproof production stability."
+      },
+      {
+        "q": "Do we own the source code after delivery?",
+        "a": "Yes, completely. Every line of code, infrastructure configuration, and documentation belongs to you from day one. There is zero proprietary platform lock-in."
+      },
+      {
+        "q": "Can you step in to fix or rescue an existing codebase?",
+        "a": "Yes. We regularly help companies audit slow, unstable, or poorly architected applications. We profile performance, fix critical bottlenecks, and introduce stability without forcing an expensive, risky ground-up rewrite."
+      },
+      {
+        "q": "How do we get started?",
+        "a": "Drop a brief note via our project form or email hello@alaz.pro. We will review your requirements and arrange a direct technical discussion within 24 hours."
+      }
+    ]
   },
   "footer": {
     "eyebrow": "ALAZ / ENGINEERING STUDIO",
@@ -218,9 +438,18 @@
     ],
     "introText": "We exist to make complex systems simple enough to trust and strong enough to endure.",
     "introNote": "ALAZ / MANIFESTO 2025",
+    "originEyebrowLeft": "01 / THE NAME",
+    "originEyebrowRight": "WHY WE'RE CALLED ALAZ",
+    "originLabel": "ALAZ, N. / TURKISH, ARCHAIC",
+    "originWord": "ALAZ",
+    "originDefinition": "The bright edge of a flame, the point where fire stops smoldering and starts doing real work.",
+    "originParagraphs": [
+      "Alaz is an old Turkish word most people don't use anymore. Blacksmiths and shepherds used it for the moment a fire stops just burning and gets hot enough to actually shape metal: the working flame, not the first spark or the dying ember.",
+      "We build software the same way. Generating activity is easy, more code, more features, more meetings. Getting a system to hold up under real users and real traffic is the hard part, and that's the bar every project has to clear before we call it finished."
+    ],
     "imageAlt": "Architectural engineering laboratory with precision workstations",
     "imageCaption": "FIG. 01 — THE PRACTICE OF PRECISION",
-    "principlesEyebrowLeft": "01 / THE MANIFESTO",
+    "principlesEyebrowLeft": "02 / THE MANIFESTO",
     "principlesEyebrowRight": "THREE PRINCIPLES / ONE STANDARD",
     "principles": [
       {
@@ -239,11 +468,41 @@
         "body": "The best work outlasts the launch. We build maintainable foundations that stay useful when the brief changes."
       }
     ],
-    "disciplinesEyebrowLeft": "02 / OUR DISCIPLINES",
+    "disciplinesEyebrowLeft": "03 / OUR DISCIPLINES",
     "disciplinesEyebrowRight": "THE WORK BEHIND THE WORK",
     "disciplinesHeading": [
       "ENGINEERING",
       "IS THE MEDIUM"
+    ],
+    "breakImageAlt": "Precision-etched circuitry and conduits under studio lighting",
+    "breakImageCaption": "FIG. 02 — THE SYSTEMS THAT CONNECT",
+    "processEyebrowLeft": "04 / HOW WE OPERATE",
+    "processEyebrowRight": "ONE PROCESS / EVERY PROJECT",
+    "processHeading": [
+      "FOUR MOVES",
+      "ZERO GUESSWORK"
+    ],
+    "processSteps": [
+      {
+        "number": "01",
+        "title": "DISCOVER",
+        "body": "We start by asking the questions most agencies skip: who's actually going to use this, and what does it cost the business if it fails. That homework happens before anyone opens an editor."
+      },
+      {
+        "number": "02",
+        "title": "ARCHITECT",
+        "body": "A system exists on a whiteboard before it exists in a repo. We work out what needs to be structurally true first, then decide how to build it, not the other way around."
+      },
+      {
+        "number": "03",
+        "title": "ENGINEER",
+        "body": "Once the architecture holds up, writing the code is the easy part. We release in stages so each piece can be tested and trusted on its own."
+      },
+      {
+        "number": "04",
+        "title": "HARDEN",
+        "body": "Shipping is the halfway point, not the finish line. We stress-test the system, write documentation that's actually usable, and hand it over ready for real traffic, not just a demo."
+      }
     ],
     "endTextTop": "GOOD SYSTEMS ARE INVISIBLE.",
     "endTextBottom": "THE IMPACT ISN'T.",
