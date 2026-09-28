@@ -5,6 +5,7 @@ import { Link } from '@/i18n/navigation';
 import Markdown from '@/components/Markdown';
 import ReadProgress from '@/components/ReadProgress';
 import enMessages from '@messages/en.json';
+import { buildMetadata } from '@/lib/seo';
 
 const ORG_URL = 'https://alaz.pro';
 const readingTime = (text) => Math.max(1, Math.round(text.trim().split(/\s+/).filter(Boolean).length / 200));
@@ -22,27 +23,15 @@ export async function generateMetadata({ params }) {
 
   const title = t('metaTitleTemplate', { title: post.title });
 
-  return {
+  return buildMetadata({
+    locale,
+    path: `/blog/${post.slug}`,
     title,
     description: post.excerpt,
-    alternates: { canonical: locale === 'en' ? `${ORG_URL}/blog/${post.slug}` : `${ORG_URL}/${locale}/blog/${post.slug}` },
-    openGraph: {
-      title,
-      description: post.excerpt,
-      url: locale === 'en' ? `${ORG_URL}/blog/${post.slug}` : `${ORG_URL}/${locale}/blog/${post.slug}`,
-      siteName: 'ALAZ',
-      type: 'article',
-      locale: locale === 'en' ? 'en_US' : 'tr_TR',
-      images: [{ url: post.cover, width: 1200, height: 630 }],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      site: '@alaz_pro',
-      title,
-      description: post.excerpt,
-      images: [post.cover],
-    },
-  };
+    type: 'article',
+    image: { url: post.cover, width: 1200, height: 630, alt: post.title },
+    extraOpenGraph: { publishedTime: post.date, authors: ['ALAZ'] },
+  });
 }
 
 export default async function BlogPostPage({ params }) {

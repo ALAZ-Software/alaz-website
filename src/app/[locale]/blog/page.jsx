@@ -2,12 +2,14 @@ import React from 'react';
 import { getTranslations } from 'next-intl/server';
 import { ArrowUpRight, Clock } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
+import { buildMetadata } from '@/lib/seo';
 
 const readingTime = (text) => Math.max(1, Math.round(text.trim().split(/\s+/).filter(Boolean).length / 200));
 
-export async function generateMetadata() {
-  const t = await getTranslations('blogIndex.meta');
-  return { title: t('title'), description: t('description') };
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'blogIndex.meta' });
+  return buildMetadata({ locale, path: '/blog', title: t('title'), description: t('description') });
 }
 
 export default async function BlogIndexPage() {

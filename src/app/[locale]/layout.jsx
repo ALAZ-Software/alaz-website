@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
+import { SITE_NAME, SITE_URL } from '@/lib/seo';
 import '../globals.css';
 
 const archivo = Archivo({ subsets: ['latin'], weight: ['600', '700', '900'], variable: '--font-archivo', display: 'swap' });
@@ -15,9 +16,23 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+// Set these in the hosting environment (see .env.example); unset values emit no tag.
+const bing = process.env.BING_SITE_VERIFICATION;
+
 export const metadata = {
-  metadataBase: new URL('https://alaz.pro'),
-  robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
+  },
+  icons: { icon: '/icon.svg', apple: '/apple-touch-icon.png' },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+    yandex: process.env.YANDEX_VERIFICATION,
+    ...(bing ? { other: { 'msvalidate.01': bing } } : {}),
+  },
 };
 
 export const viewport = {
@@ -31,7 +46,7 @@ export default async function LocaleLayout({ children, params }) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang={locale} dir="ltr" className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <StructuredData />

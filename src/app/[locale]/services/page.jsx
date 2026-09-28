@@ -1,33 +1,13 @@
 import { getTranslations } from 'next-intl/server';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-
-const ORG_URL = 'https://alaz.pro';
-
-const pathFor = (locale) => (locale === 'en' ? `${ORG_URL}/services` : `${ORG_URL}/${locale}/services`);
+import JsonLd, { BreadcrumbJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { ORG_ID, buildMetadata, urlFor } from '@/lib/seo';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'servicesPage.meta' });
-  const url = pathFor(locale);
-  return {
-    title: t('title'),
-    description: t('description'),
-    keywords: t.raw('keywords'),
-    alternates: {
-      canonical: url,
-      languages: { en: pathFor('en'), tr: pathFor('tr'), 'x-default': pathFor('en') },
-    },
-    openGraph: {
-      type: 'website',
-      url,
-      siteName: 'ALAZ',
-      title: t('title'),
-      description: t('description'),
-      locale: locale === 'tr' ? 'tr_TR' : 'en_US',
-    },
-    twitter: { card: 'summary_large_image', title: t('title'), description: t('description') },
-  };
+  return buildMetadata({ locale, path: '/services', title: t('title'), description: t('description'), keywords: t.raw('keywords') });
 }
 
 export default async function ServicesPage({ params }) {
@@ -42,51 +22,37 @@ export default async function ServicesPage({ params }) {
   const processSteps = t.raw('processSteps');
   const faqTitle = t.raw('faqTitle');
   const faqs = t.raw('faqs');
-  const url = pathFor(locale);
+  const url = urlFor(locale, '/services');
 
-  const jsonLd = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: t('breadcrumbHome'), item: locale === 'en' ? ORG_URL : `${ORG_URL}/${locale}` },
-        { '@type': 'ListItem', position: 2, name: heading.join(' '), item: url },
-      ],
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'ItemList',
-      name: t('meta.title'),
-      itemListElement: items.map((item, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        item: {
-          '@type': 'Service',
-          name: item.title,
-          description: item.description,
-          url: `${url}#${item.id}`,
-          serviceType: item.title,
-          provider: { '@id': `${ORG_URL}/#organization` },
-          areaServed: 'Worldwide',
-        },
-      })),
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'FAQPage',
-      mainEntity: faqs.map((faq) => ({
-        '@type': 'Question',
-        name: faq.q,
-        acceptedAnswer: { '@type': 'Answer', text: faq.a },
-      })),
-    },
-  ];
+  const itemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: t('meta.title'),
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: item.title,
+        description: item.description,
+        url: `${url}#${item.id}`,
+        serviceType: item.title,
+        provider: { '@id': ORG_ID },
+        areaServed: 'Worldwide',
+      },
+    })),
+  };
 
   return (
     <>
-      {jsonLd.map((data, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />
-      ))}
+      <BreadcrumbJsonLd
+        crumbs={[
+          { name: t('breadcrumbHome'), url: urlFor(locale) },
+          { name: heading.join(' '), url },
+        ]}
+      />
+      <JsonLd data={itemList} />
+      <FaqJsonLd items={faqs} />
       <main>
         {/* Hero Section */}
         <section className="w-full relative bg-[#090909] overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(90deg,rgba(0,0,0,.35),transparent_40%,rgba(0,0,0,.35))] after:pointer-events-none">

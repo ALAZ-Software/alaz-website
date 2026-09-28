@@ -3,22 +3,26 @@ import Image from 'next/image';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import enMessages from '@messages/en.json';
+import { buildMetadata } from '@/lib/seo';
 
 export function generateStaticParams() {
   return enMessages.projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }) {
-  const { slug } = await params;
-  const t = await getTranslations('caseStudy');
-  const tRoot = await getTranslations();
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: 'caseStudy' });
+  const tRoot = await getTranslations({ locale });
   const project = tRoot.raw('projects').find((item) => item.slug === slug);
   if (!project) return {};
 
-  return {
+  return buildMetadata({
+    locale,
+    path: `/case-studies/${project.slug}`,
     title: t('metaTitleTemplate', { name: project.name }),
     description: t('metaDescriptionTemplate', { name: project.name, summary: project.summary }),
-  };
+    image: project.image ? { url: project.image, width: 1200, height: 630, alt: project.name } : undefined,
+  });
 }
 
 export default async function CaseStudyPage({ params }) {

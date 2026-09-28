@@ -1,10 +1,12 @@
 import { getTranslations } from 'next-intl/server';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
+import { buildMetadata } from '@/lib/seo';
 
-export async function generateMetadata() {
-  const t = await getTranslations('about.meta');
-  return { title: t('title'), description: t('description') };
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'about.meta' });
+  return buildMetadata({ locale, path: '/about', title: t('title'), description: t('description') });
 }
 
 export default async function AboutPage() {
