@@ -15,7 +15,28 @@ export default {
       },
     },
     extend: {
+      // Desktop-first breakpoints matching the site's original max-width media queries.
+      screens: {
+        tablet: { max: "1000px" },
+        mobile: { max: "760px" },
+        xs: { max: "470px" },
+      },
+      fontFamily: {
+        display: ["var(--font-display)"],
+        body: ["var(--font-body)"],
+        mono: ["var(--font-mono)"],
+      },
       colors: {
+        ink: "var(--ink)",
+        surface: "var(--surface)",
+        line: "var(--line)",
+        mute: "var(--gray)",
+        dim: "var(--dim)",
+        panel: "#141414",
+        well: "#171717",
+        faint: "#777",
+        soft: "#aaa",
+        silver: "#b4b4b4",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -82,10 +103,18 @@ export default {
             height: "0",
           },
         },
+        "signal-marquee": {
+          to: { transform: "translateX(-50%)" },
+        },
+        ticker: {
+          to: { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "signal-marquee": "signal-marquee 28s linear infinite",
+        ticker: "ticker 30s linear infinite",
       },
     },
   },

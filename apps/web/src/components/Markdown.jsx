@@ -15,14 +15,14 @@ const renderInline = (text) => {
     if (tok.startsWith('[')) {
       const lm = tok.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
       nodes.push(
-        <a key={key++} href={lm[2]} target="_blank" rel="noopener noreferrer">
+        <a key={key++} href={lm[2]} target="_blank" rel="noopener noreferrer" className="text-white border-b border-[#555] transition-colors duration-200 hover:border-white">
           {lm[1]}
         </a>
       );
     } else if (tok.startsWith('**')) {
-      nodes.push(<strong key={key++}>{tok.slice(2, -2)}</strong>);
+      nodes.push(<strong key={key++} className="text-white font-bold">{tok.slice(2, -2)}</strong>);
     } else if (tok.startsWith('`')) {
-      nodes.push(<code key={key++}>{tok.slice(1, -1)}</code>);
+      nodes.push(<code key={key++} className="font-mono text-[.84em] bg-[#1a1a1a] border border-[#2a2a2a] px-[7px] py-[2px] text-[#e8e8e8]">{tok.slice(1, -1)}</code>);
     }
     last = m.index + tok.length;
   }
@@ -38,13 +38,13 @@ export default function Markdown({ content }) {
 
   const flushPara = () => {
     if (para.length) {
-      blocks.push(<p key={`p-${blocks.length}`}>{renderInline(para.join(' '))}</p>);
+      blocks.push(<p key={`p-${blocks.length}`} className="mb-[24px]">{renderInline(para.join(' '))}</p>);
       para = [];
     }
   };
   const flushList = () => {
     if (list) {
-      blocks.push(<ul key={`ul-${blocks.length}`}>{list}</ul>);
+      blocks.push(<ul key={`ul-${blocks.length}`} className="m-0 mb-[26px] p-0 list-none">{list}</ul>);
       list = null;
     }
   };
@@ -58,37 +58,37 @@ export default function Markdown({ content }) {
     if (/^###\s/.test(line)) {
       flushPara();
       flushList();
-      blocks.push(<h3 key={`h3-${blocks.length}`}>{renderInline(line.replace(/^###\s/, ''))}</h3>);
+      blocks.push(<h3 key={`h3-${blocks.length}`} className="text-[length:clamp(20px,2.2vw,28px)] tracking-[-.04em] font-bold text-white mt-[42px] mb-[14px]">{renderInline(line.replace(/^###\s/, ''))}</h3>);
       return;
     }
     if (/^##\s/.test(line)) {
       flushPara();
       flushList();
-      blocks.push(<h2 key={`h2-${blocks.length}`}>{renderInline(line.replace(/^##\s/, ''))}</h2>);
+      blocks.push(<h2 key={`h2-${blocks.length}`} className="text-[length:clamp(26px,3.2vw,42px)] tracking-[-.06em] leading-[1.05] font-extrabold text-white mt-[58px] mb-[18px] mobile:text-[27px] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(line.replace(/^##\s/, ''))}</h2>);
       return;
     }
     if (/^#\s/.test(line)) {
       flushPara();
       flushList();
-      blocks.push(<h2 key={`h2-${blocks.length}`}>{renderInline(line.replace(/^#\s/, ''))}</h2>);
+      blocks.push(<h2 key={`h2-${blocks.length}`} className="text-[length:clamp(26px,3.2vw,42px)] tracking-[-.06em] leading-[1.05] font-extrabold text-white mt-[58px] mb-[18px] mobile:text-[27px] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(line.replace(/^#\s/, ''))}</h2>);
       return;
     }
     if (/^>\s/.test(line)) {
       flushPara();
       flushList();
-      blocks.push(<blockquote key={`q-${blocks.length}`}>{renderInline(line.replace(/^>\s/, ''))}</blockquote>);
+      blocks.push(<blockquote key={`q-${blocks.length}`} className="border-l-2 border-white py-[4px] pl-[22px] text-[#9a9a9a] mb-[26px] text-[.96em]">{renderInline(line.replace(/^>\s/, ''))}</blockquote>);
       return;
     }
     if (/^---+$/.test(line.trim())) {
       flushPara();
       flushList();
-      blocks.push(<hr key={`hr-${blocks.length}`} />);
+      blocks.push(<hr key={`hr-${blocks.length}`} className="border-0 border-t border-line my-[42px]" />);
       return;
     }
     if (/^[-*]\s/.test(line)) {
       flushPara();
       if (!list) list = [];
-      list.push(<li key={`li-${list.length}`}>{renderInline(line.replace(/^[-*]\s/, ''))}</li>);
+      list.push(<li key={`li-${list.length}`} className="relative pl-[26px] mb-[13px] leading-[1.7] before:content-[''] before:absolute before:left-0 before:top-[.7em] before:w-[13px] before:h-px before:bg-white">{renderInline(line.replace(/^[-*]\s/, ''))}</li>);
       return;
     }
     flushList();
@@ -98,5 +98,5 @@ export default function Markdown({ content }) {
   flushPara();
   flushList();
 
-  return <div className="prose">{blocks}</div>;
+  return <div className="max-w-[720px] text-[#c9c9c9] text-[length:clamp(16px,1.5vw,20px)] leading-[1.78] tracking-[-.004em] mobile:text-[16px]">{blocks}</div>;
 }

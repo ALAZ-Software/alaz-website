@@ -17,5 +17,5 @@ export default function ReadProgress() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  return <div className="read-progress" style={{ width: `${progress}%` }} aria-hidden="true" />;
+  return <div className="fixed top-0 left-0 h-[2px] bg-white z-[60] transition-[width] duration-[80ms] ease-linear" style={{ width: `${progress}%` }} aria-hidden="true" />;
 }
