@@ -2,10 +2,9 @@ import importPlugin from 'eslint-plugin-import';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
-import unicodeEscapePlugin from './eslint.unicode-escapes-plugin.mjs';
 
 export default [
-	{ ignores: ['node_modules/**', 'dist/**', 'build/**', 'vite.config.js'] },
+	{ ignores: ['node_modules/**', '.next/**', 'dist/**', 'build/**'] },
 	{
 		files: ['**/*.js', '**/*.jsx'],
 		plugins: { react, 'react-hooks': reactHooks, 'import': importPlugin },
@@ -13,14 +12,14 @@ export default [
 			ecmaVersion: 'latest',
 			sourceType: 'module',
 			parserOptions: { ecmaFeatures: { jsx: true } },
-			globals: { ...globals.browser, React: 'readonly', Intl: 'readonly' },
+			globals: { ...globals.browser, ...globals.node, React: 'readonly', Intl: 'readonly' },
 		},
 		settings: {
 			'react': { version: 'detect' },
 			'import/extensions': ['.js', '.jsx'],
 			'import/resolver': {
-				node: { extensions: ['.js', '.jsx'] },
-				alias: { map: [['@', './src']], extensions: ['.js', '.jsx'] },
+				node: { extensions: ['.js', '.jsx', '.json'] },
+				alias: { map: [['@', './src'], ['@messages', './messages']], extensions: ['.js', '.jsx', '.json'] },
 			},
 		},
 		rules: {
@@ -52,10 +51,5 @@ export default [
 			'import/no-cycle': 'off', // AI rarely makes this error, and the rule is very slow to run
 		},
 	},
-	{
-		files: ['**/*.jsx'],
-		plugins: { horizons: unicodeEscapePlugin },
-		rules: { 'horizons/no-unicode-escapes-in-jsx': 'warn' },
-	},
-	{ files: ['tools/**/*.js', 'tailwind.config.js'], languageOptions: { globals: globals.node } },
+	{ files: ['tailwind.config.js', 'postcss.config.js', 'next.config.js'], languageOptions: { globals: globals.node } },
 ];

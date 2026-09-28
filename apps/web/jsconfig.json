@@ -2,8 +2,9 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*"]
+			"@/*": ["./src/*"],
+			"@messages/*": ["./messages/*"]
 		}
 	},
-	"include": ["src"]
+	"include": ["src/**/*.js", "src/**/*.jsx", "messages/**/*.json"]
 }

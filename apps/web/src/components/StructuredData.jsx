@@ -1,9 +1,6 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-
 // Entity graph for ALAZ. Rendered once at the app root so every route carries
 // the Organization / WebSite / SoftwareApplication identity. Per-page schemas
-// (e.g. BlogPosting) stack on top via each page's own <Helmet>.
+// (e.g. BlogPosting) stack on top via each page's own JSON-LD script.
 const ORG_URL = 'https://alaz.pro';
 const LOGO = 'https://images.hostinger.com/2aa88bd7-319c-4104-9497-307e490b6d51.png';
 
@@ -77,12 +74,10 @@ const softwareApplication = {
 
 export default function StructuredData() {
   return (
-    <Helmet>
-      <html lang="en" />
-      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <script type="application/ld+json">{JSON.stringify(organization)}</script>
-      <script type="application/ld+json">{JSON.stringify(website)}</script>
-      <script type="application/ld+json">{JSON.stringify(softwareApplication)}</script>
-    </Helmet>
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organization) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplication) }} />
+    </>
   );
 }

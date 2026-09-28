@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useRef, useState } from 'react';
 
 const EASE_OUT_CUBIC = (progress) => 1 - Math.pow(1 - progress, 3);
