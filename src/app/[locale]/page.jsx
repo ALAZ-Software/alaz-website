@@ -66,7 +66,7 @@ export default async function HomePage() {
         </div>
       </div>
 
-      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-[#0e0e0e] pt-[clamp(95px,12vw,195px)] pb-[clamp(95px,12vw,195px)]" id="validation">
+      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-[#0e0e0e] pt-0 " id=" validation">
         <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('validation.eyebrowLeft')}</span><span>{t('validation.eyebrowRight')}</span></div>
         <div className="flex items-center justify-between mt-[72px] mobile:mt-[60px] [&_svg]:text-[#aaa] mobile:[&_svg]:w-[30px]"><h2 className="text-[length:clamp(64px,10.5vw,180px)] leading-[.85] tracking-[-.075em] font-black mobile:text-[length:clamp(57px,13vw,95px)] xs:text-[13vw]">{validationHeading[0]}<span className="text-[#5f5f5f]">.</span></h2><ShieldCheck size={46} strokeWidth={1} aria-hidden="true" /></div>
         <p className="text-mute text-[length:clamp(14px,1.3vw,17px)] leading-[1.6] mt-[28px] mobile:mt-[25px]">{t('validation.lead')}</p>
@@ -81,6 +81,21 @@ export default async function HomePage() {
           </article>)}
         </div>
       </section>
+
+
+
+
+      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-ink pb-0" id="services">
+        <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('capabilities.eyebrowLeft')}</span><span>{t('capabilities.eyebrowRight')}</span></div>
+        <div className="flex items-end justify-between gap-[30px] mt-[74px] mb-[60px] mobile:items-start mobile:flex-col mobile:mt-[55px] mobile:mb-[44px]"><h2 className="text-[length:clamp(64px,10.5vw,180px)] leading-[.85] tracking-[-.075em] font-black mobile:text-[length:clamp(57px,13vw,95px)] xs:text-[13vw]">{capabilitiesHeading[0]}<br />{capabilitiesHeading[1]}<span className="text-[#5f5f5f]">.</span></h2><Link href="/about#services" className="inline-flex items-center gap-[18px] border-b border-white pb-[12px] font-mono text-[11px] tracking-[.03em] whitespace-nowrap [transition:gap_.2s_ease] hover:gap-[26px]">{t('capabilities.exploreCta')} <ArrowUpRight size={17} /></Link></div>
+        <div className="grid grid-cols-3 border-y border-line mobile:grid-cols-1">
+          {services.map(service => <article className="flex flex-col justify-between min-h-[400px] pt-[29px] px-[35px] pb-[38px] border-r border-line transition-colors duration-200 first:pl-0 last:pr-0 last:border-r-0 hover:bg-[#141414] tablet:px-[20px] mobile:min-h-[295px] mobile:py-[25px] mobile:px-0 mobile:border-r-0 mobile:border-b mobile:border-line mobile:last:border-b-0" key={service.number}>
+            <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex gap-[9px] items-center text-[#e1e1e1]">{service.number} <span className="text-[#666]">—</span> 03 <MoveUpRight size={18} className="ml-auto" /></div>
+            <div><span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim">// {service.category}</span><h3 className="text-[length:clamp(27px,2.9vw,48px)] leading-[1.06] tracking-[-.065em] my-[20px] font-extrabold max-w-[400px] tablet:text-[30px] mobile:text-[length:clamp(30px,7vw,42px)]">{service.title}</h3><p className="text-[13px] text-mute leading-[1.7] max-w-[315px] mobile:max-w-[480px]">{service.description}</p></div>
+          </article>)}
+        </div>
+      </section>
+
 
       <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] border-y border-line h-[55px] flex items-center overflow-hidden whitespace-nowrap text-mute bg-[#141414]" aria-hidden="true">
         <div className="flex items-center w-max animate-ticker">
@@ -104,18 +119,7 @@ export default async function HomePage() {
       </div>
 
 
-      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-ink pt-[clamp(95px,12vw,195px)] pb-[clamp(95px,12vw,195px)]" id="services">
-        <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('capabilities.eyebrowLeft')}</span><span>{t('capabilities.eyebrowRight')}</span></div>
-        <div className="flex items-end justify-between gap-[30px] mt-[74px] mb-[60px] mobile:items-start mobile:flex-col mobile:mt-[55px] mobile:mb-[44px]"><h2 className="text-[length:clamp(64px,10.5vw,180px)] leading-[.85] tracking-[-.075em] font-black mobile:text-[length:clamp(57px,13vw,95px)] xs:text-[13vw]">{capabilitiesHeading[0]}<br />{capabilitiesHeading[1]}<span className="text-[#5f5f5f]">.</span></h2><Link href="/about#services" className="inline-flex items-center gap-[18px] border-b border-white pb-[12px] font-mono text-[11px] tracking-[.03em] whitespace-nowrap [transition:gap_.2s_ease] hover:gap-[26px]">{t('capabilities.exploreCta')} <ArrowUpRight size={17} /></Link></div>
-        <div className="grid grid-cols-3 border-y border-line mobile:grid-cols-1">
-          {services.map(service => <article className="flex flex-col justify-between min-h-[400px] pt-[29px] px-[35px] pb-[38px] border-r border-line transition-colors duration-200 first:pl-0 last:pr-0 last:border-r-0 hover:bg-[#141414] tablet:px-[20px] mobile:min-h-[295px] mobile:py-[25px] mobile:px-0 mobile:border-r-0 mobile:border-b mobile:border-line mobile:last:border-b-0" key={service.number}>
-            <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex gap-[9px] items-center text-[#e1e1e1]">{service.number} <span className="text-[#666]">—</span> 03 <MoveUpRight size={18} className="ml-auto" /></div>
-            <div><span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim">// {service.category}</span><h3 className="text-[length:clamp(27px,2.9vw,48px)] leading-[1.06] tracking-[-.065em] my-[20px] font-extrabold max-w-[400px] tablet:text-[30px] mobile:text-[length:clamp(30px,7vw,42px)]">{service.title}</h3><p className="text-[13px] text-mute leading-[1.7] max-w-[315px] mobile:max-w-[480px]">{service.description}</p></div>
-          </article>)}
-        </div>
-      </section>
-
-      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-[#111] pt-[clamp(95px,12vw,195px)] pb-[clamp(95px,12vw,195px)]" id="work">
+      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-[#111] pt-0 " id="work">
         <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('selected.eyebrowLeft')}</span><span>{t('selected.eyebrowRight')}</span></div>
         <div className="flex items-end justify-between gap-[30px] mt-[74px] mb-[60px] mobile:items-start mobile:flex-col mobile:mt-[55px] mobile:mb-[44px]"><h2 className="text-[length:clamp(64px,10.5vw,180px)] leading-[.85] tracking-[-.075em] font-black mobile:text-[length:clamp(57px,13vw,95px)] xs:text-[13vw]">{selectedHeading[0]}<br />{selectedHeading[1]}<span className="text-[#5f5f5f]">.</span></h2><Link href="/case-studies" className="inline-flex items-center justify-between gap-[30px] border border-[rgba(255,255,255,.65)] min-h-[49px] px-[18px] font-mono text-[10px] tracking-[.03em] whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-white hover:text-black xs:min-h-[46px]">{t('selected.viewAllCta')} <ArrowUpRight size={16} /></Link></div>
         <div className="flex flex-col gap-[72px] mobile:gap-[54px]">{projects.map(project => <Link href={`/case-studies/${project.slug}`} className="group block" key={project.slug}>
@@ -159,7 +163,7 @@ export default async function HomePage() {
           <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex justify-between text-[#aaa] pt-[25px] pb-[30px] border-t border-line"><span className="mobile:max-w-[240px]">{t('start.bottomNote')}</span><span>05 / 05</span></div>
         </div>
       </section>
-    </main>
+    </main >
   </>;
 }
 
