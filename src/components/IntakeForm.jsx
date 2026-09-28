@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, CirclePower } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-import pb from '@/lib/pocketbaseClient';
 import { cn } from '@/lib/utils';
 
 const initial = { project_type: '', project_name: '', brief: '', timeline: '', budget: '', name: '', email: '', company: '' };
@@ -58,20 +57,33 @@ export default function IntakeForm() {
     setSubmitting(true);
     setSubmitError('');
     try {
-      await pb.collection('project_inquiries').create({
-        project_type: form.project_type,
-        project_name: form.project_name.trim(),
-        brief: form.brief.trim(),
-        timeline: form.timeline,
-        budget: form.budget,
-        name: form.name.trim(),
-        email: form.email.trim(),
-        company: form.company.trim(),
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          project_type: form.project_type,
+          project_name: form.project_name.trim(),
+          brief: form.brief.trim(),
+          timeline: form.timeline,
+          budget: form.budget,
+          name: form.name.trim(),
+          email: form.email.trim(),
+          company: form.company.trim(),
+        }),
       });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || t('submitErrorFallback'));
+      }
+
       setComplete(true);
     } catch (error) {
-      setSubmitError(error?.data?.message || t('submitErrorFallback'));
-    } finally { setSubmitting(false); }
+      setSubmitError(error.message || t('submitErrorFallback'));
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return <>
