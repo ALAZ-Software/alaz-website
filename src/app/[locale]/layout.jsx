@@ -5,6 +5,7 @@ import { routing } from '@/i18n/routing';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
+import NextTopLoader from 'nextjs-toploader';
 import { SITE_NAME, SITE_URL } from '@/lib/seo';
 import '../globals.css';
 
@@ -48,6 +49,18 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html lang={locale} dir="ltr" className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
+        <NextTopLoader
+          color="#ffffff"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+          shadow="0 0 24px 4px #ffffff, 0 0 12px 2px #ffffff, 0 0 6px 1px #ffffff"
+          zIndex={99999}
+        />
         <NextIntlClientProvider messages={messages}>
           <StructuredData />
           <Header />

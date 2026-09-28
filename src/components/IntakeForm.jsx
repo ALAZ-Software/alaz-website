@@ -87,8 +87,14 @@ export default function IntakeForm() {
   };
 
   return <>
-    <main className={cn('w-full px-[clamp(24px,4.2vw,72px)]', complete ? 'min-h-dvh pt-[76px] pb-0 flex flex-col' : 'pt-[128px] pb-[160px] min-h-screen mobile:pt-[105px] mobile:pb-[100px]')}>
-      <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('sectionTopLeft')}</span><span>{t('sectionTopRight')}</span></div>
+    <main className={cn('w-full relative px-[clamp(24px,4.2vw,72px)]', complete ? 'min-h-dvh pt-[76px] pb-0 flex flex-col' : 'pt-[128px] pb-[160px] min-h-screen mobile:pt-[105px] mobile:pb-[100px]')}>
+      {!complete && <div className="absolute inset-x-0 top-0 h-[clamp(600px,50vw,780px)] overflow-hidden pointer-events-none" aria-hidden="true">
+        <video className="absolute inset-0 w-full h-full object-cover opacity-[.5]" autoPlay loop muted playsInline preload="auto">
+          <source src="/videos/start-project-rocket.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(9,9,9,.75)_0%,rgba(9,9,9,.15)_55%,rgba(9,9,9,.35)_100%),linear-gradient(180deg,rgba(9,9,9,.55)_0%,rgba(9,9,9,.10)_45%,#090909_100%)]" />
+      </div>}
+      <div className="relative z-[1] font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('sectionTopLeft')}</span><span>{t('sectionTopRight')}</span></div>
       {complete ? <div className="max-w-[950px] pt-[clamp(100px,14vw,190px)] pb-[70px] flex-1 w-full !max-w-none flex flex-col items-center justify-center text-center !py-[clamp(48px,8vh,110px)]">
           <div className="h-[68px] w-[68px] border border-white grid place-items-center mb-[32px]"><Check size={32} /></div>
           <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute">{t('completeEyebrow')}</span>
@@ -96,7 +102,7 @@ export default function IntakeForm() {
           <p className="text-[18px] leading-[1.7] text-mute max-w-[610px] mx-auto mb-[38px]">{t('completeMessageTemplate', { name: form.name.trim(), email: form.email.trim() })}</p>
           <Link href="/" className="inline-flex items-center justify-center gap-[22px] bg-white text-[#050505] px-[23px] py-[18px] text-[11px] font-extrabold tracking-[.04em] min-h-[58px] [transition:background_.2s_ease,transform_.2s_ease] hover:bg-[#d5d5d5] hover:[transform:translateY(-2px)] active:[transform:scale(.98)] xs:gap-[12px] mx-auto">{t('completeCta')} <ArrowUpRight size={17} /></Link>
         </div> : <>
-        <div className="pt-[100px] mobile:pt-[85px]">
+        <div className="relative z-[1] pt-[100px] mobile:pt-[85px]">
           <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute">{t('headingEyebrow')}</span>
           <h1 className="text-[length:clamp(77px,11.7vw,190px)] leading-[.86] tracking-[-.075em] font-black my-[30px] mobile:text-[length:clamp(75px,14vw,125px)]">{headingLines[0]}<br />{headingLines[1]}<span className="text-[#6e6e6e]">.</span></h1>
           <p className="text-[length:clamp(16px,1.8vw,23px)] text-mute tracking-[-.03em]">{t('introParagraph')}</p>

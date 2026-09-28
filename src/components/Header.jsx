@@ -24,7 +24,7 @@ export default function Header() {
     return () => { document.body.style.overflow = ''; };
   }, [open]);
 
-  return <header className="fixed inset-x-0 top-0 z-40 h-[76px] bg-[rgba(10,10,10,.94)] border-b border-line mobile:h-[66px]">
+  return <header className={cn('fixed inset-x-0 top-0 z-40 h-[76px] border-b border-line backdrop-saturate-150 [transition:background-color_.35s_ease,backdrop-filter_.35s_ease,-webkit-backdrop-filter_.35s_ease] mobile:h-[66px]', open ? 'bg-[#0a0a0a] backdrop-blur-0' : 'bg-[rgba(10,10,10,.55)] backdrop-blur-[14px]')}>
     <div className="h-full grid grid-cols-[1fr_auto_1fr] items-center px-[clamp(24px,4.2vw,72px)] mobile:h-[66px] mobile:grid-cols-[1fr_auto_auto] mobile:gap-[15px]">
       <Link href="/" className="font-display text-balance text-[26px] font-black tracking-[-.02em] leading-none w-max mobile:text-[25px]" aria-label="ALAZ home">ALAZ<span className="text-[#777]">.</span></Link>
       <nav className="flex items-center gap-[clamp(26px,3.2vw,52px)] mobile:hidden" aria-label="Main navigation">
