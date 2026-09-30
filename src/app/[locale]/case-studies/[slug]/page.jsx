@@ -35,7 +35,7 @@ export default async function CaseStudyPage({ params }) {
   const project = projects.find(item => item.slug === slug);
   if (!project) return (
     <main className="pt-[76px] min-h-[70vh] mobile:pt-[66px] w-full px-[clamp(24px,4.2vw,72px)]">
-      <h1 className="text-[length:clamp(64px,12vw,200px)] font-black my-[25px]">{t('notFoundHeading')}</h1>
+      <h1 data-reveal="mask" className="text-[length:clamp(64px,12vw,200px)] font-black my-[25px]">{t('notFoundHeading')}</h1>
       <Link href="/case-studies" className="inline-flex items-center gap-[18px] border-b border-white pb-[12px] font-mono text-[11px] tracking-[.03em] whitespace-nowrap [transition:gap_.2s_ease] hover:gap-[26px]">
         {t('backToArchive')} <ArrowLeft size={16} />
       </Link>
@@ -74,13 +74,13 @@ export default async function CaseStudyPage({ params }) {
     <JsonLd data={caseStudySchema} />
     <main>
       <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[128px] pb-[80px] mobile:pt-[100px]">
-        <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
+        <div data-reveal="line" className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
           <Link href="/case-studies">{t('allCaseStudies')}</Link>
           <span>{t('projectLabel')} / {project.number}</span>
         </div>
         <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[110px] mobile:mt-[80px] mb-[22px]">{project.type} / {project.discipline}</p>
-        <h1 className="text-[length:clamp(64px,12vw,200px)] leading-[.86] tracking-[-.095em] font-black mb-[22px] mobile:text-[length:clamp(75px,17vw,135px)] mobile:mb-[40px]">{project.name}<span className="text-[#6e6e6e]">.</span></h1>
-        <p className="text-[length:clamp(19px,2.4vw,32px)] tracking-[-.04em] max-w-[740px] leading-[1.4] text-[#b4b4b4]">{project.summary}</p>
+        <h1 data-reveal="mask" className="text-[length:clamp(64px,12vw,200px)] leading-[.86] tracking-[-.095em] font-black mb-[22px] mobile:text-[length:clamp(75px,17vw,135px)] mobile:mb-[40px]">{project.name}<span className="text-[#6e6e6e]">.</span></h1>
+        <p data-reveal="fade" className="text-[length:clamp(19px,2.4vw,32px)] tracking-[-.04em] max-w-[740px] leading-[1.4] text-[#b4b4b4]">{project.summary}</p>
       </div>
 
       <div className="w-full h-[clamp(350px,60vw,850px)] bg-[#171717] relative">
@@ -96,30 +96,30 @@ export default async function CaseStudyPage({ params }) {
         <div className="grid grid-cols-2 gap-[50px] py-[65px] border-t border-line mobile:grid-cols-1 mobile:gap-0 mobile:py-[50px]">
           <div>
             <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim mb-[34px]">{t('challengeEyebrow')}</p>
-            <h2 className="text-[length:clamp(38px,5vw,80px)] leading-[.99] tracking-[-.07em] font-extrabold">{challengeHeading[0]}<br />{challengeHeading[1]}</h2>
+            <h2 data-reveal="mask" className="text-[length:clamp(38px,5vw,80px)] leading-[.99] tracking-[-.07em] font-extrabold">{challengeHeading[0]}<br />{challengeHeading[1]}</h2>
           </div>
-          <p className="text-mute leading-[1.8] text-[length:clamp(16px,1.6vw,22px)] max-w-[520px] pt-[42px] mobile:pt-[25px]">{project.challenge}</p>
+          <p data-reveal="fade" className="text-mute leading-[1.8] text-[length:clamp(16px,1.6vw,22px)] max-w-[520px] pt-[42px] mobile:pt-[25px]">{project.challenge}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-[50px] py-[65px] border-t border-line mobile:grid-cols-1 mobile:gap-0 mobile:py-[50px]">
           <div>
             <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim mb-[34px]">{t('approachEyebrow')}</p>
-            <h2 className="text-[length:clamp(38px,5vw,80px)] leading-[.99] tracking-[-.07em] font-extrabold">{approachHeading[0]}<br />{approachHeading[1]}</h2>
+            <h2 data-reveal="mask" className="text-[length:clamp(38px,5vw,80px)] leading-[.99] tracking-[-.07em] font-extrabold">{approachHeading[0]}<br />{approachHeading[1]}</h2>
           </div>
-          <p className="text-mute leading-[1.8] text-[length:clamp(16px,1.6vw,22px)] max-w-[520px] pt-[42px] mobile:pt-[25px]">{project.approach}</p>
+          <p data-reveal="fade" className="text-mute leading-[1.8] text-[length:clamp(16px,1.6vw,22px)] max-w-[520px] pt-[42px] mobile:pt-[25px]">{project.approach}</p>
         </div>
 
         <div className="grid grid-cols-2 gap-[50px] py-[65px] border-t border-line mobile:grid-cols-1 mobile:gap-0 mobile:py-[50px]">
           <div>
             <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim mb-[34px]">{t('outcomeEyebrow')}</p>
-            <h2 className="text-[length:clamp(38px,5vw,80px)] leading-[.99] tracking-[-.07em] font-extrabold">{outcomeHeading[0]}<br />{outcomeHeading[1]}</h2>
+            <h2 data-reveal="mask" className="text-[length:clamp(38px,5vw,80px)] leading-[.99] tracking-[-.07em] font-extrabold">{outcomeHeading[0]}<br />{outcomeHeading[1]}</h2>
           </div>
-          <p className="text-mute leading-[1.8] text-[length:clamp(16px,1.6vw,22px)] max-w-[520px] pt-[42px] mobile:pt-[25px]">{project.outcome}</p>
+          <p data-reveal="fade" className="text-mute leading-[1.8] text-[length:clamp(16px,1.6vw,22px)] max-w-[520px] pt-[42px] mobile:pt-[25px]">{project.outcome}</p>
         </div>
 
         <div className="grid grid-cols-3 border-y border-line mobile:grid-cols-1">
           {project.markers.map((marker, i) => (
-            <div key={marker} className="p-[35px_25px] border-r border-line min-h-[145px] first:pl-0 last:border-r-0 mobile:min-h-[110px] mobile:py-[22px] mobile:px-0 mobile:border-r-0 mobile:border-b mobile:border-line">
+            <div key={marker} data-reveal="fade" style={{ '--reveal-delay': `${i * 80}ms` }} className="p-[35px_25px] border-r border-line min-h-[145px] first:pl-0 last:border-r-0 mobile:min-h-[110px] mobile:py-[22px] mobile:px-0 mobile:border-r-0 mobile:border-b mobile:border-line">
               <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim block mb-[35px] mobile:mb-[17px]">0{i + 1} / {t('deliverableLabel')}</span>
               <strong className="text-[15px] font-bold">{marker}</strong>
             </div>

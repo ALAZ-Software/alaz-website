@@ -6,6 +6,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import NextTopLoader from 'nextjs-toploader';
+import SmoothScroll from '@/components/SmoothScroll';
+import ScrollReveal from '@/components/ScrollReveal';
 import { SITE_NAME, SITE_URL } from '@/lib/seo';
 import '../globals.css';
 
@@ -47,8 +49,9 @@ export default async function LocaleLayout({ children, params }) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir="ltr" className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang={locale} dir="ltr" suppressHydrationWarning className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('reveal-ready')" }} />
         <link rel="preconnect" href="https://images.hostinger.com" />
         <link rel="dns-prefetch" href="https://images.hostinger.com" />
       </head>
@@ -66,6 +69,8 @@ export default async function LocaleLayout({ children, params }) {
           zIndex={99999}
         />
         <NextIntlClientProvider messages={messages}>
+          <SmoothScroll />
+          <ScrollReveal />
           <StructuredData />
           <Header />
           {children}

@@ -40,8 +40,16 @@
   }
 
   html {
-    scroll-behavior: smooth;
     scroll-padding-top: 78px;
+  }
+
+  /* Lenis drives the smooth scrolling; native smooth scroll would fight it. */
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
   }
 
   body {
@@ -54,6 +62,39 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+  }
+
+  /* Scroll reveals. Hidden state only applies once the head script set .reveal-ready,
+     so content stays visible without JS. Each element animates once, in 0.6s or less. */
+  .reveal-ready [data-reveal] {
+    transition: opacity .6s cubic-bezier(.22, 1, .36, 1), transform .6s cubic-bezier(.22, 1, .36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  .reveal-ready [data-reveal="fade"]:not(.is-revealed) {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  /* Headings and section rules: a slightly longer fade with a small rise.
+     No clip-path here: a zero-area element never counts as intersecting, so it would stay hidden. */
+  .reveal-ready [data-reveal="mask"]:not(.is-revealed) {
+    opacity: 0;
+    transform: translateY(.14em);
+  }
+
+  .reveal-ready [data-reveal="line"]:not(.is-revealed) {
+    opacity: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce), (scripting: none) {
+    .reveal-ready [data-reveal] {
+      transition: none;
+    }
+    .reveal-ready [data-reveal]:not(.is-revealed) {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   button,

@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }) {
   if (!post) {
     return (
       <main className="pt-[76px] min-h-[70vh] mobile:pt-[66px] px-[clamp(24px,4.2vw,72px)]">
-        <h1 className="text-[length:clamp(64px,12vw,200px)] font-black my-[25px]">{t('notFoundHeading')}</h1>
+        <h1 data-reveal="mask" className="text-[length:clamp(64px,12vw,200px)] font-black my-[25px]">{t('notFoundHeading')}</h1>
         <Link href="/blog" className="inline-flex items-center gap-[18px] border-b border-white pb-[12px] font-mono text-[11px] tracking-[.03em] whitespace-nowrap [transition:gap_.2s_ease] hover:gap-[26px]">
           {t('backToBlogCta')} <ArrowLeft size={16} />
         </Link>
@@ -84,13 +84,13 @@ export default async function BlogPostPage({ params }) {
       <JsonLd data={blogPosting} />
       <main>
         <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[128px] pb-[80px] mobile:pt-[100px]">
-          <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
+          <div data-reveal="line" className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
             <Link href="/blog">{t('allFieldNotes')}</Link>
             <span>{t('blogLabelPrefix')} / {post.tag}</span>
           </div>
           <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[110px] mobile:mt-[80px] mb-[22px]"><time dateTime={post.date}>{post.dateLabel}</time> — {time} {t('readingSuffix')}</p>
-          <h1 className="text-[length:clamp(64px,12vw,200px)] leading-[.86] tracking-[-.075em] font-black mb-[22px] mobile:text-[length:clamp(75px,17vw,135px)] mobile:mb-[40px]">{post.title.replace(/\s+/g, ' ')}</h1>
-          <p className="text-[length:clamp(19px,2.4vw,32px)] tracking-[-.04em] max-w-[740px] leading-[1.4] text-[#b4b4b4]">{post.excerpt}</p>
+          <h1 data-reveal="mask" className="text-[length:clamp(64px,12vw,200px)] leading-[.86] tracking-[-.075em] font-black mb-[22px] mobile:text-[length:clamp(75px,17vw,135px)] mobile:mb-[40px]">{post.title.replace(/\s+/g, ' ')}</h1>
+          <p data-reveal="fade" className="text-[length:clamp(19px,2.4vw,32px)] tracking-[-.04em] max-w-[740px] leading-[1.4] text-[#b4b4b4]">{post.excerpt}</p>
         </div>
 
         <div className="w-full h-[clamp(230px,38vw,520px)] bg-[#171717] overflow-hidden relative">
