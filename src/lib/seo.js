@@ -3,8 +3,8 @@ import { routing } from '@/i18n/routing';
 export const SITE_URL = 'https://alaz.pro';
 export const SITE_NAME = 'ALAZ';
 export const ORG_ID = `${SITE_URL}/#organization`;
-export const LEGAL_NAME = 'ALAZ Yazılım';
-export const BRAND_ALIASES = ['ALAZ YAZILIM', 'ALAZ Yazılım', 'alaz.pro'];
+export const LEGAL_NAME = 'ALAZ Software';
+export const BRAND_ALIASES = ['ALAZ SOFTWARE', 'ALAZ Software', 'alaz.pro'];
 export const TWITTER_HANDLE = '@alaz_pro';
 
 // Assets live in /public so crawlers never depend on a third-party host.

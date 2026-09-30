@@ -1,6 +1,6 @@
 # ALAZ
 
-> ALAZ (ALAZ Yazılım) is an independent software architecture and web engineering studio. We design and build custom web applications, backend systems, cloud infrastructure and fast frontends for companies that need software that keeps working as they grow. The site is available in English and Turkish.
+> ALAZ (ALAZ Software) is an independent software architecture and web engineering studio. We design and build custom web applications, backend systems, cloud infrastructure and fast frontends for companies that need software that keeps working as they grow. The site is available in English and Turkish.
 
 ALAZ is a small engineering team, not an agency with account managers. The people who scope a project are the people who build it. Work is based on Next.js, React, Node.js and cloud infrastructure, with a focus on page speed, reliability and clean handover.
 

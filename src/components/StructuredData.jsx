@@ -6,7 +6,7 @@ import { BRAND_ALIASES, LEGAL_NAME, LOGO_URL, OG_IMAGE, SITE_NAME, SITE_URL, SOC
 // the Organization / WebSite identity. Per-page schemas (BlogPosting, FAQPage,
 // BreadcrumbList, Service) stack on top via each page's own JSON-LD.
 const DESCRIPTIONS = {
-  en: 'ALAZ (ALAZ Yazılım) is an independent software architecture and high-performance web engineering studio. We build resilient systems, native performance, and connected digital ecosystems.',
+  en: 'ALAZ (ALAZ Software) is an independent software architecture and high-performance web engineering studio. We build resilient systems, native performance, and connected digital ecosystems.',
   tr: 'ALAZ (ALAZ Yazılım), bağımsız bir yazılım mimarisi ve yüksek performanslı web mühendisliği stüdyosudur. Dayanıklı sistemler, yüksek performans ve birbirine bağlı dijital ekosistemler geliştiririz.',
 };
 
