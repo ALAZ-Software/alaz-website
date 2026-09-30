@@ -530,7 +530,8 @@
       "GÖRÜNTÜLE"
     ],
     "noteLeft": "İNDEKSİN SONU",
-    "noteRight": "YENİ SİSTEMLER GELİŞTİRİLİYOR"
+    "noteRight": "YENİ SİSTEMLER GELİŞTİRİLİYOR",
+    "previewAlt": "{name} proje önizlemesi"
   },
   "caseStudy": {
     "notFoundHeading": "PROJE BULUNAMADI.",
@@ -757,6 +758,53 @@
         "description": "Aradığınız ALAZ sayfası bulunamadı."
       },
       "body": "Aradığınız sayfa mevcut değil veya taşınmış olabilir. Ana sayfaya dönebilirsiniz."
+    }
+  },
+  "seo": {
+    "breadcrumbHome": "Ana Sayfa",
+    "services": "Hizmetler",
+    "about": "Hakkımızda",
+    "caseStudies": "Vaka Çalışmaları",
+    "blog": "Blog",
+    "startProject": "Proje Başlat",
+    "keywords": {
+      "home": [
+        "yazılım mimarisi stüdyosu",
+        "özel yazılım geliştirme",
+        "yüksek performanslı web geliştirme",
+        "Next.js geliştirme",
+        "bulut altyapı",
+        "web uygulaması geliştirme",
+        "ALAZ Yazılım"
+      ],
+      "about": [
+        "yazılım mühendisliği stüdyosu",
+        "bağımsız yazılım mimarisi",
+        "mühendislik ilkeleri",
+        "nasıl yazılım geliştiriyoruz",
+        "ALAZ Yazılım"
+      ],
+      "archive": [
+        "yazılım vaka çalışmaları",
+        "bulut altyapı projeleri",
+        "sistem tasarımı örnekleri",
+        "web performansı sonuçları",
+        "ALAZ projeleri"
+      ],
+      "blog": [
+        "yazılım mimarisi blog",
+        "web sitesi performansı",
+        "Next.js",
+        "mühendislik notları",
+        "site hızı ve dönüşüm"
+      ],
+      "startProject": [
+        "yazılım projesi başlat",
+        "yazılım projesi teklifi",
+        "yazılım stüdyosu ile çalışmak",
+        "özel web uygulaması teklifi",
+        "ALAZ iletişim"
+      ]
     }
   }
 }

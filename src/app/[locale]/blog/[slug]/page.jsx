@@ -5,9 +5,9 @@ import { Link } from '@/i18n/navigation';
 import Markdown from '@/components/Markdown';
 import ReadProgress from '@/components/ReadProgress';
 import enMessages from '@messages/en.json';
-import { buildMetadata } from '@/lib/seo';
+import JsonLd, { BreadcrumbJsonLd } from '@/components/JsonLd';
+import { LOGO_URL, ORG_ID, SITE_NAME, SITE_URL, buildMetadata, urlFor } from '@/lib/seo';
 
-const ORG_URL = 'https://alaz.pro';
 const readingTime = (text) => Math.max(1, Math.round(text.trim().split(/\s+/).filter(Boolean).length / 200));
 
 export function generateStaticParams() {
@@ -37,6 +37,7 @@ export async function generateMetadata({ params }) {
 export default async function BlogPostPage({ params }) {
   const { locale, slug } = await params;
   const t = await getTranslations('blogPost');
+  const tSeo = await getTranslations('seo');
   const tRoot = await getTranslations();
   const posts = tRoot.raw('blogPosts');
   const post = posts.find((item) => item.slug === slug);
@@ -55,6 +56,8 @@ export default async function BlogPostPage({ params }) {
   const time = readingTime(post.content);
   const next = posts.find((item) => item.slug !== post.slug) || posts[0];
 
+  const postUrl = urlFor(locale, `/blog/${post.slug}`);
+
   const blogPosting = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -63,23 +66,29 @@ export default async function BlogPostPage({ params }) {
     image: [post.cover],
     datePublished: post.date,
     dateModified: post.date,
-    author: { '@type': 'Organization', name: post.author.name },
-    publisher: { '@id': `${ORG_URL}/#organization` },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': locale === 'en' ? `${ORG_URL}/blog/${post.slug}` : `${ORG_URL}/${locale}/blog/${post.slug}` },
+    author: { '@type': 'Organization', '@id': ORG_ID, name: SITE_NAME, url: SITE_URL },
+    publisher: { '@type': 'Organization', '@id': ORG_ID, name: SITE_NAME, logo: { '@type': 'ImageObject', url: LOGO_URL } },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+    url: postUrl,
     inLanguage: locale,
   };
 
   return (
     <>
       <ReadProgress />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPosting) }} />
+      <BreadcrumbJsonLd crumbs={[
+        { name: tSeo('breadcrumbHome'), url: urlFor(locale) },
+        { name: tSeo('blog'), url: urlFor(locale, '/blog') },
+        { name: post.title, url: postUrl },
+      ]} />
+      <JsonLd data={blogPosting} />
       <main>
         <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[128px] pb-[80px] mobile:pt-[100px]">
           <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
             <Link href="/blog">{t('allFieldNotes')}</Link>
             <span>{t('blogLabelPrefix')} / {post.tag}</span>
           </div>
-          <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[110px] mobile:mt-[80px] mb-[22px]">{post.dateLabel} — {time} {t('readingSuffix')}</p>
+          <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[110px] mobile:mt-[80px] mb-[22px]"><time dateTime={post.date}>{post.dateLabel}</time> — {time} {t('readingSuffix')}</p>
           <h1 className="text-[length:clamp(64px,12vw,200px)] leading-[.86] tracking-[-.075em] font-black mb-[22px] mobile:text-[length:clamp(75px,17vw,135px)] mobile:mb-[40px]">{post.title.replace(/\s+/g, ' ')}</h1>
           <p className="text-[length:clamp(19px,2.4vw,32px)] tracking-[-.04em] max-w-[740px] leading-[1.4] text-[#b4b4b4]">{post.excerpt}</p>
         </div>
@@ -91,7 +100,7 @@ export default async function BlogPostPage({ params }) {
         <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[35px]">
           <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex justify-between text-dim pb-[125px] mobile:pb-[70px]">
             <span>{t('fieldNotesLabel')}</span>
-            <span>{post.dateLabel}</span>
+            <time dateTime={post.date}>{post.dateLabel}</time>
           </div>
           <Markdown content={post.content} />
 

@@ -26,7 +26,7 @@ export default async function Footer() {
         <a href="https://github.com/alaz-pro" target="_blank" rel="noopener noreferrer" className="hover:text-white">GITHUB</a>
         {links.map(l => <Link key={l.href} href={l.href} className="hover:text-white">{l.label}</Link>)}
       </div>
-      <Link href="/" className="font-mono text-[9px] whitespace-nowrap hover:text-white mobile:ml-auto">{t('backTop')}</Link>
+      <a href="#top" className="font-mono text-[9px] whitespace-nowrap hover:text-white mobile:ml-auto">{t('backTop')}</a>
     </div>
   </footer>;
 }

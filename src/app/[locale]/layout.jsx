@@ -48,7 +48,11 @@ export default async function LocaleLayout({ children, params }) {
 
   return (
     <html lang={locale} dir="ltr" className={`${archivo.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
-      <body>
+      <head>
+        <link rel="preconnect" href="https://images.hostinger.com" />
+        <link rel="dns-prefetch" href="https://images.hostinger.com" />
+      </head>
+      <body id="top">
         <NextTopLoader
           color="#ffffff"
           initialPosition={0.08}

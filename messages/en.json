@@ -528,7 +528,8 @@
       "VIEW"
     ],
     "noteLeft": "END OF INDEX",
-    "noteRight": "MORE SYSTEMS IN DEVELOPMENT"
+    "noteRight": "MORE SYSTEMS IN DEVELOPMENT",
+    "previewAlt": "{name} project preview"
   },
   "caseStudy": {
     "notFoundHeading": "PROJECT NOT FOUND.",
@@ -756,6 +757,53 @@
         "description": "The requested ALAZ page could not be found."
       },
       "body": "This route does not exist. Return to the beginning."
+    }
+  },
+  "seo": {
+    "breadcrumbHome": "Home",
+    "services": "Services",
+    "about": "About",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "startProject": "Start a Project",
+    "keywords": {
+      "home": [
+        "software architecture studio",
+        "custom software development",
+        "high-performance web engineering",
+        "Next.js development",
+        "cloud infrastructure",
+        "web application development",
+        "ALAZ"
+      ],
+      "about": [
+        "software engineering studio",
+        "independent software architecture",
+        "engineering principles",
+        "how we build software",
+        "ALAZ Yazılım"
+      ],
+      "archive": [
+        "software case studies",
+        "cloud infrastructure projects",
+        "system design case study",
+        "web performance results",
+        "ALAZ projects"
+      ],
+      "blog": [
+        "software architecture blog",
+        "web performance",
+        "Next.js",
+        "engineering field notes",
+        "website speed and conversions"
+      ],
+      "startProject": [
+        "start a software project",
+        "software project inquiry",
+        "hire a software engineering studio",
+        "custom web application quote",
+        "ALAZ contact"
+      ]
     }
   }
 }

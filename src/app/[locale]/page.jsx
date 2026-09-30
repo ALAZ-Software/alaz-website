@@ -9,7 +9,8 @@ import { buildMetadata } from '@/lib/seo';
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home.meta' });
-  return buildMetadata({ locale, path: '', title: t('title'), description: t('description') });
+  const tSeo = await getTranslations({ locale, namespace: 'seo' });
+  return buildMetadata({ locale, path: '', title: t('title'), description: t('description'), keywords: tSeo.raw('keywords.home') });
 }
 
 export default async function HomePage() {
@@ -68,7 +69,7 @@ export default async function HomePage() {
         </div>
       </div>
 
-      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-[#0e0e0e] pt-0 " id=" validation">
+      <section className="w-full px-[clamp(24px,4.2vw,72px)] bg-[#0e0e0e] pt-0 " id="validation">
         <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('validation.eyebrowLeft')}</span><span>{t('validation.eyebrowRight')}</span></div>
         <div className="flex items-center justify-between mt-[72px] mobile:mt-[60px] [&_svg]:text-[#aaa] mobile:[&_svg]:w-[30px]"><h2 className="text-[length:clamp(64px,10.5vw,180px)] leading-[.85] tracking-[-.075em] font-black mobile:text-[length:clamp(57px,13vw,95px)] xs:text-[13vw]">{validationHeading[0]}<span className="text-[#5f5f5f]">.</span></h2><ShieldCheck size={46} strokeWidth={1} aria-hidden="true" /></div>
         <p className="text-mute text-[length:clamp(14px,1.3vw,17px)] leading-[1.6] mt-[28px] mobile:mt-[25px]">{t('validation.lead')}</p>

@@ -1,16 +1,20 @@
 import { getTranslations } from 'next-intl/server';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-import { buildMetadata } from '@/lib/seo';
+import { BreadcrumbJsonLd } from '@/components/JsonLd';
+import { buildMetadata, urlFor } from '@/lib/seo';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'about.meta' });
-  return buildMetadata({ locale, path: '/about', title: t('title'), description: t('description') });
+  const tSeo = await getTranslations({ locale, namespace: 'seo' });
+  return buildMetadata({ locale, path: '/about', title: t('title'), description: t('description'), keywords: tSeo.raw('keywords.about') });
 }
 
-export default async function AboutPage() {
+export default async function AboutPage({ params }) {
+  const { locale } = await params;
   const t = await getTranslations('about');
+  const tSeo = await getTranslations('seo');
   const tRoot = await getTranslations();
   const services = tRoot.raw('services');
   const heading = t.raw('heading');
@@ -21,6 +25,7 @@ export default async function AboutPage() {
   const processSteps = t.raw('processSteps');
 
   return <>
+    <BreadcrumbJsonLd crumbs={[{ name: tSeo('breadcrumbHome'), url: urlFor(locale) }, { name: tSeo('about'), url: urlFor(locale, '/about') }]} />
     <main>
       <section className="w-full relative bg-[#090909] overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(90deg,rgba(0,0,0,.35),transparent_40%,rgba(0,0,0,.35))] after:pointer-events-none">
         <video className="absolute inset-0 w-full h-full object-cover opacity-[.55] pointer-events-none" autoPlay loop muted playsInline preload="auto" aria-hidden="true">

@@ -2,22 +2,27 @@ import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
-import { buildMetadata } from '@/lib/seo';
+import { BreadcrumbJsonLd } from '@/components/JsonLd';
+import { buildMetadata, urlFor } from '@/lib/seo';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'archive.meta' });
-  return buildMetadata({ locale, path: '/case-studies', title: t('title'), description: t('description') });
+  const tSeo = await getTranslations({ locale, namespace: 'seo' });
+  return buildMetadata({ locale, path: '/case-studies', title: t('title'), description: t('description'), keywords: tSeo.raw('keywords.archive') });
 }
 
-export default async function ArchivePage() {
+export default async function ArchivePage({ params }) {
+  const { locale } = await params;
   const t = await getTranslations('archive');
+  const tSeo = await getTranslations('seo');
   const tRoot = await getTranslations();
   const projects = tRoot.raw('projects');
   const heading = t.raw('heading');
   const tableHeaders = t.raw('tableHeaders');
 
   return <>
+    <BreadcrumbJsonLd crumbs={[{ name: tSeo('breadcrumbHome'), url: urlFor(locale) }, { name: tSeo('caseStudies'), url: urlFor(locale, '/case-studies') }]} />
     <main className="w-full min-h-[70vh]">
       <section className="w-full relative bg-[#090909] overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(90deg,rgba(0,0,0,.35),transparent_40%,rgba(0,0,0,.35))] after:pointer-events-none">
         <video className="absolute inset-0 w-full h-full object-cover opacity-[.55] pointer-events-none" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
@@ -38,7 +43,7 @@ export default async function ArchivePage() {
           <div><h2 className="text-[length:clamp(48px,7vw,105px)] tracking-[-.08em] leading-none font-extrabold mobile:text-[55px] xs:text-[43px]">{project.name}</h2><span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute xs:text-[9px]">{project.discipline}</span></div>
           <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim mobile:hidden">{project.type}</span>
           <ArrowUpRight className="justify-self-end" size={28} strokeWidth={1.3} />
-          <div className="absolute z-[2] right-[10%] top-1/2 w-[220px] h-[130px] opacity-0 pointer-events-none -translate-y-[40%] -rotate-4 transition-[opacity,transform] duration-200 group-hover:opacity-100 group-hover:-translate-y-1/2 group-hover:-rotate-4 mobile:hidden"><Image src={project.image} alt="" fill sizes="220px" className="object-cover [filter:grayscale(1)]" /></div>
+          <div className="absolute z-[2] right-[10%] top-1/2 w-[220px] h-[130px] opacity-0 pointer-events-none -translate-y-[40%] -rotate-4 transition-[opacity,transform] duration-200 group-hover:opacity-100 group-hover:-translate-y-1/2 group-hover:-rotate-4 mobile:hidden"><Image src={project.image} alt={t('previewAlt', { name: project.name })} fill sizes="220px" className="object-cover [filter:grayscale(1)]" /></div>
         </Link>)}
         <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex justify-between py-[23px] pb-[155px] text-dim mobile:pb-[100px]"><span>{t('noteLeft')}</span><span>{t('noteRight')}</span></div>
       </div>

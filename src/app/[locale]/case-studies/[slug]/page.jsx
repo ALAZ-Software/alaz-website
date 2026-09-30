@@ -3,7 +3,8 @@ import Image from 'next/image';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import enMessages from '@messages/en.json';
-import { buildMetadata } from '@/lib/seo';
+import JsonLd, { BreadcrumbJsonLd } from '@/components/JsonLd';
+import { LOGO_URL, ORG_ID, SITE_NAME, buildMetadata, urlFor } from '@/lib/seo';
 
 export function generateStaticParams() {
   return enMessages.projects.map((project) => ({ slug: project.slug }));
@@ -26,8 +27,9 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function CaseStudyPage({ params }) {
-  const { slug } = await params;
+  const { locale, slug } = await params;
   const t = await getTranslations('caseStudy');
+  const tSeo = await getTranslations('seo');
   const tRoot = await getTranslations();
   const projects = tRoot.raw('projects');
   const project = projects.find(item => item.slug === slug);
@@ -46,7 +48,30 @@ export default async function CaseStudyPage({ params }) {
   const approachHeading = t.raw('approachHeading');
   const outcomeHeading = t.raw('outcomeHeading');
 
+  const url = urlFor(locale, `/case-studies/${project.slug}`);
+  const caseStudySchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.name,
+    headline: project.name,
+    description: project.summary,
+    ...(project.image ? { image: project.image } : {}),
+    genre: project.type,
+    keywords: [project.discipline, project.type].join(', '),
+    url,
+    mainEntityOfPage: url,
+    inLanguage: locale,
+    creator: { '@type': 'Organization', '@id': ORG_ID, name: SITE_NAME, url: urlFor(locale) },
+    publisher: { '@type': 'Organization', '@id': ORG_ID, name: SITE_NAME, logo: { '@type': 'ImageObject', url: LOGO_URL } },
+  };
+
   return <>
+    <BreadcrumbJsonLd crumbs={[
+      { name: tSeo('breadcrumbHome'), url: urlFor(locale) },
+      { name: tSeo('caseStudies'), url: urlFor(locale, '/case-studies') },
+      { name: project.name, url },
+    ]} />
+    <JsonLd data={caseStudySchema} />
     <main>
       <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[128px] pb-[80px] mobile:pt-[100px]">
         <div className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
