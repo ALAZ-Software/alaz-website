@@ -29,7 +29,7 @@ export default async function HomePage() {
   return <>
     <main>
       <section className="min-h-dvh relative bg-[#090909] overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(90deg,rgba(0,0,0,.19),transparent_40%,rgba(0,0,0,.18))] after:pointer-events-none" aria-labelledby="hero-title">
-        <video className="absolute inset-0 w-full h-full object-cover object-[center_56%] opacity-[.62] mobile:object-[54%_center]" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
+        <video poster="/videos/poster.png" className="absolute inset-0 w-full h-full object-cover object-[center_56%] opacity-[.62] mobile:object-[54%_center]" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
           <source src="/videos/dark-planet.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,10,.55)_0%,rgba(10,10,10,.10)_48%,#0a0a0a_100%)] pointer-events-none" aria-hidden="true" />
@@ -178,7 +178,7 @@ export default async function HomePage() {
       </section>
 
       <section className="min-h-[680px] relative bg-[#090909] overflow-hidden mobile:min-h-[650px]" id="contact">
-        <video className="absolute inset-0 w-full h-full object-cover opacity-[.62]" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
+        <video poster="/videos/poster.png" className="absolute inset-0 w-full h-full object-cover opacity-[.62]" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
           <source src="/videos/start-a-project-hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,10,10,.76)_0%,rgba(10,10,10,.68)_100%)] pointer-events-none" aria-hidden="true" />

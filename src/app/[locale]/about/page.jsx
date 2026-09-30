@@ -28,7 +28,7 @@ export default async function AboutPage({ params }) {
     <BreadcrumbJsonLd crumbs={[{ name: tSeo('breadcrumbHome'), url: urlFor(locale) }, { name: tSeo('about'), url: urlFor(locale, '/about') }]} />
     <main>
       <section className="w-full relative bg-[#090909] overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(90deg,rgba(0,0,0,.35),transparent_40%,rgba(0,0,0,.35))] after:pointer-events-none">
-        <video className="absolute inset-0 w-full h-full object-cover opacity-[.55] pointer-events-none" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
+        <video poster="/videos/poster.png" className="absolute inset-0 w-full h-full object-cover opacity-[.55] pointer-events-none" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
           <source src="/videos/about-section.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,9,9,.60)_0%,rgba(9,9,9,.20)_50%,#090909_100%)] pointer-events-none" aria-hidden="true" />
@@ -40,7 +40,7 @@ export default async function AboutPage({ params }) {
         </div>
       </section>
       <section className="w-full relative bg-[#090909] overflow-hidden">
-        <video className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
+        <video poster="/videos/poster.png" className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
           <source src="/videos/about-alaz-section.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,9,9,.55)_0%,rgba(9,9,9,.4)_45%,#090909_100%)] pointer-events-none" aria-hidden="true" />
@@ -71,7 +71,7 @@ export default async function AboutPage({ params }) {
         {processSteps.map(step => <article className="grid grid-cols-[15%_1fr_32%] gap-[25px] items-start border-b border-line py-[42px] pb-[48px] first-of-type:border-t first-of-type:border-line mobile:grid-cols-[45px_1fr] mobile:gap-[12px] mobile:py-[30px]" key={step.number}><span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim">{step.number} / 04</span><h3 className="text-[length:clamp(32px,4.2vw,65px)] tracking-[-.065em] leading-none font-bold mobile:text-[33px]">{step.title}</h3><p className="text-[15px] leading-[1.7] text-mute max-w-[370px] mobile:col-start-2">{step.body}</p></article>)}
       </div>
       <section className="w-full relative bg-[#090909] overflow-hidden">
-        <video className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
+        <video poster="/videos/poster.png" className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
           <source src="/videos/about-end-section.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#090909_0%,rgba(9,9,9,.4)_45%,rgba(9,9,9,.55)_100%)] pointer-events-none" aria-hidden="true" />

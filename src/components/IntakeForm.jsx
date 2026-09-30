@@ -89,7 +89,7 @@ export default function IntakeForm() {
   return <>
     <main className={cn('w-full relative px-[clamp(24px,4.2vw,72px)]', complete ? 'min-h-dvh pt-[76px] pb-0 flex flex-col' : 'pt-[128px] pb-[160px] min-h-screen mobile:pt-[105px] mobile:pb-[100px]')}>
       {!complete && <div className="absolute inset-x-0 top-0 h-[clamp(600px,50vw,780px)] overflow-hidden pointer-events-none" aria-hidden="true">
-        <video className="absolute inset-0 w-full h-full object-cover opacity-[.5]" autoPlay loop muted playsInline preload="auto">
+        <video poster="/videos/poster.png" className="absolute inset-0 w-full h-full object-cover opacity-[.5]" autoPlay loop muted playsInline preload="auto">
           <source src="/videos/start-project-rocket.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(9,9,9,.75)_0%,rgba(9,9,9,.15)_55%,rgba(9,9,9,.35)_100%),linear-gradient(180deg,rgba(9,9,9,.55)_0%,rgba(9,9,9,.10)_45%,#090909_100%)]" />

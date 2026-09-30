@@ -57,6 +57,7 @@ export default async function ServicesPage({ params }) {
         {/* Hero Section */}
         <section className="w-full relative bg-[#090909] overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(90deg,rgba(0,0,0,.35),transparent_40%,rgba(0,0,0,.35))] after:pointer-events-none">
           <video
+            poster="/videos/poster.png"
             className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none"
             autoPlay
             loop
@@ -244,6 +245,7 @@ export default async function ServicesPage({ params }) {
         {/* CTA Section */}
         <section className="w-full relative bg-[#090909] overflow-hidden">
           <video
+            poster="/videos/poster.png"
             className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none"
             autoPlay
             loop
