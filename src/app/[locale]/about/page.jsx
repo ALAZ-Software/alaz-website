@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
+import ContactInfo from '@/components/ContactInfo';
 import { buildMetadata, urlFor } from '@/lib/seo';
 
 export async function generateMetadata({ params }) {
@@ -14,6 +15,7 @@ export async function generateMetadata({ params }) {
 export default async function AboutPage({ params }) {
   const { locale } = await params;
   const t = await getTranslations('about');
+  const tc = await getTranslations('contact');
   const tSeo = await getTranslations('seo');
   const tRoot = await getTranslations();
   const services = tRoot.raw('services');
@@ -77,6 +79,12 @@ export default async function AboutPage({ params }) {
         <div className="absolute inset-0 bg-[linear-gradient(180deg,#090909_0%,rgba(9,9,9,.4)_45%,rgba(9,9,9,.55)_100%)] pointer-events-none" aria-hidden="true" />
         <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[150px] pb-[160px] relative z-[1] flex items-end justify-between gap-[40px] mobile:pt-[95px] mobile:pb-[100px] mobile:items-start mobile:flex-col"><p className="text-[length:clamp(30px,4.5vw,72px)] font-extrabold tracking-[-.07em] leading-[1.05]">{t('endTextTop')}<br /><span className="text-[#777]">{t('endTextBottom')}</span></p><Link href="/start-project" className="inline-flex items-center justify-center gap-[22px] bg-white text-[#050505] px-[23px] py-[18px] text-[11px] font-extrabold tracking-[.04em] min-h-[58px] [transition:background_.2s_ease,transform_.2s_ease] hover:bg-[#d5d5d5] hover:[transform:translateY(-2px)] active:[transform:scale(.98)] xs:gap-[12px]">{t('startCta')} <ArrowUpRight size={17} /></Link></div>
       </section>
+      <div className="w-full px-[clamp(24px,4.2vw,72px)] py-[80px] mobile:py-[60px]">
+        <div className="border-t border-line pt-[36px] flex items-start justify-between gap-[40px] mobile:flex-col mobile:gap-[24px]">
+          <div><p className="font-mono text-[11px] tracking-[.085em] text-[#bdbdbd]">{tc('label')}</p><a href={`mailto:${tc('email')}`} className="mt-[14px] inline-block font-mono text-[length:clamp(18px,2vw,26px)] font-light tracking-[.02em] text-white transition-colors duration-200 hover:text-mute">{tc('email')}</a></div>
+          <ContactInfo large />
+        </div>
+      </div>
     </main>
   </>;
 }

@@ -324,8 +324,29 @@
       }
     ]
   },
+  "contact": {
+    "label": "CONTACT",
+    "email": "hello@alaz.pro",
+    "offices": [
+      {
+        "region": "USA",
+        "lines": [
+          "1234 Example Street, Suite 100",
+          "New York, NY 10001",
+          "UNITED STATES"
+        ]
+      },
+      {
+        "region": "TR",
+        "lines": [
+          "Örnek Mah. Örnek Cad. No: 1",
+          "Kadıköy, İstanbul 34000",
+          "TURKEY"
+        ]
+      }
+    ]
+  },
   "footer": {
-    "eyebrow": "ALAZ / ENGINEERING STUDIO",
     "talk": "HAVE A SYSTEM IN MIND?",
     "copyright": "© 2025 ALAZ ENGINEERING. ALL RIGHTS RESERVED.",
     "backTop": "BACK TO TOP ↑",
@@ -723,7 +744,7 @@
   },
   "legal": {
     "sectionTopLeft": "ALAZ / INFORMATION",
-    "documentLabel": "DOCUMENT / 2025",
+    "documentLabel": "LAST UPDATED: OCTOBER 2026",
     "backToHome": "← BACK TO HOME",
     "legal": {
       "title": "LEGAL",
@@ -731,10 +752,44 @@
         "title": "Legal — ALAZ",
         "description": "Legal information about the ALAZ engineering website."
       },
-      "h1": "WEBSITE INFORMATION",
-      "p1": "This website presents ALAZ's engineering practice and provides a way to initiate a project inquiry. Submitting an inquiry does not create a service agreement or guarantee project acceptance.",
-      "h2": "CONTENT & AVAILABILITY",
-      "p2": "Information is provided for general purposes and may change. Project scope, deliverables, and terms are established only through a separate written agreement."
+      "sections": [
+        {
+          "heading": "Who we are",
+          "body": "alaz.pro is run by ALAZ, a small software engineering studio with offices in the United States and Türkiye. You can find the addresses and contact details in the footer and on the About page."
+        },
+        {
+          "heading": "Using this website",
+          "body": "You're welcome to browse the site and send us a project inquiry. Please don't scrape it at scale, probe it for weaknesses without asking us first, or use it for anything unlawful. We may change or take down parts of the site at any time without notice."
+        },
+        {
+          "heading": "No agreement by inquiry",
+          "body": "Sending an inquiry doesn't create a contract, and we don't promise to take every project on. Scope, price, timeline and deliverables are only binding once both sides sign a separate written agreement."
+        },
+        {
+          "heading": "Information on the site",
+          "body": "We try to keep things accurate, but the content is general information and is provided as is, without warranties of any kind. Case studies and blog posts reflect our experience and opinions at the time of writing; they aren't advice for your specific situation."
+        },
+        {
+          "heading": "Intellectual property",
+          "body": "The text, design, code and media on this site belong to ALAZ or are used with permission, unless noted otherwise. Names and logos of clients or tools we mention belong to their owners. Please ask before reusing our material."
+        },
+        {
+          "heading": "Links to other sites",
+          "body": "We may link to third-party sites. We don't control them and aren't responsible for what they say or how they handle your data."
+        },
+        {
+          "heading": "Liability",
+          "body": "To the extent the law allows, ALAZ isn't liable for losses that result from using this website or relying on its content. Nothing here limits liability that can't legally be limited."
+        },
+        {
+          "heading": "Governing law",
+          "body": "These terms are governed by the laws of the Republic of Türkiye. Courts in Istanbul have jurisdiction, unless mandatory consumer rules in your country say otherwise."
+        },
+        {
+          "heading": "Changes and questions",
+          "body": "We may update this page from time to time; the date at the top shows the latest version. Questions? Write to hello@alaz.pro."
+        }
+      ]
     },
     "privacy": {
       "title": "PRIVACY",
@@ -742,13 +797,44 @@
         "title": "Privacy — ALAZ",
         "description": "Learn how ALAZ handles information submitted through the project inquiry form."
       },
-      "h1": "YOUR INFORMATION",
-      "p1": "When you submit a project inquiry, we collect the contact details and project information you choose to provide. We use it to review your inquiry and respond to you. We do not sell this information.",
-      "h2": "RETENTION & REQUESTS",
-      "p2Before": "Inquiries are retained for as long as needed to respond and manage our correspondence. To ask about your information or request its removal, email ",
-      "p2After": ".",
-      "h3": "THIRD-PARTY CONTENT",
-      "p3": "This website may use externally hosted fonts and imagery. These providers may receive standard browser request information when their resources load."
+      "sections": [
+        {
+          "heading": "What we collect",
+          "body": "Only what you give us through the project inquiry form: your name, email address, company, and the details of your project. Our servers also keep basic technical logs (IP address, browser, requested page) for security and troubleshooting."
+        },
+        {
+          "heading": "Why we use it",
+          "body": "To read your inquiry, reply to you, and talk through a possible project. We don't use it for advertising, and we don't sell it or rent it out."
+        },
+        {
+          "heading": "Who sees it",
+          "body": "The people at ALAZ who handle inquiries, plus the hosting and email providers that run our systems on our behalf. They may only process your data for that purpose. We'll disclose information if a court or authority legally requires it."
+        },
+        {
+          "heading": "Cookies and tracking",
+          "body": "The site doesn't use advertising or analytics cookies. If that changes, we'll update this page and ask for consent where the law requires it."
+        },
+        {
+          "heading": "How long we keep it",
+          "body": "Inquiries are kept while we're talking to you and for a reasonable period afterwards, then deleted. If we end up working together, project records are kept as long as the contract and the law require."
+        },
+        {
+          "heading": "Your rights",
+          "body": "Depending on where you live (for example under the GDPR, the UK GDPR, Turkey's KVKK, or US state privacy laws), you can ask to see, correct, export or delete your data, or object to how we use it. Email hello@alaz.pro and we'll answer within 30 days. You can also complain to your local data protection authority."
+        },
+        {
+          "heading": "Security",
+          "body": "We use encrypted connections and restrict access to the data. No system is perfectly secure, so we can't guarantee absolute protection, but we take reasonable steps to keep your information safe."
+        },
+        {
+          "heading": "Children",
+          "body": "The site is meant for businesses and adults. We don't knowingly collect data from anyone under 16."
+        },
+        {
+          "heading": "Changes",
+          "body": "If we change how we handle your data, we'll update this page and the date above."
+        }
+      ]
     },
     "notFound": {
       "title": "PAGE NOT FOUND",

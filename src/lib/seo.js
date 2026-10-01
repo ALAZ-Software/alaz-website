@@ -5,18 +5,13 @@ export const SITE_NAME = 'ALAZ';
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const LEGAL_NAME = 'ALAZ Software';
 export const BRAND_ALIASES = ['ALAZ SOFTWARE', 'ALAZ Software', 'alaz.pro'];
-export const TWITTER_HANDLE = '@alaz_pro';
 
 // Assets live in /public so crawlers never depend on a third-party host.
 // logo.png is square (512x512): Google requires >=112x112 and a crawlable, stable URL.
 export const LOGO_URL = `${SITE_URL}/logo.png`;
 export const OG_IMAGE = { url: `${SITE_URL}/og-image.png`, width: 1200, height: 630, alt: 'ALAZ — Software & High-Performance Web Engineering' };
 
-export const SOCIAL_PROFILES = [
-  'https://www.linkedin.com/company/alaz-pro',
-  'https://github.com/alaz-pro',
-  'https://x.com/alaz_pro',
-];
+export const SOCIAL_PROFILES = [];
 
 const OG_LOCALES = { en: 'en_US', tr: 'tr_TR' };
 
@@ -68,7 +63,6 @@ export function buildMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      site: TWITTER_HANDLE,
       title,
       description,
       images: images.map((i) => i.url),

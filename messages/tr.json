@@ -325,8 +325,29 @@
       }
     ]
   },
+  "contact": {
+    "label": "İLETİŞİM",
+    "email": "hello@alaz.pro",
+    "offices": [
+      {
+        "region": "USA",
+        "lines": [
+          "1234 Example Street, Suite 100",
+          "New York, NY 10001",
+          "AMERİKA BİRLEŞİK DEVLETLERİ"
+        ]
+      },
+      {
+        "region": "TR",
+        "lines": [
+          "Örnek Mah. Örnek Cad. No: 1",
+          "Kadıköy, İstanbul 34000",
+          "TÜRKİYE"
+        ]
+      }
+    ]
+  },
   "footer": {
-    "eyebrow": "ALAZ / MÜHENDİSLİK STÜDYOSU",
     "talk": "AKLINIZDA BİR PROJE Mİ VAR?",
     "copyright": "© 2025 ALAZ MÜHENDİSLİK. TÜM HAKLARI SAKLIDIR.",
     "backTop": "BAŞA DÖN ↑",
@@ -724,7 +745,7 @@
   },
   "legal": {
     "sectionTopLeft": "ALAZ / BİLGİ",
-    "documentLabel": "BELGE / 2025",
+    "documentLabel": "SON GÜNCELLEME: EKİM 2026",
     "backToHome": "← ANA SAYFAYA DÖN",
     "legal": {
       "title": "YASAL",
@@ -732,10 +753,44 @@
         "title": "Yasal Şartlar — ALAZ",
         "description": "ALAZ yazılım stüdyosu web sitesi yasal kullanım şartları."
       },
-      "h1": "WEB SİTESİ KULLANIMI",
-      "p1": "Bu web sitesi ALAZ'ın mühendislik yaklaşımını tanıtmak ve proje talepleri toplamak amacıyla yayınlanmaktadır. Web sitesi üzerinden bir talep iletmek bağlayıcı bir hizmet sözleşmesi teşkil etmez.",
-      "h2": "İÇERİK VE KAPSAM",
-      "p2": "Web sitesinde yer alan bilgiler bilgilendirme amaçlıdır. Proje kapsamı, teslimatlar ve ticari koşullar taraflar arasında imzalanacak ayrı bir sözleşme ile belirlenir."
+      "sections": [
+        {
+          "heading": "Biz kimiz",
+          "body": "alaz.pro, Amerika Birleşik Devletleri ve Türkiye'de ofisleri bulunan küçük bir yazılım mühendisliği stüdyosu olan ALAZ tarafından işletilir. Adres ve iletişim bilgilerimiz sayfa altında ve Hakkımızda sayfasında yer alır."
+        },
+        {
+          "heading": "Siteyi kullanım",
+          "body": "Siteyi gezebilir ve bize proje talebi gönderebilirsiniz. Siteyi toplu olarak taramamanızı, bize haber vermeden güvenlik açığı aramamanızı ve hukuka aykırı bir amaçla kullanmamanızı rica ederiz. Sitenin bir bölümünü önceden haber vermeden değiştirebilir veya kaldırabiliriz."
+        },
+        {
+          "heading": "Talep göndermek sözleşme değildir",
+          "body": "Form üzerinden gönderilen bir talep sözleşme oluşturmaz; her projeyi kabul edeceğimizi de taahhüt etmeyiz. Kapsam, fiyat, süre ve teslimatlar ancak iki tarafın imzaladığı ayrı bir yazılı sözleşmeyle bağlayıcı olur."
+        },
+        {
+          "heading": "Sitedeki bilgiler",
+          "body": "İçeriği doğru tutmaya çalışıyoruz ancak buradaki bilgiler genel nitelikte olup olduğu gibi sunulur, herhangi bir garanti içermez. Vaka çalışmaları ve blog yazıları, yazıldıkları andaki deneyim ve görüşlerimizi yansıtır; sizin özel durumunuz için tavsiye niteliği taşımaz."
+        },
+        {
+          "heading": "Fikri mülkiyet",
+          "body": "Aksi belirtilmedikçe sitedeki metin, tasarım, kod ve medya ALAZ'a aittir veya izinle kullanılmaktadır. Andığımız müşteri ve araçların ad ve logoları sahiplerine aittir. İçeriklerimizi kullanmadan önce lütfen bize sorun."
+        },
+        {
+          "heading": "Dış bağlantılar",
+          "body": "Siteden üçüncü taraf sitelere bağlantı verebiliriz. Bu sitelerin içeriğini veya verilerinizi nasıl işlediklerini kontrol etmiyoruz, sorumluluk kabul etmiyoruz."
+        },
+        {
+          "heading": "Sorumluluk",
+          "body": "Kanunların izin verdiği ölçüde ALAZ, bu siteyi kullanmaktan veya içeriğine güvenmekten doğan zararlardan sorumlu değildir. Kanunen sınırlandırılamayan sorumluluklar bu hükümden etkilenmez."
+        },
+        {
+          "heading": "Uygulanacak hukuk",
+          "body": "Bu şartlara Türkiye Cumhuriyeti hukuku uygulanır. Ülkenizdeki emredici tüketici hükümleri saklı kalmak üzere İstanbul mahkemeleri yetkilidir."
+        },
+        {
+          "heading": "Değişiklikler ve sorular",
+          "body": "Bu sayfayı zaman zaman güncelleyebiliriz; en son sürümün tarihi yukarıda yazar. Sorularınız için hello@alaz.pro adresine yazabilirsiniz."
+        }
+      ]
     },
     "privacy": {
       "title": "GİZLİLİK",
@@ -743,13 +798,44 @@
         "title": "Gizlilik Politikası — ALAZ",
         "description": "ALAZ'ın proje talep formu üzerinden paylaşılan bilgileri nasıl koruduğunu öğrenin."
       },
-      "h1": "BİLGİLERİN KORUNMASI",
-      "p1": "Proje formu üzerinden bizimle paylaştığınız iletişim ve proje bilgilerini yalnızca projenizi değerlendirmek ve size dönüş yapmak amacıyla kullanırız. Bilgileriniz hiçbir şekilde üçüncü taraflara satılmaz veya paylaşılmaz.",
-      "h2": "VERİ SAKLAMA VE İLETİŞİM",
-      "p2Before": "İletilen bilgiler, teknik görüşmeleri ve iş birliği süreçlerini yürütmek için gereken süre boyunca güvenli sistemlerimizde tutulur. Bilgilerinizin silinmesini talep etmek için ",
-      "p2After": " adresine yazabilirsiniz.",
-      "h3": "HARİCİ KAYNAKLAR",
-      "p3": "Bu sitede kullanılan font veya medya kaynakları güvenli CDN servisleri üzerinden sunulabilir. Bu servisler temel tarayıcı istek başlıklarını işleyebilir."
+      "sections": [
+        {
+          "heading": "Neleri topluyoruz",
+          "body": "Yalnızca proje talep formunda bize verdiğiniz bilgileri: adınız, e-posta adresiniz, şirketiniz ve projenizin ayrıntıları. Sunucularımız ayrıca güvenlik ve hata ayıklama için temel teknik kayıtları (IP adresi, tarayıcı, istenen sayfa) tutar."
+        },
+        {
+          "heading": "Neden kullanıyoruz",
+          "body": "Talebinizi incelemek, size dönüş yapmak ve olası bir projeyi görüşmek için. Reklam amacıyla kullanmayız, satmayız ve kiralamayız."
+        },
+        {
+          "heading": "Kimler görebilir",
+          "body": "Talepleri ele alan ALAZ ekibi ve sistemlerimizi bizim adımıza çalıştıran barındırma ve e-posta hizmet sağlayıcıları. Bu sağlayıcılar verilerinizi yalnızca bu amaçla işleyebilir. Mahkeme veya yetkili bir makam kanunen talep ederse bilgi paylaşırız."
+        },
+        {
+          "heading": "Çerezler ve takip",
+          "body": "Sitede reklam veya analiz çerezi kullanılmaz. Bu durum değişirse bu sayfayı güncelleriz ve kanunun gerektirdiği yerde onayınızı isteriz."
+        },
+        {
+          "heading": "Ne kadar saklıyoruz",
+          "body": "Talepler, sizinle görüştüğümüz sürece ve sonrasında makul bir süre saklanır, ardından silinir. Birlikte çalışırsak proje kayıtları sözleşmenin ve kanunların gerektirdiği süre boyunca tutulur."
+        },
+        {
+          "heading": "Haklarınız",
+          "body": "Bulunduğunuz yere göre (örneğin KVKK, GDPR, UK GDPR veya ABD eyalet gizlilik yasaları kapsamında) verilerinize erişmeyi, düzeltmeyi, bir kopyasını almayı, silinmesini istemeyi veya işlenmesine itiraz etmeyi talep edebilirsiniz. hello@alaz.pro adresine yazın, 30 gün içinde yanıtlarız. Ayrıca yerel veri koruma kurumuna şikâyette bulunabilirsiniz."
+        },
+        {
+          "heading": "Güvenlik",
+          "body": "Şifreli bağlantılar kullanıyor ve verilere erişimi sınırlıyoruz. Hiçbir sistem kusursuz değildir, bu yüzden mutlak koruma garantisi veremeyiz, ancak bilgilerinizi korumak için makul önlemleri alırız."
+        },
+        {
+          "heading": "Çocuklar",
+          "body": "Site işletmeler ve yetişkinler içindir. 16 yaşın altındaki kişilerden bilerek veri toplamıyoruz."
+        },
+        {
+          "heading": "Değişiklikler",
+          "body": "Verilerinizi işleme şeklimiz değişirse bu sayfayı ve yukarıdaki tarihi güncelleriz."
+        }
+      ]
     },
     "notFound": {
       "title": "SAYFA BULUNAMADI",
