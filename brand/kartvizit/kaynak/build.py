@@ -2,7 +2,8 @@
 
     python build.py [output-dir]   (default: brand/kartvizit)
 
-Writes print PDFs (CMYK, 3 mm bleed, text as outlines), SVGs and PNG previews.
+For each Bidolubaskı format it writes a front and a back print PDF (CMYK,
+2 mm bleed, text as outlines) plus SVGs, and one PNG overview of all formats.
 """
 import sys
 import tempfile
@@ -15,55 +16,57 @@ import design
 from engine import write_pdf, write_svg
 
 OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent
-PREVIEW_PX_PER_MM = 24  # ~610 dpi
+PX_PER_MM = 16
 
 
-def rasterise(pdf_path, px_per_mm):
-    doc = pymupdf.open(pdf_path)
-    zoom = px_per_mm * 25.4 / 72
-    images = []
-    for page in doc:
+def rasterise(pdf_path):
+    zoom = PX_PER_MM * 25.4 / 72
+    out = []
+    for page in pymupdf.open(pdf_path):
         pix = page.get_pixmap(matrix=pymupdf.Matrix(zoom, zoom), alpha=False)
-        images.append(Image.frombytes("RGB", (pix.width, pix.height), pix.samples))
-    return images
+        out.append(Image.frombytes("RGB", (pix.width, pix.height), pix.samples))
+    return out
 
 
-def mockup(front, back, px_per_mm):
-    """Both sides on a light table with soft shadows."""
-    pad, gap = round(16 * px_per_mm), round(10 * px_per_mm)
-    cw, ch = front.size
-    size = (2 * pad + 2 * cw + gap, 2 * pad + ch)
+def overview(cards):
+    """Every format, front above back, on a light table with soft shadows."""
+    pad, gap = 12 * PX_PER_MM, 10 * PX_PER_MM
+    width = 2 * pad + sum(f.width for f, _ in cards) * PX_PER_MM + gap * (len(cards) - 1)
+    height = 2 * pad + max(f.height for f, _ in cards) * 2 * PX_PER_MM + gap
+    size = (round(width), round(height))
     canvas = Image.new("RGB", size, (226, 226, 224))
     shadow = Image.new("L", size, 0)
     d = ImageDraw.Draw(shadow)
-    off = round(1.2 * px_per_mm)
-    for x in (pad, pad + cw + gap):
-        d.rectangle((x + off * .3, pad + off, x + cw + off * .3, pad + ch + off), fill=120)
-    shadow = shadow.filter(ImageFilter.GaussianBlur(2.2 * px_per_mm))
+    spots, x = [], pad
+    for fmt, (front, back) in cards:
+        for i, img in enumerate((front, back)):
+            y = pad + i * (img.height + gap)
+            spots.append((img, round(x), round(y)))
+            d.rectangle((x + 6, y + 20, x + img.width + 6, y + img.height + 20), fill=120)
+        x += fmt.width * PX_PER_MM + gap
+    shadow = shadow.filter(ImageFilter.GaussianBlur(2.2 * PX_PER_MM))
     canvas.paste(Image.new("RGB", size, (150, 150, 148)), (0, 0), shadow)
-    canvas.paste(front, (pad, pad))
-    canvas.paste(back, (pad + cw + gap, pad))
+    for img, x, y in spots:
+        canvas.paste(img, (x, y))
     return canvas
 
 
 def main():
-    pages = design.pages()
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "svg").mkdir(exist_ok=True)
-    (OUT / "onizleme").mkdir(exist_ok=True)
+    pdf_dir, svg_dir, png_dir = OUT / "bidolubaski", OUT / "svg", OUT / "onizleme"
+    for d in (pdf_dir, svg_dir, png_dir):
+        d.mkdir(parents=True, exist_ok=True)
 
-    write_pdf(pages, OUT / "ALAZ-kartvizit-baski.pdf", mode="cmyk")
-    for page in pages:
-        write_pdf([page], OUT / f"ALAZ-kartvizit-{page.name}.pdf", mode="cmyk")
-        write_svg(page, OUT / "svg" / f"ALAZ-kartvizit-{page.name}.svg")
-
-    with tempfile.TemporaryDirectory() as tmp:
-        rgb = Path(tmp) / "preview.pdf"
-        write_pdf(pages, rgb, mode="rgb", trim_only=True)
-        trimmed = rasterise(rgb, PREVIEW_PX_PER_MM)
-    for page, img in zip(pages, trimmed):
-        img.save(OUT / "onizleme" / f"ALAZ-kartvizit-{page.name}.png", optimize=True)
-    mockup(*trimmed, PREVIEW_PX_PER_MM).save(OUT / "onizleme" / "ALAZ-kartvizit-mockup.png", optimize=True)
+    cards = []
+    for fmt in design.FORMATS:
+        pages = design.sides(fmt)
+        for page in pages:
+            write_pdf([page], pdf_dir / f"ALAZ-kartvizit-{page.name}.pdf", mode="cmyk")
+            write_svg(page, svg_dir / f"ALAZ-kartvizit-{page.name}.svg")
+        with tempfile.TemporaryDirectory() as tmp:
+            rgb = Path(tmp) / "preview.pdf"
+            write_pdf(pages, rgb, mode="rgb", trim_only=True)
+            cards.append((fmt, rasterise(rgb)))
+    overview(cards).save(png_dir / "ALAZ-kartvizit-onizleme.png", optimize=True)
 
 
 if __name__ == "__main__":

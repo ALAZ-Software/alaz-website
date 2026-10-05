@@ -1,17 +1,36 @@
-"""ALAZ business card, front and back.
+"""ALAZ business card, front and back, in every format Bidolubaskı prints.
 
 Both sides share one skeleton taken from the site's hero section:
-a mono label row on top, one huge Archivo Black statement ending in a grey
-square period, a hairline rule, and a mono row at the bottom, all over the
+a mono label on top, one huge Archivo Black statement ending in a grey
+square period, a hairline rule, and mono text at the bottom, all over the
 four-column hairline grid.
 """
 
+from dataclasses import dataclass
+
 from engine import PT, Face, Ink, Page, Style, shape
 
-# ---------------------------------------------------------------- format (mm)
-W, H = 85.0, 55.0   # trim size
-BLEED = 3.0
-M = 5.0             # margin / safe area
+# ---------------------------------------------------------------- formats (mm)
+
+@dataclass(frozen=True)
+class Format:
+    name: str      # used in file names
+    width: float   # trim size
+    height: float
+    bleed: float = 2.0  # Bidolubaskı: 8.2x5 cm is supplied as 8.6x5.4 cm
+    margin: float = 5.0
+
+    @property
+    def vertical(self):
+        return self.height > self.width
+
+
+FORMATS = [
+    Format("8.2x5-yatay", 82, 50),
+    Format("8.2x5-dikey", 50, 82),
+    Format("9x5-yatay", 90, 50),
+    Format("9x5-dikey", 50, 90),
+]
 
 # ---------------------------------------------------------------- tokens (src/app/globals.css)
 BG = Ink("#0a0a0a", (60, 40, 40, 100))      # --ink; rich black on press
@@ -27,8 +46,9 @@ MONO = Face("JetBrainsMono[wght].ttf", {"wght": 500})
 
 LABEL_PT = 5.5
 CONTACT_PT = 6.5
-CAP_ARCHIVO = 0.688
 CAP_MONO = 0.73
+ROW_PITCH = 4.3      # stacked contact rows
+LABEL_PITCH = 3.4    # stacked label lines
 
 PERSON = {
     "name": ("MUSTAFA", "KAHRAMAN"),
@@ -37,12 +57,8 @@ PERSON = {
     "email": "hello@alaz.pro",
     "web": "alaz.pro",
 }
-
-# ---------------------------------------------------------------- shared skeleton
-TOP = M + CAP_MONO * LABEL_PT * PT                 # baseline of the top row
-BOTTOM = H - M                                     # baseline of the bottom row
-RULE_Y = BOTTOM - CAP_MONO * CONTACT_PT * PT - 3.0
-STATEMENT = RULE_Y - 4.2                           # baseline of the big type
+STUDIO = ("INDEPENDENT SOFTWARE", "ARCHITECTURE STUDIO")
+EST = "EST. 2026"
 
 
 def mono(size=LABEL_PT, ink=LABEL, tracking=.085):
@@ -64,54 +80,79 @@ def fit(runs_at, width):
     return 10 * width / (probe.ink_right - probe.ink_left)
 
 
-def base(name):
-    page = Page(name, W, H, BLEED, BG)
-    for i in (1, 2, 3):
-        page.vline(W * i / 4, -BLEED, H + BLEED, 0.12, GRID)
-    page.hline(M, W - M, RULE_Y, 0.15, RULE)
-    return page
+class Card:
+    def __init__(self, fmt, side):
+        self.f = fmt
+        self.W, self.H, self.M = fmt.width, fmt.height, fmt.margin
+        self.page = Page(f"{fmt.name}-{side}", self.W, self.H, fmt.bleed, BG)
+        for i in (1, 2, 3):
+            self.page.vline(self.W * i / 4, -fmt.bleed, self.H + fmt.bleed, 0.12, GRID)
+        self.top = self.M + CAP_MONO * LABEL_PT * PT
+        self.bottom = self.H - self.M
+
+    def rule_above(self, first_baseline, size):
+        """Hairline 3 mm above the first bottom line; returns the statement baseline."""
+        y = first_baseline - CAP_MONO * size * PT - 3.0
+        self.page.hline(self.M, self.W - self.M, y, 0.15, RULE)
+        return y - 4.2
+
+    def spread(self, y, items):
+        """flex justify-between: first item on the left margin, last on the right."""
+        lines = [shape(r) for r in items]
+        gap = (self.W - 2 * self.M - sum(l.advance for l in lines)) / (len(lines) - 1)
+        x = self.M
+        for line in lines:
+            self.page.text(x, y, line)
+            x += line.advance + gap
 
 
-def spread(page, y, runs_list):
-    """flex justify-between: first item on the left margin, last on the right."""
-    lines = [shape(r) for r in runs_list]
-    gap = (W - 2 * M - sum(l.advance for l in lines)) / (len(lines) - 1)
-    x = M
-    for line in lines:
-        page.text(x, y, line)
-        x += line.advance + gap
-
-
-def front():
-    page = base("on")
-    # top row: status square + label, page index
+def front(fmt):
+    c = Card(fmt, "on")
+    p, M, W = c.page, c.M, c.W
+    # status square + label, as in the hero's top-left corner
     s = 0.6 * LABEL_PT * PT
-    page.rect(M, TOP - CAP_MONO * LABEL_PT * PT / 2 - s / 2, s, s, WHITE)
-    page.text(M + s + LABEL_PT * PT, TOP, [("SYSTEM_ACTIVE", mono())])
-    page.text(W - M, TOP, [("01 / 02", mono())], align="right")
+    p.rect(M, c.top - CAP_MONO * LABEL_PT * PT / 2 - s / 2, s, s, WHITE)
+    p.text(M + s + LABEL_PT * PT, c.top, [("SYSTEM_ACTIVE", mono())])
+
+    if fmt.vertical:
+        first = c.bottom - LABEL_PITCH
+        p.text(M, first, [(STUDIO[0], mono())])
+        p.text(M, c.bottom, [(STUDIO[1], mono())])
+    else:
+        first = c.bottom
+        p.text(M, c.bottom, [(" ".join(STUDIO), mono())])
+    p.text(W - M, c.bottom, [(EST, mono())], align="right")
+    statement = c.rule_above(first, LABEL_PT)
+
     # wordmark, exactly as the hero h1: ALAZ + a .7em grey period
     wordmark = lambda size: [("ALAZ", black(size)), (".", black(size * .7, DOT, -.1))]
-    size = fit(wordmark, W - 2 * M)
-    page.text(M, STATEMENT, wordmark(size), optical=True)
-    # bottom row
-    page.text(M, BOTTOM, [("INDEPENDENT SOFTWARE ARCHITECTURE STUDIO", mono())])
-    page.text(W - M, BOTTOM, [("EST. 2025", mono())], align="right")
-    return page
+    p.text(M, statement, wordmark(fit(wordmark, W - 2 * M)), optical=True)
+    return p
 
 
-def back():
-    page = base("arka")
-    page.text(M, TOP, [("// " + PERSON["role"], mono())])
-    page.text(W - M, TOP, [("02 / 02", mono())], align="right")
-    first, last = PERSON["name"]
-    heading = lambda size: [(last, black(size, **NAME_SPACING)), (".", black(size, DOT_HEADING, **NAME_SPACING))]
-    size = fit(heading, W - 2 * M)
-    page.text(M, STATEMENT - .86 * size * PT, [(first, black(size, **NAME_SPACING))], optical=True)
-    page.text(M, STATEMENT, heading(size), optical=True)
+def back(fmt):
+    c = Card(fmt, "arka")
+    p, M, W = c.page, c.M, c.W
+    p.text(M, c.top, [("// " + PERSON["role"], mono())])
+
     contact = mono(CONTACT_PT, WHITE, .04)
-    spread(page, BOTTOM, [[(PERSON["phone"], contact)], [(PERSON["email"], contact)], [(PERSON["web"], contact)]])
-    return page
+    values = [PERSON["phone"], PERSON["email"], PERSON["web"]]
+    if fmt.vertical:
+        first = c.bottom - ROW_PITCH * (len(values) - 1)
+        for i, v in enumerate(values):
+            p.text(M, first + i * ROW_PITCH, [(v, contact)])
+    else:
+        first = c.bottom
+        c.spread(c.bottom, [[(v, contact)] for v in values])
+    statement = c.rule_above(first, CONTACT_PT)
+
+    name_first, name_last = PERSON["name"]
+    heading = lambda size: [(name_last, black(size, **NAME_SPACING)), (".", black(size, DOT_HEADING, **NAME_SPACING))]
+    size = fit(heading, W - 2 * M)
+    p.text(M, statement - .86 * size * PT, [(name_first, black(size, **NAME_SPACING))], optical=True)
+    p.text(M, statement, heading(size), optical=True)
+    return p
 
 
-def pages():
-    return [front(), back()]
+def sides(fmt):
+    return [front(fmt), back(fmt)]

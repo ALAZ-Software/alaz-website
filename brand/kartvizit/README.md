@@ -3,26 +3,27 @@
 Sitenin tasarım diliyle hazırlandı: Archivo Black başlıklar, JetBrains Mono etiketler,
 `#0a0a0a` zemin, gri kare noktalı `ALAZ.` logosu, hero bölümündeki 4 kolonlu ince ızgara ve çizgiler.
 
-![Kartvizit önizleme](onizleme/ALAZ-kartvizit-mockup.png)
+![Kartvizit önizleme](onizleme/ALAZ-kartvizit-onizleme.png)
 
-## Matbaaya gidecek dosyalar
+## Bidolubaskı dosyaları (`bidolubaski/`)
 
-| Dosya | İçerik |
-| --- | --- |
-| `ALAZ-kartvizit-baski.pdf` | Ön ve arka yüz tek PDF'te (1. sayfa ön, 2. sayfa arka) |
-| `ALAZ-kartvizit-on.pdf` | Yalnız ön yüz |
-| `ALAZ-kartvizit-arka.pdf` | Yalnız arka yüz |
+Her ölçü için ön ve arka yüz ayrı PDF:
 
-Matbaa tek dosya isterse `baski.pdf`'i, ön ve arkayı ayrı isterse diğer ikisini gönderin.
+| Bidolubaskı seçeneği | Ön yüz | Arka yüz | PDF ölçüsü (taşma dahil) |
+| --- | --- | --- | --- |
+| 8.2x5 cm - Yatay | `ALAZ-kartvizit-8.2x5-yatay-on.pdf` | `ALAZ-kartvizit-8.2x5-yatay-arka.pdf` | 86 × 54 mm |
+| 8.2x5 cm - Dikey | `ALAZ-kartvizit-8.2x5-dikey-on.pdf` | `ALAZ-kartvizit-8.2x5-dikey-arka.pdf` | 54 × 86 mm |
+| 9x5 cm - Yatay | `ALAZ-kartvizit-9x5-yatay-on.pdf` | `ALAZ-kartvizit-9x5-yatay-arka.pdf` | 94 × 54 mm |
+| 9x5 cm - Dikey | `ALAZ-kartvizit-9x5-dikey-on.pdf` | `ALAZ-kartvizit-9x5-dikey-arka.pdf` | 54 × 94 mm |
 
 ## Baskı bilgileri
 
-- **Kesim ölçüsü:** 85 × 55 mm
-- **Taşma payı:** her kenarda 3 mm (dosya ölçüsü 91 × 61 mm). PDF'te TrimBox / BleedBox tanımlı.
-- **Güvenli alan:** tüm yazılar kesim çizgisinden en az 5 mm içeride.
+- **Taşma payı:** her kenarda 2 mm (Bidolubaskı 8,2 × 5 cm kartviziti 8,6 × 5,4 cm tasarım ölçüsüyle istiyor).
+  PDF'lerde TrimBox / BleedBox tanımlı.
+- **Güvenli alan:** tüm yazılar kesim çizgisinden en az 4,5 mm içeride.
 - **Renk:** CMYK. Zemin zengin siyah `C60 M40 Y40 K100`, beyaz yazılar kağıt beyazı,
   griler yalnız K (`K40`, `K57`, `K65`, `K90`, ızgara çizgileri `K100`).
-- **Yazılar:** vektöre (eğriye) çevrildi, PDF'te font yok. Matbaa "fontları outline yapın" derse hazır.
+- **Yazılar:** vektöre (eğriye) çevrildi, PDF'lerde font yok.
 - **Kağıt önerisi:** 350 g mat kuşe, iki yüz mat selefon. İsteğe bağlı: ön yüzdeki `ALAZ.` için lokal lak.
 
 ## Düzenleme
