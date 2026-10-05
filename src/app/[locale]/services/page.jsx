@@ -72,11 +72,11 @@ export default async function ServicesPage({ params }) {
           </video>
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,9,9,.60)_0%,rgba(9,9,9,.20)_50%,#090909_100%)] pointer-events-none" aria-hidden="true" />
           <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[128px] relative z-[1] mobile:pt-[100px]">
-            <div data-reveal="line" className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:text-[9px] mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
+            <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
               <span>{t('eyebrowLeft')}</span>
               <span>{t('eyebrowRight')}</span>
             </div>
-            <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[105px] mobile:mt-[85px]">
+            <p className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[105px] mobile:mt-[85px]">
               {t('kicker')}
             </p>
             <h1 data-reveal="mask" style={fit(heading, '.')} className="fit [--fit-size:clamp(67px,12.4vw,205px)] font-black tracking-[-.075em] leading-[.86] my-[25px] mb-[70px] mobile:[--fit-size:clamp(60px,12.5vw,100px)]">
@@ -89,7 +89,7 @@ export default async function ServicesPage({ params }) {
               <p data-reveal="fade" className="text-[length:clamp(18px,2vw,27px)] max-w-[550px] tracking-[-.04em] leading-[1.4]">
                 {t('introText')}
               </p>
-              <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim">
+              <span className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-dim">
                 {t('introNote')}
               </span>
             </div>
@@ -98,7 +98,7 @@ export default async function ServicesPage({ params }) {
 
         {/* Overview Section */}
         <section className="w-full px-[clamp(24px,4.2vw,72px)] pt-[80px] pb-[40px] bg-[#090909] mobile:pt-[60px]">
-          <div data-reveal="line" className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] mobile:text-[9px]">
+          <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px]">
             <span>{t('overviewEyebrowLeft')}</span>
             <span>{t('overviewEyebrowRight')}</span>
           </div>
@@ -116,7 +116,7 @@ export default async function ServicesPage({ params }) {
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="font-mono text-[10px] tracking-[.085em] text-dim border border-line px-[14px] py-[10px] transition-colors duration-200 hover:text-white hover:border-white/40"
+                className="font-mono text-[12px] tracking-[.085em] text-dim border border-line px-[14px] py-[10px] transition-colors duration-200 hover:text-white hover:border-white/40"
               >
                 {item.number} / {item.title}
               </a>
@@ -142,7 +142,7 @@ export default async function ServicesPage({ params }) {
                     <span className="font-mono text-[12px] font-bold tracking-[.085em] text-dim">
                       {item.number} / {String(items.length).padStart(2, '0')}
                     </span>
-                    <span className="font-mono text-[9px] font-normal tracking-[.085em] text-mute uppercase">
+                    <span className="font-mono text-[12px] font-normal tracking-[.085em] text-mute uppercase">
                       {item.category}
                     </span>
                   </div>
@@ -155,10 +155,10 @@ export default async function ServicesPage({ params }) {
                       {item.description}
                     </p>
 
-                    <h3 className="font-mono text-[10px] tracking-[.085em] text-dim mt-[34px]">{labels.whatItIs}</h3>
+                    <h3 className="font-mono text-[12px] tracking-[.085em] text-dim mt-[34px]">{labels.whatItIs}</h3>
                     <p className="text-[15px] text-mute leading-[1.7] mt-[10px] max-w-[600px]">{item.whatItIs}</p>
 
-                    <h3 className="font-mono text-[10px] tracking-[.085em] text-dim mt-[30px]">{labels.deliverables}</h3>
+                    <h3 className="font-mono text-[12px] tracking-[.085em] text-dim mt-[30px]">{labels.deliverables}</h3>
                     <ul className="mt-[12px] max-w-[600px]">
                       {item.deliverables.map((d) => (
                         <li key={d} className="flex gap-[14px] text-[15px] text-mute leading-[1.6] py-[9px] border-t border-line first:border-t-0">
@@ -171,19 +171,19 @@ export default async function ServicesPage({ params }) {
 
                   <div className="flex flex-col gap-[28px] pt-[5px] mobile:pt-0">
                     <div>
-                      <h3 className="font-mono text-[10px] tracking-[.085em] text-dim">{labels.stack}</h3>
+                      <h3 className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.stack}</h3>
                       <ul className="flex flex-wrap gap-[8px] mt-[12px]">
                         {item.stack.map((tech) => (
-                          <li key={tech} className="font-mono text-[10px] tracking-[.05em] text-mute border border-line px-[10px] py-[6px]">{tech}</li>
+                          <li key={tech} className="font-mono text-[12px] tracking-[.05em] text-mute border border-line px-[10px] py-[6px]">{tech}</li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <h3 className="font-mono text-[10px] tracking-[.085em] text-dim">{labels.outcome}</h3>
+                      <h3 className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.outcome}</h3>
                       <p className="text-[14px] leading-[1.7] text-white/85 mt-[10px]">{item.outcome}</p>
                     </div>
                     <div>
-                      <h3 className="font-mono text-[10px] tracking-[.085em] text-dim">{labels.bestFor}</h3>
+                      <h3 className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.bestFor}</h3>
                       <p className="text-[14px] leading-[1.7] text-mute mt-[10px]">{item.bestFor}</p>
                     </div>
                   </div>
@@ -196,7 +196,7 @@ export default async function ServicesPage({ params }) {
 
         {/* Process Section */}
         <section className="w-full px-[clamp(24px,4.2vw,72px)] pt-[20px] pb-[110px] bg-[#090909] mobile:pb-[80px]">
-          <div data-reveal="line" className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] mobile:text-[9px]">
+          <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px]">
             <span>{t('processEyebrowLeft')}</span>
             <span>{t('processEyebrowRight')}</span>
           </div>
@@ -209,7 +209,7 @@ export default async function ServicesPage({ params }) {
           <ol className="grid grid-cols-4 gap-[30px] mobile:grid-cols-1 mobile:gap-0 [&>li]:border-t [&>li]:border-line">
             {processSteps.map((step, i) => (
               <li key={step.number} data-reveal="fade" style={{ '--reveal-delay': `${i * 80}ms` }} className="pt-[22px] pb-[30px] pr-[10px]">
-                <span className="font-mono text-[10px] tracking-[.085em] text-dim">{step.number} / {String(processSteps.length).padStart(2, '0')}</span>
+                <span className="font-mono text-[12px] tracking-[.085em] text-dim">{step.number} / {String(processSteps.length).padStart(2, '0')}</span>
                 <h3 className="text-[24px] font-extrabold tracking-[-.05em] mt-[14px]">{step.title}</h3>
                 <p className="text-[15px] leading-[1.7] text-mute mt-[12px]">{step.body}</p>
               </li>
@@ -219,7 +219,7 @@ export default async function ServicesPage({ params }) {
 
         {/* FAQ Section */}
         <section className="w-full px-[clamp(24px,4.2vw,72px)] pt-[20px] pb-[120px] bg-[#090909] mobile:pb-[80px]">
-          <div data-reveal="line" className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] mobile:text-[9px]">
+          <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px]">
             <span>{t('faqEyebrowLeft')}</span>
             <span>{t('faqEyebrowRight')}</span>
           </div>
@@ -257,7 +257,7 @@ export default async function ServicesPage({ params }) {
             </p>
             <Link
               href="/start-project"
-              className="inline-flex items-center justify-center gap-[22px] bg-white text-[#050505] px-[23px] py-[18px] text-[11px] font-extrabold tracking-[.04em] min-h-[58px] [transition:background_.2s_ease,transform_.2s_ease] hover:bg-[#d5d5d5] hover:[transform:translateY(-2px)] active:[transform:scale(.98)] xs:gap-[12px]"
+              className="inline-flex items-center justify-center gap-[22px] bg-white text-[#050505] px-[23px] py-[18px] text-[12px] font-extrabold tracking-[.04em] min-h-[58px] [transition:background_.2s_ease,transform_.2s_ease] hover:bg-[#d5d5d5] hover:[transform:translateY(-2px)] active:[transform:scale(.98)] xs:gap-[12px]"
             >
               {tAbout('startCta')} <ArrowUpRight size={17} />
             </Link>
