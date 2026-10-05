@@ -17,8 +17,8 @@ class Format:
     name: str      # used in file names
     width: float   # trim size
     height: float
-    bleed: float = 2.0  # Bidolubaskı: 8.2x5 cm is supplied as 8.6x5.4 cm
-    margin: float = 5.0
+    bleed: float = 3.0   # Bidolubaskı template: 82x50 card on a 88x56 page
+    margin: float = 5.5  # template's safe line is 5 mm inside the cut
 
     @property
     def vertical(self):
@@ -33,10 +33,10 @@ FORMATS = [
 ]
 
 # ---------------------------------------------------------------- tokens (src/app/globals.css)
-BG = Ink("#0a0a0a", (60, 40, 40, 100))      # --ink; rich black on press
+BG = Ink("#0a0a0a", (0, 0, 0, 100))        # --ink; Bidolubaskı asks for K100 black
 WHITE = Ink("#ffffff", (0, 0, 0, 0))
-GRID = Ink("#1a1a1a", (0, 0, 0, 100))       # hero grid, rgba(255,255,255,.065)
-RULE = Ink("#404040", (0, 0, 0, 90))        # hero rule, rgba(255,255,255,.22)
+GRID = Ink("#1a1a1a", (0, 0, 0, 88))        # hero grid, rgba(255,255,255,.065)
+RULE = Ink("#404040", (0, 0, 0, 72))        # hero rule, rgba(255,255,255,.22)
 LABEL = Ink("#a6a6a6", (0, 0, 0, 40))       # hero mono rows
 DOT = Ink("#858585", (0, 0, 0, 57))         # period of the ALAZ. wordmark
 DOT_HEADING = Ink("#777777", (0, 0, 0, 65)) # period of the "START PROJECT." heading

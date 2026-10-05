@@ -11,18 +11,18 @@ Her ölçü için ön ve arka yüz ayrı PDF:
 
 | Bidolubaskı seçeneği | Ön yüz | Arka yüz | PDF ölçüsü (taşma dahil) |
 | --- | --- | --- | --- |
-| 8.2x5 cm - Yatay | `ALAZ-kartvizit-8.2x5-yatay-on.pdf` | `ALAZ-kartvizit-8.2x5-yatay-arka.pdf` | 86 × 54 mm |
-| 8.2x5 cm - Dikey | `ALAZ-kartvizit-8.2x5-dikey-on.pdf` | `ALAZ-kartvizit-8.2x5-dikey-arka.pdf` | 54 × 86 mm |
-| 9x5 cm - Yatay | `ALAZ-kartvizit-9x5-yatay-on.pdf` | `ALAZ-kartvizit-9x5-yatay-arka.pdf` | 94 × 54 mm |
-| 9x5 cm - Dikey | `ALAZ-kartvizit-9x5-dikey-on.pdf` | `ALAZ-kartvizit-9x5-dikey-arka.pdf` | 54 × 94 mm |
+| 8.2x5 cm - Yatay | `ALAZ-kartvizit-8.2x5-yatay-on.pdf` | `ALAZ-kartvizit-8.2x5-yatay-arka.pdf` | 88 × 56 mm |
+| 8.2x5 cm - Dikey | `ALAZ-kartvizit-8.2x5-dikey-on.pdf` | `ALAZ-kartvizit-8.2x5-dikey-arka.pdf` | 56 × 88 mm |
+| 9x5 cm - Yatay | `ALAZ-kartvizit-9x5-yatay-on.pdf` | `ALAZ-kartvizit-9x5-yatay-arka.pdf` | 96 × 56 mm |
+| 9x5 cm - Dikey | `ALAZ-kartvizit-9x5-dikey-on.pdf` | `ALAZ-kartvizit-9x5-dikey-arka.pdf` | 56 × 96 mm |
 
 ## Baskı bilgileri
 
-- **Taşma payı:** her kenarda 2 mm (Bidolubaskı 8,2 × 5 cm kartviziti 8,6 × 5,4 cm tasarım ölçüsüyle istiyor).
+- **Taşma payı:** her kenarda 3 mm (Bidolubaskı 82x50 dikey şablonu: sayfa 56 × 88 mm, kesim 50 × 82 mm).
   PDF'lerde TrimBox / BleedBox tanımlı.
-- **Güvenli alan:** tüm yazılar kesim çizgisinden en az 4,5 mm içeride.
-- **Renk:** CMYK. Zemin zengin siyah `C60 M40 Y40 K100`, beyaz yazılar kağıt beyazı,
-  griler yalnız K (`K40`, `K57`, `K65`, `K90`, ızgara çizgileri `K100`).
+- **Güvenli alan:** tüm yazılar kesim çizgisinden en az 5 mm içeride (şablondaki mavi güvenli alan çizgisi).
+- **Renk:** CMYK. Şablonun istediği gibi siyah yalnız `K100`, beyaz yazılar kağıt beyazı,
+  griler yalnız K (`K40`, `K57`, `K65`, `K72`, ızgara çizgileri `K88`).
 - **Yazılar:** vektöre (eğriye) çevrildi, PDF'lerde font yok.
 - **Kağıt önerisi:** 350 g mat kuşe, iki yüz mat selefon. İsteğe bağlı: ön yüzdeki `ALAZ.` için lokal lak.
 
