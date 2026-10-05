@@ -9,24 +9,24 @@
   "services": [
     {
       "number": "01",
-      "title": "SİSTEM MİMARİSİ",
-      "category": "ALTYAPI / DAYANIKLILIK",
-      "description": "Kesintiye tahammülü olmayan sistemler için dayanıklı ve gözlemlenebilir altyapı.",
-      "detail": "İlk servis şemasından canlı ortama kadar netlik ve ölçeklenebilirlik için tasarlıyoruz. Her bağımlılık bilinçli, her hata senaryosu haritalanmış, her dağıtım geri alınabilirdir."
+      "title": "WEB UYGULAMALARI",
+      "category": "WEB / SAAS / PLATFORM",
+      "description": "İş büyüdükçe kolayca geliştirilebilen, hızlı açılan web uygulamaları, SaaS platformları ve yönetim panelleri.",
+      "detail": "Müşteri portallarından çok kiracılı SaaS ürünlerine: sunucu öncelikli render, tip güvenli API'ler ve ekibinizin kolayca devralabileceği bir kod tabanı."
     },
     {
       "number": "02",
-      "title": "DOĞAL PERFORMANS",
-      "category": "MÜHENDİSLİK / OPTİMİZASYON",
-      "description": "Saniyenin altında yükleme süresi, sıfır donma. Gereksiz baytları ve ana iş parçacığı yükünü eler, kaliteden asla ödün vermeyiz.",
-      "detail": "Kritik yürütme yollarını profiller, JavaScript paketlerini hafifletir ve render işlemlerini sunucuya taşırız. Sonuç: Çok daha hafif sayfalar ve ilk tıklamada anında tepki veren bir arayüz."
+      "title": "MOBİL UYGULAMALAR",
+      "category": "IOS / ANDROID / CROSS-PLATFORM",
+      "description": "Tek kod tabanından iOS ve Android uygulamaları; gerçek cihazlarda test edilir, iki mağazaya da yayınlanır.",
+      "detail": "Ortak kod için Flutter veya React Native, donanım gerektirdiğinde native Swift ve Kotlin; çevrimdışı veri, push bildirimleri ve mağaza yayınları uçtan uca bizde."
     },
     {
       "number": "03",
-      "title": "DİJİTAL EKOSİSTEMLER",
-      "category": "ENTEGRASYON / ÜRÜN",
-      "description": "API'ler, veri akışları ve ürün yüzeyleri tek ve tutarlı bir sisteme bağlı.",
-      "detail": "Karmaşıklık arayüzün arkasında kalmalıdır. Ürünleri, verileri ve iş akışlarını tip güvenli sözleşmeler ve net sınırlarla birbirine bağlarız; sistem büyüse bile mimari her zaman anlaşılır kalır."
+      "title": "SİSTEMLER & BACKEND",
+      "category": "API / BULUT / ENTEGRASYON",
+      "description": "Web ve mobil ürünlerinizi gerçek trafik altında ayakta tutan API'ler, entegrasyonlar ve bulut altyapısı.",
+      "detail": "Tip güvenli API'ler; ödeme, CRM ve ERP entegrasyonları; arka plan işleri, CI/CD ve müşterileriniz fark etmeden sizi uyaran izleme sistemleri."
     }
   ],
   "projects": [
@@ -34,51 +34,51 @@
       "slug": "alpha",
       "number": "01",
       "name": "ALPHA",
-      "discipline": "SİSTEM TASARIMI",
-      "type": "BULUT ALTYAPISI",
+      "discipline": "WEB PLATFORMU",
+      "type": "SAAS / OPERASYON PANELİ",
       "image": "https://images.hostinger.com/b7153917-045b-4d9f-a8e9-d3267bf93605.png",
-      "summary": "Sıfır kesintiyle geçiş ve yatay ölçeklenme için sıfırdan kurulan bulut altyapısı.",
-      "challenge": "Parçalanmış ve eskiyen bir altyapıyı, kritik iş servislerini aksatmadan hata toleranslı modern bir platforma dönüştürmek.",
-      "approach": "Tüm servis bağımlılıklarını haritalandırdık, gözlemlenebilir bir CI/CD dağıtım hattı kurduk ve her aşamada geri alma garantisi sunan kademeli bir geçiş planı uyguladık.",
-      "outcome": "Sıfır kesintili geçiş stratejisi ve yeni iş yüklerini mimariyi bozmadan kaldıran sağlam bir altyapı temeli.",
+      "summary": "Dağınık Excel tablolarının ve yavaş bir eski yönetim panelinin yerini alan tek bir web platformu.",
+      "challenge": "Büyüyen bir operasyon ekibine, ortak Excel dosyaları ve eski bir yönetim paneli yerine güvenilir tek bir web platformu sunmak; bunu yaparken günlük işi durdurmamak.",
+      "approach": "Önce veri modelini çıkardık, tip güvenli bir API üzerinde sunucuda render edilen bir Next.js uygulaması geliştirdik ve ekipleri aşama aşama taşıdık; kimse bir iş gününü kaybetmedi.",
+      "outcome": "Tek doğru veri kaynağı, her ekip için rol bazlı yetkilendirme ve sıradan ofis bilgisayarlarında bile anında yanıt veren ekranlar.",
       "markers": [
-        "SIFIR KESİNTİ STRATEJİSİ",
-        "HATA TOLERANSLI TASARIM",
-        "GÖZLEMLENEBİLİR SİSTEMLER"
+        "SUNUCU ÖNCELİKLİ WEB UYGULAMASI",
+        "ROL BAZLI YETKİLENDİRME",
+        "AŞAMALI GEÇİŞ"
       ]
     },
     {
       "slug": "beta",
       "number": "02",
       "name": "BETA",
-      "discipline": "DOĞAL PERFORMANS",
-      "type": "İŞLEMCİ VE MANTIK KATMANI",
+      "discipline": "MOBİL UYGULAMA",
+      "type": "IOS & ANDROID",
       "image": "https://images.hostinger.com/79819ca9-2b4f-40a0-b628-39c7e7abb02c.png",
-      "summary": "Saniyenin altında tepki süresi için profillenen ve optimize edilen kritik yürütme yolu.",
-      "challenge": "Donanım sınırları, yazılım mimarisi ve kullanıcı deneyimi arasındaki darboğazları tespit etmek.",
-      "approach": "Yoğun işlem gerektiren kritik kod yollarını profilledik, yürütme modelini sadeleştirdik ve istemcide kalması gerekmeyen render süreçlerini sunucuya taşıdık.",
-      "outcome": "Odaklanmış bir optimizasyon planı: daha yalın hesaplama, minimum veri transferi ve ilk etkileşimde anında tepki veren bir arayüz.",
+      "summary": "Bağlantının zayıf olduğu sahada çalışan bir ekip için tek kod tabanıyla geliştirilen iOS ve Android uygulaması.",
+      "challenge": "Sıklıkla çekmeyen bölgelerde çalışan bir saha ekibi için, iki ayrı kod tabanı yönetmeden iki mağazaya da tek bir uygulama çıkarmak.",
+      "approach": "Çevrimdışı öncelikli veri katmanı ve arka plan senkronizasyonu olan tek bir cross-platform kod tabanı kurduk; native modülleri yalnızca cihaz donanımının gerektirdiği yerlerde kullandık.",
+      "outcome": "iOS ve Android'de tek kod tabanı, bağlantı kopsa da devam eden ve sinyal gelince senkronize olan iş akışı, otomatik hattan çıkan mağaza sürümleri.",
       "markers": [
-        "YÜRÜTME YOLU ANALİZİ",
-        "MANTIK OPTİMİZASYONU",
-        "PERFORMANS ÖNCELİKLİ ARAYÜZ"
+        "CROSS-PLATFORM GELİŞTİRME",
+        "ÇEVRİMDIŞI SENKRONİZASYON",
+        "OTOMATİK MAĞAZA YAYINI"
       ]
     },
     {
       "slug": "gamma",
       "number": "03",
       "name": "GAMMA",
-      "discipline": "DAĞITIK SİSTEMLER",
-      "type": "ÇEKİRDEK MİMARİ",
+      "discipline": "SİSTEMLER & BACKEND",
+      "type": "API / BULUT ALTYAPISI",
       "image": "https://images.hostinger.com/34b5c8dc-aea2-4a15-a1ea-7d23314bd149.png",
-      "summary": "Sıfır veri kaybı için tasarlanmış gerçek zamanlı veri akışı ve yüksek verimli backend altyapısı.",
-      "challenge": "Yoğun eşzamanlı yazma yükleri altında tutarlılığı koruyan çok bölgeli bir veri hattı tasarlamak.",
-      "approach": "Bölümlendirilmiş olay kuyrukları, izole hata alanları ve açık kurtarma protokolleri geliştirdik.",
-      "outcome": "Milisaniyenin altında olay yönlendirme, eksiksiz veri denetlenebilirliği ve tepe anlarda sıfır bozulma.",
+      "summary": "Ödeme, CRM ve stok sistemlerini birbirine bağlayan, üçüncü taraf servisler aksadığında bile veriyi tutarlı tutan backend.",
+      "challenge": "Ödeme, CRM ve stok sistemlerini, bu dış servislerden biri yavaşladığında ya da çöktüğünde bile tutarlı kalan tek bir backend'de birleştirmek.",
+      "approach": "Tip güvenli API'ler, yeniden denemeli ve idempotent işleyicilere sahip bir olay kuyruğu, CI/CD ile dağıtılan container tabanlı servisler ve müşteriler fark etmeden uyaran izleme.",
+      "outcome": "Kendi kendini toparlayan entegrasyonlar, tekrarlanabilir dağıtımlar ve şirket içi ekibin güvenle işletebildiği bir backend.",
       "markers": [
-        "AKIŞ MİMARİSİ",
-        "EŞZAMANLI ÖLÇEK",
-        "GÜVENLİ SİSTEMLER"
+        "OLAY TABANLI ENTEGRASYON",
+        "İDEMPOTENT WEBHOOK'LAR",
+        "GÖZLEMLENEBİLİR ALTYAPI"
       ]
     }
   ],
@@ -86,7 +86,7 @@
     {
       "slug": "cost-of-a-slow-website",
       "title": "Yavaş Bir Web Sitesi İşinize Gerçekte Ne Kadara Mal Oluyor?",
-      "excerpt": "0.1 saniyelik bir gecikme, birçok fiyat değişikliğinden daha sert gelir kaybına yol açar. Google, Deloitte ve Portent verileriyle sayfa hızının dönüşümleri ve geliri nasıl etkilediğini inceliyoruz.",
+      "excerpt": "Deloitte'un araştırmasında 0,1 saniyelik hızlanma perakende dönüşümlerini %8,4 artırdı. Yavaş sayfaların satışa, reklama ve SEO'ya maliyeti ve nereden başlamalı.",
       "tag": "PERFORMANS",
       "date": "2025-09-29",
       "dateLabel": "29 EYL 2025",
@@ -95,12 +95,14 @@
         "name": "ALAZ Ekibi",
         "role": "MÜHENDİSLİK STÜDYOSU"
       },
-      "content": "Ekipler haftalarını bir açılış animasyonunu parlatarak, menü geçiş efektlerini milisaniyelik ayarlayarak ya da renk tonlarını tartışarak geçiriyor. Sonra bu tasarımı etkileşime geçmesi 4.2 saniye süren hantal bir sitede yayınlıyor ve satışların neden düştüğünü merak ediyorlar.\n\nHız sadece teknik bir ayrıntı değildir; doğrudan bilançoyu ilgilendiren kritik bir iş metriğidir. Yaşanan her 100 milisaniyelik gecikme faturasını bir yerde çıkarır: terk edilen sepetlerde, artan müşteri edinme maliyetlerinde ya da reklam bütçelerinin boşa gitmesinde. Bu yazıda performansı yüzeysel bir tercih değil, doğrudan gelir getiren bir yatırım olarak ele alacağız.\n\n## Perakendede 0.1 saniyelik gecikmenin maliyeti\n\nBu konuda en çok referans verilen araştırma, Deloitte ve Google'ın ortak çalışması olan *Milliseconds Make Millions* raporudur. Avrupa genelinde milyonlarca ziyaret alan perakende ve seyahat platformları incelendiğinde şu sonuçlar ortaya çıktı:\n\n- **Mobil yükleme süresi 0.1 saniye iyileştiğinde perakende dönüşüm oranı %8.4 arttı.**\n- **Ortalama sepet tutarı %9.2 yükseldi;** yani kullanıcılar yalnızca daha sık alışveriş yapmakla kalmadı, sepetlerine daha fazla ürün ekledi.\n- **Seyahat kategorisindeki dönüşümler %10.1 arttı.**\n\nOnda bir saniye. İnsan gözünün kırpma süresinden bile daha kısa bir andan bahsediyoruz ve bu fark satışları neredeyse yüzde on yukarı taşıyor.\n\nAmazon bu gerçeği yıllar önce netleştirmişti: Her 100 milisaniyelik gecikme onlara yaklaşık %1 satış kaybına mal oluyor. Ayda 500 bin dolar ciro yapan bir e-ticaret markası için sadece 300 milisaniyelik bir hız optimizasyonu; reklam bütçesini artırmadan ya da fiyat kırmadan yıllık ciddi bir ek kazanç demektir.\n\n## Yüklenmeyen sayfalarda heba olan reklam bütçeleri\n\nGoogle verileri, sayfa açılış süresi ile hemen çıkma (bounce rate) oranı arasındaki bağın ne kadar acımasız olduğunu gösteriyor:\n\n- Yükleme süresi 1 saniyeden 3 saniyeye çıktığında hemen çıkma oranı **%32** artar.\n- 5 saniyeye ulaştığında bu oran **%90** seviyesine fırlar.\n\nTablo çok açık: Rekabetçi bir anahtar kelime için tıklama başına ciddi paralar ödüyorsunuz. Ziyaretçi linke tıklıyor; ancak sayfa 3-4 saniye boyunca yüklenmeye çalışırken kullanıcı beklemeden çıkıyor. Henüz formunuzu, başlığınızı veya ürününüzü bile göremedi. Dönüşüm hunisine dahi girememiş bir ziyaret için bütçeniz eridi.\n\nÇözüm, dönüşüm kaçıran bir sayfaya daha fazla reklam bütçesi akıtmak değil; sistemdeki sızıntıyı kökünden kesmektir. 2 saniyenin altında açılan bir sayfa, aynı bütçeyle katbekat daha fazla nitelikli oturum ve satış üretir.\n\n## B2B satış süreçleri ve kaybedilen müşteri adayları\n\nB2B dünyasında anlaşma bedelleri büyük ve satış döngüleri uzun olduğu için hızın önemi daha da katlanır.\n\nPortent araştırmasına göre, 1 saniyede açılan bir B2B sitesi, 5 saniyede açılan bir siteye kıyasla **3 kat**, 10 saniyede açılan bir siteye kıyasla **5 kat** daha fazla potansiyel müşteri formu toplar.\n\nAyrıca burada göz ardı edilen psikolojik bir eşik var: Yavaş bir B2B platformu, potansiyel müşteriye şirketinizin altyapısının da yetersiz ve eski olduğu mesajını verir. Şirketinizin yazılımını değerlendiren bir CTO veya teknik yönetici, mühendisliğinizin kalitesini de test eder. 6 saniyede açılan bir sayfa, kurumsal güveni daha ilk anda zedeler.\n\n## Arama sıralamaları ve Core Web Vitals\n\nHız sadece kullanıcı deneyimini değil, Google'daki organik sıralamanızı da doğrudan belirler. Google bunu Core Web Vitals metrikleriyle ölçer:\n\n- **Largest Contentful Paint (LCP):** Sayfanın en büyük görsel veya metin bloğunun ne zaman çizildiğini ölçer. İdeal değer 2.5 saniyenin altıdır. Ağır görseller ve engelleyici scriptler bu süreyi uzatır.\n- **Interaction to Next Paint (INP):** Sayfanın tıklama ve dokunmalara ne kadar hızlı yanıt verdiğini ölçer. 200 milisaniyenin altında olması beklenir. Ana iş parçacığını kitleyen ağır JavaScript görevleri bu skoru düşürür.\n\nSunucu taraflı render (SSR) edilen optimize bir sayfa, arama motorlarına hazır HTML teslim eder; Googlebot sitenizi hızla tarar ve dizine ekler. Hem SEO sıralamanız yükselir hem de dönüşüm oranlarınız artar.\n\n## Performans mühendisliği yaklaşımımız\n\nBir web sitesi yavaşladığında ilk refleks genellikle daha pahalı bir sunucu kiralamaktır. Oysa çoğu performans sorunu donanımdan değil, mimariden kaynaklanır. Daha güçlü bir sunucu, tarayıcıya boca edilen 3 MB'lık JavaScript çöpünü düzeltemez.\n\nBiz bu sorunu kaynağında çözeriz:\n\n- **Gereksiz kod yükünü temizleriz:** İhtiyaç duyulmayan kütüphaneleri eler, yerel tarayıcı yeteneklerini kullanırız. En hızlı kod, tarayıcıya hiç gönderilmeyen koddur.\n- **Sunucu öncelikli mimari kurarız:** Next.js Server Components sayesinde arayüzün büyük bölümünü sunucuda hazırlayıp istemciye minimum paket ulaştırırız.\n- **Varlıkları optimize ederiz:** Görselleri modern WebP/AVIF formatlarına dönüştürür, yazı tiplerini ve kritik stilleri önceliklendiririz.\n\nİşletmenizin performans denetimini yaptırmak ve sitenizi hızlandırmak isterseniz `hello@alaz.pro` üzerinden bize ulaşabilirsiniz."
+      "content": "Ekipler haftalarca bir açılış animasyonunu parlatıyor, bir gradyanın tonunu tartışıyor. Sonra bu tasarımı orta seviye bir telefonda kullanılabilir hale gelmesi dört saniye süren bir sayfada yayınlıyor ve dönüşümlerin neden her çeyrek biraz daha düştüğünü merak ediyor.\n\nHız, geliştiricilerin kendi aralarında çözeceği teknik bir ayrıntı değil; doğrudan bilançoya yansıyan bir kalem. Saniyenin her fazladan kesri bir yerde karşınıza çıkar: tamamlanmayan ödemelerde, artan müşteri edinme maliyetinde, reklamla gelen ziyaretçinin formunuzu hiç görmeden ayrılmasında. Bu yazıda yalnızca araştırmayla desteklenen rakamları bir araya getirdik; performansı bir lüks olarak değil, bir gelir metriği olarak ele alabilmeniz için.\n\n## Kısaca\n\n- Mobil site hızındaki **0,1 saniyelik** iyileşme perakende dönüşümlerini **%8,4**, seyahat dönüşümlerini **%10,1** artırdı (Deloitte, Google için, 37 marka).\n- Mobil bir sayfanın açılması 1 yerine **3 saniye** sürdüğünde hemen çıkma olasılığı **%32**, **5 saniye** sürdüğünde **%90** artıyor (Google).\n- **1 saniyede** açılan B2B siteleri, 5 saniyede açılanlara göre yaklaşık **3 kat** daha fazla dönüşüm alıyor (Portent, 2022).\n- Core Web Vitals, Google'ın sayfa deneyimini değerlendirme biçiminin bir parçası. Google Play'de ise çökme ve donma eşiklerini aşan uygulamaların bulunması zorlaşıyor.\n\n## Saniyenin onda biri, ölçülmüş hali\n\nBu konudaki en faydalı çalışma, Deloitte ve 55'in Google için hazırladığı *Milliseconds Make Millions* raporu. Dört hafta boyunca Avrupa ve ABD'deki 37 perakende, seyahat, lüks ve müşteri adayı (lead) odaklı markayı izlediler ve mobil yükleme süresi yalnızca 0,1 saniye iyileştiğinde ne olduğunu ölçtüler:\n\n- **Perakende dönüşümleri %8,4 arttı.**\n- **Perakendede ortalama sepet tutarı %9,2 yükseldi.** Kullanıcılar yalnızca daha sık değil, daha fazla harcadı.\n- **Seyahat dönüşümleri %10,1 arttı.** Çalışmadaki en hıza duyarlı kategori buydu.\n\nSaniyenin onda biri, bir göz kırpmasından kısa. Amazon'un ilk deneylerinden kalan ve sıkça alıntılanan kural da aynı yönü gösteriyor: her fazladan 100 milisaniye, satışların kabaca %1'i.\n\nSomut bir örnek verelim: aylık online cirosu 10 milyon TL olan bir mağaza düşünün. Daha hızlı bir mobil site, Deloitte'un ölçtüğü artışın yalnızca dörtte birini sağlasa, yani dönüşümler yaklaşık %2 artsa, bu **ayda yaklaşık 200 bin TL, yılda 2,4 milyon TL** eder. Üstelik fiyata, reklam bütçesine ya da ürün yelpazesine dokunmadan. Sizin rakamınız farklı olacaktır; yön değişmez.\n\nTasarım odaklı ekipler için rahatsız edici sonuç şu: sade tasarımlı hızlı bir sayfa, neredeyse her zaman daha şık ama yavaş bir sayfadan daha çok dönüşüm alır.\n\n## Hiç ulaşmayan tıklamalara ödenen para\n\nGoogle'ın mobil sayfa hızı verileri, sabrın ne kadar çabuk tükendiğini gösteriyor:\n\n- Yükleme süresi 1 saniyeden 3 saniyeye çıktığında hemen çıkma olasılığı **%32** artıyor.\n- 1 saniyeden 5 saniyeye çıktığında bu artış **%90**'a ulaşıyor.\n\nŞimdi parayı takip edin. Rekabetçi bir anahtar kelimede her tıklama için ödeme yapıyorsunuz. Ziyaretçi geliyor; ama başlık henüz görünmemiş, form çizilmemiş, analitik etiketiniz çalışmamış. Ziyaretçi ayrılıyor. Reklam paneli bir tıklama raporluyor, analitik aracınız ise hiçbir şey göstermiyor; çünkü ziyaretçi etiket yüklenmeden gitmiş. Harcama kalitesiz trafiğe gitmiş gibi görünüyor, oysa trafiği karşılayamayan kendi sitenizdi.\n\nSızdıran bir sayfanın çaresi reklama daha fazla bütçe ayırmak değil, sızıntıyı kapatmak. Ana içeriğini iki saniyenin altında gösteren bir açılış sayfası aynı bütçeyi ölçülebilir oturumlara ve dönüşümlere çevirir; kampanyaya dokunmadan müşteri edinme maliyetiniz düşer.\n\n## B2B: yavaş sayfa, kaybedilen müşteri adayı\n\nB2B'de anlaşmalar daha büyük, satış döngüleri daha uzun; bu yüzden kaybedilen her aday daha çok can yakar. Portent'in 100 milyondan fazla sayfa görüntülemesini inceleyen 2022 çalışmasına göre **1 saniyede** açılan bir B2B sitesi, 5 saniyede açılana göre yaklaşık **3 kat**, 10 saniyede açılana göre yaklaşık **5 kat** daha fazla dönüşüm alıyor.\n\nBir de güvenilirlik etkisi var. Platformunuzu değerlendiren bir CTO, aynı anda mühendisliğinizi de değerlendirir. Altı saniyede açılan bir sayfa, daha tek bir özellik sayfası okunmadan ekibinizin performansı önemsemediğini söyler. Birinden verisini ya da yıllık bir sözleşmeyi emanet etmesini isterken bırakmak isteyeceğiniz ilk izlenim bu değildir.\n\n## Arama görünürlüğü ve Core Web Vitals\n\nGoogle gerçek kullanıcı deneyimini Core Web Vitals ile ölçer ve ziyaretlerin 75. yüzdelik dilimine bakar:\n\n- **Largest Contentful Paint (LCP):** ana içeriğin ekranda belirdiği an. İyi değer **2,5 saniye veya altı**. Ağır görseller, render'ı engelleyen CSS ve yavaş sunucular bu süreyi uzatır.\n- **Interaction to Next Paint (INP):** sayfanın dokunma ve tıklamalara ne kadar hızlı yanıt verdiği. İyi değer **200 milisaniye veya altı**. INP, Mart 2024'te First Input Delay'in yerini aldı ve uzun JavaScript görevlerine karşı çok daha katı.\n- **Cumulative Layout Shift (CLS):** sayfa yüklenirken düzenin ne kadar kaydığı. İyi değer **0,1 veya altı**.\n\nSıralama etkisi konusunda net olalım: Google önceliğin her zaman alaka düzeyinde olduğunu ve iyi bir sayfa deneyiminin zayıf içeriği kurtarmayacağını söylüyor. Ancak sayfa deneyimi, sıralama sistemlerinin ödüllendirdiği unsurlardan biri; bir aramaya eşit derecede iyi cevap veren birkaç sayfa arasında hızlı ve kararlı olan öne geçer. Sunucuda render edilen sayfalar arama motorlarına hazır HTML de sunar; bu da büyük ya da JavaScript ağırlıklı sitelerin daha hızlı dizine eklenmesine yardımcı olur.\n\n## Aynı hesap mobil uygulamalar için de geçerli\n\nUygulamalar da aynı vergiyi öder, yalnızca farklı yerlerde: açılış süresinde, donan ekranlarda, çökmelerde ve mağaza puanlarında. Google Play bunu açıkça ortaya koyuyor: Günlük aktif kullanıcıların **%1,09**'undan fazlası fark edilir bir çökme ya da **%0,47**'sinden fazlası \"Uygulama Yanıt Vermiyor\" (ANR) donması yaşarsa, uygulamanız Play'in kötü davranış eşiğini aşar ve büyük olasılıkla daha zor bulunur. Eşiği belirli telefon modellerinde aşarsanız Play, mağaza sayfanızda kullanıcılara bir uyarı da gösterebilir.\n\nYavaş bir uygulamaya nadiren ikinci şans verilir. Açılış süresini ve çökmesiz oturum oranını, sayfa hızına gösterdiğiniz ciddiyetle ölçün.\n\n## Zaman aslında nereye gidiyor?\n\nSite yavaşladığında ilk refleks daha güçlü bir sunucu almaktır. Bu nadiren doğru ilk adımdır: performans sorunlarının çoğu mimariden kaynaklanır ve daha büyük bir sunucu 3 MB'lık bir JavaScript paketini düzeltmez. Önce şunlar fark yaratır:\n\n- **Daha az JavaScript gönderin.** Her kütüphane birinin telefonunda indirilir, ayrıştırılır ve çalıştırılır. Carousel kütüphanesi yerine CSS scroll-snap, tarih seçici paketi yerine tarayıcının kendi input'u, koca bir animasyon kütüphanesi yerine gerçekten kullandığınız dört geçiş yeterlidir.\n- **Sunucuda render edin.** Next.js gibi framework'lerle tarayıcı, boş bir kabuk ve bir script etiketi yerine gerçek bir sayfa alır. İçerik daha erken görünür, arama motorları HTML alır ve yalnızca etkileşimli parçalar istemcide çalışır.\n- **Üçüncü taraf script'leri denetleyin.** Etiket yöneticileri, canlı destek widget'ları, ısı haritaları ve A/B test araçları çoğu zaman kendi kodunuzdan daha pahalıdır. Hakkını verenleri tutun, gerisini sayfa kullanılabilir olduktan sonra yükleyin.\n- **Görselleri ve fontları düzeltin.** AVIF veya WebP kullanın, kaymayı önlemek için boyutları açıkça belirtin, ekran dışındakileri geç yükleyin, fontları alt kümelere ayırıp önceden yükleyin.\n- **Backend'e bakın.** Yavaş bir ilk bayt genellikle indekslenmemiş sorgular, N+1 veritabanı çağrıları ya da eksik önbellek demektir. Hiçbir frontend ayarı 1,5 saniyelik bir API yanıtını gizleyemez.\n\nBunların hiçbiri daha büyük bir sunucu gerektirmez. Mimari seviyede disiplin gerektirir: kararlar bir kez verilir ve her sayfa görüntülemesinde, her uygulama açılışında karşılığını verir.\n\n## 15 dakikada ölçün\n\n- **PageSpeed Insights:** URL'niz için gerçek kullanıcı Core Web Vitals verileri (Chrome UX Report'tan) ve bir Lighthouse laboratuvar testi.\n- **Search Console, Core Web Vitals raporu:** mobilde ve masaüstünde hangi sayfa gruplarının başarısız olduğu.\n- **Tarayıcınızın Network sekmesi:** boyuta göre sıralayın, gerçekte ne gönderdiğinizi görün.\n- **Uygulamalar için:** Google Play Console'daki Android vitals ve iOS'ta açılış süresi, donma ve çökmeler için Xcode Organizer.\n\n## Kaynaklar\n\n- [Deloitte & 55, Google için: Milliseconds Make Millions](https://web.dev/case-studies/milliseconds-make-millions)\n- [Google: Mobil sayfa hızı sektör karşılaştırmaları](https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/)\n- [Portent: Site hızı ve dönüşüm oranı araştırması (2022)](https://www.portent.com/blog/analytics/research-site-speed-hurting-everyones-revenue.htm)\n- [web.dev: Core Web Vitals](https://web.dev/articles/vitals)\n- [Google Search Central: Sayfa deneyimini anlama](https://developers.google.com/search/docs/appearance/page-experience?hl=tr)\n- [Android Developers: Android vitals](https://developer.android.com/topic/performance/vitals)\n\n## İkinci bir göz ister misiniz?\n\nÖlçüm, ekibinizin vakit ayıramayacağı bir iş listesi çıkardıysa bu tam olarak bizim işimiz. ALAZ, [web uygulamaları, mobil uygulamalar ve bunların arkasındaki backend sistemlerini](/services) geliştirir ve düzeltir: sunucu öncelikli mimari, disiplinli paket bütçeleri, hızlı API'ler ve mağazaların çökme eşiklerinin altında kalan uygulamalar.\n\n`hello@alaz.pro` adresine bir URL ya da uygulama mağazası linki, varsa da Lighthouse raporunuzu gönderin. Neyin yavaş olduğunu, size muhtemelen neye mal olduğunu ve düzeltmek için ne gerektiğini açıkça söyleyelim.",
+      "updated": "2026-10-05",
+      "updatedLabel": "5 EKİ 2026"
     },
     {
       "slug": "we-are-officially-live",
-      "title": "Yayındayız: İşe Gerçekten Değer Katan Yazılımlar İnşa Ediyoruz",
-      "excerpt": "ALAZ faaliyete geçti. Bu stüdyonun varoluş sebebi, mühendislik yaklaşımımız ve yüzeysel süslemeler yerine hıza ve güvenilirliğe odaklanan ekiplere sunduklarımız.",
+      "title": "Yayındayız: Web, Mobil ve Arkasındaki Sistemler İçin Bir Yazılım Stüdyosu",
+      "excerpt": "ALAZ yayında. Web, mobil ve backend'i neden tek ekip olarak geliştirdiğimiz, nasıl çalıştığımız ve kimler için doğru ortak olduğumuz.",
       "tag": "DUYURU",
       "date": "2025-09-27",
       "dateLabel": "27 EYL 2025",
@@ -109,7 +111,9 @@
         "name": "ALAZ Ekibi",
         "role": "MÜHENDİSLİK STÜDYOSU"
       },
-      "content": "ALAZ resmen faaliyete geçti. Bu yazı, sektörde uzun süredir canımı sıkan teknik savurganlığı çözmek için kurduğum stüdyonun ilk manifestosu.\n\n## Başlangıç noktamız\n\nYıllar boyunca basit olması gerekirken gereksiz yere karmaşıklaştırılmış web uygulamalarını düzeltmekle uğraştım. Şişmiş kod paketleri, orta seviye bir telefonda donan ekranlar, plansız kütüphane tercihleri yüzünden yönetilemez hale gelmiş durumlar ve açılması altı saniye süren paneller...\n\nBu sorunların kaynağı teknoloji eksikliği değil; disiplin eksikliğidir. Kararlar teslim baskısı altında aceleyle verilir ve bir daha gözden geçirilmez. Sonrasında yazılan her yeni özellik bu teknik borcun bedelini öder.\n\nALAZ, bu bedeli ödemekten yorulan ekipler için var.\n\n## Mühendislik ilkelerimiz\n\nÇalışmalarımızı net kurallar üzerine kuruyoruz:\n\n- **Hız temel bir özelliktir.** Bir saniyenin altında yükleme süresi bir lüks değil, başlangıç noktasıdır. 2.3 saniyede yüklenen bir sayfa ilgiyi çoktan kaybetmiştir.\n- **Mimari bir iletişim aracıdır.** Düzenli durum yönetimi ve öngörülebilir render yapıları gösteriş için değil; ekibin birinci yıldan sonra da aynı hızla geliştirmeye devam edebilmesi için gereklidir.\n- **TypeScript vazgeçilmezdir.** Tip güvenliği, gözden kaçan hataları erkenden yakalar ve sistemi korkusuzca yeniden yapılandırmanızı sağlar.\n- **Modülerlik kazanır.** Değişen ihtiyaçlara kolayca uyum sağlayan küçük, bağımsız parçalar hantal monolitik yapılardan her zaman daha üstündür.\n\nModern frontend yığınıyla çalışıyoruz (Next.js, TypeScript, React); çünkü bu araçlar kırılganlığa mahal vermeden hızlı ilerlememizi sağlıyor. Tasarım kalıplarımız öngörülebilir ve nettir. Öngörülebilirlik; gece yarısı bir aksilik yaşandığında sistemi hızla teşhis edebilmek demektir.\n\n## Neler üretiyoruz?\n\nALAZ iki temel alana odaklanır:\n\nBirincisi, yüksek performanslı web çözümleri. Core Web Vitals testlerinde 100 tam puan alan kurumsal siteler ve gerçek kullanıcı trafiği altında akıcı çalışan arayüzler.\n\nİkincisi, uzmanlaşmış dijital ürünler. Mantığın merkezde olduğu; iç operasyon araçları, SaaS panelleri ve müşteriye dönük platformlar.\n\nBiz yüzeysel makyajlar yerine sağlam kod temellerine önem veren ekiplerle çalışırız. Bizden 40 sayfalık içi boş raporlar almazsınız; çalışan temiz bir kod tabanı, net bir mimari plan ve anlaşılır bir sistem teslim alırsınız.\n\n## İletişim\n\nFikrini sağlam bir temelle hayata geçirmek isteyen bir kurucuysanız, teknik borçlardan yorulmuş bir mühendisseniz ya da sıradan bir taşeron yerine gerçek bir teknik ortak arıyorsanız konuşalım.\n\n`hello@alaz.pro` adresine yazabilirsiniz. Ne geliştirmek istediğinizi anlatın; her mesaja doğrudan mühendislik bakış açısıyla dönüş yapıyoruz."
+      "content": "ALAZ resmen yayında. Web uygulamaları, iOS ve Android uygulamaları ve bunları ayakta tutan backend sistemlerini tasarlayıp geliştiren bir yazılım stüdyosuyuz; ilk eskizden canlı ortama kadar tek bir ekip olarak. Bu ilk yazıda neden var olduğumuzu, nasıl çalıştığımızı ve kimler için doğru ortak olduğumuzu anlatıyoruz.\n\n## ALAZ'ı neden kurduk?\n\nYıllarca basit olması gerekirken karmaşıklaşmış yazılımları çözmekle uğraştık. Şişmiş web paketleri. Orta seviye bir telefonda donan uygulamalar. Gece üçte sessizce bozulan entegrasyonlar. Kullanılabilir hale gelmesi altı saniye süren ama yine de canlıya alınan paneller.\n\nBu sorunların çoğu teknoloji eksikliğinden değil, disiplin eksikliğinden kaynaklanıyor; çoğu zaman da devir teslimden. Web ajansı, mobil freelancer ve backend tedarikçisi her biri kendi parçasını optimize ediyor, hatalar ise aradaki boşluklarda yaşıyor. Kararlar teslim baskısı altında bir kez veriliyor ve bir daha dönülmüyor. Sonraki her özellik bu borcun faizini ödüyor.\n\nALAZ bu faizi ödemeyi bırakmak için var: ürünün tamamını, yani web, mobil ve backend tarafını, hesap verebilir tek bir mühendislik ekibine emanet ederek.\n\n## Neler geliştiriyoruz?\n\n- **Web uygulamaları.** SaaS platformları, müşteri portalları, yönetim panelleri, şirket içi araçlar ve hızlı kurumsal siteler. Sunucu öncelikli, uçtan uca tip güvenli ve yalnızca demoda değil, gerçek cihazlarda Core Web Vitals'ı geçecek şekilde.\n- **Mobil uygulamalar.** Tek bir cross-platform kod tabanından (Flutter veya React Native) iOS ve Android uygulamaları; donanım gerektirdiğinde native Swift veya Kotlin. Çevrimdışı çalışan veri katmanı, push bildirimleri, App Store ve Google Play yayın süreçleri dahil.\n- **Sistemler ve backend.** Uygulamalarınızın konuştuğu API'ler; ödeme, CRM ve ERP entegrasyonları; arka plan işleri, bulut altyapısı, CI/CD ve izleme.\n- **Kurtarma ve performans işleri.** Yavaş sayfalar, çöken uygulamalar ve kimsenin dokunmak istemediği eski kodlar; tek seferde riskli bir yeniden yazımla değil, adım adım stabilize edilip modernleştirilerek.\n\nHer birinin teslimatları ve teknoloji yığını [hizmetler sayfasında](/services).\n\n## Mühendislik ilkelerimiz\n\nKısa bir inanç listesiyle çalışıyoruz:\n\n- **Hız bir özelliktir.** Performans bütçeleri lansmandan hemen önce değil, ilk sprintte belirlenir: web için LCP ve INP hedefleri, mobil için açılış süresi ve çökmesiz oturum oranı, API'ler için yanıt süreleri.\n- **Her yerde tip güvenliği.** Web ve sunucuda TypeScript; mobilde Dart, Swift veya Kotlin. Tipler, kod incelemesinde gözden kaçan hataları yakalar ve korkmadan yeniden düzenleme yapmamızı sağlar.\n- **Bilerek sıkıcı teknoloji.** Olgun araçlar ve öngörülebilir kalıplar, bir şey bozulduğunda gece ikide bile sistemi hızla teşhis edebilmek demektir.\n- **Küçük, değiştirilebilir parçalar.** İhtiyaçlar her zaman değişir. Modüler sistemler bu değişimi emer; monolitler ise faturasını size keser.\n- **Her şey sizindir.** Kod, bulut hesapları, uygulama mağazası kayıtları ve dokümantasyon ilk günden size aittir. Bağımlılık yok.\n\nBunların hiçbiri sıra dışı değil. Çıta düşük, çünkü çoğu ekip demo için optimize ediyor. Biz on sekizinci ay için optimize ediyoruz.\n\n## Birlikte çalışmak nasıl ilerler?\n\n- **Keşif görüşmesi (30–45 dakika).** Ne geliştirdiğiniz, kimin için olduğu ve başarısız olursa işletmeye maliyeti.\n- **Yazılı kapsam ve teklif.** Kısa ve anlaşılır bir doküman: neyi geliştireceğimiz, neyi bilinçli olarak dışarıda bırakacağımız, aşamalar, takvim ve fiyat. 40 sayfalık bir sunum değil.\n- **Kısa döngülerle geliştirme.** Bir ya da iki haftada bir çalışan yazılım: web için staging linki, mobil için TestFlight veya dahili test sürümü. Slayt değil, ilerleme görürsünüz.\n- **Yayın ve devir.** Kesintisiz yayına alma, izleme, dokümantasyon ve ekibinize bir tanıtım; isterseniz bakım için bizimle devam etme seçeneği.\n\n## Kimler için doğru ortağız?\n\n- Bir prototipi ya da fikri gerçek bir web veya mobil ürüne dönüştürmek isteyen girişimciler.\n- Excel tablolarını ve kırılgan eski araçları kendi iş akışına göre yazılmış yazılımlarla değiştirmek isteyen şirketler.\n- Sitesi yavaş, uygulaması çöken ya da entegrasyonları sürekli bozulan ekipler.\n- Lansmandan sonra ortadan kaybolan bir tedarikçi yerine uzun vadeli bir teknik ortak arayan işletmeler.\n\n## Merhaba deyin\n\nNe geliştirdiğinizi ve önünüzde ne olduğunu anlatın. `hello@alaz.pro` adresine yazın ya da [proje formunu](/start-project) kullanın. Her mesajı bir mühendis okur ve bir iş günü içinde yanıt veririz.\n\nYayındayız. Ayakta kalan bir şey inşa edelim.",
+      "updated": "2026-10-05",
+      "updatedLabel": "5 EKİ 2026"
     }
   ],
   "nav": {
@@ -123,28 +127,29 @@
   },
   "servicesPage": {
     "meta": {
-      "title": "Yazılım Geliştirme ve Mimari Hizmetleri | ALAZ",
-      "description": "Girişimler ve şirketler için özel web uygulamaları, ölçeklenebilir bulut mimarisi ve yüksek performanslı arayüzler geliştiriyoruz. Mühendislik odaklı, temiz kod.",
+      "title": "Web, Mobil Uygulama ve Yazılım Geliştirme Hizmetleri | ALAZ",
+      "description": "Web uygulamaları, iOS ve Android uygulamaları, backend API'ler ve bulut altyapısı; tek bir mühendislik ekibinden. Size ait temiz kod, kısa döngülerle teslim.",
       "keywords": [
+        "yazılım geliştirme",
         "özel yazılım geliştirme",
         "web uygulaması geliştirme",
-        "yazılım mimarisi",
-        "bulut altyapı",
-        "performans optimizasyonu",
-        "API geliştirme",
-        "sistem entegrasyonu",
-        "Next.js geliştirme",
-        "yazılım şirketi"
+        "mobil uygulama geliştirme",
+        "iOS uygulama geliştirme",
+        "Android uygulama geliştirme",
+        "Flutter uygulama geliştirme",
+        "backend geliştirme",
+        "API entegrasyonu",
+        "yazılım şirketi İzmir"
       ]
     },
     "eyebrowLeft": "HİZMETLER / 001",
-    "eyebrowRight": "YAZILIM MÜHENDİSLİĞİ STÜDYOSU",
-    "kicker": "KALICI SİSTEMLER, DOĞRU MİMARİ VE TEMİZ KOD.",
+    "eyebrowRight": "WEB / MOBİL / SİSTEMLER",
+    "kicker": "WEB, MOBİL VE ARKASINDAKİ SİSTEMLER.",
     "heading": [
       "YAZILIM",
       "MÜHENDİSLİĞİ"
     ],
-    "introText": "Yıllarca ayakta kalacak web uygulamaları, dayanıklı bulut altyapıları ve güvenilir API entegrasyonları inşa ediyoruz.",
+    "introText": "Web uygulamalarını, iOS ve Android uygulamalarını ve bunların dayandığı backend ile bulut altyapısını tasarlıyor, geliştiriyor ve işletiyoruz. İlk eskizden canlı ortama kadar tek ekip.",
     "introNote": "ALAZ / YETKİNLİKLER 2026",
     "breadcrumbHome": "Ana Sayfa",
     "overviewEyebrowLeft": "YETENEKLER / 002",
@@ -153,7 +158,7 @@
       "NELER",
       "YAPIYORUZ"
     ],
-    "overviewText": "Yazılım projeleri gösterişe odaklanıp mühendislik temellerini unuttuğunda çöker. Ne yaptığımızı, ne teslim ettiğimizi ve hangi teknolojileri kullandığımızı net şekilde aşağıda bulabilirsiniz.",
+    "overviewText": "Yazılım sorunlarının çoğu ek yerlerinde çıkar: birbirini tam anlamayan bir web ekibi, bir mobil ekip ve bir backend tedarikçisi. Biz üçünü birden üstleniyoruz. Ne yaptığımızı, ne teslim ettiğimizi ve güvendiğimiz teknolojileri aşağıda bulabilirsiniz.",
     "itemLabels": {
       "whatItIs": "KAPSAM VE YAKLAŞIM",
       "deliverables": "TESLİM EDİLENLER",
@@ -165,15 +170,15 @@
       {
         "id": "ozel-yazilim-gelistirme",
         "number": "01",
-        "title": "ÖZEL WEB UYGULAMALARI VE DİJİTAL ÜRÜNLER",
-        "category": "FULL-STACK / ÜRÜN GELİŞTİRME",
-        "description": "Şablonlara sığınmayan; güvenilirlik, hız ve uzun ömürlülük gözetilerek kodlanan web uygulamaları, SaaS platformları ve şirket içi araçlar.",
-        "whatItIs": "Çoğu web uygulaması plansız durum yönetimi, gereksiz paket yığınları ve karmaşık kod tabanları yüzünden tıkanır. Biz tip güvenli, modüler bileşen mimarisine sahip ve ekibinizin kolayca geliştirebileceği temiz yazılımlar üretiriz.",
+        "title": "WEB UYGULAMALARI VE SAAS",
+        "category": "WEB / FULL-STACK",
+        "description": "Şablonlara sığınmadan; hız, güvenilirlik ve uzun ömür gözetilerek geliştirilen web uygulamaları, SaaS platformları, müşteri portalları ve şirket içi araçlar.",
+        "whatItIs": "Web uygulamaları genellikle lansmanda değil, zamanla çöker: birikmiş teknik borç, karmaşık durum yönetimi ve kimsenin güncellemeye cesaret edemediği bağımlılıklar yüzünden. Biz katı tip güvenliği, sunucu öncelikli render, net modül sınırları ve temiz veritabanı şemalarıyla geliştiriyoruz; böylece ekibiniz kodu yeniden yazmadan devralabilir.",
         "deliverables": [
           "Full-stack web uygulamaları ve SaaS platformları",
-          "Yönetim panelleri, operasyon konsolları ve veri panoları",
-          "Yetkilendirme, kullanıcı ve ödeme altyapıları",
-          "Gelecekte baştan yazım gerektirmeyecek sağlam MVP sürümleri",
+          "Müşteri portalları, yönetim panelleri, operasyon konsolları ve veri panoları",
+          "Yetkilendirme, kullanıcı, ödeme ve veri modeli altyapıları",
+          "Core Web Vitals'ı geçen kurumsal siteler ve açılış sayfaları",
           "Tamamen size ait, bağımsız ve dokümante edilmiş kod tabanı"
         ],
         "stack": [
@@ -188,9 +193,60 @@
         "bestFor": "Fikrini hızla ama sağlam bir temelle canlıya almak isteyen girişimciler ve karmaşık Excel tablolarından kurtulmak isteyen şirketler."
       },
       {
-        "id": "sistem-mimarisi-bulut",
+        "id": "mobil-uygulama-gelistirme",
         "number": "02",
-        "title": "SİSTEM MİMARİSİ VE BULUT ALTYAPISI",
+        "title": "MOBİL UYGULAMALAR",
+        "category": "IOS / ANDROID",
+        "description": "Tek kod tabanından geliştirilen, gerçek cihazlarda test edilen ve App Store ile Google Play'e yayınlanan iOS ve Android uygulamaları.",
+        "whatItIs": "Bir mobil uygulama kontrol edemediğiniz donanımda yaşar: eski telefonlar, zayıf bağlantı, agresif pil tasarrufu ve kendi kuralları olan iki ayrı mağaza. İki platformun tek kod tabanını paylaşması için Flutter veya React Native ile cross-platform geliştiriyor, bir özellik gerektirdiğinde native Swift veya Kotlin'e iniyor ve veri katmanını çevrimdışıyken de çalışacak şekilde tasarlıyoruz.",
+        "deliverables": [
+          "Tek cross-platform kod tabanından iOS ve Android uygulamaları",
+          "Kamera, Bluetooth, ödeme, harita ve diğer cihaz API'leri için native modüller",
+          "Çevrimdışı öncelikli veri, arka plan senkronizasyonu ve push bildirimleri",
+          "App Store ve Google Play kurulumu, gönderimi ve yayın hatları",
+          "Çökme raporlama, analitik ve OTA (uzaktan) güncelleme stratejisi"
+        ],
+        "stack": [
+          "Flutter",
+          "Dart",
+          "React Native",
+          "Swift",
+          "Kotlin",
+          "Firebase"
+        ],
+        "outcome": "Tek kod tabanı, iki mağaza; hızlı açılan, kötü bağlantıda ayakta kalan ve mağazaların izlediği çökme eşiklerinin altında kalan bir uygulama.",
+        "bestFor": "Müşteriye dönük bir uygulama çıkaracak şirketler, mobil araca ihtiyaç duyan saha ve operasyon ekipleri ve mevcut web platformunu telefonlara taşımak isteyen ürünler."
+      },
+      {
+        "id": "api-entegrasyon",
+        "number": "03",
+        "title": "BACKEND, API'LER VE ENTEGRASYONLAR",
+        "category": "BACKEND / ENTEGRASYON",
+        "description": "Web ve mobil uygulamalarınızın sunucu tarafı: temiz API'ler, güvenilir üçüncü taraf entegrasyonları ve veri kaybetmeyen arka plan işleri.",
+        "whatItIs": "Web ve mobil uygulamalar, konuştukları backend kadar güvenilirdir. Entegrasyonlar üstünkörü yapıldığında sessiz senkronizasyon hataları ve bozuk veriler başlar. Açık hata yönetimi, yeniden deneme, idempotency ve hız sınırlaması olan tip güvenli API katmanları kuruyoruz; böylece yavaşlayan bir ödeme sağlayıcısı ya da CRM, ürününüzü de beraberinde çökertmez.",
+        "deliverables": [
+          "Web ve mobil istemciler için OpenAPI ile dokümante edilmiş REST ve GraphQL API'ler",
+          "Ödeme altyapıları, CRM, ERP ve faturalandırma entegrasyonları",
+          "İdempotent ve hata anında tekrar deneyebilen webhook mekanizmaları",
+          "Arka plan işleri, kuyruklar ve olay tabanlı veri akışları",
+          "Yapay zeka ve LLM API'lerinin güvenli entegrasyonu"
+        ],
+        "stack": [
+          "TypeScript",
+          "Node.js",
+          "PostgreSQL",
+          "REST",
+          "GraphQL",
+          "OpenAPI",
+          "Redis"
+        ],
+        "outcome": "Farklı araçlar arasında pürüzsüz çalışan, veri kaybı yaşatmayan ve bakımı kolay tek bir ekosistem.",
+        "bestFor": "Birden fazla harici servisle haberleşen veya dış ortaklara açık API sunmak isteyen şirketler."
+      },
+      {
+        "id": "sistem-mimarisi-bulut",
+        "number": "04",
+        "title": "BULUT ALTYAPISI VE DEVOPS",
         "category": "ALTYAPI / DAYANIKLILIK",
         "description": "Kullanıcı sayısı arttığında çökmeyen, hata anında kendini toparlayan ve otomatik dağıtılan bulut sistemleri.",
         "whatItIs": "Ölçeklenmek kötü koda daha pahalı sunucu kiralamak değildir. Veritabanı sorgularından kuyruk mekanizmalarına, önbellekten ağ trafiğine kadar tüm çalışma akışını düzenleriz. Sisteminiz bir sorun yaşamadan önce sizi uyaran altyapılar kurarız.",
@@ -215,53 +271,28 @@
       },
       {
         "id": "performans-muhendisligi",
-        "number": "03",
-        "title": "PERFORMANS VE FRONTEND OPTİMİZASYONU",
-        "category": "CORE WEB VITALS / HIZ",
-        "description": "Saniyeler süren yüklemeleri bitirip ilk tıklamada tepki veren, arama motorlarında öne çıkan yüksek performanslı arayüzler.",
-        "whatItIs": "Yavaş açılan bir site her gün müşteri ve para kaybettirir. Sadece hız test raporu sunup bırakmıyoruz; JavaScript paketlerini inceliyor, ana iş parçacığını tıkayan scriptleri temizliyor ve kritik render yollarını optimize ediyoruz.",
+        "number": "05",
+        "title": "PERFORMANS VE MODERNİZASYON",
+        "category": "HIZ / ESKİ SİSTEM KURTARMA",
+        "description": "Daha hızlı sayfalar, akıcı uygulamalar ve riskli bir sıfırdan yazım olmadan yeniden kontrol altına alınan eski kodlar.",
+        "whatItIs": "Yavaş bir site ya da takılan bir uygulama her gün para kaybettirir. Bir kontrol listesi verip çekilmiyoruz: flame chart'ları okuyor, render'ı engelleyen üçüncü taraf script'leri temizliyor, yavaş sorguları düzeltiyor, paket boyutunu ve uygulama açılış süresini küçültüyor, işi ait olduğu yere, sunucuya taşıyoruz.",
         "deliverables": [
-          "Derinlemesine çalışma zamanı ve paket ağırlığı profillemesi",
-          "Yeşil Core Web Vitals skorları (LCP, INP, CLS iyileştirmesi)",
-          "Sunucu taraflı render (SSR) ve CDN kenar önbellek kurgusu",
-          "Görsel, font ve stil varlıklarının kayıpsız sıkıştırılması",
-          "Teknik SEO ve arama motoru tarama bütçesi optimizasyonu"
+          "Web sayfaları, API'ler ve mobil uygulama açılışı için çalışma zamanı profillemesi",
+          "Core Web Vitals iyileştirmesi (LCP, INP ve CLS yeşil bölgede)",
+          "Yavaş backend'ler için sorgu ve önbellek düzeltmeleri",
+          "Eski kod tabanlarının aşamalı modernizasyonu",
+          "Teknik SEO temeli ve taranabilirlik düzeltmeleri"
         ],
         "stack": [
           "Next.js",
           "React Server Components",
-          "Web Vitals",
-          "Edge CDN",
-          "Chrome DevTools"
+          "Lighthouse",
+          "Chrome DevTools",
+          "Android Studio Profiler",
+          "Xcode Instruments"
         ],
-        "outcome": "Anında yüklenen sayfalar, kusursuz Core Web Vitals metrikleri ve doğrudan dönüşümlere yansıyan hız artışı.",
-        "bestFor": "Sayfa hızının doğrudan satışa ve arama sıralamasına etki ettiği e-ticaret, medya ve SaaS siteleri."
-      },
-      {
-        "id": "api-entegrasyon",
-        "number": "04",
-        "title": "API TASARIMI VE SİSTEM ENTEGRASYONU",
-        "category": "ENTEGRASYON / ARKA OFİS",
-        "description": "Kopuk iş araçlarını birbirine bağlayan güvenilir REST ve GraphQL arayüzleri, ödeme ve veri senkronizasyon hatları.",
-        "whatItIs": "Hiçbir modern yazılım izole çalışmaz. Entegrasyonlar üstünkörü yapıldığında veri kayıpları ve sessiz çökmeler başlar. Üçüncü taraf servisler çökse bile kendi sisteminizi ayakta tutacak tip güvenli, hata toleranslı bağlantı katmanları kuruyoruz.",
-        "deliverables": [
-          "OpenAPI standartlarında dokümante edilmiş REST ve GraphQL servisleri",
-          "Ödeme altyapıları, CRM, ERP ve faturalandırma entegrasyonları",
-          "İdempotent ve hata anında tekrar deneyebilen webhook mekanizmaları",
-          "Arka plan veri akışları ve asenkron kuyruk yapıları",
-          "Yapay zeka ve LLM API'lerinin güvenli entegrasyonu"
-        ],
-        "stack": [
-          "TypeScript",
-          "Node.js",
-          "REST",
-          "GraphQL",
-          "Webhooks",
-          "OpenAPI",
-          "Redis"
-        ],
-        "outcome": "Farklı araçlar arasında pürüzsüz çalışan, veri kaybı yaşatmayan ve bakımı kolay tek bir ekosistem.",
-        "bestFor": "Birden fazla harici servisle haberleşen veya dış ortaklara açık API sunmak isteyen şirketler."
+        "outcome": "İlk dokunuşta yanıt veren sayfa ve ekranlar, ölçülebilir dönüşüm artışı ve ekibinizin artık dokunmaktan korkmadığı bir kod tabanı.",
+        "bestFor": "Gecikmenin doğrudan gelir kaybettirdiği e-ticaret, SaaS ve içerik platformları ile yeniden yazmayı göze alamayacağı eski bir sistemle sıkışmış ekipler."
       }
     ],
     "processEyebrowLeft": "NASIL ÇALIŞIRIZ / 003",
@@ -301,27 +332,35 @@
     "faqs": [
       {
         "q": "ALAZ'ın klasik ajanslardan farkı nedir?",
-        "a": "Klasik ajanslar genellikle tasarım satar ve yazılım işini stajyerlere ya da taşeronlara yaptırır. ALAZ ise doğrudan mühendisler tarafından yönetilir. Kodunuzu yazan ve veritabanınızı tasarlayan kişilerle birebir iletişim kurarsınız."
+        "a": "Klasik ajanslar genellikle tasarım satar ve yazılım işini deneyimsiz taşeronlara yaptırır. ALAZ ise doğrudan mühendisler tarafından yönetilir. Web ve mobil kodunuzu yazan, backend'inizi tasarlayan kişilerle birebir çalışırsınız; arada hiçbir şey kaybolmaz."
+      },
+      {
+        "q": "Hem iOS hem Android için uygulama geliştiriyor musunuz?",
+        "a": "Evet. Projelerin çoğunda App Store ve Google Play'e aynı anda çıkan tek bir cross-platform kod tabanı (Flutter veya React Native) kullanıyoruz. Bir özellik cihaza derin erişim gerektirdiğinde native Swift veya Kotlin modülleri ekliyoruz. Mağaza hesapları, gönderim ve inceleme süreçlerini de biz yürütüyoruz."
       },
       {
         "q": "Bir projenin tamamlanması ne kadar sürer?",
-        "a": "Odaklanmış bir MVP veya şirket içi araç genellikle 4 ile 8 hafta arasında canlıya alınır. Daha kapsamlı platformlar 2 ile 4 ay sürer. Keşif görüşmemizin ardından net bir takvim ve kapsam çıkarırız."
+        "a": "Odaklanmış bir MVP veya şirket içi araç, web ya da mobil fark etmeksizin genellikle 4 ile 8 hafta arasında canlıya alınır; mobil uygulamalarda buna mağaza inceleme süresi eklenir. Birden fazla uygulama ve entegrasyon içeren platformlar 2 ile 4 ay sürer. Keşif görüşmesinin ardından aşamalara bölünmüş net bir takvim çıkarırız."
       },
       {
-        "q": "Hangi teknolojileri tercih ediyorsunuz?",
-        "a": "Geçici trendler yerine sahada kendini kanıtlamış teknolojileri seçiyoruz. Ana yığınımız TypeScript, Next.js, React, Node.js ve PostgreSQL üzerine kuruludur. Bu yapı hem hızlı geliştirmeyi hem de uzun yıllar sorunsuz çalışmayı sağlar."
+        "q": "Hangi teknolojileri kullanıyorsunuz?",
+        "a": "Geçici trendler yerine sahada kendini kanıtlamış araçları seçiyoruz. Web: TypeScript, Next.js, React ve Node.js. Mobil: Flutter veya React Native, gerektiğinde Swift ve Kotlin. Veri ve altyapı: PostgreSQL, Redis, Docker ve AWS ya da GCP. Ekibinizin mevcut bir teknoloji yığını varsa onunla da çalışabiliriz."
       },
       {
         "q": "Yazılım bittiğinde kodların sahibi kim olur?",
-        "a": "Tamamen siz olursunuz. Yazılan her satır kod, sunucu konfigürasyonu ve dokümantasyon ilk günden itibaren sizin mülkünüzdür. Herhangi bir sisteme bağımlı kalmazsınız."
+        "a": "Tamamen siz. Yazılan her satır kod, sunucu konfigürasyonu, uygulama mağazası kaydı ve doküman ilk günden itibaren sizindir. Herhangi bir platforma bağımlı kalmazsınız."
       },
       {
-        "q": "Mevcut ve yavaş çalışan bir projeyi devralıp düzeltebilir misiniz?",
-        "a": "Evet. Hatalı mimarileri, yavaşlayan veritabanlarını ve performans sorunlarını analiz ediyor; her şeyi sıfırdan yazıp risk almak yerine mevcut projeyi stabilize edip hızlandırıyoruz."
+        "q": "Mevcut bir ürünü devralıp düzeltebilir misiniz?",
+        "a": "Evet. Yavaş, kararsız ya da kötü yapılandırılmış web uygulamalarını, mobil uygulamaları ve backend'leri düzenli olarak denetliyoruz. Profilliyor, kritik darboğazları gideriyor ve her şeyi sıfırdan yazmanın maliyetine ve riskine girmeden sistemi stabil hale getiriyoruz."
+      },
+      {
+        "q": "Yayından sonra destek veriyor musunuz?",
+        "a": "Evet. Bakım için sizinle devam edebiliriz (izleme, güvenlik ve bağımlılık güncellemeleri, mobilde işletim sistemi güncellemelerine uyum ve yeni özellikler) ya da her şeyi dokümantasyon ve bir tanıtımla ekibinize devredebiliriz."
       },
       {
         "q": "Projeye nasıl başlayabiliriz?",
-        "a": "Proje formumuz üzerinden veya hello@alaz.pro adresine kısa bir e-posta ile ulaşabilirsiniz. İhtiyaçlarınızı inceleyip en geç 24 saat içinde doğrudan teknik bir görüşme planlarız."
+        "a": "Proje formumuzdan ya da hello@alaz.pro adresine kısa bir e-postayla ulaşın. Her talebi inceliyor ve bir iş günü içinde dönüş yaparak doğrudan teknik bir görüşme planlıyoruz."
       }
     ]
   },
@@ -330,18 +369,19 @@
     "email": "hello@alaz.pro",
     "offices": [
       {
-        "region": "USA",
+        "region": "ABD / NEW YORK",
         "lines": [
-          "1234 Example Street, Suite 100",
+          "1250 Broadway, 36th Floor",
           "New York, NY 10001",
           "AMERİKA BİRLEŞİK DEVLETLERİ"
         ]
       },
       {
-        "region": "TR",
+        "region": "TÜRKİYE / İZMİR",
         "lines": [
-          "Örnek Mah. Örnek Cad. No: 1",
-          "Kadıköy, İstanbul 34000",
+          "Folkart Towers, B Blok, Kat 31",
+          "Adalet Mah. Manas Blv. No:39",
+          "35530 Bayraklı, İzmir",
           "TÜRKİYE"
         ]
       }
@@ -349,7 +389,7 @@
   },
   "footer": {
     "talk": "AKLINIZDA BİR PROJE Mİ VAR?",
-    "copyright": "© 2025 ALAZ MÜHENDİSLİK. TÜM HAKLARI SAKLIDIR.",
+    "copyright": "© {year} ALAZ YAZILIM. TÜM HAKLARI SAKLIDIR.",
     "backTop": "BAŞA DÖN ↑",
     "linkLabels": [
       "BLOG",
@@ -359,16 +399,16 @@
   },
   "home": {
     "meta": {
-      "title": "ALAZ — Yazılım Mimarisi & Mühendislik Stüdyosu",
-      "description": "ALAZ dayanıklı yazılım mimarisi, yüksek performans ve birbiriyle konuşan dijital ekosistemler tasarlar. Gösterişten uzak, sonuca odaklı."
+      "title": "ALAZ — Web, Mobil ve Yazılım Mühendisliği Stüdyosu",
+      "description": "ALAZ web uygulamaları, iOS ve Android uygulamaları ve bunların arkasındaki backend sistemlerini geliştirir. İlk eskizden canlı ortama tek mühendislik ekibi."
     },
     "hero": {
       "status": "SİSTEM_AKTİF",
-      "toplineRight": "MÜHENDİSLİK STÜDYOSU / KUR. 2025",
-      "kicker": "BAĞIMSIZ YAZILIM MİMARİSİ STÜDYOSU",
+      "toplineRight": "YAZILIM STÜDYOSU / KUR. 2025",
+      "kicker": "WEB · MOBİL · SİSTEMLER — YAZILIM STÜDYOSU",
       "taglineTop": "LAF DEĞİL.",
       "taglineBottom": "MÜHENDİSLİK.",
-      "intro": "Büyük fikirleri çalışan ve yaşayan sistemlere dönüştürüyoruz. Bilinçli tasarlandı, uzun yıllar dayanacak şekilde inşa edildi.",
+      "intro": "Web uygulamalarını, mobil uygulamaları ve arkalarındaki sistemleri tasarlıyor ve geliştiriyoruz. Bilinçli tasarlandı, yıllarca dayanacak şekilde inşa edildi.",
       "scrollCta": "KEŞFETMEK İÇİN KAYDIRIN",
       "bottomNote": "HASSASİYET BİR HEDEF DEĞİL, STANDARTTIR."
     },
@@ -392,7 +432,7 @@
     ],
     "capabilities": {
       "eyebrowLeft": "02 / UZMANLIK",
-      "eyebrowRight": "GÖSTERİŞ DEĞİL DİSİPLİN",
+      "eyebrowRight": "WEB / MOBİL / SİSTEMLER",
       "heading": [
         "ÇEKİRDEK",
         "YETKİNLİKLER"
@@ -401,7 +441,7 @@
     },
     "selected": {
       "eyebrowLeft": "03 / ÇIKTI",
-      "eyebrowRight": "SEÇİLMİŞ PROJELER // 03",
+      "eyebrowRight": "SEÇİLMİŞ PROJELER // {count}",
       "heading": [
         "SEÇİLMİŞ",
         "İŞLER"
@@ -428,7 +468,7 @@
       "number": "01",
       "quote": "“Anlaşılması ve yönetilmesi imkânsız hale gelmiş karmaşık bir sisteme düzen getirdiler. Yeni mimari, ürün geliştirmeyi yavaşlatmadan ekibimize net bir yol haritası sağladı.”",
       "name": "MERVE T.",
-      "role": "MÜHENDİSLİK DİREKTÖRÜ",
+      "role": "PROJE YÖNETİCİSİ",
       "focus": "MİMARİ"
     },
     {
@@ -449,7 +489,7 @@
   "about": {
     "meta": {
       "title": "ALAZ Hakkında — Mühendislik Manifestomuz",
-      "description": "ALAZ bağımsız bir yazılım mimarisi ve mühendislik stüdyosudur. Kalıcı sistemler kurar, dogmalar yerine verilere güvenir ve tavizsiz verimlilikle çalışırız."
+      "description": "ALAZ; web uygulamaları, iOS ve Android uygulamaları ve bunların arkasındaki backend sistemlerini geliştiren bağımsız bir yazılım stüdyosudur. Dogma değil veri, tavizsiz verimlilik, kalıcı yazılım."
     },
     "eyebrowLeft": "STÜDYO / 001",
     "eyebrowRight": "ÇALIŞMA PRENSİPLERİMİZ",
@@ -458,7 +498,7 @@
       "KALICI MİMARİLER",
       "İNŞA EDİYORUZ"
     ],
-    "introText": "Karmaşık sistemleri güvenilebilecek kadar sade, yıllarca ayakta kalacak kadar dayanıklı hale getirmek için varız.",
+    "introText": "Web uygulamalarını, mobil uygulamaları ve arkalarındaki sistemleri; güvenilecek kadar sade, yıllarca ayakta kalacak kadar sağlam inşa ediyoruz.",
     "introNote": "ALAZ / MANİFESTO 2025",
     "originEyebrowLeft": "01 / İSİM",
     "originEyebrowRight": "NEDEN ALAZ",
@@ -533,7 +573,7 @@
   "archive": {
     "meta": {
       "title": "Vaka Çalışmaları — ALAZ Mühendislik",
-      "description": "Bulut altyapısı, sistem tasarımı ve yüksek performans alanlarında ALAZ mühendislik vaka çalışmalarını inceleyin."
+      "description": "ALAZ vaka çalışmaları: web platformları, iOS ve Android uygulamaları ve backend sistemleri. Problem, yaklaşım ve sonuç."
     },
     "eyebrowLeft": "İNDEKS / 001",
     "eyebrowRight": "ARŞİV / SEÇİLMİŞ PROJELER",
@@ -543,7 +583,7 @@
       "İŞLER"
     ],
     "introText": "Teknik zorluklar. Rasyonel çözümler. Gelecek için inşa edilmiş kalıcı sistemler.",
-    "introNote": "ARŞİVDEKİ PROJELER / 003",
+    "introNote": "ARŞİVDEKİ PROJELER / {count}",
     "tableHeaders": [
       "NO.",
       "PROJE / DİSİPLİN",
@@ -586,7 +626,7 @@
   "blogIndex": {
     "meta": {
       "title": "Blog — ALAZ Mühendislik Stüdyosu",
-      "description": "Yazılım mimarisi, yüksek performanslı web mühendisliği ve kalıcı sistemler üzerine teknik notlar. ALAZ mühendislik stüdyosu tarafından kaleme alındı."
+      "description": "Web ve mobil mühendislik, backend mimarisi ve performans üzerine notlar. ALAZ yazılım stüdyosu tarafından yazıldı."
     },
     "eyebrowLeft": "BLOG / 001",
     "eyebrowRight": "STÜDYODAN NOTLAR",
@@ -594,7 +634,7 @@
     "heading": [
       "BLOG"
     ],
-    "introText": "Yazılım mimarisi, performans optimizasyonu ve demoların ötesinde gerçek dünyada ayakta kalan sistemler üzerine stüdyo notları.",
+    "introText": "Web ve mobil mühendislik, sistem mimarisi, performans ve lansmandan çok sonra da ayakta kalan yazılımlar üzerine stüdyo notları.",
     "introNote": "ALAZ / YAZILAR 2025",
     "articlesAriaLabel": "Blog yazıları",
     "readMinutesSuffix": "DK OKUMA",
@@ -609,18 +649,19 @@
     "blogLabelPrefix": "BLOG",
     "readingSuffix": "DK OKUMA",
     "fieldNotesLabel": "ALAZ / STÜDYO NOTLARI",
-    "authorIntroBefore": "ALAZ bağımsız bir yazılım mimarisi ve mühendislik stüdyosudur. Bize ",
+    "authorIntroBefore": "ALAZ; web uygulamaları, mobil uygulamalar ve backend sistemleri geliştiren bağımsız bir yazılım stüdyosudur. Bize ",
     "authorIntroAfter": " adresinden ulaşabilirsiniz.",
     "nextNoteLabel": "SONRAKİ YAZI",
     "contactPrompt": "UZUN YILLAR DAYANACAK BİR YAZILIM MI GELİŞTİRMEK İSTİYORSUNUZ?",
     "contactCta": "PROJE BAŞLAT",
     "metaTitleTemplate": "{title} — ALAZ Blog",
-    "coverAlt": "{title} — kapak görseli"
+    "coverAlt": "{title} — kapak görseli",
+    "updatedPrefix": "GÜNCELLEME"
   },
   "intake": {
     "meta": {
       "title": "Proje Başlat — ALAZ Mühendislik",
-      "description": "ALAZ'a yazılım mimarisi, mühendislik veya dijital sistem projenizi anlatın. Projeniz için teknik bir talep oluşturun."
+      "description": "Web uygulaması, mobil uygulama veya backend projenizi ALAZ'a anlatın. Üç kısa adım; bir iş günü içinde dönüş yapıyoruz."
     },
     "sectionTopLeft": "PROJE TALEBİ / GÜVENLİ İLETİM",
     "sectionTopRight": "ALAZ / YENİ İŞ BİRLİĞİ",
@@ -659,19 +700,19 @@
     "types": [
       {
         "name": "Web Uygulaması",
-        "detail": "Platformlar & dijital ürünler"
+        "detail": "Platform, SaaS & paneller"
       },
       {
         "name": "Mobil Uygulama",
-        "detail": "Yüksek performanslı mobil deneyimler"
+        "detail": "iOS & Android"
       },
       {
-        "name": "Altyapı & Bulut",
-        "detail": "Dağıtık sistemler & mimari"
+        "name": "Sistem & Backend",
+        "detail": "API, entegrasyon & bulut"
       },
       {
-        "name": "Özel Mimari",
-        "detail": "Özel gereksinimler & diğer"
+        "name": "Diğer",
+        "detail": "Denetim, kurtarma veya özel"
       }
     ],
     "typeIndexSuffix": "TÜR",
@@ -784,7 +825,7 @@
         },
         {
           "heading": "Uygulanacak hukuk",
-          "body": "Bu şartlara Türkiye Cumhuriyeti hukuku uygulanır. Ülkenizdeki emredici tüketici hükümleri saklı kalmak üzere İstanbul mahkemeleri yetkilidir."
+          "body": "Bu şartlara Türkiye Cumhuriyeti hukuku uygulanır. Ülkenizdeki emredici tüketici hükümleri saklı kalmak üzere İzmir mahkemeleri yetkilidir."
         },
         {
           "heading": "Değişiklikler ve sorular",
@@ -855,40 +896,41 @@
     "startProject": "Proje Başlat",
     "keywords": {
       "home": [
-        "yazılım mimarisi stüdyosu",
-        "özel yazılım geliştirme",
-        "yüksek performanslı web geliştirme",
-        "Next.js geliştirme",
-        "bulut altyapı",
+        "yazılım şirketi",
         "web uygulaması geliştirme",
+        "mobil uygulama geliştirme",
+        "iOS ve Android uygulama geliştirme",
+        "backend ve API geliştirme",
+        "özel yazılım geliştirme",
+        "yazılım şirketi İzmir",
         "ALAZ Yazılım"
       ],
       "about": [
-        "yazılım mühendisliği stüdyosu",
-        "bağımsız yazılım mimarisi",
+        "yazılım geliştirme stüdyosu",
+        "web ve mobil yazılım ekibi",
         "mühendislik ilkeleri",
         "nasıl yazılım geliştiriyoruz",
         "ALAZ Yazılım"
       ],
       "archive": [
         "yazılım vaka çalışmaları",
-        "bulut altyapı projeleri",
-        "sistem tasarımı örnekleri",
-        "web performansı sonuçları",
+        "web uygulaması projeleri",
+        "mobil uygulama projeleri",
+        "backend entegrasyon projesi",
         "ALAZ projeleri"
       ],
       "blog": [
-        "yazılım mimarisi blog",
         "web sitesi performansı",
-        "Next.js",
-        "mühendislik notları",
-        "site hızı ve dönüşüm"
+        "mobil uygulama performansı",
+        "Core Web Vitals",
+        "yazılım mimarisi blog",
+        "mühendislik notları"
       ],
       "startProject": [
         "yazılım projesi başlat",
-        "yazılım projesi teklifi",
+        "web uygulaması teklifi",
+        "mobil uygulama teklifi",
         "yazılım stüdyosu ile çalışmak",
-        "özel web uygulaması teklifi",
         "ALAZ iletişim"
       ]
     }

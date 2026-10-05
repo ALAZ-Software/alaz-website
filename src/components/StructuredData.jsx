@@ -6,8 +6,8 @@ import { BRAND_ALIASES, LEGAL_NAME, LOGO_URL, OG_IMAGE, SITE_NAME, SITE_URL, SOC
 // the Organization / WebSite identity. Per-page schemas (BlogPosting, FAQPage,
 // BreadcrumbList, Service) stack on top via each page's own JSON-LD.
 const DESCRIPTIONS = {
-  en: 'ALAZ (ALAZ Software) is an independent software architecture and high-performance web engineering studio. We build resilient systems, native performance, and connected digital ecosystems.',
-  tr: 'ALAZ (ALAZ Yazılım), bağımsız bir yazılım mimarisi ve yüksek performanslı web mühendisliği stüdyosudur. Dayanıklı sistemler, yüksek performans ve birbirine bağlı dijital ekosistemler geliştiririz.',
+  en: 'ALAZ (ALAZ Software) is an independent software studio that builds web applications, iOS and Android apps, and the backend systems, APIs and cloud infrastructure behind them.',
+  tr: 'ALAZ (ALAZ Yazılım), web uygulamaları, iOS ve Android mobil uygulamalar ile bunların arkasındaki backend sistemlerini, API entegrasyonlarını ve bulut altyapısını geliştiren bağımsız bir yazılım stüdyosudur.',
 };
 
 export default async function StructuredData() {
@@ -25,13 +25,22 @@ export default async function StructuredData() {
     image: OG_IMAGE.url,
     description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.en,
     areaServed: 'Worldwide',
+    foundingDate: '2025',
+    // Keep in sync with `contact.offices` in messages/*.json.
+    address: [
+      { '@type': 'PostalAddress', streetAddress: '1250 Broadway, 36th Floor', addressLocality: 'New York', addressRegion: 'NY', postalCode: '10001', addressCountry: 'US' },
+      { '@type': 'PostalAddress', streetAddress: 'Adalet Mah. Manas Blv. No:39, Folkart Towers B Blok Kat 31', addressLocality: 'Bayraklı', addressRegion: 'İzmir', postalCode: '35530', addressCountry: 'TR' },
+    ],
     knowsAbout: [
-      'Software Architecture',
-      'High-Performance Web Engineering',
-      'Full-Stack Development',
+      'Web Application Development',
+      'Mobile App Development',
+      'iOS Development',
+      'Android Development',
+      'Backend Development',
+      'API Integration',
       'Cloud Infrastructure',
-      'Next.js',
-      'System Design',
+      'Software Architecture',
+      'Web Performance',
     ],
     knowsLanguage: ['en', 'tr'],
     email: 'hello@alaz.pro',

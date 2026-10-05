@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from '@/i18n/navigation';
 
 // Minimal, dependency-free markdown renderer tuned for long-form posts.
 // Supports: # ## ### headings, paragraphs, - lists, > blockquotes, --- hr,
-// and inline **bold**, `code`, [text](url).
+// and inline **bold**, `code`, [text](url). Links starting with "/" stay on the site in the reader's language.
 const renderInline = (text) => {
   const nodes = [];
   const regex = /(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`)/g;
@@ -14,11 +15,10 @@ const renderInline = (text) => {
     const tok = m[0];
     if (tok.startsWith('[')) {
       const lm = tok.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-      nodes.push(
-        <a key={key++} href={lm[2]} target="_blank" rel="noopener noreferrer" className="text-white border-b border-[#555] transition-colors duration-200 hover:border-white">
-          {lm[1]}
-        </a>
-      );
+      const linkClass = 'text-white border-b border-[#555] transition-colors duration-200 hover:border-white';
+      nodes.push(lm[2].startsWith('/')
+        ? <Link key={key++} href={lm[2]} className={linkClass}>{lm[1]}</Link>
+        : <a key={key++} href={lm[2]} target="_blank" rel="noopener noreferrer" className={linkClass}>{lm[1]}</a>);
     } else if (tok.startsWith('**')) {
       nodes.push(<strong key={key++} className="text-white font-bold">{tok.slice(2, -2)}</strong>);
     } else if (tok.startsWith('`')) {

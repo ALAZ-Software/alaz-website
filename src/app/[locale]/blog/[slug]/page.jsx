@@ -7,6 +7,7 @@ import ReadProgress from '@/components/ReadProgress';
 import enMessages from '@messages/en.json';
 import JsonLd, { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { LOGO_URL, ORG_ID, SITE_NAME, SITE_URL, buildMetadata, urlFor } from '@/lib/seo';
+import { fit } from '@/lib/fit';
 
 const readingTime = (text) => Math.max(1, Math.round(text.trim().split(/\s+/).filter(Boolean).length / 200));
 
@@ -45,7 +46,7 @@ export default async function BlogPostPage({ params }) {
   if (!post) {
     return (
       <main className="pt-[76px] min-h-[70vh] mobile:pt-[66px] px-[clamp(24px,4.2vw,72px)]">
-        <h1 data-reveal="mask" className="text-[length:clamp(64px,12vw,200px)] font-black my-[25px]">{t('notFoundHeading')}</h1>
+        <h1 data-reveal="mask" style={fit(t('notFoundHeading'))} className="fit [--fit-size:clamp(64px,12vw,200px)] font-black my-[25px]">{t('notFoundHeading')}</h1>
         <Link href="/blog" className="inline-flex items-center gap-[18px] border-b border-white pb-[12px] font-mono text-[11px] tracking-[.03em] whitespace-nowrap [transition:gap_.2s_ease] hover:gap-[26px]">
           {t('backToBlogCta')} <ArrowLeft size={16} />
         </Link>
@@ -65,7 +66,7 @@ export default async function BlogPostPage({ params }) {
     description: post.excerpt,
     image: [post.cover],
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated || post.date,
     author: { '@type': 'Organization', '@id': ORG_ID, name: SITE_NAME, url: SITE_URL },
     publisher: { '@type': 'Organization', '@id': ORG_ID, name: SITE_NAME, logo: { '@type': 'ImageObject', url: LOGO_URL } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
@@ -88,8 +89,8 @@ export default async function BlogPostPage({ params }) {
             <Link href="/blog">{t('allFieldNotes')}</Link>
             <span>{t('blogLabelPrefix')} / {post.tag}</span>
           </div>
-          <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[110px] mobile:mt-[80px] mb-[22px]"><time dateTime={post.date}>{post.dateLabel}</time> — {time} {t('readingSuffix')}</p>
-          <h1 data-reveal="mask" className="text-[length:clamp(64px,12vw,200px)] leading-[.86] tracking-[-.075em] font-black mb-[22px] mobile:text-[length:clamp(75px,17vw,135px)] mobile:mb-[40px]">{post.title.replace(/\s+/g, ' ')}</h1>
+          <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[110px] mobile:mt-[80px] mb-[22px]"><time dateTime={post.date}>{post.dateLabel}</time> — {time} {t('readingSuffix')}{post.updated && <> — {t('updatedPrefix')} <time dateTime={post.updated}>{post.updatedLabel}</time></>}</p>
+          <h1 data-reveal="mask" style={fit(post.title)} className="fit [--fit-size:clamp(44px,6.4vw,112px)] leading-[.95] tracking-[-.06em] font-black mb-[28px] max-w-[1300px] mobile:[--fit-size:clamp(34px,9.6vw,56px)] mobile:leading-[1] mobile:mb-[30px]">{post.title.replace(/\s+/g, ' ')}</h1>
           <p data-reveal="fade" className="text-[length:clamp(19px,2.4vw,32px)] tracking-[-.04em] max-w-[740px] leading-[1.4] text-[#b4b4b4]">{post.excerpt}</p>
         </div>
 
@@ -119,11 +120,11 @@ export default async function BlogPostPage({ params }) {
 
           <Link href={`/blog/${next.slug}`} className="group flex justify-between items-end py-[70px] border-b border-line mobile:py-[55px]">
             <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim">{t('nextNoteLabel')}</span>
-            <span className="text-[length:clamp(26px,3.4vw,46px)] font-extrabold tracking-[-.05em] leading-[1.05] flex gap-[18px] items-center max-w-[78%] mobile:text-[length:clamp(22px,6vw,30px)] mobile:leading-[1.1] mobile:gap-[12px] mobile:max-w-[80%] xs:text-[length:clamp(20px,7vw,26px)] xs:gap-[10px] xs:max-w-[82%]">{next.title.replace(/\s+/g, ' ').slice(0, 48)}… <ArrowUpRight size={34} strokeWidth={1.2} className="transition-transform duration-200 group-hover:translate-x-[10px]" /></span>
+            <span className="text-[length:clamp(26px,3.4vw,46px)] font-extrabold tracking-[-.05em] leading-[1.05] flex gap-[18px] items-center max-w-[78%] mobile:text-[length:clamp(22px,6vw,30px)] mobile:leading-[1.1] mobile:gap-[12px] mobile:max-w-[80%] xs:text-[length:clamp(20px,7vw,26px)] xs:gap-[10px] xs:max-w-[82%]"><span className="min-w-0 line-clamp-2 [overflow-wrap:anywhere]">{next.title.replace(/\s+/g, ' ')}</span> <ArrowUpRight size={34} strokeWidth={1.2} className="flex-none transition-transform duration-200 group-hover:translate-x-[10px]" /></span>
           </Link>
         </div>
 
-        <div className="w-full px-[clamp(24px,4.2vw,72px)] flex justify-between items-center pt-[50px] pb-[135px] text-mute">
+        <div className="w-full px-[clamp(24px,4.2vw,72px)] flex justify-between items-center gap-[24px] pt-[50px] pb-[135px] text-mute mobile:flex-col mobile:items-start">
           <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-dim">{t('contactPrompt')}</span>
           <Link href="/start-project" className="inline-flex items-center justify-between gap-[30px] border border-[rgba(255,255,255,.65)] min-h-[49px] px-[18px] font-mono text-[10px] tracking-[.03em] whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-white hover:text-black xs:min-h-[46px]">
             {t('contactCta')} <ArrowUpRight size={17} />

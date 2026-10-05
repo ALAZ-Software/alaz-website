@@ -3,6 +3,8 @@ import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import JsonLd, { BreadcrumbJsonLd, FaqJsonLd } from '@/components/JsonLd';
 import { ORG_ID, buildMetadata, urlFor } from '@/lib/seo';
+import { fit } from '@/lib/fit';
+import BackgroundVideo from '@/components/BackgroundVideo';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -77,7 +79,7 @@ export default async function ServicesPage({ params }) {
             <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[105px] mobile:mt-[85px]">
               {t('kicker')}
             </p>
-            <h1 data-reveal="mask" className="text-[length:clamp(67px,12.4vw,205px)] font-black tracking-[-.075em] leading-[.86] my-[25px] mb-[70px] mobile:text-[length:clamp(60px,12.5vw,100px)]">
+            <h1 data-reveal="mask" style={fit(heading, '.')} className="fit [--fit-size:clamp(67px,12.4vw,205px)] font-black tracking-[-.075em] leading-[.86] my-[25px] mb-[70px] mobile:[--fit-size:clamp(60px,12.5vw,100px)]">
               {heading[0]}
               <br />
               {heading[1]}
@@ -101,7 +103,7 @@ export default async function ServicesPage({ params }) {
             <span>{t('overviewEyebrowRight')}</span>
           </div>
           <div className="flex justify-between items-end gap-[40px] mt-[70px] mobile:flex-col mobile:items-start mobile:mt-[50px] mobile:gap-[24px]">
-            <h2 data-reveal="mask" className="text-[length:clamp(48px,8vw,130px)] font-black tracking-[-.07em] leading-[.88]">
+            <h2 data-reveal="mask" style={fit(overviewTitle, '.')} className="fit [--fit-size:clamp(48px,8vw,130px)] font-black tracking-[-.07em] leading-[.88]">
               {overviewTitle[0]}
               <br />
               {overviewTitle[1]}
@@ -146,7 +148,7 @@ export default async function ServicesPage({ params }) {
                   </div>
 
                   <div>
-                    <h2 itemProp="name" className="text-[length:clamp(30px,4.5vw,60px)] font-extrabold tracking-[-.06em] leading-[1] text-white">
+                    <h2 itemProp="name" style={fit(item.title)} className="fit [--fit-size:clamp(30px,4.5vw,60px)] [--fit-avail:calc((100vw_-_2*var(--gutter))*.52_-_60px)] font-extrabold tracking-[-.06em] leading-[1] text-white mobile:[--fit-avail:calc(100vw_-_2*var(--gutter))]">
                       {item.title}
                     </h2>
                     <p itemProp="description" className="text-[18px] text-white/90 tracking-[-.02em] leading-[1.5] mt-[18px] max-w-[600px]">
@@ -198,7 +200,7 @@ export default async function ServicesPage({ params }) {
             <span>{t('processEyebrowLeft')}</span>
             <span>{t('processEyebrowRight')}</span>
           </div>
-          <h2 data-reveal="mask" className="text-[length:clamp(48px,8vw,130px)] font-black tracking-[-.07em] leading-[.88] my-[70px] mobile:my-[50px]">
+          <h2 data-reveal="mask" style={fit(processTitle, '.')} className="fit [--fit-size:clamp(48px,8vw,130px)] font-black tracking-[-.07em] leading-[.88] my-[70px] mobile:my-[50px]">
             {processTitle[0]}
             <br />
             {processTitle[1]}
@@ -207,7 +209,7 @@ export default async function ServicesPage({ params }) {
           <ol className="grid grid-cols-4 gap-[30px] mobile:grid-cols-1 mobile:gap-0 [&>li]:border-t [&>li]:border-line">
             {processSteps.map((step, i) => (
               <li key={step.number} data-reveal="fade" style={{ '--reveal-delay': `${i * 80}ms` }} className="pt-[22px] pb-[30px] pr-[10px]">
-                <span className="font-mono text-[10px] tracking-[.085em] text-dim">{step.number} / 04</span>
+                <span className="font-mono text-[10px] tracking-[.085em] text-dim">{step.number} / {String(processSteps.length).padStart(2, '0')}</span>
                 <h3 className="text-[24px] font-extrabold tracking-[-.05em] mt-[14px]">{step.title}</h3>
                 <p className="text-[15px] leading-[1.7] text-mute mt-[12px]">{step.body}</p>
               </li>
@@ -221,8 +223,8 @@ export default async function ServicesPage({ params }) {
             <span>{t('faqEyebrowLeft')}</span>
             <span>{t('faqEyebrowRight')}</span>
           </div>
-          <div className="grid grid-cols-[1fr_1.2fr] gap-[60px] mt-[70px] mobile:grid-cols-1 mobile:gap-[40px] mobile:mt-[50px]">
-            <h2 data-reveal="mask" className="text-[length:clamp(48px,8vw,130px)] font-black tracking-[-.07em] leading-[.88]">
+          <div className="grid grid-cols-[1fr_1.2fr] gap-[60px] mt-[70px] tablet:grid-cols-1 tablet:gap-[40px] mobile:mt-[50px]">
+            <h2 data-reveal="mask" style={fit(faqTitle, '.')} className="fit [--fit-size:clamp(48px,8vw,130px)] [--fit-avail:calc((100vw_-_2*var(--gutter)_-_60px)/2.2)] font-black tracking-[-.07em] leading-[.88] tablet:[--fit-avail:calc(100vw_-_2*var(--gutter))]">
               {faqTitle[0]}
               <br />
               {faqTitle[1]}
@@ -245,18 +247,7 @@ export default async function ServicesPage({ params }) {
 
         {/* CTA Section */}
         <section className="w-full relative bg-[#090909] overflow-hidden">
-          <video
-            poster="/videos/poster.png"
-            className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-          >
-            <source src="/videos/about-end-section.mp4" type="video/mp4" />
-          </video>
+          <BackgroundVideo src="/videos/about-end-section.mp4" className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,#090909_0%,rgba(9,9,9,.4)_45%,rgba(9,9,9,.55)_100%)] pointer-events-none" aria-hidden="true" />
           <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[150px] pb-[160px] relative z-[1] flex items-end justify-between gap-[40px] mobile:pt-[95px] mobile:pb-[100px] mobile:items-start mobile:flex-col">
             <p className="text-[length:clamp(30px,4.5vw,72px)] font-extrabold tracking-[-.07em] leading-[1.05]">

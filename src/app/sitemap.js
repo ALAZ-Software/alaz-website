@@ -3,7 +3,8 @@ import { languageAlternates, urlFor } from '@/lib/seo';
 import en from '../../messages/en.json';
 
 // Locale-agnostic paths. Slugs are identical across locales (verified in messages/*.json).
-const latestPostDate = new Date(Math.max(...en.blogPosts.map((p) => new Date(p.date))));
+const postDate = (p) => new Date(p.updated || p.date);
+const latestPostDate = new Date(Math.max(...en.blogPosts.map(postDate)));
 
 const STATIC_PATHS = [
   { path: '', priority: 1, changeFrequency: 'weekly' },
@@ -18,7 +19,7 @@ const STATIC_PATHS = [
 
 const dynamicPaths = [
   ...en.projects.map((p) => ({ path: `/case-studies/${p.slug}`, priority: 0.6, changeFrequency: 'monthly', images: p.image ? [p.image] : undefined })),
-  ...en.blogPosts.map((p) => ({ path: `/blog/${p.slug}`, priority: 0.6, changeFrequency: 'monthly', lastModified: new Date(p.date), images: p.cover ? [p.cover] : undefined })),
+  ...en.blogPosts.map((p) => ({ path: `/blog/${p.slug}`, priority: 0.6, changeFrequency: 'monthly', lastModified: postDate(p), images: p.cover ? [p.cover] : undefined })),
 ];
 
 // lastModified is only emitted where a real date exists; a fake "now" trains crawlers to ignore it.

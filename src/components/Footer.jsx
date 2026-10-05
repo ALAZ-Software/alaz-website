@@ -19,7 +19,7 @@ export default async function Footer() {
       <ContactInfo />
     </div>
     <div className="w-full px-[clamp(24px,4.2vw,72px)] border-t border-line min-h-[90px] flex items-center justify-between gap-[24px] text-dim tablet:flex-wrap tablet:pt-[25px] tablet:pb-[25px] mobile:gap-[20px]">
-      <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6]">{t('copyright')}</span>
+      <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6]">{t('copyright', { year: new Date().getFullYear() })}</span>
       <div className="flex gap-[clamp(12px,1.8vw,31px)] font-mono text-[9px] tracking-[.06em] tablet:order-3 tablet:w-full tablet:justify-between mobile:flex-wrap mobile:gap-x-[24px] mobile:gap-y-[15px] mobile:justify-start">
         {links.map(l => <Link key={l.href} href={l.href} className="hover:text-white">{l.label}</Link>)}
       </div>

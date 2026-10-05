@@ -11,6 +11,18 @@ const nextConfig = {
 			{ protocol: 'https', hostname: 'horizons-cdn.hostinger.com' },
 		],
 	},
+	// www.alaz.pro answered 200 with a full copy of the site. One host keeps Search Console,
+	// the sitemap and the canonical URLs (all https://alaz.pro) in agreement.
+	async redirects() {
+		return [
+			{
+				source: '/:path*',
+				has: [{ type: 'host', value: 'www.alaz.pro' }],
+				destination: 'https://alaz.pro/:path*',
+				permanent: true,
+			},
+		];
+	},
 	async headers() {
 		return [
 			{

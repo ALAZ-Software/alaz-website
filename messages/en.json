@@ -9,24 +9,24 @@
   "services": [
     {
       "number": "01",
-      "title": "SYSTEM ARCHITECTURE",
-      "category": "INFRASTRUCTURE / RESILIENCE",
-      "description": "Resilient, observable infrastructure for systems that cannot afford to go down.",
-      "detail": "From the first service diagram to production, we design for clarity and scale. Every dependency is deliberate, every failure mode mapped, every deploy reversible."
+      "title": "WEB APPLICATIONS",
+      "category": "WEB / SAAS / PLATFORMS",
+      "description": "Web apps, SaaS platforms and admin panels that load fast and stay easy to change as the business grows.",
+      "detail": "From customer portals to multi-tenant SaaS: server-first rendering, typed APIs and a codebase your own team can pick up."
     },
     {
       "number": "02",
-      "title": "NATIVE PERFORMANCE",
-      "category": "ENGINEERING / OPTIMIZATION",
-      "description": "Sub-second loads and zero jank. We cut bytes and main-thread work, not corners.",
-      "detail": "We profile the real critical path, prune the bundle, and move rendering to the server. The result ships fewer kilobytes and responds on the first interaction."
+      "title": "MOBILE APPS",
+      "category": "IOS / ANDROID / CROSS-PLATFORM",
+      "description": "iOS and Android apps from one codebase, tested on real devices and shipped to both stores.",
+      "detail": "Flutter or React Native for shared code, native Swift and Kotlin where the hardware needs it, offline-first data, push notifications and store releases handled end to end."
     },
     {
       "number": "03",
-      "title": "DIGITAL ECOSYSTEMS",
-      "category": "INTEGRATION / PRODUCT",
-      "description": "APIs, data flows, and product surfaces wired into one coherent system.",
-      "detail": "Complexity belongs behind the interface. We connect products, data, and workflows with typed contracts and clear boundaries, so the system stays legible as it grows."
+      "title": "SYSTEMS & BACKEND",
+      "category": "API / CLOUD / INTEGRATION",
+      "description": "The APIs, integrations and cloud infrastructure that keep your web and mobile products running under real traffic.",
+      "detail": "Typed APIs, payment, CRM and ERP integrations, background jobs, CI/CD and monitoring that alerts you before your customers notice."
     }
   ],
   "projects": [
@@ -34,51 +34,51 @@
       "slug": "alpha",
       "number": "01",
       "name": "ALPHA",
-      "discipline": "SYSTEM DESIGN",
-      "type": "CLOUD INFRASTRUCTURE",
+      "discipline": "WEB PLATFORM",
+      "type": "SAAS / OPERATIONS DASHBOARD",
       "image": "https://images.hostinger.com/b7153917-045b-4d9f-a8e9-d3267bf93605.png",
-      "summary": "A cloud foundation rebuilt for zero-downtime migration and horizontal scale.",
-      "challenge": "Replace a fragmented infrastructure layer with a fault-tolerant platform, without taking business-critical services offline.",
-      "approach": "We mapped every service dependency, stood up an observable deployment pipeline, and cut an incremental migration path with rollback at each stage.",
-      "outcome": "A zero-downtime cutover strategy and a foundation that absorbs new workloads without rework.",
+      "summary": "One web platform that replaced a patchwork of spreadsheets and a slow legacy admin panel.",
+      "challenge": "Give a growing operations team one reliable web platform in place of shared spreadsheets and a legacy admin panel, without stopping day-to-day work.",
+      "approach": "We modelled the data first, built a server-rendered Next.js application on a typed API, and moved teams over in stages so nobody lost a working day.",
+      "outcome": "A single source of truth, role-based access for every team, and screens that respond instantly on ordinary office hardware.",
       "markers": [
-        "ZERO-DOWNTIME STRATEGY",
-        "FAULT-TOLERANT DESIGN",
-        "OBSERVABLE SYSTEMS"
+        "SERVER-FIRST WEB APP",
+        "ROLE-BASED ACCESS",
+        "STAGED MIGRATION"
       ]
     },
     {
       "slug": "beta",
       "number": "02",
       "name": "BETA",
-      "discipline": "NATIVE PERFORMANCE",
-      "type": "SILICON LOGIC",
+      "discipline": "MOBILE APPLICATION",
+      "type": "IOS & ANDROID",
       "image": "https://images.hostinger.com/79819ca9-2b4f-40a0-b628-39c7e7abb02c.png",
-      "summary": "The critical path profiled and trimmed for sub-second interaction.",
-      "challenge": "Locate the friction between hardware limits, application logic, and what the user actually waits on.",
-      "approach": "We profiled the computational hot paths, simplified the execution model, and moved rendering off the client where it did not need to be.",
-      "outcome": "A focused optimization blueprint: leaner computation, fewer shipped bytes, and interactions that respond on the first event.",
+      "summary": "One cross-platform app for iOS and Android, built for a field team that works with patchy connectivity.",
+      "challenge": "Ship one app to both stores for a field team that often works without signal, without maintaining two separate codebases.",
+      "approach": "A single cross-platform codebase with an offline-first data layer and background sync, plus native modules only where the device hardware required them.",
+      "outcome": "One codebase on iOS and Android, work that continues offline and syncs when the signal returns, and store releases from an automated pipeline.",
       "markers": [
-        "EXECUTION PATH AUDIT",
-        "LOGIC OPTIMIZATION",
-        "PERFORMANCE-FIRST UI"
+        "CROSS-PLATFORM BUILD",
+        "OFFLINE-FIRST SYNC",
+        "AUTOMATED STORE RELEASES"
       ]
     },
     {
       "slug": "gamma",
       "number": "03",
       "name": "GAMMA",
-      "discipline": "DISTRIBUTED SYSTEMS",
-      "type": "CORE ARCHITECTURE",
+      "discipline": "SYSTEMS & BACKEND",
+      "type": "API / CLOUD INFRASTRUCTURE",
       "image": "https://images.hostinger.com/34b5c8dc-aea2-4a15-a1ea-7d23314bd149.png",
-      "summary": "Real-time stream processing and high-throughput backend infrastructure designed for zero data loss.",
-      "challenge": "Architect a multi-region data pipeline that maintains consistency under heavy concurrent write loads.",
-      "approach": "We engineered partitioned event queues, isolated failure domains, and built explicit recovery protocols.",
-      "outcome": "Sub-millisecond event routing, complete data auditability, and zero degradation during peak bursts.",
+      "summary": "A backend that ties payments, CRM and inventory together and keeps data consistent when third-party services fail.",
+      "challenge": "Connect payments, CRM and inventory into one backend that stays consistent when any of those external services slows down or fails.",
+      "approach": "Typed APIs, an event queue with retries and idempotent handlers, containerized services deployed through CI/CD, and monitoring that alerts before customers notice.",
+      "outcome": "Integrations that recover on their own, reproducible deployments, and a backend the in-house team can operate with confidence.",
       "markers": [
-        "STREAM ARCHITECTURE",
-        "CONCURRENT SCALE",
-        "FAIL-SAFE SYSTEMS"
+        "EVENT-DRIVEN INTEGRATION",
+        "IDEMPOTENT WEBHOOKS",
+        "OBSERVABLE INFRASTRUCTURE"
       ]
     }
   ],
@@ -86,7 +86,7 @@
     {
       "slug": "cost-of-a-slow-website",
       "title": "What Does a Slow Website Actually Cost Your Business?",
-      "excerpt": "A 0.1s delay hits revenue harder than most pricing changes. Data from Google, Deloitte, and Portent on how page load time drives conversions, burns ad spend, and reshapes search rankings.",
+      "excerpt": "A 0.1-second speed-up lifted retail conversions 8.4% in a Deloitte study. What slow pages cost you in sales, ad spend, leads and search, and where to start fixing it.",
       "tag": "PERFORMANCE",
       "date": "2025-09-29",
       "dateLabel": "SEP 29, 2025",
@@ -95,12 +95,14 @@
         "name": "The ALAZ Team",
         "role": "ENGINEERING STUDIO"
       },
-      "content": "Teams spend weeks polishing a hero animation, tuning the easing curve on a dropdown, and arguing over the exact shade of a gradient. Then they ship it on a page that takes 4.2 seconds to become interactive and wonder why the conversion rate drifts downward every quarter.\n\nSpeed is not a developer chore. It is a balance sheet item. Every hundred milliseconds of latency shows up somewhere — in checkout completions, in cost per acquisition, in whether a paid visitor ever sees your form. This post pulls the actual numbers so you can stop treating performance as a nice-to-have and start treating it as a revenue metric.\n\n## The cost of a 0.1-second delay in retail\n\nThe most cited number in this conversation comes from the Deloitte and Google study *Milliseconds Make Millions*. They instrumented real retail and travel sites across Europe and measured what happened when mobile load times improved by just 0.1 seconds.\n\n- **Retail conversions rose 8.4%** on a 0.1s improvement.\n- **Average order value rose 9.2%** in retail — people not only bought more often, they spent more.\n- **Travel conversions rose 10.1%** — the most speed-sensitive category in the study.\n\nA tenth of a second. That is less time than a human blink, and it moved conversion by close to ten percent.\n\nAmazon established the benchmark years before this study: every 100ms of latency costs them roughly 1% in sales. Amazon runs at a scale where 1% is a staggering number, but the ratio holds at smaller scales too. If your store does $500K a month online, a 300ms improvement is plausibly worth five figures annually — before you touch pricing, ad spend, or product mix.\n\nThe takeaway is uncomfortable for teams that prioritize visual polish over load time. A faster page with a simpler design will out-convert a slower page with a prettier one, almost every time.\n\n## Burning ad budgets on unrendered pixels\n\nGoogle's mobile page speed data lays out the bounce curve, and it is brutal.\n\n- Bounce rate jumps **32%** when page load moves from 1 second to 3 seconds.\n- Bounce rate jumps **90%** when page load reaches 5 seconds.\n\nNow follow the money. You pay $2.40 per click on a competitive keyword. The visitor lands. The page is still loading at 3 seconds — the analytics pixel has not fired, the conversion form has not rendered, the headline has not painted. The visitor leaves. You paid for a click that never reached your funnel.\n\nThis is the silent budget drain most marketing dashboards miss. The ad platform reports a click. Your analytics reports nothing — because the visitor bounced before the tag loaded. The spend looks like it produced zero traffic, when really it produced traffic that your own site could not receive.\n\nThe fix is not to spend more on ads to compensate for a leaky page. The fix is to stop the leak. A page that renders its critical content in under 2 seconds turns that same ad budget into measurable sessions and measurable conversions. Your cost per acquisition drops without touching the campaign.\n\n## B2B pipelines and dropped leads\n\nB2B tells the same story, but the stakes are higher because the deal sizes are larger and the sales cycles are longer.\n\nPortent's conversion study found that a B2B site loading in 1 second converts **3x higher** than a site loading in 5 seconds, and **5x higher** than a site loading in 10 seconds. The curve is not linear — it falls off a cliff.\n\nThere is a second-order effect here that teams underweight. A slow B2B site reads as an implicit signal of outdated infrastructure. A CTO evaluating your platform is also evaluating your engineering. A 6-second load time tells them, before they read a single feature page, that your team does not prioritize performance. That is not the first impression you want when you are asking someone to trust you with their data, their workflow, or a six-figure annual contract.\n\nSpeed is a credibility signal in B2B. It is the difference between a demo that feels modern and a demo that feels like it was built in 2015 and never revisited.\n\n## Search rankings and Core Web Vitals\n\nSpeed is also a direct Google ranking factor, not just a conversion factor. Google measures it through Core Web Vitals, and two metrics matter most right now.\n\n- **Largest Contentful Paint (LCP)** measures when the largest visible element paints. Google wants it under 2.5 seconds. A heavy hero image, a blocking stylesheet, or a slow server response pushes it past the threshold and dents your ranking.\n- **Interaction to Next Paint (INP)** measures how quickly the page responds to a user tap or click. Google wants it under 200ms. INP replaced First Input Delay in 2024, and it is far stricter — it catches the long JavaScript tasks that freeze the main thread after the page looks \"loaded.\"\n\nThere is a crawl-budget angle too. Heavy client-side scripts force Googlebot to execute JavaScript, queue render, and revisit pages it could have indexed from raw HTML. On large sites, that burns crawl budget — Google indexes fewer pages per visit, and deep content takes longer to surface. A server-rendered page hands the crawler ready HTML and moves on.\n\nThe ranking impact compounds the conversion impact. A faster page converts better *and* ranks better *and* gets crawled more efficiently. A slower page loses on all three fronts at once.\n\n## Performance engineering strategy\n\nThe instinct when a site is slow is to upgrade the server. That is rarely the right first move. Most performance problems are architectural, not infrastructural, and a bigger server will not fix a 3MB JavaScript bundle.\n\nThree fixes move the needle more than any server upgrade.\n\n**Prune unnecessary JavaScript.** Every library you import is parsed, compiled, and executed on someone's phone. Audit your bundle. Drop the carousel library for a CSS scroll-snap container. Drop the animation library for the four transitions you actually use. Drop the date picker that ships 40KB for a native input. The fastest line of JavaScript is the one you never ship.\n\n**Adopt a server-first architecture.** Frameworks like Next.js let you render HTML on the server or at build time, so the browser receives a real page instead of an empty shell and a script tag. Server-side rendering and static site generation cut time-to-content dramatically and hand search crawlers ready HTML. The client hydrates only what needs to be interactive.\n\n**Enforce modern image optimization.** Images are usually the heaviest bytes on a page. Serve WebP or AVIF instead of JPEG — 25–50% smaller at the same quality. Set explicit width and height to prevent layout shift. Lazy-load everything below the fold. Strip metadata from production assets. These are not optional refinements; they are the baseline.\n\nNone of this requires a bigger server. It requires discipline at the architecture layer, where the decisions are made once and pay off every single pageview for the life of the site.\n\n## References & sources\n\n- Deloitte Digital & Google — *Milliseconds Make Millions* (retail and travel conversion impact of 0.1s load improvements)\n- Google — *Mobile Page Speed: Bounce Rate by Load Time* (1s → 3s → 5s bounce escalation)\n- Portent — *Site Speed and Conversion Rate Study* (B2B conversion rates by load time)\n- Google — *Core Web Vitals: LCP and INP* technical documentation\n\n## Run the audit\n\nIf you have not measured your load time this quarter, you are guessing. Run a Lighthouse pass. Check your LCP and INP against the thresholds. Open your network tab and sort by transfer size. The numbers will tell you exactly where the budget is leaking.\n\nIf the audit surfaces work you do not have the bandwidth to take on, that is what we do. ALAZ engineers high-performance web frontends — server-first architectures, disciplined bundle budgets, and image pipelines that ship the smallest viable byte. We modernize legacy stacks without rewriting the business logic underneath.\n\nEmail `hello@alaz.pro`. Send a URL and a Lighthouse report if you have one. We will tell you, plainly, what is slow, what it is costing you, and what it takes to fix it."
+      "content": "Teams spend weeks polishing a hero animation and arguing over the exact shade of a gradient. Then they ship it on a page that takes four seconds to become usable on a mid-range phone, and wonder why conversions drift down every quarter.\n\nSpeed is not a developer chore. It is a line on the balance sheet. Every extra fraction of a second shows up somewhere: in checkout completions, in cost per acquisition, in whether a paid visitor ever sees your form. This post collects the numbers that are actually backed by research, so you can treat performance as a revenue metric rather than a nice-to-have.\n\n## The short version\n\n- A **0.1-second** improvement in mobile site speed lifted retail conversions by **8.4%** and travel conversions by **10.1%** (Deloitte for Google, 37 brands).\n- When a mobile page takes **3 seconds** to load instead of 1, the probability of a bounce rises by **32%**. At **5 seconds** it rises by **90%** (Google).\n- B2B sites that load in **1 second** convert about **3x** better than sites that load in 5 seconds (Portent, 2022).\n- Core Web Vitals are part of how Google judges page experience, and on Google Play, apps above the crash and freeze thresholds become harder to find.\n\n## A tenth of a second, measured\n\nThe most useful study here is *Milliseconds Make Millions*, run by Deloitte and 55 for Google. Over four weeks they tracked 37 retail, travel, luxury and lead-generation brands in Europe and the US, and measured what happened when mobile load times improved by just 0.1 seconds.\n\n- **Retail conversions rose 8.4%.**\n- **Retail average order value rose 9.2%.** People did not only buy more often, they spent more.\n- **Travel conversions rose 10.1%**, the most speed-sensitive category in the study.\n\nA tenth of a second is shorter than a blink. Amazon's often-quoted rule of thumb from its early experiments points the same way: roughly 1% of sales lost for every extra 100 milliseconds.\n\nTo make that concrete, take a store doing $500,000 a month online. If a faster mobile site delivered just a quarter of the uplift Deloitte measured, about 2% more conversions, that is roughly **$10,000 a month, or $120,000 a year**, before you touch pricing, ad spend or product mix. Your number will be different. The direction will not.\n\nThe uncomfortable takeaway for design-led teams: a fast page with a simpler design will usually out-convert a slow page with a prettier one.\n\n## Paying for clicks that never land\n\nGoogle's mobile benchmark data shows how quickly patience runs out:\n\n- As load time goes from 1 to 3 seconds, the probability of a bounce increases **32%**.\n- From 1 to 5 seconds, it increases **90%**.\n\nNow follow the money. You pay for a click on a competitive keyword. The visitor lands, but the headline has not painted, the form has not rendered and your analytics tag has not fired. They leave. The ad platform reports a click; your analytics reports nothing, because the visitor was gone before the tag loaded. The spend looks wasted on bad traffic, when really your own site could not receive it.\n\nSpending more on ads does not fix a leaky page. Stopping the leak does. A landing page that renders its key content in under two seconds turns the same budget into measurable sessions and conversions, and your cost per acquisition drops without touching the campaign.\n\n## B2B: slow pages lose leads\n\nIn B2B the deals are larger and the sales cycles longer, so every lost lead hurts more. Portent's 2022 study of more than 100 million page views found that a B2B site loading in **1 second** converts about **3x** better than one loading in 5 seconds, and about **5x** better than one loading in 10 seconds.\n\nThere is a credibility effect too. A CTO evaluating your platform is quietly evaluating your engineering. A six-second load time tells them, before they read a single feature page, that performance is not a priority for your team. That is not the first impression you want when you are asking someone to trust you with their data or an annual contract.\n\n## Search visibility and Core Web Vitals\n\nGoogle measures real-user experience with Core Web Vitals, judged at the 75th percentile of visits:\n\n- **Largest Contentful Paint (LCP)**: when the main content appears. Good is **2.5 seconds or less**. Heavy hero images, render-blocking CSS and slow servers push it up.\n- **Interaction to Next Paint (INP)**: how quickly the page responds to taps and clicks. Good is **200 milliseconds or less**. INP replaced First Input Delay in March 2024 and is much stricter about long JavaScript tasks.\n- **Cumulative Layout Shift (CLS)**: how much the layout jumps while loading. Good is **0.1 or less**.\n\nTo be precise about rankings: Google says relevance comes first, and a great page experience will not rescue weak content. But page experience is one of the things its ranking systems reward, and when several pages answer a query equally well, the fast and stable one has the edge. Server-rendered pages also hand crawlers ready HTML, which helps large or JavaScript-heavy sites get indexed faster.\n\n## The same math applies to mobile apps\n\nApps pay the same tax in different places: cold-start time, frozen screens, crashes and store ratings. Google Play makes it explicit. If more than **1.09%** of daily active users hit a noticeable crash, or more than **0.47%** hit an \"App Not Responding\" freeze, your app crosses Play's bad-behavior threshold and is likely to be less discoverable. Cross it on specific phone models and Play may also show users a warning on your store listing.\n\nA slow app rarely gets a second launch. Measure start-up time and crash-free sessions as seriously as you measure page speed.\n\n## Where the time actually goes\n\nThe instinct when a site is slow is to buy a bigger server. That is rarely the right first move. Most performance problems are architectural, and a bigger server will not fix a 3 MB JavaScript bundle. These fixes move the needle first:\n\n- **Ship less JavaScript.** Every library is downloaded, parsed and executed on someone's phone. Swap the carousel library for CSS scroll-snap, the date-picker package for a native input, the animation framework for the four transitions you actually use.\n- **Render on the server.** With frameworks like Next.js the browser receives a real page instead of an empty shell and a script tag. Content appears sooner, crawlers get HTML, and only the interactive parts hydrate.\n- **Audit third-party scripts.** Tag managers, chat widgets, heatmaps and A/B testing tools often cost more than your own code. Keep the ones that earn their weight and load the rest after the page is usable.\n- **Fix images and fonts.** Serve AVIF or WebP, set explicit dimensions to prevent layout shift, lazy-load below the fold, and subset and preload fonts.\n- **Look at the backend.** A slow first byte usually means unindexed queries, N+1 database calls or missing caching. No amount of frontend tuning hides a 1.5-second API response.\n\nNone of this needs a bigger server. It needs discipline at the architecture level, where decisions are made once and pay off on every page view and every app launch.\n\n## Measure it in 15 minutes\n\n- **PageSpeed Insights**: real-user Core Web Vitals for your URL (from the Chrome UX Report) plus a Lighthouse lab test.\n- **Search Console, Core Web Vitals report**: which groups of pages fail, on mobile and on desktop.\n- **Your browser's Network tab**: sort by size and see what you actually ship.\n- **For apps**: Android vitals in Google Play Console, and the Xcode Organizer for launch time, hangs and crashes on iOS.\n\n## Sources\n\n- [Deloitte & 55 for Google: Milliseconds Make Millions](https://web.dev/case-studies/milliseconds-make-millions)\n- [Google: Mobile page speed industry benchmarks](https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/)\n- [Portent: Site speed and conversion rate research (2022)](https://www.portent.com/blog/analytics/research-site-speed-hurting-everyones-revenue.htm)\n- [web.dev: Core Web Vitals](https://web.dev/articles/vitals)\n- [Google Search Central: Understanding page experience](https://developers.google.com/search/docs/appearance/page-experience)\n- [Android Developers: Android vitals](https://developer.android.com/topic/performance/vitals)\n\n## Want a second opinion?\n\nIf the audit surfaces work you don't have the bandwidth for, that is what we do. ALAZ builds and fixes [web applications, mobile apps and the backends behind them](/services): server-first architecture, disciplined bundle budgets, fast APIs, and apps that stay under the stores' crash thresholds.\n\nSend a URL or an app store link to `hello@alaz.pro`, plus a Lighthouse report if you have one. We will tell you plainly what is slow, what it is likely costing you and what it takes to fix.",
+      "updated": "2026-10-05",
+      "updatedLabel": "OCT 5, 2026"
     },
     {
       "slug": "we-are-officially-live",
-      "title": "We Are Live: Building Software That Actually Moves the Needle",
-      "excerpt": "ALAZ is open. Why this studio exists, how we engineer, and what we're offering to teams that value speed and reliability over polish-as-a-smokescreen.",
+      "title": "We're Live: A Software Studio for Web, Mobile and the Systems Behind Them",
+      "excerpt": "ALAZ is open. Why we build web apps, mobile apps and backend systems as one team, how we work, and who we're a good fit for.",
       "tag": "LAUNCH",
       "date": "2025-09-27",
       "dateLabel": "SEP 27, 2025",
@@ -109,7 +111,9 @@
         "name": "The ALAZ Team",
         "role": "ENGINEERING STUDIO"
       },
-      "content": "ALAZ is open for business. This is the first post on a studio I built to fix something that genuinely frustrates me.\n\n## The starting point\n\nI've spent years untangling web apps that should have been simple. Bloated bundles. Interfaces that judder on a mid-range phone. State scattered across four libraries because someone picked a tool and never revisited the decision. Dashboards that take six seconds to become interactive and still ship to production.\n\nMost of that pain is not a technology problem. It's a discipline problem. Decisions get made once, under deadline pressure, and then frozen. The codebase inherits them. Every new feature pays the tax.\n\nALAZ exists to stop paying that tax.\n\n## Our engineering ethos\n\nWe build against a short list of convictions.\n\n- **Speed is a feature.** Sub-second load times are not a stretch goal. They are the baseline. A page that loads in 2.3 seconds has already lost half the room.\n- **Architecture is a communication tool.** Clean state management and predictable rendering are not vanity. They are how a team of five keeps shipping after month twelve.\n- **TypeScript is non-negotiable.** Types catch the bugs that reviews miss. They let you refactor without flinching.\n- **Modular beats monolithic.** Small, replaceable pieces win every time the requirements change. They always change.\n\nNone of this is exotic. The bar is low because most teams optimize for the demo, not for month eighteen. We optimize for month eighteen.\n\nWe work in the modern frontend stack — Next.js, TypeScript, the React ecosystem — because it lets us ship fast without shipping fragile. The tooling is mature. The patterns are boring in the best way. Boring means predictable. Predictable means we can reason about the system at 2am when something breaks.\n\n## What we're building\n\nALAZ ships two things.\n\nFirst, high-performance web solutions. Marketing sites that hit 100 on Core Web Vitals without looking like a placeholder. Product surfaces that stay responsive under real data, not the demo dataset someone demoed once.\n\nSecond, specialized applications. Internal tools, dashboards, and client-facing platforms where the logic is the product and the interface has to get out of the way.\n\nWe take end-to-end frontend execution for teams that value speed and reliability over polish-as-a-smokescreen. You will not get a 40-page proposal. You will get a working branch, a clear architecture decision record, and code you can read at a glance.\n\nPerformance budgets get committed in the first sprint, not bolted on before launch. Accessibility is part of the build, not an audit at the end. If a feature slows the critical path, we say so before we ship it.\n\n## The invitation\n\nIf you're a founder with a prototype that needs to become real, an engineer who's tired of apologizing for the codebase, or a company that wants a partner instead of a vendor — let's talk.\n\nEmail `hello@alaz.pro`. Tell me what you're building and what's in the way. I read every message and I reply like a person, not an auto-responder.\n\nWe're live. Let's build something that holds up."
+      "content": "ALAZ is open for business. We are a software studio that designs and builds web applications, iOS and Android apps, and the backend systems that keep them running, as one team, from the first sketch to production. This first post explains why we exist, how we work and who we are a good fit for.\n\n## Why we started ALAZ\n\nWe have spent years untangling software that should have been simple. Bloated web bundles. Apps that freeze on a mid-range phone. Integrations that fail silently at 3 a.m. Dashboards that take six seconds to become usable and still ship to production.\n\nMost of that pain is not a technology problem. It is a discipline problem, and very often a handover problem. The web agency, the mobile freelancer and the backend vendor each optimize their own piece, and the bugs live in the seams between them. Decisions get made once under deadline pressure, then frozen, and every new feature pays the tax.\n\nALAZ exists to stop paying that tax by putting the whole product, web, mobile and backend, in the hands of one accountable engineering team.\n\n## What we build\n\n- **Web applications.** SaaS platforms, customer portals, admin panels, internal tools and fast marketing sites. Server-first, typed end to end, and built to pass Core Web Vitals on real devices, not just in a demo.\n- **Mobile applications.** iOS and Android apps from a single cross-platform codebase (Flutter or React Native), with native Swift or Kotlin where the hardware demands it. Offline-first data, push notifications and App Store and Google Play releases included.\n- **Systems and backend.** The APIs your apps talk to, integrations with payment, CRM and ERP systems, background jobs, cloud infrastructure, CI/CD and monitoring.\n- **Rescue and performance work.** Slow pages, crashing apps and legacy code nobody wants to touch, stabilized and modernized step by step instead of rewritten in one risky leap.\n\nThe [services page](/services) lists the deliverables and the stack behind each one.\n\n## How we engineer\n\nWe build against a short list of convictions.\n\n- **Speed is a feature.** Performance budgets are agreed in the first sprint, not bolted on before launch: LCP and INP targets for web, start-up time and crash-free sessions for mobile, response times for APIs.\n- **Types everywhere.** TypeScript on the web and the server; Dart, Swift or Kotlin on mobile. Types catch the bugs that reviews miss and let us refactor without flinching.\n- **Boring technology, on purpose.** Mature tools and predictable patterns mean we can reason about the system at 2 a.m. when something breaks.\n- **Small, replaceable pieces.** Requirements always change. Modular systems absorb the change; monoliths make you pay for it.\n- **You own everything.** Code, cloud accounts, app store listings and documentation belong to you from day one. No lock-in.\n\nNone of this is exotic. The bar is low because most teams optimize for the demo. We optimize for month eighteen.\n\n## What working with us looks like\n\n- **Discovery call (30 to 45 minutes).** What you are building, who it is for, and what it costs the business if it fails.\n- **Written scope and estimate.** A short, plain document: what we will build, what we will deliberately leave out, the phases, the timeline and the price. Not a 40-page proposal.\n- **Build in short increments.** Working software every week or two: a staging link for web, a TestFlight or internal testing build for mobile. You see progress, not slide decks.\n- **Launch and handover.** A zero-downtime release, monitoring, documentation and a walkthrough for your team, with the option to keep us on for maintenance.\n\n## Who we are a good fit for\n\n- Founders turning a prototype or an idea into a real web or mobile product.\n- Companies replacing spreadsheets and brittle legacy tools with software built around their workflow.\n- Teams whose site is slow, whose app crashes, or whose integrations keep breaking.\n- Businesses that want a long-term technical partner, not a vendor that disappears after launch.\n\n## Say hello\n\nTell us what you are building and what is in the way. Write to `hello@alaz.pro` or use the [project form](/start-project). Every message is read by an engineer, and we reply within one business day.\n\nWe are live. Let's build something that holds up.",
+      "updated": "2026-10-05",
+      "updatedLabel": "OCT 5, 2026"
     }
   ],
   "nav": {
@@ -123,27 +127,29 @@
   },
   "servicesPage": {
     "meta": {
-      "title": "Software Development & Architecture Services | ALAZ",
-      "description": "We design and build production-grade web applications, resilient backend architectures, and fast frontend systems. Built by engineers, delivered cleanly.",
+      "title": "Web, Mobile App & Software Development Services | ALAZ",
+      "description": "Web applications, iOS and Android apps, backend APIs and cloud infrastructure, designed and built by one engineering team. Clean code you own, shipped in short increments.",
       "keywords": [
         "custom software development",
         "web application development",
-        "software architecture",
+        "mobile app development",
+        "iOS app development",
+        "Android app development",
+        "cross-platform app development",
+        "backend development",
+        "API integration",
         "cloud infrastructure",
-        "performance optimization",
-        "API development",
-        "system integration",
-        "Next.js development"
+        "SaaS development"
       ]
     },
     "eyebrowLeft": "SERVICES / 001",
-    "eyebrowRight": "SOFTWARE ENGINEERING PRACTICE",
-    "kicker": "SYSTEMS, ARCHITECTURE & CODE THAT LAST.",
+    "eyebrowRight": "WEB / MOBILE / SYSTEMS",
+    "kicker": "WEB, MOBILE AND THE SYSTEMS BEHIND THEM.",
     "heading": [
       "SOFTWARE",
       "ENGINEERING"
     ],
-    "introText": "We build web applications, cloud backends, and data integrations that stay fast under load and remain maintainable years down the line.",
+    "introText": "We design, build and run web applications, iOS and Android apps, and the backends and cloud infrastructure they depend on. One team, from first sketch to production.",
     "introNote": "ALAZ / CAPABILITIES 2026",
     "breadcrumbHome": "Home",
     "overviewEyebrowLeft": "CAPABILITIES / 002",
@@ -152,7 +158,7 @@
       "WHAT WE",
       "ACTUALLY DO"
     ],
-    "overviewText": "Software projects break when teams prioritize vanity over fundamentals. Here is a clear breakdown of how we work, what we deliver, and the tech we trust.",
+    "overviewText": "Most software problems start in the seams: a web team, a mobile team and a backend vendor who never quite agree. We cover all three. Here is exactly what we do, what you get and the stack we trust.",
     "itemLabels": {
       "whatItIs": "THE PROBLEM & SCOPE",
       "deliverables": "CORE DELIVERABLES",
@@ -164,15 +170,15 @@
       {
         "id": "custom-software-development",
         "number": "01",
-        "title": "WEB APPLICATIONS & DIGITAL PRODUCTS",
-        "category": "FULL-STACK / PRODUCT",
-        "description": "Production web apps, SaaS dashboards, and bespoke internal tools engineered for reliability and long-term maintainability.",
-        "whatItIs": "Most web apps fail from accumulated technical debt, unreadable state, and sloppy dependencies. We build custom applications with strict type safety, modular component architectures, and clean database schemas that your in-house team can easily inherit.",
+        "title": "WEB APPLICATIONS & SAAS",
+        "category": "WEB / FULL-STACK",
+        "description": "Production web apps, SaaS platforms, customer portals and internal tools, engineered for speed and long-term maintainability.",
+        "whatItIs": "Most web apps don't fail at launch. They fail slowly, under accumulated technical debt, tangled state and dependencies nobody dares to update. We build with strict typing, server-first rendering, clear module boundaries and clean database schemas, so your in-house team can inherit the code without a rewrite.",
         "deliverables": [
           "Full-stack web applications and SaaS platforms",
-          "Internal tools, operator consoles, and dashboards",
-          "Clean data models, authentication, and permission layers",
-          "Turnkey MVPs built to scale without needing an immediate rewrite",
+          "Customer portals, internal tools, operator consoles and dashboards",
+          "Clean data models, authentication, payments and permission layers",
+          "Marketing sites and landing pages that pass Core Web Vitals",
           "Well-documented codebases with zero vendor lock-in"
         ],
         "stack": [
@@ -187,9 +193,60 @@
         "bestFor": "Founders launching serious MVPs, or teams replacing brittle legacy tools and messy spreadsheet workflows."
       },
       {
-        "id": "system-architecture-cloud",
+        "id": "mobile-app-development",
         "number": "02",
-        "title": "SYSTEM ARCHITECTURE & CLOUD INFRASTRUCTURE",
+        "title": "MOBILE APPLICATIONS",
+        "category": "IOS / ANDROID",
+        "description": "iOS and Android apps built from one codebase, tested on real devices and released to the App Store and Google Play.",
+        "whatItIs": "A mobile app lives on hardware you don't control: old phones, weak signal, aggressive battery savers and two app stores with their own rules. We build cross-platform with Flutter or React Native so both platforms share one codebase, drop to native Swift or Kotlin where a feature needs it, and design the data layer to keep working offline.",
+        "deliverables": [
+          "iOS and Android apps from a single cross-platform codebase",
+          "Native modules for camera, Bluetooth, payments, maps and other device APIs",
+          "Offline-first data, background sync and push notifications",
+          "App Store and Google Play setup, submission and release pipelines",
+          "Crash reporting, analytics and an over-the-air update strategy"
+        ],
+        "stack": [
+          "Flutter",
+          "Dart",
+          "React Native",
+          "Swift",
+          "Kotlin",
+          "Firebase"
+        ],
+        "outcome": "One codebase, two stores, and an app that starts fast, survives a bad connection and stays under the crash thresholds the stores watch.",
+        "bestFor": "Companies launching a customer-facing app, field and operations teams that need a mobile tool, and products extending an existing web platform to phones."
+      },
+      {
+        "id": "api-integration",
+        "number": "03",
+        "title": "BACKEND, APIs & INTEGRATIONS",
+        "category": "BACKEND / INTEGRATION",
+        "description": "The server side of your web and mobile apps: clean APIs, reliable third-party integrations and background jobs that don't lose data.",
+        "whatItIs": "Web and mobile apps are only as reliable as the backend they talk to. When integrations are hacked together, silent sync failures and corrupted data follow. We build typed API boundaries with explicit error handling, retries, idempotency and rate limiting, so a slow payment provider or CRM never takes your product down with it.",
+        "deliverables": [
+          "REST and GraphQL APIs for web and mobile clients, documented with OpenAPI",
+          "Payment gateway, CRM, ERP and billing engine integrations",
+          "Resilient webhook handlers with idempotency and replay safety",
+          "Background jobs, queues and event-driven pipelines",
+          "Secure LLM and generative AI API implementations"
+        ],
+        "stack": [
+          "TypeScript",
+          "Node.js",
+          "PostgreSQL",
+          "REST",
+          "GraphQL",
+          "OpenAPI",
+          "Redis"
+        ],
+        "outcome": "Reliable data synchronization across your tools, with explicit error logging and zero data loss.",
+        "bestFor": "Businesses operating across multiple SaaS platforms, or platforms integrating deep third-party partner APIs."
+      },
+      {
+        "id": "system-architecture-cloud",
+        "number": "04",
+        "title": "CLOUD INFRASTRUCTURE & DEVOPS",
         "category": "INFRASTRUCTURE / RESILIENCE",
         "description": "Fault-tolerant cloud setups, automated CI/CD pipelines, and database architectures that handle growth without unexpected outages.",
         "whatItIs": "Scaling is not about throwing larger servers at bad code. We inspect the entire operational loop: data layout, network bottlenecks, background queues, and caching. We set up infrastructure that alerts you before things break and recovers cleanly when they do.",
@@ -214,53 +271,28 @@
       },
       {
         "id": "performance-engineering",
-        "number": "03",
-        "title": "PERFORMANCE & FRONTEND OPTIMIZATION",
-        "category": "CORE WEB VITALS / EFFICIENCY",
-        "description": "Trimming bundle sizes, eliminating layout jank, and achieving sub-second load times that keep visitors engaged and boost SEO.",
-        "whatItIs": "A slow website is an engineering failure that costs money every day. We do not just run audits and hand over checklists; we dive into JavaScript flame charts, strip out blocking third-party scripts, optimize critical render paths, and shift compute to the server.",
+        "number": "05",
+        "title": "PERFORMANCE & MODERNIZATION",
+        "category": "SPEED / LEGACY RESCUE",
+        "description": "Faster pages, smoother apps, and legacy code brought back under control without a risky ground-up rewrite.",
+        "whatItIs": "A slow website or a janky app costs money every day. We don't hand over a checklist and leave: we read flame charts, strip blocking third-party scripts, fix slow queries, shrink bundles and app start-up time, and move work to the server where it belongs.",
         "deliverables": [
-          "In-depth runtime profiling and bundle weight decomposition",
-          "Core Web Vitals remediation (LCP, INP, CLS in the green)",
-          "Server-Side Rendering (SSR) and edge-caching architectures",
-          "Asset compression, responsive images, and subsetted font delivery",
-          "Technical SEO foundation and crawl budget optimization"
+          "Runtime profiling of web pages, APIs and mobile app start-up",
+          "Core Web Vitals remediation (LCP, INP and CLS in the green)",
+          "Query and caching fixes for slow backends",
+          "Incremental modernization of legacy codebases",
+          "Technical SEO foundation and crawlability fixes"
         ],
         "stack": [
           "Next.js",
           "React Server Components",
-          "Web Vitals",
-          "Edge CDN",
-          "Chrome DevTools"
+          "Lighthouse",
+          "Chrome DevTools",
+          "Android Studio Profiler",
+          "Xcode Instruments"
         ],
-        "outcome": "Instantaneous page transitions, top-tier Core Web Vitals scores, and measurable retention gains.",
-        "bestFor": "E-commerce, consumer platforms, and media sites where latency directly hurts revenue and conversion rates."
-      },
-      {
-        "id": "api-integration",
-        "number": "04",
-        "title": "API DESIGN & SYSTEM INTEGRATION",
-        "category": "INTEGRATION / BACKEND",
-        "description": "Clean REST and GraphQL interfaces, robust third-party integrations, and automated pipelines connecting fragmented tools.",
-        "whatItIs": "Modern products rarely run in isolation. When integrations are hacked together, silent sync failures and data corruption follow. We build typed API boundaries with explicit error handling, retries, and rate limiting so your external dependencies never compromise system integrity.",
-        "deliverables": [
-          "RESTful and GraphQL API design with OpenAPI specifications",
-          "Payment gateway, CRM, ERP, and billing engine integrations",
-          "Resilient webhook handlers with idempotency and replay safety",
-          "Background sync pipelines and event-driven architectures",
-          "Secure LLM and generative AI API implementations"
-        ],
-        "stack": [
-          "TypeScript",
-          "Node.js",
-          "REST",
-          "GraphQL",
-          "Webhooks",
-          "OpenAPI",
-          "Redis"
-        ],
-        "outcome": "Reliable data synchronization across your tools, with explicit error logging and zero data loss.",
-        "bestFor": "Businesses operating across multiple SaaS platforms, or platforms integrating deep third-party partner APIs."
+        "outcome": "Pages and screens that respond on the first tap, measurable conversion gains, and a codebase your team is no longer afraid to touch.",
+        "bestFor": "E-commerce, SaaS and content platforms where latency costs revenue, and teams stuck with a legacy system they can't afford to rewrite."
       }
     ],
     "processEyebrowLeft": "HOW WE WORK / 003",
@@ -300,27 +332,35 @@
     "faqs": [
       {
         "q": "How is ALAZ different from a traditional digital agency?",
-        "a": "Most agencies sell design presentations and outsource implementation to junior subcontractors. ALAZ is run by engineers. You work directly with the developers writing your code and designing your database, ensuring high technical standards and zero miscommunication."
+        "a": "Most agencies sell design presentations and outsource implementation to junior subcontractors. ALAZ is run by engineers. You work directly with the people who write your web and mobile code and design your backend, so nothing gets lost in translation."
+      },
+      {
+        "q": "Do you build apps for both iOS and Android?",
+        "a": "Yes. Most projects use one cross-platform codebase (Flutter or React Native) that ships to both the App Store and Google Play. Where a feature needs deep device access, we add native Swift or Kotlin modules. We also handle store accounts, submission and review."
       },
       {
         "q": "What is the typical timeframe for a project?",
-        "a": "A focused MVP or internal tool usually takes 4 to 8 weeks from kick-off to production. Complex multi-service platforms take 2 to 4 months. After our discovery session, we provide a concrete timeline with clearly phased deliverables."
+        "a": "A focused MVP or internal tool, web or mobile, usually takes 4 to 8 weeks from kick-off to production, plus store review time for mobile apps. Platforms with several apps and integrations take 2 to 4 months. After discovery we give you a concrete timeline with phased deliverables."
       },
       {
-        "q": "How do you select your technology stack?",
-        "a": "We prefer proven, stable technology over hype cycles. Our primary stack centers on TypeScript, Next.js, React, Node.js, and PostgreSQL because it combines rapid developer velocity with bulletproof production stability."
+        "q": "Which technologies do you use?",
+        "a": "Proven, stable tools over hype cycles. Web: TypeScript, Next.js, React and Node.js. Mobile: Flutter or React Native, with Swift and Kotlin where needed. Data and infrastructure: PostgreSQL, Redis, Docker and AWS or GCP. If your team already has a stack, we can work in it."
       },
       {
         "q": "Do we own the source code after delivery?",
-        "a": "Yes, completely. Every line of code, infrastructure configuration, and documentation belongs to you from day one. There is zero proprietary platform lock-in."
+        "a": "Yes, completely. Every line of code, infrastructure configuration, app store listing and document belongs to you from day one. There is no proprietary platform lock-in."
       },
       {
-        "q": "Can you step in to fix or rescue an existing codebase?",
-        "a": "Yes. We regularly help companies audit slow, unstable, or poorly architected applications. We profile performance, fix critical bottlenecks, and introduce stability without forcing an expensive, risky ground-up rewrite."
+        "q": "Can you take over or rescue an existing product?",
+        "a": "Yes. We regularly audit slow, unstable or poorly structured web apps, mobile apps and backends. We profile them, fix the critical bottlenecks and restore stability without forcing an expensive, risky ground-up rewrite."
+      },
+      {
+        "q": "Do you support the product after launch?",
+        "a": "Yes. We can stay on for maintenance (monitoring, security and dependency updates, OS upgrades for mobile, and new features), or hand everything over to your team with documentation and a walkthrough."
       },
       {
         "q": "How do we get started?",
-        "a": "Drop a brief note via our project form or email hello@alaz.pro. We will review your requirements and arrange a direct technical discussion within 24 hours."
+        "a": "Send a short note through the project form or email hello@alaz.pro. We review every request and reply within one business day to set up a direct technical conversation."
       }
     ]
   },
@@ -329,26 +369,27 @@
     "email": "hello@alaz.pro",
     "offices": [
       {
-        "region": "USA",
+        "region": "USA / NEW YORK",
         "lines": [
-          "1234 Example Street, Suite 100",
+          "1250 Broadway, 36th Floor",
           "New York, NY 10001",
           "UNITED STATES"
         ]
       },
       {
-        "region": "TR",
+        "region": "TÜRKİYE / İZMİR",
         "lines": [
-          "Örnek Mah. Örnek Cad. No: 1",
-          "Kadıköy, İstanbul 34000",
-          "TURKEY"
+          "Folkart Towers, B Blok, Kat 31",
+          "Adalet Mah. Manas Blv. No:39",
+          "35530 Bayraklı, İzmir",
+          "TÜRKİYE"
         ]
       }
     ]
   },
   "footer": {
     "talk": "HAVE A SYSTEM IN MIND?",
-    "copyright": "© 2025 ALAZ ENGINEERING. ALL RIGHTS RESERVED.",
+    "copyright": "© {year} ALAZ SOFTWARE. ALL RIGHTS RESERVED.",
     "backTop": "BACK TO TOP ↑",
     "linkLabels": [
       "BLOG",
@@ -358,16 +399,16 @@
   },
   "home": {
     "meta": {
-      "title": "ALAZ — Software Architecture & Engineering Studio",
-      "description": "ALAZ designs resilient software architecture, native performance, and connected digital ecosystems. No bullshit. Just action."
+      "title": "ALAZ — Web, Mobile & Software Engineering Studio",
+      "description": "ALAZ builds web applications, iOS and Android apps, and the backend systems behind them. One engineering team, from first sketch to production."
     },
     "hero": {
       "status": "SYSTEM_ACTIVE",
-      "toplineRight": "ENGINEERING STUDIO / EST. 2025",
-      "kicker": "INDEPENDENT SOFTWARE ARCHITECTURE STUDIO",
+      "toplineRight": "SOFTWARE STUDIO / EST. 2025",
+      "kicker": "WEB · MOBILE · SYSTEMS — SOFTWARE STUDIO",
       "taglineTop": "NO BULLSHIT.",
       "taglineBottom": "JUST ACTION.",
-      "intro": "We architect the systems that make ambitious ideas operational. Built with intent. Engineered to last.",
+      "intro": "We design and build web apps, mobile apps and the systems behind them. Built with intent. Engineered to last.",
       "scrollCta": "SCROLL TO EXPLORE",
       "bottomNote": "PRECISION IS THE STANDARD. NOT THE GOAL."
     },
@@ -391,7 +432,7 @@
     ],
     "capabilities": {
       "eyebrowLeft": "02 / WHAT WE DO",
-      "eyebrowRight": "DISCIPLINE OVER DECORATION",
+      "eyebrowRight": "WEB / MOBILE / SYSTEMS",
       "heading": [
         "CORE",
         "CAPABILITIES"
@@ -400,7 +441,7 @@
     },
     "selected": {
       "eyebrowLeft": "03 / THE OUTPUT",
-      "eyebrowRight": "SELECTED PROJECTS // 02",
+      "eyebrowRight": "SELECTED PROJECTS // {count}",
       "heading": [
         "SELECTED",
         "WORKS"
@@ -448,7 +489,7 @@
   "about": {
     "meta": {
       "title": "About ALAZ — The Engineering Manifesto",
-      "description": "ALAZ is an independent software architecture and engineering studio. We engineer permanence, favor data over dogma, and build with brutal efficiency."
+      "description": "ALAZ is an independent software studio building web applications, iOS and Android apps, and the backend systems behind them. Data over dogma, brutal efficiency, software built to last."
     },
     "eyebrowLeft": "STUDIO / 001",
     "eyebrowRight": "OUR OPERATING PRINCIPLES",
@@ -457,7 +498,7 @@
       "WE ENGINEER",
       "PERMANENCE"
     ],
-    "introText": "We exist to make complex systems simple enough to trust and strong enough to endure.",
+    "introText": "We build web apps, mobile apps and the systems behind them: simple enough to trust, strong enough to endure.",
     "introNote": "ALAZ / MANIFESTO 2025",
     "originEyebrowLeft": "01 / THE NAME",
     "originEyebrowRight": "WHY WE'RE CALLED ALAZ",
@@ -532,7 +573,7 @@
   "archive": {
     "meta": {
       "title": "Case Studies — ALAZ Engineering",
-      "description": "Explore ALAZ engineering case studies in cloud infrastructure, system design, and native performance."
+      "description": "ALAZ case studies across web platforms, iOS and Android apps, and backend systems: the problem, the approach and the outcome."
     },
     "eyebrowLeft": "INDEX / 001",
     "eyebrowRight": "ARCHIVE / SELECTED WORK",
@@ -541,7 +582,7 @@
       "THE WORK"
     ],
     "introText": "Technical challenges. Considered solutions. Systems engineered for what comes next.",
-    "introNote": "PROJECTS ON FILE / 002",
+    "introNote": "PROJECTS ON FILE / {count}",
     "tableHeaders": [
       "NO.",
       "PROJECT / DISCIPLINE",
@@ -584,7 +625,7 @@
   "blogIndex": {
     "meta": {
       "title": "Blog — ALAZ Engineering Studio",
-      "description": "Field notes on software architecture, high-performance web engineering, and building systems that hold up. Written by the ALAZ engineering studio."
+      "description": "Field notes on web and mobile engineering, backend architecture and performance, written by the ALAZ software studio."
     },
     "eyebrowLeft": "BLOG / 001",
     "eyebrowRight": "FIELD NOTES FROM THE STUDIO",
@@ -593,7 +634,7 @@
       "THE",
       "BLOG"
     ],
-    "introText": "Notes on architecture, performance, and the craft of shipping software that holds up past the launch demo.",
+    "introText": "Notes on web and mobile engineering, system architecture, performance, and shipping software that holds up long after launch day.",
     "introNote": "ALAZ / WRITING 2025",
     "articlesAriaLabel": "Blog articles",
     "readMinutesSuffix": "MIN READ",
@@ -608,18 +649,19 @@
     "blogLabelPrefix": "BLOG",
     "readingSuffix": "MIN READ",
     "fieldNotesLabel": "ALAZ / FIELD NOTES",
-    "authorIntroBefore": "ALAZ is an independent software architecture and web engineering studio. Reach us at ",
+    "authorIntroBefore": "ALAZ is an independent software studio building web applications, mobile apps and backend systems. Reach us at ",
     "authorIntroAfter": ".",
     "nextNoteLabel": "NEXT FIELD NOTE",
     "contactPrompt": "WANT TO BUILD SOMETHING THAT HOLDS UP?",
     "contactCta": "START A PROJECT",
     "metaTitleTemplate": "{title} — ALAZ Blog",
-    "coverAlt": "{title} — cover visual"
+    "coverAlt": "{title} — cover visual",
+    "updatedPrefix": "UPDATED"
   },
   "intake": {
     "meta": {
       "title": "Start a Project — ALAZ Engineering",
-      "description": "Tell ALAZ about your software architecture, engineering, or digital systems project. Begin a focused project inquiry."
+      "description": "Tell ALAZ about your web app, mobile app or backend project. Three short steps, and we reply within one business day."
     },
     "sectionTopLeft": "PROJECT INTAKE / SECURE TRANSMISSION",
     "sectionTopRight": "ALAZ / NEW ENGAGEMENT",
@@ -658,19 +700,19 @@
     "types": [
       {
         "name": "Web App",
-        "detail": "Platforms & products"
+        "detail": "Platforms, SaaS & dashboards"
       },
       {
         "name": "Mobile App",
-        "detail": "Native experiences"
+        "detail": "iOS & Android"
       },
       {
-        "name": "Infrastructure",
-        "detail": "Systems & architecture"
+        "name": "Systems & Backend",
+        "detail": "APIs, integrations & cloud"
       },
       {
-        "name": "Custom",
-        "detail": "Something different"
+        "name": "Something Else",
+        "detail": "Audit, rescue or custom"
       }
     ],
     "typeIndexSuffix": "TYPE",
@@ -783,7 +825,7 @@
         },
         {
           "heading": "Governing law",
-          "body": "These terms are governed by the laws of the Republic of Türkiye. Courts in Istanbul have jurisdiction, unless mandatory consumer rules in your country say otherwise."
+          "body": "These terms are governed by the laws of the Republic of Türkiye. Courts in İzmir have jurisdiction, unless mandatory consumer rules in your country say otherwise."
         },
         {
           "heading": "Changes and questions",
@@ -854,40 +896,41 @@
     "startProject": "Start a Project",
     "keywords": {
       "home": [
-        "software architecture studio",
-        "custom software development",
-        "high-performance web engineering",
-        "Next.js development",
-        "cloud infrastructure",
+        "software development company",
         "web application development",
+        "mobile app development",
+        "iOS and Android app development",
+        "backend and API development",
+        "cloud infrastructure",
+        "custom software development",
         "ALAZ"
       ],
       "about": [
-        "software engineering studio",
-        "independent software architecture",
+        "software development studio",
+        "web and mobile development team",
         "engineering principles",
         "how we build software",
         "ALAZ Software"
       ],
       "archive": [
         "software case studies",
-        "cloud infrastructure projects",
-        "system design case study",
-        "web performance results",
+        "web application case study",
+        "mobile app case study",
+        "backend integration project",
         "ALAZ projects"
       ],
       "blog": [
-        "software architecture blog",
         "web performance",
-        "Next.js",
-        "engineering field notes",
-        "website speed and conversions"
+        "mobile app performance",
+        "Core Web Vitals",
+        "software architecture blog",
+        "engineering field notes"
       ],
       "startProject": [
         "start a software project",
-        "software project inquiry",
-        "hire a software engineering studio",
-        "custom web application quote",
+        "web app development quote",
+        "mobile app development quote",
+        "hire a software development studio",
         "ALAZ contact"
       ]
     }

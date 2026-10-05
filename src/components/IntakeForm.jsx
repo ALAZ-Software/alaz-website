@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Check, CirclePower } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
+import { fit } from '@/lib/fit';
 
 const initial = { project_type: '', project_name: '', brief: '', timeline: '', budget: '', name: '', email: '', company: '' };
 
@@ -98,13 +99,13 @@ export default function IntakeForm() {
       {complete ? <div className="max-w-[950px] pt-[clamp(100px,14vw,190px)] pb-[70px] flex-1 w-full !max-w-none flex flex-col items-center justify-center text-center !py-[clamp(48px,8vh,110px)]">
           <div className="h-[68px] w-[68px] border border-white grid place-items-center mb-[32px]"><Check size={32} /></div>
           <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute">{t('completeEyebrow')}</span>
-          <h1 className="text-[length:clamp(68px,10vw,150px)] leading-[.86] tracking-[-.075em] font-black my-[25px] mb-[32px]">{completeHeading[0]}<br />{completeHeading[1]}<span className="text-[#6e6e6e]">.</span></h1>
+          <h1 style={fit(completeHeading, '.')} className="fit [--fit-size:clamp(68px,10vw,150px)] leading-[.86] tracking-[-.075em] font-black my-[25px] mb-[32px]">{completeHeading[0]}<br />{completeHeading[1]}<span className="text-[#6e6e6e]">.</span></h1>
           <p className="text-[18px] leading-[1.7] text-mute max-w-[610px] mx-auto mb-[38px]">{t('completeMessageTemplate', { name: form.name.trim(), email: form.email.trim() })}</p>
           <Link href="/" className="inline-flex items-center justify-center gap-[22px] bg-white text-[#050505] px-[23px] py-[18px] text-[11px] font-extrabold tracking-[.04em] min-h-[58px] [transition:background_.2s_ease,transform_.2s_ease] hover:bg-[#d5d5d5] hover:[transform:translateY(-2px)] active:[transform:scale(.98)] xs:gap-[12px] mx-auto">{t('completeCta')} <ArrowUpRight size={17} /></Link>
         </div> : <>
         <div className="relative z-[1] pt-[100px] mobile:pt-[85px]">
           <span className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute">{t('headingEyebrow')}</span>
-          <h1 className="text-[length:clamp(77px,11.7vw,190px)] leading-[.86] tracking-[-.075em] font-black my-[30px] mobile:text-[length:clamp(75px,14vw,125px)]">{headingLines[0]}<br />{headingLines[1]}<span className="text-[#6e6e6e]">.</span></h1>
+          <h1 style={fit(headingLines, '.')} className="fit [--fit-size:clamp(77px,11.7vw,190px)] leading-[.86] tracking-[-.075em] font-black my-[30px] mobile:[--fit-size:clamp(75px,14vw,125px)]">{headingLines[0]}<br />{headingLines[1]}<span className="text-[#6e6e6e]">.</span></h1>
           <p className="text-[length:clamp(16px,1.8vw,23px)] text-mute tracking-[-.03em]">{t('introParagraph')}</p>
         </div>
         <div className="grid grid-cols-[31%_1fr] gap-[clamp(35px,6vw,100px)] mt-[100px] border-t border-line pt-[32px] mobile:grid-cols-1 mobile:gap-[45px] mobile:mt-[65px]">

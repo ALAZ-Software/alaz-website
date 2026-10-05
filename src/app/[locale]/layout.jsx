@@ -11,9 +11,10 @@ import ScrollReveal from '@/components/ScrollReveal';
 import { SITE_NAME, SITE_URL } from '@/lib/seo';
 import '../globals.css';
 
-const archivo = Archivo({ subsets: ['latin'], weight: ['600', '700', '900'], variable: '--font-archivo', display: 'swap' });
-const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'], variable: '--font-inter', display: 'swap' });
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-jetbrains-mono', display: 'swap' });
+// latin-ext carries the Turkish glyphs (İ, ı, Ğ, ğ, Ş, ş); without it they fall back to a system font.
+const archivo = Archivo({ subsets: ['latin', 'latin-ext'], weight: ['600', '700', '900'], variable: '--font-archivo', display: 'swap' });
+const inter = Inter({ subsets: ['latin', 'latin-ext'], weight: ['400', '500', '600', '700', '800'], variable: '--font-inter', display: 'swap' });
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin', 'latin-ext'], weight: ['400', '500'], variable: '--font-jetbrains-mono', display: 'swap' });
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

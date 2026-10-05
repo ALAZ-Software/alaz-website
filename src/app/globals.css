@@ -33,6 +33,8 @@
     --gray: #9fa3a9;
     --dim: #7e828a;
     --white: #fff;
+    /* Horizontal page padding, same as the px-[clamp(24px,4.2vw,72px)] used on every section. */
+    --gutter: clamp(24px, 4.2vw, 72px);
   }
 
   * {
@@ -162,6 +164,23 @@
   code,
   pre {
     font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  /* Display headings. --fit-size is the design size (set per breakpoint with
+     [--fit-size:...] utilities); --fit-em comes from fit() in lib/fit.js and is the em width
+     of the widest word. The size is capped so that word fits --fit-avail, which defaults to
+     the page column and is overridden for headings that sit in a narrower grid column. */
+  .fit {
+    --fit-avail: calc(100vw - 2 * var(--gutter));
+    font-size: min(var(--fit-size), calc(var(--fit-avail) / var(--fit-em, 6)));
+    overflow-wrap: break-word;
+  }
+
+  /* Tight display leading collides with Turkish marks: the dot of İ hits the cedilla of Ş/Ç above. */
+  .fit:lang(tr) {
+    line-height: 1;
   }
 }
 

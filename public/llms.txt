@@ -1,16 +1,16 @@
 # ALAZ
 
-> ALAZ (ALAZ Software) is an independent software architecture and web engineering studio. We design and build custom web applications, backend systems, cloud infrastructure and fast frontends for companies that need software that keeps working as they grow. The site is available in English and Turkish.
+> ALAZ (ALAZ Software) is an independent software studio with offices in New York and İzmir. We design and build web applications, iOS and Android apps, and the backend systems, APIs and cloud infrastructure behind them, for companies that need software that keeps working as they grow. The site is available in English and Turkish.
 
-ALAZ is a small engineering team, not an agency with account managers. The people who scope a project are the people who build it. Work is based on Next.js, React, Node.js and cloud infrastructure, with a focus on page speed, reliability and clean handover.
+ALAZ is a small engineering team, not an agency with account managers. The people who scope a project are the people who build it. Web work is based on Next.js, React and Node.js; mobile apps on Flutter or React Native, with native Swift and Kotlin where needed; infrastructure on PostgreSQL, Docker and AWS or GCP. The focus is speed, reliability and a clean handover.
 
 ## Main pages
 
 - [Home](https://alaz.pro/): what ALAZ does and a selection of recent work
-- [Services](https://alaz.pro/services): custom software development, web application engineering, cloud infrastructure, performance optimization and system integration
+- [Services](https://alaz.pro/services): web applications and SaaS, iOS and Android app development, backend APIs and integrations, cloud infrastructure and DevOps, performance and legacy modernization
 - [Case studies](https://alaz.pro/case-studies): engineering projects with the problem, the approach and the result
 - [About](https://alaz.pro/about): how the studio works and the principles behind it
-- [Blog](https://alaz.pro/blog): field notes on software architecture, web performance and engineering decisions
+- [Blog](https://alaz.pro/blog): field notes on web and mobile engineering, performance and architecture decisions
 - [Start a project](https://alaz.pro/start-project): project inquiry form
 
 ## Turkish version

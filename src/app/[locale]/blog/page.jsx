@@ -4,6 +4,7 @@ import { ArrowUpRight, Clock } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { buildMetadata, urlFor } from '@/lib/seo';
+import { fit } from '@/lib/fit';
 
 const readingTime = (text) => Math.max(1, Math.round(text.trim().split(/\s+/).filter(Boolean).length / 200));
 
@@ -32,7 +33,7 @@ export default async function BlogIndexPage({ params }) {
             <span>{t('eyebrowRight')}</span>
           </div>
           <p className="font-mono text-[10px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[clamp(80px,10vw,155px)] mobile:mt-[85px]">{t('kicker')}</p>
-          <h1 data-reveal="mask" className="text-[length:clamp(84px,16vw,270px)] leading-[.86] tracking-[-.075em] font-black mt-[25px] mb-[60px] mobile:text-[length:clamp(75px,17vw,135px)] mobile:mb-[40px]">
+          <h1 data-reveal="mask" style={fit(heading, '.')} className="fit [--fit-size:clamp(84px,16vw,270px)] leading-[.86] tracking-[-.075em] font-black mt-[25px] mb-[60px] mobile:[--fit-size:clamp(75px,17vw,135px)] mobile:mb-[40px]">
             {heading.map((line, i) => <React.Fragment key={line}>{line}{i < heading.length - 1 && <br />}</React.Fragment>)}<span className="text-[#6e6e6e]">.</span>
           </h1>
           <div className="flex justify-between items-end gap-[30px] pb-[75px] mobile:pb-[60px] mobile:items-start mobile:flex-col mobile:gap-[20px]">
