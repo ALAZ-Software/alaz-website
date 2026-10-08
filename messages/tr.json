@@ -629,7 +629,9 @@
     "contactCta": "GÖRÜŞELİM",
     "galleryEyebrow": "MAĞAZA GÖRSELLERİ",
     "galleryAlt": "{name} uygulama ekran görüntüsü {number}",
-    "visitCta": "{site} SİTESİNİ ZİYARET ET"
+    "visitCta": "{site} SİTESİNİ ZİYARET ET",
+    "storeDownload": "İNDİR",
+    "storeSoon": "YAKINDA"
   },
   "blogIndex": {
     "meta": {

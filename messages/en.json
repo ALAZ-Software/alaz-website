@@ -628,7 +628,9 @@
     "contactCta": "LET'S TALK",
     "galleryEyebrow": "STORE SCREENSHOTS",
     "galleryAlt": "{name} app screenshot {number}",
-    "visitCta": "VISIT {site}"
+    "visitCta": "VISIT {site}",
+    "storeDownload": "DOWNLOAD ON",
+    "storeSoon": "COMING SOON ON"
   },
   "blogIndex": {
     "meta": {

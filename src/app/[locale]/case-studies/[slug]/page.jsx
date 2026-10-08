@@ -6,6 +6,8 @@ import enMessages from '@messages/en.json';
 import JsonLd, { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { LOGO_URL, ORG_ID, SITE_NAME, absoluteUrl, buildMetadata, urlFor } from '@/lib/seo';
 import { fit } from '@/lib/fit';
+import { STORE_LINKS } from '@/lib/stores';
+import StoreButtons from '@/components/StoreButtons';
 
 export function generateStaticParams() {
   return enMessages.projects.map((project) => ({ slug: project.slug }));
@@ -43,6 +45,7 @@ export default async function CaseStudyPage({ params }) {
     </main>
   );
 
+  const stores = STORE_LINKS[project.slug];
   const currentIndex = projects.findIndex(item => item.slug === slug);
   const next = projects[(currentIndex + 1) % projects.length] || projects[0];
   const challengeHeading = t.raw('challengeHeading');
@@ -89,7 +92,10 @@ export default async function CaseStudyPage({ params }) {
             <p className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-[#c9c9c9] mb-[22px]">{project.type} / {project.discipline}</p>
             <h1 data-reveal="mask" style={fit(project.name, '.')} className="fit [--fit-size:clamp(64px,12vw,200px)] leading-[.86] tracking-[-.075em] font-black mb-[22px] mobile:[--fit-size:clamp(64px,17vw,135px)] mobile:mb-[32px]">{project.name}<span className="text-[#8a8a8a]">.</span></h1>
             <p data-reveal="fade" className="text-[length:clamp(19px,2.4vw,32px)] tracking-[-.04em] max-w-[740px] leading-[1.4] text-[#d6d6d6]">{project.summary}</p>
-            {project.link && <a data-reveal="fade" href={project.link.href} target="_blank" rel="noopener noreferrer" className="mt-[34px] inline-flex items-center justify-between gap-[30px] border border-[rgba(255,255,255,.65)] bg-black/30 backdrop-blur-sm min-h-[49px] px-[18px] font-mono text-[12px] tracking-[.03em] whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-white hover:text-black xs:min-h-[46px]">{t('visitCta', { site: project.link.label })} <ArrowUpRight size={17} /></a>}
+            {(project.link || stores) && <div data-reveal="fade" className="mt-[34px] flex flex-wrap items-stretch gap-[14px]">
+              {project.link && <a href={project.link.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-between gap-[30px] border border-[rgba(255,255,255,.65)] bg-black/30 backdrop-blur-sm min-h-[49px] px-[18px] font-mono text-[12px] tracking-[.03em] whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-white hover:text-black xs:min-h-[46px]">{t('visitCta', { site: project.link.label })} <ArrowUpRight size={17} /></a>}
+              {stores && <StoreButtons links={stores} downloadLabel={t('storeDownload')} soonLabel={t('storeSoon')} />}
+            </div>}
           </div>
         </div>
       </section>
