@@ -1,5 +1,5 @@
 import { routing } from '@/i18n/routing';
-import { languageAlternates, urlFor } from '@/lib/seo';
+import { absoluteUrl, languageAlternates, urlFor } from '@/lib/seo';
 import en from '../../messages/en.json';
 
 // Locale-agnostic paths. Slugs are identical across locales (verified in messages/*.json).
@@ -18,7 +18,7 @@ const STATIC_PATHS = [
 ];
 
 const dynamicPaths = [
-  ...en.projects.map((p) => ({ path: `/case-studies/${p.slug}`, priority: 0.6, changeFrequency: 'monthly', images: p.image ? [p.image] : undefined })),
+  ...en.projects.map((p) => ({ path: `/case-studies/${p.slug}`, priority: 0.6, changeFrequency: 'monthly', images: p.image ? [absoluteUrl(p.image)] : undefined })),
   ...en.blogPosts.map((p) => ({ path: `/blog/${p.slug}`, priority: 0.6, changeFrequency: 'monthly', lastModified: postDate(p), images: p.cover ? [p.cover] : undefined })),
 ];
 

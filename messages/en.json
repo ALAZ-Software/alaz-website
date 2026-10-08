@@ -31,8 +31,59 @@
   ],
   "projects": [
     {
-      "slug": "alpha",
+      "slug": "english-vocabulary",
       "number": "01",
+      "name": "VOCABULARY",
+      "discipline": "MOBILE APPLICATION",
+      "type": "LANGUAGE LEARNING / IOS & ANDROID",
+      "image": "/projects/vocabulary/cover.png",
+      "heroImage": "/projects/vocabulary/hero.png",
+      "imageWidth": 1920,
+      "imageHeight": 1200,
+      "colorImage": true,
+      "gallery": [
+        "/projects/vocabulary/en/01.webp",
+        "/projects/vocabulary/en/02.webp",
+        "/projects/vocabulary/en/03.webp",
+        "/projects/vocabulary/en/04.webp",
+        "/projects/vocabulary/en/05.webp",
+        "/projects/vocabulary/en/06.webp",
+        "/projects/vocabulary/en/07.webp"
+      ],
+      "summary": "A swipe-card app for learning the most common English words, with audio on every card, 17 word games and spaced-repetition review, in 24 languages.",
+      "challenge": "Make learning vocabulary something people keep doing: a few minutes at a time, in their own language, with every word spoken aloud and nothing to set up first.",
+      "approach": "One Flutter codebase for iOS and Android with a bold, playful design that follows the phone's light or dark setting. Words are swiped as cards, every word and example sentence has audio, and a review schedule brings words back after 1, 2, 4, 7, 15 and 30 days. Firebase handles sign-in and syncing, and the learning rules are plain, tested code.",
+      "outcome": "A free-to-start app with a level test, 17 word games, 44 topic decks, streaks and statistics, and an optional premium plan. Every word is translated into 24 languages, and a home-screen widget shows the word of the day.",
+      "markers": [
+        "SPACED-REPETITION REVIEW",
+        "17 WORD GAMES",
+        "24 LANGUAGES"
+      ]
+    },
+    {
+      "slug": "market-hours",
+      "number": "02",
+      "name": "MARKET HOURS",
+      "discipline": "MOBILE & WEB",
+      "type": "FINTECH TOOL / FOREX & STOCKS",
+      "image": "/projects/market-hours/cover.jpg",
+      "heroImage": "/projects/market-hours/hero.jpg",
+      "imageWidth": 1920,
+      "imageHeight": 1200,
+      "colorImage": true,
+      "summary": "A live world map and alarm app that shows which forex sessions and stock exchanges are open right now, with holidays, lunch breaks and alerts before the open.",
+      "challenge": "Markets open and close in local time, shift with daylight saving and shut for holidays nobody remembers. Traders need to see at a glance what is open now and be told, reliably, what opens next.",
+      "approach": "A tactical, HUD-style interface in JetBrains Mono, with the same market rules built twice: a Next.js dashboard with a live day/night map, and a Flutter app for iOS and Android whose alarms keep working in the background. Hours are stored in each exchange's own time zone, so daylight saving is automatic, and holiday and half-day calendars come from a generated data set. The economic calendar syncs from a weekly feed, and Pro unlocks through RevenueCat.",
+      "outcome": "A web dashboard covering nine exchanges, from NYSE and LSE to TSE, HKEX and BIST, plus the four forex sessions and the London / New York killzone, and a mobile app with market and news alarms, ten alarm sounds and a free tier.",
+      "markers": [
+        "DST-AWARE MARKET ENGINE",
+        "MARKET & NEWS ALARMS",
+        "LIVE DAY/NIGHT MAP"
+      ]
+    },
+    {
+      "slug": "alpha",
+      "number": "03",
       "name": "ALPHA",
       "discipline": "WEB PLATFORM",
       "type": "SAAS / OPERATIONS DASHBOARD",
@@ -49,7 +100,7 @@
     },
     {
       "slug": "beta",
-      "number": "02",
+      "number": "04",
       "name": "BETA",
       "discipline": "MOBILE APPLICATION",
       "type": "IOS & ANDROID",
@@ -66,7 +117,7 @@
     },
     {
       "slug": "gamma",
-      "number": "03",
+      "number": "05",
       "name": "GAMMA",
       "discipline": "SYSTEMS & BACKEND",
       "type": "API / CLOUD INFRASTRUCTURE",
@@ -621,7 +672,9 @@
     "deliverableLabel": "DELIVERABLE",
     "nextProjectLabel": "NEXT PROJECT",
     "contactPrompt": "HAVE A COMPLEX CHALLENGE?",
-    "contactCta": "LET'S TALK"
+    "contactCta": "LET'S TALK",
+    "galleryEyebrow": "STORE SCREENSHOTS",
+    "galleryAlt": "{name} app screenshot {number}"
   },
   "blogIndex": {
     "meta": {

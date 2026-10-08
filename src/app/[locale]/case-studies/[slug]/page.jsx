@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import enMessages from '@messages/en.json';
 import JsonLd, { BreadcrumbJsonLd } from '@/components/JsonLd';
-import { LOGO_URL, ORG_ID, SITE_NAME, buildMetadata, urlFor } from '@/lib/seo';
+import { LOGO_URL, ORG_ID, SITE_NAME, absoluteUrl, buildMetadata, urlFor } from '@/lib/seo';
 import { fit } from '@/lib/fit';
 
 export function generateStaticParams() {
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
     path: `/case-studies/${project.slug}`,
     title: t('metaTitleTemplate', { name: project.name }),
     description: t('metaDescriptionTemplate', { name: project.name, summary: project.summary }),
-    image: project.image ? { url: project.image, width: 1200, height: 630, alt: project.name } : undefined,
+    image: project.image ? { url: absoluteUrl(project.image), width: project.imageWidth ?? 1200, height: project.imageHeight ?? 630, alt: project.name } : undefined,
   });
 }
 
@@ -56,7 +56,7 @@ export default async function CaseStudyPage({ params }) {
     name: project.name,
     headline: project.name,
     description: project.summary,
-    ...(project.image ? { image: project.image } : {}),
+    ...(project.image ? { image: absoluteUrl(project.image) } : {}),
     genre: project.type,
     keywords: [project.discipline, project.type].join(', '),
     url,
@@ -76,7 +76,7 @@ export default async function CaseStudyPage({ params }) {
     <main>
       {/* The project visual sits behind the title, layered like the video heroes on the other pages. */}
       <section className="w-full relative bg-[#090909] overflow-hidden">
-        {project.image && <Image src={project.image} alt={t('imageAlt', { name: project.name })} fill sizes="100vw" className="object-cover [filter:grayscale(1)_brightness(.75)]" priority />}
+        {project.image && <Image src={project.heroImage ?? project.image} alt={t('imageAlt', { name: project.name })} fill sizes="100vw" className={project.colorImage ? 'object-cover [filter:brightness(.95)]' : 'object-cover [filter:grayscale(1)_brightness(.75)]'} priority />}
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,9,9,.78)_0%,rgba(9,9,9,.30)_42%,rgba(9,9,9,.62)_72%,#090909_100%)] pointer-events-none" aria-hidden="true" />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(9,9,9,.55)_0%,transparent_70%)] pointer-events-none" aria-hidden="true" />
         <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[128px] pb-[clamp(60px,7vw,110px)] min-h-[clamp(620px,92vh,980px)] relative z-[1] flex flex-col mobile:pt-[100px] mobile:min-h-[600px]">
@@ -121,6 +121,22 @@ export default async function CaseStudyPage({ params }) {
           </div>
           <p data-reveal="fade" className="text-mute leading-[1.8] text-[length:clamp(16px,1.6vw,22px)] max-w-[520px] pt-[42px] mobile:pt-[25px]">{project.outcome}</p>
         </div>
+
+        {project.gallery?.length > 0 && (
+          <section className="py-[65px] border-t border-line mobile:py-[50px]" aria-label={t('galleryEyebrow')}>
+            <div className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex justify-between text-dim mb-[34px]">
+              <span>{t('galleryEyebrow')}</span>
+              <span>{String(project.gallery.length).padStart(2, '0')}</span>
+            </div>
+            <ul className="grid grid-cols-4 gap-[20px] mobile:grid-cols-2 mobile:gap-[12px]">
+              {project.gallery.map((src, i) => (
+                <li key={src} data-reveal="fade" style={{ '--reveal-delay': `${(i % 4) * 70}ms` }} className="relative aspect-[9/16] overflow-hidden border border-line bg-[#111]">
+                  <Image src={src} alt={t('galleryAlt', { name: project.name, number: i + 1 })} fill sizes="(max-width: 760px) 50vw, 25vw" className="object-cover" />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         <div className="grid grid-cols-3 border-y border-line mobile:grid-cols-1">
           {project.markers.map((marker, i) => (

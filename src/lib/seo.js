@@ -4,6 +4,9 @@ export const SITE_URL = 'https://alaz.pro';
 export const SITE_NAME = 'ALAZ';
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const LEGAL_NAME = 'ALAZ Software';
+
+// Local images are stored as site paths ("/projects/…"); crawlers and structured data need absolute URLs.
+export const absoluteUrl = (src) => (src.startsWith('/') ? `${SITE_URL}${src}` : src);
 export const BRAND_ALIASES = ['ALAZ SOFTWARE', 'ALAZ Software', 'alaz.pro'];
 
 // Assets live in /public so crawlers never depend on a third-party host.

@@ -31,8 +31,59 @@
   ],
   "projects": [
     {
-      "slug": "alpha",
+      "slug": "english-vocabulary",
       "number": "01",
+      "name": "VOCABULARY",
+      "discipline": "MOBİL UYGULAMA",
+      "type": "DİL ÖĞRENİMİ / IOS & ANDROID",
+      "image": "/projects/vocabulary/cover.png",
+      "heroImage": "/projects/vocabulary/hero.png",
+      "imageWidth": 1920,
+      "imageHeight": 1200,
+      "colorImage": true,
+      "gallery": [
+        "/projects/vocabulary/tr/01.webp",
+        "/projects/vocabulary/tr/02.webp",
+        "/projects/vocabulary/tr/03.webp",
+        "/projects/vocabulary/tr/04.webp",
+        "/projects/vocabulary/tr/05.webp",
+        "/projects/vocabulary/tr/06.webp",
+        "/projects/vocabulary/tr/07.webp"
+      ],
+      "summary": "En sık kullanılan İngilizce kelimeleri kart kaydırarak öğreten bir uygulama: her kartta ses, 17 kelime oyunu ve aralıklı tekrar, 24 dilde.",
+      "challenge": "Kelime öğrenmeyi bırakılmayan bir alışkanlığa dönüştürmek: günde birkaç dakikada, kullanıcının kendi dilinde, her kelime sesli okunarak ve hiçbir kurulum gerektirmeden.",
+      "approach": "iOS ve Android için tek bir Flutter kod tabanı ve telefonun açık ya da koyu temasına uyan cesur, eğlenceli bir tasarım. Kelimeler kart olarak kaydırılıyor, her kelimenin ve örnek cümlenin sesi var, tekrar takvimi kelimeleri 1, 2, 4, 7, 15 ve 30 gün sonra geri getiriyor. Giriş ve eşitleme Firebase ile yapılıyor, öğrenme kuralları ise sade ve test edilmiş kodda duruyor.",
+      "outcome": "Ücretsiz başlanan; seviye testi, 17 kelime oyunu, 44 konu destesi, seri ve istatistikler ile isteğe bağlı premium planı olan bir uygulama. Her kelime 24 dile çevrildi, ana ekran widget'ı günün kelimesini gösteriyor.",
+      "markers": [
+        "ARALIKLI TEKRAR",
+        "17 KELİME OYUNU",
+        "24 DİL"
+      ]
+    },
+    {
+      "slug": "market-hours",
+      "number": "02",
+      "name": "MARKET HOURS",
+      "discipline": "MOBİL & WEB",
+      "type": "FİNANS ARACI / FOREX & BORSA",
+      "image": "/projects/market-hours/cover.jpg",
+      "heroImage": "/projects/market-hours/hero.jpg",
+      "imageWidth": 1920,
+      "imageHeight": 1200,
+      "colorImage": true,
+      "summary": "Hangi forex seanslarının ve borsaların şu an açık olduğunu canlı bir dünya haritası ve alarmlarla gösteren uygulama; tatiller, öğle araları ve açılıştan önce uyarılar dahil.",
+      "challenge": "Piyasalar yerel saatle açılıp kapanır, yaz saati uygulamasıyla kayar ve kimsenin hatırlamadığı tatillerde kapalı olur. Yatırımcının tek bakışta şu an neyin açık olduğunu görmesi ve sıradaki açılıştan güvenilir biçimde haberdar edilmesi gerekir.",
+      "approach": "JetBrains Mono ile hazırlanmış taktik, HUD tarzı bir arayüz ve aynı piyasa kurallarının iki kez inşası: canlı gece/gündüz haritalı bir Next.js paneli ve alarmları arka planda da çalışan, iOS ve Android için bir Flutter uygulaması. Saatler her borsanın kendi saat diliminde tutulduğu için yaz saati otomatik işliyor; tatil ve yarım gün takvimleri üretilmiş bir veri setinden geliyor. Ekonomik takvim haftalık bir kaynaktan eşitleniyor, Pro ise RevenueCat ile açılıyor.",
+      "outcome": "NYSE ve LSE'den TSE, HKEX ve BIST'e dokuz borsayı, dört forex seansını ve Londra / New York killzone'unu kapsayan bir web paneli; piyasa ve haber alarmları, on alarm sesi ve ücretsiz katmanı olan bir mobil uygulama.",
+      "markers": [
+        "YAZ SAATİNE DUYARLI MOTOR",
+        "PİYASA & HABER ALARMLARI",
+        "CANLI GECE/GÜNDÜZ HARİTASI"
+      ]
+    },
+    {
+      "slug": "alpha",
+      "number": "03",
       "name": "ALPHA",
       "discipline": "WEB PLATFORMU",
       "type": "SAAS / OPERASYON PANELİ",
@@ -49,7 +100,7 @@
     },
     {
       "slug": "beta",
-      "number": "02",
+      "number": "04",
       "name": "BETA",
       "discipline": "MOBİL UYGULAMA",
       "type": "IOS & ANDROID",
@@ -66,7 +117,7 @@
     },
     {
       "slug": "gamma",
-      "number": "03",
+      "number": "05",
       "name": "GAMMA",
       "discipline": "SİSTEMLER & BACKEND",
       "type": "API / BULUT ALTYAPISI",
@@ -622,7 +673,9 @@
     "deliverableLabel": "KAZANIM",
     "nextProjectLabel": "SONRAKİ PROJE",
     "contactPrompt": "ÇÖZÜLMESİ GEREKEN TEKNİK BİR PROBLEMİNİZ Mİ VAR?",
-    "contactCta": "GÖRÜŞELİM"
+    "contactCta": "GÖRÜŞELİM",
+    "galleryEyebrow": "MAĞAZA GÖRSELLERİ",
+    "galleryAlt": "{name} uygulama ekran görüntüsü {number}"
   },
   "blogIndex": {
     "meta": {

@@ -142,14 +142,14 @@ export default async function HomePage() {
         <div className="grid grid-cols-2 gap-x-[36px] gap-y-[56px] mobile:grid-cols-1 mobile:gap-y-[44px]">
           {projects.map((project, i) => (
             <Link href={`/case-studies/${project.slug}`} className="group flex flex-col" key={project.slug} data-reveal="fade" style={{ '--reveal-delay': `${i * 90}ms` }}>
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#161616] border border-line/70 after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(180deg,rgba(0,0,0,.2),transparent_40%,rgba(0,0,0,.35))] after:pointer-events-none">
+              <div className={cn("relative aspect-[16/10] w-full overflow-hidden bg-[#161616] border border-line/70 after:content-[''] after:absolute after:inset-0 after:pointer-events-none", project.colorImage ? 'after:bg-[linear-gradient(180deg,rgba(0,0,0,.06),transparent_40%,rgba(0,0,0,.2))]' : 'after:bg-[linear-gradient(180deg,rgba(0,0,0,.2),transparent_40%,rgba(0,0,0,.35))]')}>
                 {project.image ? (
                   <Image
                     src={project.image}
                     alt={t('selected.imageAlt', { name: project.name, type: project.type })}
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover [filter:grayscale(1)_brightness(.8)] transition-[transform,filter] duration-500 ease-out group-hover:scale-[1.03] group-hover:[filter:grayscale(1)_brightness(1)]"
+                    className={cn('object-cover transition-[transform,filter] duration-500 ease-out group-hover:scale-[1.03]', project.colorImage ? '[filter:brightness(.94)] group-hover:[filter:brightness(1)]' : '[filter:grayscale(1)_brightness(.8)] group-hover:[filter:grayscale(1)_brightness(1)]')}
                   />
                 ) : (
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-[24px] bg-[#141414]">
