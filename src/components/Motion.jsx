@@ -221,7 +221,7 @@ export default function Motion() {
     if (intro && curtain && !reduced()) {
       // First visit: the mark ignites (grey -> ember -> white) and the curtain lifts.
       const dot = mark.querySelector('.dot');
-      try { sessionStorage.setItem('alaz-intro', '1'); } catch (e) { /* private mode */ }
+      try { sessionStorage.setItem('alaz-intro', '1'); } catch { /* private mode */ }
       gsap.timeline({ onComplete: () => { document.documentElement.classList.remove('intro'); start(); } })
         .set(curtain, { scaleY: 1, transformOrigin: 'top' })
         .fromTo(mark, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, ease: EASE })
