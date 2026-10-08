@@ -4,6 +4,9 @@ import { Link } from '@/i18n/navigation';
 // Minimal, dependency-free markdown renderer tuned for long-form posts.
 // Supports: # ## ### headings, paragraphs, - lists, > blockquotes, --- hr,
 // and inline **bold**, `code`, [text](url). Links starting with "/" stay on the site in the reader's language.
+// Stable heading ids so sections can be deep-linked (e.g. /blog/post#the-short-version).
+const slugify = (text) => text.toLowerCase().replace(/[*`[\]()]/g, '').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '');
+
 const renderInline = (text) => {
   const nodes = [];
   const regex = /(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*|`[^`]+`)/g;
@@ -16,9 +19,9 @@ const renderInline = (text) => {
     if (tok.startsWith('[')) {
       const lm = tok.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
       const linkClass = 'text-white border-b border-[#555] transition-colors duration-200 hover:border-white';
-      nodes.push(lm[2].startsWith('/')
-        ? <Link key={key++} href={lm[2]} className={linkClass}>{lm[1]}</Link>
-        : <a key={key++} href={lm[2]} target="_blank" rel="noopener noreferrer" className={linkClass}>{lm[1]}</a>);
+      if (lm[2].startsWith('/')) nodes.push(<Link key={key++} href={lm[2]} className={linkClass}>{lm[1]}</Link>);
+      else if (lm[2].startsWith('mailto:')) nodes.push(<a key={key++} href={lm[2]} className={linkClass}>{lm[1]}</a>);
+      else nodes.push(<a key={key++} href={lm[2]} target="_blank" rel="noopener noreferrer" className={linkClass}>{lm[1]}</a>);
     } else if (tok.startsWith('**')) {
       nodes.push(<strong key={key++} className="text-white font-bold">{tok.slice(2, -2)}</strong>);
     } else if (tok.startsWith('`')) {
@@ -58,19 +61,22 @@ export default function Markdown({ content }) {
     if (/^###\s/.test(line)) {
       flushPara();
       flushList();
-      blocks.push(<h3 key={`h3-${blocks.length}`} className="text-[length:clamp(20px,2.2vw,28px)] tracking-[-.04em] font-bold text-white mt-[42px] mb-[14px]">{renderInline(line.replace(/^###\s/, ''))}</h3>);
+      const text = line.replace(/^###\s/, '');
+      blocks.push(<h3 key={`h3-${blocks.length}`} id={slugify(text)} className="text-[length:clamp(20px,2.2vw,28px)] tracking-[-.04em] font-bold text-white mt-[42px] mb-[14px]">{renderInline(text)}</h3>);
       return;
     }
     if (/^##\s/.test(line)) {
       flushPara();
       flushList();
-      blocks.push(<h2 key={`h2-${blocks.length}`} className="text-[length:clamp(26px,3.2vw,42px)] tracking-[-.06em] leading-[1.05] font-extrabold text-white mt-[58px] mb-[18px] mobile:text-[27px] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(line.replace(/^##\s/, ''))}</h2>);
+      const text = line.replace(/^##\s/, '');
+      blocks.push(<h2 key={`h2-${blocks.length}`} id={slugify(text)} className="text-[length:clamp(26px,3.2vw,42px)] tracking-[-.05em] leading-[1.05] font-extrabold text-white mt-[58px] mb-[18px] mobile:text-[27px] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(text)}</h2>);
       return;
     }
     if (/^#\s/.test(line)) {
       flushPara();
       flushList();
-      blocks.push(<h2 key={`h2-${blocks.length}`} className="text-[length:clamp(26px,3.2vw,42px)] tracking-[-.06em] leading-[1.05] font-extrabold text-white mt-[58px] mb-[18px] mobile:text-[27px] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(line.replace(/^#\s/, ''))}</h2>);
+      const text = line.replace(/^#\s/, '');
+      blocks.push(<h2 key={`h2-${blocks.length}`} id={slugify(text)} className="text-[length:clamp(26px,3.2vw,42px)] tracking-[-.05em] leading-[1.05] font-extrabold text-white mt-[58px] mb-[18px] mobile:text-[27px] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(text)}</h2>);
       return;
     }
     if (/^>\s/.test(line)) {

@@ -3,7 +3,7 @@ import LegalContent from '@/components/LegalContent';
 
 export async function generateMetadata() {
   const t = await getTranslations('legal.notFound.meta');
-  return { title: t('title'), description: t('description'), robots: { index: false, follow: false } };
+  return { title: t('title'), description: t('description'), robots: { index: false, follow: true } };
 }
 
 export default function NotFound() {

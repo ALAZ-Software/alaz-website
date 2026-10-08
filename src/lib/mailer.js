@@ -22,7 +22,7 @@ export function getMailer() {
   });
 }
 
-export async function sendInquiryNotification(data) {
+export async function sendInquiryNotification(data, lang = 'en') {
   const transporter = getMailer();
   if (!transporter) {
     console.warn('[MAIL] Hostinger SMTP credentials (SMTP_USER, SMTP_PASS) not configured.');
@@ -30,7 +30,7 @@ export async function sendInquiryNotification(data) {
   }
 
   const notificationTarget = process.env.NOTIFICATION_EMAIL || process.env.SMTP_USER || 'hello@alaz.pro';
-  const fromAddress = `"ALAZ System" <${process.env.SMTP_USER}>`;
+  const fromAddress = `"ALAZ" <${process.env.SMTP_USER}>`;
 
   // 1. Studio notification email
   const notificationHtml = `
@@ -86,25 +86,25 @@ export async function sendInquiryNotification(data) {
     </div>
   `;
 
-  // 2. Client confirmation auto-reply
+  // 2. Client confirmation auto-reply, in the language the form was filled in.
+  const copy = lang === 'tr'
+    ? { header: 'ALAZ · YAZILIM STÜDYOSU', title: 'Özetiniz bize ulaştı.', hello: 'Merhaba', body: (name) => `<strong>"${name}"</strong> hakkındaki özetinizi bir mühendis okuyacak ve bir iş günü içinde size doğrudan cevap vereceğiz. Acilse bu e-postaya yanıt vermeniz yeterli.`, subject: 'Özetinizi aldık — ALAZ' }
+    : { header: 'ALAZ · SOFTWARE STUDIO', title: 'Your brief has arrived.', hello: 'Hi', body: (name) => `An engineer will read your brief for <strong>"${name}"</strong> and reply to you directly within one business day. If it is urgent, just reply to this email.`, subject: 'We received your brief — ALAZ' };
   const confirmationHtml = `
     <div style="background-color: #0c0c0c; color: #ededed; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; padding: 40px 20px; line-height: 1.6;">
       <div style="max-width: 560px; margin: 0 auto; background: #141414; border: 1px solid #282828; padding: 32px;">
         <div style="font-family: monospace; font-size: 11px; letter-spacing: 0.1em; color: #888; border-bottom: 1px solid #282828; padding-bottom: 12px; margin-bottom: 24px;">
-          ALAZ // MÜHENDİSLİK STÜDYOSU
+          ${copy.header}
         </div>
         <h2 style="font-size: 22px; font-weight: 800; color: #ffffff; margin: 0 0 16px 0;">
-          Talebiniz Bize Ulaştı.
+          ${copy.title}
         </h2>
         <p style="font-size: 14px; color: #bbb; line-height: 1.7; margin-bottom: 20px;">
-          Merhaba <strong>${escapeHtml(data.name)}</strong>,<br/><br/>
-          <strong>"${escapeHtml(data.project_name || 'Projeniz')}"</strong> hakkındaki teknik talebiniz ekibimize başarıyla ulaştı. Gereksinimlerinizi ve kapsamı inceleyip en geç 24 saat içinde doğrudan sizinle iletişime geçeceğiz.
+          ${copy.hello} <strong>${escapeHtml(data.name)}</strong>,<br/><br/>
+          ${copy.body(escapeHtml(data.project_name || (lang === 'tr' ? 'projeniz' : 'your project')))}
         </p>
-        <div style="background: #0d0d0d; border-left: 2px solid #fff; padding: 12px 16px; font-size: 13px; color: #888; margin-bottom: 24px;">
-          "Bilinçli tasarlandı. Uzun yıllar dayanacak şekilde inşa edildi."
-        </div>
         <div style="border-top: 1px solid #282828; padding-top: 16px; font-family: monospace; font-size: 10px; color: #555;">
-          ALAZ Engineering Studio &bull; <a href="https://alaz.pro" style="color: #888; text-decoration: none;">alaz.pro</a> &bull; hello@alaz.pro
+          ALAZ &bull; <a href="https://alaz.pro" style="color: #888; text-decoration: none;">alaz.pro</a> &bull; hello@alaz.pro &bull; İzmir · New York
         </div>
       </div>
     </div>
@@ -116,7 +116,7 @@ export async function sendInquiryNotification(data) {
       from: fromAddress,
       to: notificationTarget,
       replyTo: data.email,
-      subject: `[ALAZ] Yeni Proje Talebi: ${data.project_name || 'İsimsiz'} — ${data.name}`,
+      subject: `[ALAZ] New brief: ${data.project_name || 'Untitled'} — ${data.name}`,
       html: notificationHtml,
     });
 
@@ -125,7 +125,7 @@ export async function sendInquiryNotification(data) {
       await transporter.sendMail({
         from: fromAddress,
         to: data.email,
-        subject: `Proje Talebiniz Alındı — ALAZ Engineering Studio`,
+        subject: copy.subject,
         html: confirmationHtml,
       });
     } catch (clientMailErr) {

@@ -6,7 +6,7 @@ import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { Link, usePathname } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 
-const NAV_HREFS = ['/case-studies', '/about', '/services', '/blog'];
+const NAV_HREFS = ['/services', '/case-studies', '/about', '/blog'];
 const NATIVE_LANGUAGE_NAMES = { en: 'İNGİLİZCE', tr: 'TÜRKÇE' };
 
 export default function Header() {
@@ -29,8 +29,8 @@ export default function Header() {
       <Link href="/" className="font-display text-balance text-[26px] font-black tracking-[-.02em] leading-none w-max mobile:text-[25px]" aria-label="ALAZ home">ALAZ<span className="text-[#777]">.</span></Link>
       <nav className="flex items-center gap-[clamp(26px,3.2vw,52px)] tablet:hidden" aria-label="Main navigation">
         {links.map(link => {
-          const isActive = !link.href.includes('#') && pathname === link.href;
-          return <Link key={link.href} href={link.href} className={cn('font-mono text-[12px] tracking-[.075em] text-[#aaa] transition-colors duration-200 ease-in-out hover:text-white', isActive && 'text-white')}>{link.label}</Link>;
+          const isActive = pathname === link.href || pathname.startsWith(`${link.href}/`);
+          return <Link key={link.href} href={link.href} className={cn('font-mono text-[12px] tracking-[.075em] text-[#aaa] transition-colors duration-200 ease-in-out hover:text-white', isActive && 'text-white')} aria-current={isActive ? 'page' : undefined}>{link.label}</Link>;
         })}
       </nav>
       <div className="justify-self-end flex items-center gap-[18px] xs:gap-[10px]">

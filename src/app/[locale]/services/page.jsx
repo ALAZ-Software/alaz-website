@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from '@/i18n/navigation';
 import JsonLd, { BreadcrumbJsonLd, FaqJsonLd } from '@/components/JsonLd';
@@ -9,13 +9,17 @@ import BackgroundVideo from '@/components/BackgroundVideo';
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'servicesPage.meta' });
-  return buildMetadata({ locale, path: '/services', title: t('title'), description: t('description'), keywords: t.raw('keywords') });
+  const tSeo = await getTranslations({ locale, namespace: 'seo' });
+  return buildMetadata({ locale, path: '/services', title: t('title'), description: t('description'), eyebrow: tSeo('services') });
 }
 
 export default async function ServicesPage({ params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'servicesPage' });
   const tAbout = await getTranslations({ locale, namespace: 'about' });
+  const tSeo = await getTranslations({ locale, namespace: 'seo' });
+  const projects = (await getTranslations({ locale })).raw('projects');
   const heading = t.raw('heading');
   const overviewTitle = t.raw('overviewTitle');
   const items = t.raw('items');
@@ -29,7 +33,7 @@ export default async function ServicesPage({ params }) {
   const itemList = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: t('meta.title'),
+    name: `${tSeo('services')} — ALAZ`,
     itemListElement: items.map((item, i) => ({
       '@type': 'ListItem',
       position: i + 1,
@@ -50,7 +54,7 @@ export default async function ServicesPage({ params }) {
       <BreadcrumbJsonLd
         crumbs={[
           { name: t('breadcrumbHome'), url: urlFor(locale) },
-          { name: heading.join(' '), url },
+          { name: tSeo('services'), url },
         ]}
       />
       <JsonLd data={itemList} />
@@ -65,7 +69,7 @@ export default async function ServicesPage({ params }) {
             loop
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             aria-hidden="true"
           >
             <source src="/videos/services-section.mp4" type="video/mp4" />
@@ -132,11 +136,8 @@ export default async function ServicesPage({ params }) {
                 data-reveal="fade"
                 key={item.id}
                 id={item.id}
-                itemScope
-                itemType="https://schema.org/Service"
                 className="group border-t border-line py-[50px] scroll-mt-[90px] transition-colors duration-200 hover:bg-[#0f0f0f] px-[15px] -mx-[15px] mobile:py-[35px]"
               >
-                <meta itemProp="serviceType" content={item.title} />
                 <div className="grid grid-cols-[12%_1fr_36%] gap-[30px] items-start mobile:grid-cols-1 mobile:gap-[20px]">
                   <div className="flex flex-col gap-[8px]">
                     <span className="font-mono text-[12px] font-bold tracking-[.085em] text-dim">
@@ -148,17 +149,17 @@ export default async function ServicesPage({ params }) {
                   </div>
 
                   <div>
-                    <h2 itemProp="name" style={fit(item.title)} className="fit [--fit-size:clamp(30px,4.5vw,60px)] [--fit-avail:calc((100vw_-_2*var(--gutter))*.52_-_60px)] font-extrabold tracking-[-.06em] leading-[1] text-white mobile:[--fit-avail:calc(100vw_-_2*var(--gutter))]">
+                    <h2 style={fit(item.title)} className="fit [--fit-size:clamp(30px,4.5vw,60px)] [--fit-avail:calc((100vw_-_2*var(--gutter))*.52_-_60px)] font-extrabold tracking-[-.06em] leading-[1] text-white mobile:[--fit-avail:calc(100vw_-_2*var(--gutter))]">
                       {item.title}
                     </h2>
-                    <p itemProp="description" className="text-[18px] text-white/90 tracking-[-.02em] leading-[1.5] mt-[18px] max-w-[600px]">
+                    <p className="text-[18px] text-white/90 tracking-[-.02em] leading-[1.5] mt-[18px] max-w-[600px]">
                       {item.description}
                     </p>
 
-                    <h3 className="font-mono text-[12px] tracking-[.085em] text-dim mt-[34px]">{labels.whatItIs}</h3>
+                    <p className="font-mono text-[12px] tracking-[.085em] text-dim mt-[34px]">{labels.whatItIs}</p>
                     <p className="text-[15px] text-mute leading-[1.7] mt-[10px] max-w-[600px]">{item.whatItIs}</p>
 
-                    <h3 className="font-mono text-[12px] tracking-[.085em] text-dim mt-[30px]">{labels.deliverables}</h3>
+                    <p className="font-mono text-[12px] tracking-[.085em] text-dim mt-[30px]">{labels.deliverables}</p>
                     <ul className="mt-[12px] max-w-[600px]">
                       {item.deliverables.map((d) => (
                         <li key={d} className="flex gap-[14px] text-[15px] text-mute leading-[1.6] py-[9px] border-t border-line first:border-t-0">
@@ -171,7 +172,7 @@ export default async function ServicesPage({ params }) {
 
                   <div className="flex flex-col gap-[28px] pt-[5px] mobile:pt-0">
                     <div>
-                      <h3 className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.stack}</h3>
+                      <p className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.stack}</p>
                       <ul className="flex flex-wrap gap-[8px] mt-[12px]">
                         {item.stack.map((tech) => (
                           <li key={tech} className="font-mono text-[12px] tracking-[.05em] text-mute border border-line px-[10px] py-[6px]">{tech}</li>
@@ -179,13 +180,20 @@ export default async function ServicesPage({ params }) {
                       </ul>
                     </div>
                     <div>
-                      <h3 className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.outcome}</h3>
+                      <p className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.outcome}</p>
                       <p className="text-[14px] leading-[1.7] text-white/85 mt-[10px]">{item.outcome}</p>
                     </div>
                     <div>
-                      <h3 className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.bestFor}</h3>
+                      <p className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.bestFor}</p>
                       <p className="text-[14px] leading-[1.7] text-mute mt-[10px]">{item.bestFor}</p>
                     </div>
+                    {item.proof && projects.some((p) => p.slug === item.proof.slug) && (
+                      <div>
+                        <p className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.proof}</p>
+                        <p className="text-[14px] leading-[1.7] text-mute mt-[10px]"><Link href={`/case-studies/${item.proof.slug}`} className="text-white border-b border-[#555] transition-colors duration-200 hover:border-white">{item.proof.label}</Link></p>
+                      </div>
+                    )}
+                    <Link href={`/start-project?type=${item.id}`} className="inline-flex items-center gap-[14px] self-start font-mono text-[12px] tracking-[.03em] border-b border-white pb-[8px] [transition:gap_.2s_ease] hover:gap-[22px]">{labels.cta} <ArrowUpRight size={14} aria-hidden="true" /></Link>
                   </div>
                 </div>
               </article>
@@ -234,7 +242,7 @@ export default async function ServicesPage({ params }) {
               {faqs.map((faq) => (
                 <details key={faq.q} className="group border-t border-line last:border-b py-[22px]">
                   <summary className="flex items-center justify-between gap-[20px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-[18px] font-bold tracking-[-.03em] leading-[1.35]">{faq.q}</h3>
+                    <span className="text-[18px] font-bold tracking-[-.03em] leading-[1.35]">{faq.q}</span>
                     <span className="font-mono text-dim text-[18px] shrink-0 group-open:hidden" aria-hidden="true">+</span>
                     <span className="font-mono text-dim text-[18px] shrink-0 hidden group-open:inline" aria-hidden="true">−</span>
                   </summary>
@@ -250,7 +258,7 @@ export default async function ServicesPage({ params }) {
           <BackgroundVideo src="/videos/about-end-section.mp4" className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,#090909_0%,rgba(9,9,9,.4)_45%,rgba(9,9,9,.55)_100%)] pointer-events-none" aria-hidden="true" />
           <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[150px] pb-[160px] relative z-[1] flex items-end justify-between gap-[40px] mobile:pt-[95px] mobile:pb-[100px] mobile:items-start mobile:flex-col">
-            <p className="text-[length:clamp(30px,4.5vw,72px)] font-extrabold tracking-[-.07em] leading-[1.05]">
+            <p className="font-display text-[length:clamp(30px,4.5vw,72px)] font-black tracking-[-.06em] leading-[1.05]">
               {tAbout('endTextTop')}
               <br />
               <span className="text-[#777]">{tAbout('endTextBottom')}</span>

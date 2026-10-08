@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import LegalContent from '@/components/LegalContent';
 import { buildMetadata } from '@/lib/seo';
 
@@ -8,6 +8,8 @@ export async function generateMetadata({ params }) {
   return buildMetadata({ locale, path: '/privacy', title: t('title'), description: t('description') });
 }
 
-export default function PrivacyPage() {
+export default async function PrivacyPage({ params }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return <LegalContent type="privacy" />;
 }

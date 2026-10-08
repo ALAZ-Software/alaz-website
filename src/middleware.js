@@ -6,5 +6,5 @@ const intlMiddleware = typeof createMiddleware === 'function' ? createMiddleware
 export default intlMiddleware(routing);
 
 export const config = {
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/((?!api|og|_next|_vercel|.*\\..*).*)'],
 };

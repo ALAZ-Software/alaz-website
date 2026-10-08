@@ -1,5 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { notFound } from 'next/navigation';
 import { Archivo, Inter, JetBrains_Mono } from 'next/font/google';
 import { routing } from '@/i18n/routing';
 import Header from '@/components/Header';
@@ -8,7 +9,7 @@ import StructuredData from '@/components/StructuredData';
 import NextTopLoader from 'nextjs-toploader';
 import SmoothScroll from '@/components/SmoothScroll';
 import ScrollReveal from '@/components/ScrollReveal';
-import { SITE_NAME, SITE_URL } from '@/lib/seo';
+import { DEFAULT_TITLE, SITE_NAME, SITE_URL, TITLE_TEMPLATE } from '@/lib/seo';
 import '../globals.css';
 
 // latin-ext carries the Turkish glyphs (İ, ı, Ğ, ğ, Ş, ş); without it they fall back to a system font.
@@ -25,13 +26,13 @@ const bing = process.env.BING_SITE_VERIFICATION;
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
+  title: { default: DEFAULT_TITLE.en, template: TITLE_TEMPLATE },
   applicationName: SITE_NAME,
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1, 'max-video-preview': -1 },
   },
-  icons: { icon: '/icon.svg', apple: '/apple-touch-icon.png' },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION,
     yandex: process.env.YANDEX_VERIFICATION,
@@ -47,6 +48,9 @@ export const viewport = {
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
+  if (!routing.locales.includes(locale)) notFound();
+  // Lets every route below render statically (no per-request header lookup for the locale).
+  setRequestLocale(locale);
   const messages = await getMessages();
 
   return (

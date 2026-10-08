@@ -4,6 +4,7 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	poweredByHeader: false,
 	images: {
 		formats: ['image/avif', 'image/webp'],
 		remotePatterns: [
@@ -15,6 +16,9 @@ const nextConfig = {
 	// the sitemap and the canonical URLs (all https://alaz.pro) in agreement.
 	async redirects() {
 		return [
+			// The default locale has no prefix; an explicit /en URL is the same page and must not split signals.
+			{ source: '/en', destination: '/', permanent: true },
+			{ source: '/en/:path*', destination: '/:path*', permanent: true },
 			// The ALPHA / BETA / GAMMA placeholder projects were removed; send their old URLs to the archive.
 			{ source: '/case-studies/:slug(alpha|beta|gamma)', destination: '/case-studies', permanent: true },
 			{ source: '/tr/case-studies/:slug(alpha|beta|gamma)', destination: '/tr/case-studies', permanent: true },
@@ -28,6 +32,11 @@ const nextConfig = {
 	},
 	async headers() {
 		return [
+			// Project images and videos never change in place; let browsers and the CDN keep them for a year.
+			{
+				source: '/:prefix(videos|projects)/:path*',
+				headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+			},
 			{
 				source: '/:path*',
 				headers: [
