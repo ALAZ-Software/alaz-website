@@ -15,6 +15,9 @@ const nextConfig = {
 	// the sitemap and the canonical URLs (all https://alaz.pro) in agreement.
 	async redirects() {
 		return [
+			// The ALPHA / BETA / GAMMA placeholder projects were removed; send their old URLs to the archive.
+			{ source: '/case-studies/:slug(alpha|beta|gamma)', destination: '/case-studies', permanent: true },
+			{ source: '/tr/case-studies/:slug(alpha|beta|gamma)', destination: '/tr/case-studies', permanent: true },
 			{
 				source: '/:path*',
 				has: [{ type: 'host', value: 'www.alaz.pro' }],

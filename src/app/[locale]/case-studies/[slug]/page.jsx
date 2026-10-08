@@ -57,6 +57,7 @@ export default async function CaseStudyPage({ params }) {
     headline: project.name,
     description: project.summary,
     ...(project.image ? { image: absoluteUrl(project.image) } : {}),
+    ...(project.link ? { sameAs: [project.link.href] } : {}),
     genre: project.type,
     keywords: [project.discipline, project.type].join(', '),
     url,
@@ -88,6 +89,7 @@ export default async function CaseStudyPage({ params }) {
             <p className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-[#c9c9c9] mb-[22px]">{project.type} / {project.discipline}</p>
             <h1 data-reveal="mask" style={fit(project.name, '.')} className="fit [--fit-size:clamp(64px,12vw,200px)] leading-[.86] tracking-[-.075em] font-black mb-[22px] mobile:[--fit-size:clamp(64px,17vw,135px)] mobile:mb-[32px]">{project.name}<span className="text-[#8a8a8a]">.</span></h1>
             <p data-reveal="fade" className="text-[length:clamp(19px,2.4vw,32px)] tracking-[-.04em] max-w-[740px] leading-[1.4] text-[#d6d6d6]">{project.summary}</p>
+            {project.link && <a data-reveal="fade" href={project.link.href} target="_blank" rel="noopener noreferrer" className="mt-[34px] inline-flex items-center justify-between gap-[30px] border border-[rgba(255,255,255,.65)] bg-black/30 backdrop-blur-sm min-h-[49px] px-[18px] font-mono text-[12px] tracking-[.03em] whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-white hover:text-black xs:min-h-[46px]">{t('visitCta', { site: project.link.label })} <ArrowUpRight size={17} /></a>}
           </div>
         </div>
       </section>

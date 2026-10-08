@@ -71,66 +71,19 @@
       "imageWidth": 1920,
       "imageHeight": 1200,
       "colorImage": true,
-      "summary": "A live world map and alarm app that shows which forex sessions and stock exchanges are open right now, with holidays, lunch breaks and alerts before the open.",
+      "summary": "A live world map and alarm app that shows which forex sessions and stock exchanges are open right now, with holidays, lunch breaks and alerts before the open. Live on the web, coming soon as a mobile app.",
       "challenge": "Markets open and close in local time, shift with daylight saving and shut for holidays nobody remembers. Traders need to see at a glance what is open now and be told, reliably, what opens next.",
       "approach": "A tactical, HUD-style interface in JetBrains Mono, with the same market rules built twice: a Next.js dashboard with a live day/night map, and a Flutter app for iOS and Android whose alarms keep working in the background. Hours are stored in each exchange's own time zone, so daylight saving is automatic, and holiday and half-day calendars come from a generated data set. The economic calendar syncs from a weekly feed, and Pro unlocks through RevenueCat.",
-      "outcome": "A web dashboard covering nine exchanges, from NYSE and LSE to TSE, HKEX and BIST, plus the four forex sessions and the London / New York killzone, and a mobile app with market and news alarms, ten alarm sounds and a free tier.",
+      "outcome": "The web dashboard is live at markethours.live and covers nine exchanges, from NYSE and LSE to TSE, HKEX and BIST, plus the four forex sessions and the London / New York killzone. The mobile app, with market and news alarms, ten alarm sounds and a free tier, is being prepared for release on iOS and Android.",
       "markers": [
         "DST-AWARE MARKET ENGINE",
         "MARKET & NEWS ALARMS",
         "LIVE DAY/NIGHT MAP"
-      ]
-    },
-    {
-      "slug": "alpha",
-      "number": "03",
-      "name": "ALPHA",
-      "discipline": "WEB PLATFORM",
-      "type": "SAAS / OPERATIONS DASHBOARD",
-      "image": "https://images.hostinger.com/b7153917-045b-4d9f-a8e9-d3267bf93605.png",
-      "summary": "One web platform that replaced a patchwork of spreadsheets and a slow legacy admin panel.",
-      "challenge": "Give a growing operations team one reliable web platform in place of shared spreadsheets and a legacy admin panel, without stopping day-to-day work.",
-      "approach": "We modelled the data first, built a server-rendered Next.js application on a typed API, and moved teams over in stages so nobody lost a working day.",
-      "outcome": "A single source of truth, role-based access for every team, and screens that respond instantly on ordinary office hardware.",
-      "markers": [
-        "SERVER-FIRST WEB APP",
-        "ROLE-BASED ACCESS",
-        "STAGED MIGRATION"
-      ]
-    },
-    {
-      "slug": "beta",
-      "number": "04",
-      "name": "BETA",
-      "discipline": "MOBILE APPLICATION",
-      "type": "IOS & ANDROID",
-      "image": "https://images.hostinger.com/79819ca9-2b4f-40a0-b628-39c7e7abb02c.png",
-      "summary": "One cross-platform app for iOS and Android, built for a field team that works with patchy connectivity.",
-      "challenge": "Ship one app to both stores for a field team that often works without signal, without maintaining two separate codebases.",
-      "approach": "A single cross-platform codebase with an offline-first data layer and background sync, plus native modules only where the device hardware required them.",
-      "outcome": "One codebase on iOS and Android, work that continues offline and syncs when the signal returns, and store releases from an automated pipeline.",
-      "markers": [
-        "CROSS-PLATFORM BUILD",
-        "OFFLINE-FIRST SYNC",
-        "AUTOMATED STORE RELEASES"
-      ]
-    },
-    {
-      "slug": "gamma",
-      "number": "05",
-      "name": "GAMMA",
-      "discipline": "SYSTEMS & BACKEND",
-      "type": "API / CLOUD INFRASTRUCTURE",
-      "image": "https://images.hostinger.com/34b5c8dc-aea2-4a15-a1ea-7d23314bd149.png",
-      "summary": "A backend that ties payments, CRM and inventory together and keeps data consistent when third-party services fail.",
-      "challenge": "Connect payments, CRM and inventory into one backend that stays consistent when any of those external services slows down or fails.",
-      "approach": "Typed APIs, an event queue with retries and idempotent handlers, containerized services deployed through CI/CD, and monitoring that alerts before customers notice.",
-      "outcome": "Integrations that recover on their own, reproducible deployments, and a backend the in-house team can operate with confidence.",
-      "markers": [
-        "EVENT-DRIVEN INTEGRATION",
-        "IDEMPOTENT WEBHOOKS",
-        "OBSERVABLE INFRASTRUCTURE"
-      ]
+      ],
+      "link": {
+        "href": "https://markethours.live",
+        "label": "MARKETHOURS.LIVE"
+      }
     }
   ],
   "blogPosts": [
@@ -674,7 +627,8 @@
     "contactPrompt": "HAVE A COMPLEX CHALLENGE?",
     "contactCta": "LET'S TALK",
     "galleryEyebrow": "STORE SCREENSHOTS",
-    "galleryAlt": "{name} app screenshot {number}"
+    "galleryAlt": "{name} app screenshot {number}",
+    "visitCta": "VISIT {site}"
   },
   "blogIndex": {
     "meta": {

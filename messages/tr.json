@@ -71,66 +71,19 @@
       "imageWidth": 1920,
       "imageHeight": 1200,
       "colorImage": true,
-      "summary": "Hangi forex seanslarının ve borsaların şu an açık olduğunu canlı bir dünya haritası ve alarmlarla gösteren uygulama; tatiller, öğle araları ve açılıştan önce uyarılar dahil.",
+      "summary": "Hangi forex seanslarının ve borsaların şu an açık olduğunu canlı bir dünya haritası ve alarmlarla gösteren uygulama; tatiller, öğle araları ve açılıştan önce uyarılar dahil. Web'de yayında, yakında mobil uygulama olarak geliyor.",
       "challenge": "Piyasalar yerel saatle açılıp kapanır, yaz saati uygulamasıyla kayar ve kimsenin hatırlamadığı tatillerde kapalı olur. Yatırımcının tek bakışta şu an neyin açık olduğunu görmesi ve sıradaki açılıştan güvenilir biçimde haberdar edilmesi gerekir.",
       "approach": "JetBrains Mono ile hazırlanmış taktik, HUD tarzı bir arayüz ve aynı piyasa kurallarının iki kez inşası: canlı gece/gündüz haritalı bir Next.js paneli ve alarmları arka planda da çalışan, iOS ve Android için bir Flutter uygulaması. Saatler her borsanın kendi saat diliminde tutulduğu için yaz saati otomatik işliyor; tatil ve yarım gün takvimleri üretilmiş bir veri setinden geliyor. Ekonomik takvim haftalık bir kaynaktan eşitleniyor, Pro ise RevenueCat ile açılıyor.",
-      "outcome": "NYSE ve LSE'den TSE, HKEX ve BIST'e dokuz borsayı, dört forex seansını ve Londra / New York killzone'unu kapsayan bir web paneli; piyasa ve haber alarmları, on alarm sesi ve ücretsiz katmanı olan bir mobil uygulama.",
+      "outcome": "Web paneli markethours.live adresinde yayında; NYSE ve LSE'den TSE, HKEX ve BIST'e dokuz borsayı, dört forex seansını ve Londra / New York killzone'unu kapsıyor. Piyasa ve haber alarmları, on alarm sesi ve ücretsiz katmanı olan mobil uygulama iOS ve Android için yayına hazırlanıyor.",
       "markers": [
         "YAZ SAATİNE DUYARLI MOTOR",
         "PİYASA & HABER ALARMLARI",
         "CANLI GECE/GÜNDÜZ HARİTASI"
-      ]
-    },
-    {
-      "slug": "alpha",
-      "number": "03",
-      "name": "ALPHA",
-      "discipline": "WEB PLATFORMU",
-      "type": "SAAS / OPERASYON PANELİ",
-      "image": "https://images.hostinger.com/b7153917-045b-4d9f-a8e9-d3267bf93605.png",
-      "summary": "Dağınık Excel tablolarının ve yavaş bir eski yönetim panelinin yerini alan tek bir web platformu.",
-      "challenge": "Büyüyen bir operasyon ekibine, ortak Excel dosyaları ve eski bir yönetim paneli yerine güvenilir tek bir web platformu sunmak; bunu yaparken günlük işi durdurmamak.",
-      "approach": "Önce veri modelini çıkardık, tip güvenli bir API üzerinde sunucuda render edilen bir Next.js uygulaması geliştirdik ve ekipleri aşama aşama taşıdık; kimse bir iş gününü kaybetmedi.",
-      "outcome": "Tek doğru veri kaynağı, her ekip için rol bazlı yetkilendirme ve sıradan ofis bilgisayarlarında bile anında yanıt veren ekranlar.",
-      "markers": [
-        "SUNUCU ÖNCELİKLİ WEB UYGULAMASI",
-        "ROL BAZLI YETKİLENDİRME",
-        "AŞAMALI GEÇİŞ"
-      ]
-    },
-    {
-      "slug": "beta",
-      "number": "04",
-      "name": "BETA",
-      "discipline": "MOBİL UYGULAMA",
-      "type": "IOS & ANDROID",
-      "image": "https://images.hostinger.com/79819ca9-2b4f-40a0-b628-39c7e7abb02c.png",
-      "summary": "Bağlantının zayıf olduğu sahada çalışan bir ekip için tek kod tabanıyla geliştirilen iOS ve Android uygulaması.",
-      "challenge": "Sıklıkla çekmeyen bölgelerde çalışan bir saha ekibi için, iki ayrı kod tabanı yönetmeden iki mağazaya da tek bir uygulama çıkarmak.",
-      "approach": "Çevrimdışı öncelikli veri katmanı ve arka plan senkronizasyonu olan tek bir cross-platform kod tabanı kurduk; native modülleri yalnızca cihaz donanımının gerektirdiği yerlerde kullandık.",
-      "outcome": "iOS ve Android'de tek kod tabanı, bağlantı kopsa da devam eden ve sinyal gelince senkronize olan iş akışı, otomatik hattan çıkan mağaza sürümleri.",
-      "markers": [
-        "CROSS-PLATFORM GELİŞTİRME",
-        "ÇEVRİMDIŞI SENKRONİZASYON",
-        "OTOMATİK MAĞAZA YAYINI"
-      ]
-    },
-    {
-      "slug": "gamma",
-      "number": "05",
-      "name": "GAMMA",
-      "discipline": "SİSTEMLER & BACKEND",
-      "type": "API / BULUT ALTYAPISI",
-      "image": "https://images.hostinger.com/34b5c8dc-aea2-4a15-a1ea-7d23314bd149.png",
-      "summary": "Ödeme, CRM ve stok sistemlerini birbirine bağlayan, üçüncü taraf servisler aksadığında bile veriyi tutarlı tutan backend.",
-      "challenge": "Ödeme, CRM ve stok sistemlerini, bu dış servislerden biri yavaşladığında ya da çöktüğünde bile tutarlı kalan tek bir backend'de birleştirmek.",
-      "approach": "Tip güvenli API'ler, yeniden denemeli ve idempotent işleyicilere sahip bir olay kuyruğu, CI/CD ile dağıtılan container tabanlı servisler ve müşteriler fark etmeden uyaran izleme.",
-      "outcome": "Kendi kendini toparlayan entegrasyonlar, tekrarlanabilir dağıtımlar ve şirket içi ekibin güvenle işletebildiği bir backend.",
-      "markers": [
-        "OLAY TABANLI ENTEGRASYON",
-        "İDEMPOTENT WEBHOOK'LAR",
-        "GÖZLEMLENEBİLİR ALTYAPI"
-      ]
+      ],
+      "link": {
+        "href": "https://markethours.live",
+        "label": "MARKETHOURS.LIVE"
+      }
     }
   ],
   "blogPosts": [
@@ -675,7 +628,8 @@
     "contactPrompt": "ÇÖZÜLMESİ GEREKEN TEKNİK BİR PROBLEMİNİZ Mİ VAR?",
     "contactCta": "GÖRÜŞELİM",
     "galleryEyebrow": "MAĞAZA GÖRSELLERİ",
-    "galleryAlt": "{name} uygulama ekran görüntüsü {number}"
+    "galleryAlt": "{name} uygulama ekran görüntüsü {number}",
+    "visitCta": "{site} SİTESİNİ ZİYARET ET"
   },
   "blogIndex": {
     "meta": {
