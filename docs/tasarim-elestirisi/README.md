@@ -9,7 +9,8 @@ Bu klasör üç katmandan oluşur:
 1. **Bu dosya (README):** karar, puanlar, konsolide öncelik listesi, Awwwards diline geçiş için gerekenler ve 3 fazlı yol haritası.
 2. **[00-kritik-bulgular.md](00-kritik-bulgular.md):** 20 boyuttaki 73 kritik bulgunun tek listesi.
 3. **[21-icerik-ve-seo-duzenlemeleri.md](21-icerik-ve-seo-duzenlemeleri.md):** içerik yeniden yazımı ve SEO düzeltmelerinin uygulanmış hâli (bu raporun ilk uygulama adımı).
-4. **01–20 numaralı dosyalar:** her boyut için tam rapor: genel değerlendirme, korunacaklar, bütün bulgular (yer, sorun, neden, çözüm) ve o boyutta Awwwards seviyesi için eklenmesi önerilenler. Toplam 543 bulgu, 163 ekleme önerisi.
+4. **[22-tasarim-uygulamasi.md](22-tasarim-uygulamasi.md):** tasarım, hareket, görsel, mobil ve sistem katmanı uygulamasının özeti (Konsept A).
+5. **01–20 numaralı dosyalar:** her boyut için tam rapor: genel değerlendirme, korunacaklar, bütün bulgular (yer, sorun, neden, çözüm) ve o boyutta Awwwards seviyesi için eklenmesi önerilenler. Toplam 543 bulgu, 163 ekleme önerisi.
 
 ---
 

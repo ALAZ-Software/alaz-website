@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from '@/i18n/navigation';
 
 // Minimal, dependency-free markdown renderer tuned for long-form posts.
@@ -18,14 +17,14 @@ const renderInline = (text) => {
     const tok = m[0];
     if (tok.startsWith('[')) {
       const lm = tok.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-      const linkClass = 'text-white border-b border-[#555] transition-colors duration-200 hover:border-white';
+      const linkClass = 'text-fg border-b border-line-strong transition-colors duration-fast hover:border-ember';
       if (lm[2].startsWith('/')) nodes.push(<Link key={key++} href={lm[2]} className={linkClass}>{lm[1]}</Link>);
       else if (lm[2].startsWith('mailto:')) nodes.push(<a key={key++} href={lm[2]} className={linkClass}>{lm[1]}</a>);
       else nodes.push(<a key={key++} href={lm[2]} target="_blank" rel="noopener noreferrer" className={linkClass}>{lm[1]}</a>);
     } else if (tok.startsWith('**')) {
-      nodes.push(<strong key={key++} className="text-white font-bold">{tok.slice(2, -2)}</strong>);
+      nodes.push(<strong key={key++} className="text-fg font-bold">{tok.slice(2, -2)}</strong>);
     } else if (tok.startsWith('`')) {
-      nodes.push(<code key={key++} className="font-mono text-[.84em] bg-[#1a1a1a] border border-[#2a2a2a] px-[7px] py-[2px] text-[#e8e8e8]">{tok.slice(1, -1)}</code>);
+      nodes.push(<code key={key++} className="font-mono text-[.84em] bg-surface-2 border border-line px-[7px] py-[2px] text-fg-2">{tok.slice(1, -1)}</code>);
     }
     last = m.index + tok.length;
   }
@@ -62,27 +61,27 @@ export default function Markdown({ content }) {
       flushPara();
       flushList();
       const text = line.replace(/^###\s/, '');
-      blocks.push(<h3 key={`h3-${blocks.length}`} id={slugify(text)} className="text-[length:clamp(20px,2.2vw,28px)] tracking-[-.04em] font-bold text-white mt-[42px] mb-[14px]">{renderInline(text)}</h3>);
+      blocks.push(<h3 key={`h3-${blocks.length}`} id={slugify(text)} className="t-title-sm text-fg mt-[42px] mb-[14px] scroll-mt-[calc(var(--header-h)+24px)]">{renderInline(text)}</h3>);
       return;
     }
     if (/^##\s/.test(line)) {
       flushPara();
       flushList();
       const text = line.replace(/^##\s/, '');
-      blocks.push(<h2 key={`h2-${blocks.length}`} id={slugify(text)} className="text-[length:clamp(26px,3.2vw,42px)] tracking-[-.05em] leading-[1.05] font-extrabold text-white mt-[58px] mb-[18px] mobile:text-[27px] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(text)}</h2>);
+      blocks.push(<h2 key={`h2-${blocks.length}`} id={slugify(text)} className="t-title text-fg mt-[58px] mb-[18px] scroll-mt-[calc(var(--header-h)+24px)] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(text)}</h2>);
       return;
     }
     if (/^#\s/.test(line)) {
       flushPara();
       flushList();
       const text = line.replace(/^#\s/, '');
-      blocks.push(<h2 key={`h2-${blocks.length}`} id={slugify(text)} className="text-[length:clamp(26px,3.2vw,42px)] tracking-[-.05em] leading-[1.05] font-extrabold text-white mt-[58px] mb-[18px] mobile:text-[27px] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(text)}</h2>);
+      blocks.push(<h2 key={`h2-${blocks.length}`} id={slugify(text)} className="t-title text-fg mt-[58px] mb-[18px] scroll-mt-[calc(var(--header-h)+24px)] mobile:mt-[42px] mobile:mb-[14px]">{renderInline(text)}</h2>);
       return;
     }
     if (/^>\s/.test(line)) {
       flushPara();
       flushList();
-      blocks.push(<blockquote key={`q-${blocks.length}`} className="border-l-2 border-white py-[4px] pl-[22px] text-[#9a9a9a] mb-[26px] text-[.96em]">{renderInline(line.replace(/^>\s/, ''))}</blockquote>);
+      blocks.push(<blockquote key={`q-${blocks.length}`} className="border-l-2 border-ember py-[4px] pl-[22px] text-fg-3 mb-[26px] text-[.96em]">{renderInline(line.replace(/^>\s/, ''))}</blockquote>);
       return;
     }
     if (/^---+$/.test(line.trim())) {
@@ -94,7 +93,7 @@ export default function Markdown({ content }) {
     if (/^[-*]\s/.test(line)) {
       flushPara();
       if (!list) list = [];
-      list.push(<li key={`li-${list.length}`} className="relative pl-[26px] mb-[13px] leading-[1.7] before:content-[''] before:absolute before:left-0 before:top-[.7em] before:w-[13px] before:h-px before:bg-white">{renderInline(line.replace(/^[-*]\s/, ''))}</li>);
+      list.push(<li key={`li-${list.length}`} className="relative pl-[26px] mb-[13px] leading-[1.7] before:content-[''] before:absolute before:left-0 before:top-[.7em] before:w-[13px] before:h-px before:bg-ember">{renderInline(line.replace(/^[-*]\s/, ''))}</li>);
       return;
     }
     flushList();
@@ -104,5 +103,5 @@ export default function Markdown({ content }) {
   flushPara();
   flushList();
 
-  return <div className="max-w-[720px] text-[#c9c9c9] text-[length:clamp(16px,1.5vw,20px)] leading-[1.78] tracking-[-.004em] mobile:text-[16px]">{blocks}</div>;
+  return <div className="max-w-[68ch] text-fg-2 text-[length:clamp(16px,1.3vw,19px)] leading-[1.72] [hyphens:auto] mobile:text-[16px]">{blocks}</div>;
 }

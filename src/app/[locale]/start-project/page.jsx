@@ -18,7 +18,7 @@ export default async function StartProjectPage({ params }) {
   return (
     <>
       <BreadcrumbJsonLd crumbs={[{ name: tSeo('breadcrumbHome'), url: urlFor(locale) }, { name: tSeo('startProject'), url: urlFor(locale, '/start-project') }]} />
-      <Suspense fallback={<main className="min-h-screen" />}>
+      <Suspense fallback={<main id="main" className="min-h-screen" />}>
         <IntakeForm />
       </Suspense>
     </>

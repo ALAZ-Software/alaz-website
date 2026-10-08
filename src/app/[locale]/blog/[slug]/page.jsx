@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import Icon from '@/components/Icon';
 import { Link } from '@/i18n/navigation';
 import Markdown from '@/components/Markdown';
 import ReadProgress from '@/components/ReadProgress';
@@ -10,11 +10,10 @@ import JsonLd, { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { LOGO_URL, ORG_ID, SITE_NAME, SITE_URL, buildMetadata, urlFor } from '@/lib/seo';
 import { fit } from '@/lib/fit';
 
-const MONO = 'font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6]';
 const wordCount = (text) => text.trim().split(/\s+/).filter(Boolean).length;
 const readingTime = (text) => Math.max(1, Math.round(wordCount(text) / 200));
+const headings = (content) => content.split('\n').filter((l) => /^##\s/.test(l)).map((l) => l.replace(/^##\s/, '')).map((text) => ({ text, id: text.toLowerCase().replace(/[*`[\]()]/g, '').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '') }));
 
-// Slugs come from messages/en.json; anything else is a real 404.
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -52,6 +51,7 @@ export default async function BlogPostPage({ params }) {
   const index = posts.findIndex((item) => item.slug === slug);
   const next = posts[(index + 1) % posts.length];
   const postUrl = urlFor(locale, `/blog/${post.slug}`);
+  const toc = headings(post.content).filter((h) => !/^(sources|kaynaklar)$/i.test(h.text));
 
   const blogPosting = {
     '@context': 'https://schema.org',
@@ -82,52 +82,55 @@ export default async function BlogPostPage({ params }) {
         { name: post.title, url: postUrl },
       ]} />
       <JsonLd data={blogPosting} />
-      <main>
+      <main id="main">
         <article>
-          <header className="w-full px-[clamp(24px,4.2vw,72px)] pt-[128px] pb-[60px] mobile:pt-[100px]">
-            <div data-reveal="line" className={`${MONO} flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white`}>
+          <header className="shell pt-[calc(var(--header-h)+40px)] pb-[var(--s-5)]">
+            <div className="eyebrow t-meta uppercase [&_a:hover]:text-fg" data-reveal="line">
               <Link href="/blog">{t('allFieldNotes')}</Link>
               <span>{t('blogLabelPrefix')} / {post.tag}</span>
             </div>
-            <p className={`${MONO} text-mute mt-[90px] mobile:mt-[70px] mb-[22px] flex flex-wrap gap-x-[10px]`}><time dateTime={post.date}>{post.dateLabel}</time><span aria-hidden="true">—</span><span>{time} {t('readingSuffix')}</span>{post.updated && post.updated !== post.date && <><span aria-hidden="true">—</span><span className="whitespace-nowrap">{t('updatedPrefix')} <time dateTime={post.updated}>{post.updatedLabel}</time></span></>}</p>
-            <h1 data-reveal="mask" style={fit(post.title)} className="fit [--fit-size:clamp(44px,6.4vw,112px)] leading-[.95] tracking-[-.05em] font-black mb-[28px] max-w-[1300px] mobile:[--fit-size:clamp(34px,9.6vw,56px)] mobile:leading-[1] mobile:mb-[30px]">{post.title.replace(/\s+/g, ' ')}</h1>
-            <p data-reveal="fade" className="text-[length:clamp(19px,2.4vw,32px)] tracking-[-.03em] max-w-[740px] leading-[1.4] text-[#b4b4b4]">{post.excerpt}</p>
+            <p className="t-meta uppercase text-fg-3 mt-[var(--s-5)] mb-[22px] flex flex-wrap gap-x-[10px]" data-reveal="fade"><time dateTime={post.date}>{post.dateLabel}</time><span aria-hidden="true">—</span><span>{time} {t('readingSuffix')}</span>{post.updated && post.updated !== post.date && <><span aria-hidden="true">—</span><span className="whitespace-nowrap">{t('updatedPrefix')} <time dateTime={post.updated}>{post.updatedLabel}</time></span></>}</p>
+            <h1 style={fit(post.title)} className="fit t-display-1 uppercase [--fit-size:clamp(40px,6vw,108px)] mb-[28px] max-w-[22ch]" data-reveal="lines">{post.title.replace(/\s+/g, ' ')}</h1>
+            <p className="t-lead text-fg-3 max-w-[52ch]" data-reveal="fade">{post.excerpt}</p>
           </header>
 
-          {post.cover && <div className="w-full h-[clamp(230px,38vw,520px)] bg-[#171717] overflow-hidden relative">
-            <Image src={post.cover} alt={post.coverAlt} fill sizes="100vw" className="object-cover [filter:grayscale(1)_brightness(.82)]" priority />
+          {post.cover && <div className="w-full h-[clamp(230px,38vw,520px)] bg-surface-2 overflow-hidden relative">
+            <Image src={post.cover} alt={post.coverAlt} fill sizes="100vw" className="object-cover [filter:grayscale(1)_brightness(.82)]" priority data-parallax="8" />
           </div>}
 
-          <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[70px] mobile:pt-[50px]">
-            <Markdown content={post.content} />
-
-            <footer className="flex gap-[18px] items-start border-y border-line py-[30px] mt-[70px] max-w-[720px] mobile:py-[24px] mobile:mt-[50px]">
-              <span className="w-[54px] h-[54px] bg-[#1a1a1a] border border-[#333] grid place-items-center flex-none text-[18px] font-extrabold text-white font-display" aria-hidden="true">A.</span>
-              <div>
-                <strong className="text-[14px] block">{post.author.name}</strong>
-                <span className={`${MONO} text-dim block mt-[3px]`}>{post.author.role}</span>
-                <p className="text-mute text-[14px] leading-[1.6] mt-[12px]">
-                  {t('authorIntroBefore')}
-                  <a href="mailto:hello@alaz.pro" className="text-white underline underline-offset-4">hello@alaz.pro</a>
-                  {t('authorIntroAfter')} <Link href="/about" className="text-white underline underline-offset-4">{t('aboutLinkLabel')}</Link>
-                </p>
-              </div>
-            </footer>
+          <div className="shell pt-[var(--s-5)] grid grid-cols-12 gap-[var(--col-gap)] tablet:flex tablet:flex-col">
+            <aside className="col-span-3 tablet:hidden" aria-label="Contents">
+              {toc.length > 1 && <ol className="sticky top-[calc(var(--header-h)+24px)] flex flex-col gap-[8px] border-t border-line pt-[16px]">
+                {toc.map((h) => <li key={h.id}><a href={`#${h.id}`} className="t-meta text-fg-4 hover:text-fg block py-[2px]">{h.text}</a></li>)}
+              </ol>}
+            </aside>
+            <div className="col-span-8 col-start-4">
+              <Markdown content={post.content} />
+              <footer className="flex gap-[18px] items-start border-y border-line py-[30px] mt-[var(--s-5)] max-w-[720px]">
+                <span className="w-[54px] h-[54px] bg-surface-2 border border-line grid place-items-center flex-none text-[18px] font-black text-fg font-display" aria-hidden="true">A<span className="dot">.</span></span>
+                <div>
+                  <strong className="t-small block font-medium">{post.author.name}</strong>
+                  <span className="t-meta text-fg-4 block mt-[3px]">{post.author.role}</span>
+                  <p className="t-small text-fg-3 mt-[12px] max-w-[60ch]">
+                    {t('authorIntroBefore')}
+                    <a href="mailto:hello@alaz.pro" className="text-fg underline underline-offset-4 decoration-fg-4 hover:decoration-ember">hello@alaz.pro</a>
+                    {t('authorIntroAfter')} <Link href="/about" className="text-fg underline underline-offset-4 decoration-fg-4 hover:decoration-ember">{t('aboutLinkLabel')}</Link>
+                  </p>
+                </div>
+              </footer>
+            </div>
           </div>
         </article>
 
-        <div className="w-full px-[clamp(24px,4.2vw,72px)]">
-          <Link href={`/blog/${next.slug}`} className="group flex justify-between items-end gap-[20px] py-[70px] border-b border-line mobile:py-[55px]">
-            <span className={`${MONO} text-dim shrink-0`}>{t('nextNoteLabel')}</span>
-            <span className="text-[length:clamp(22px,3vw,40px)] font-extrabold tracking-[-.05em] leading-[1.1] flex gap-[18px] items-end text-right max-w-[78%] mobile:text-[length:clamp(18px,5vw,26px)] mobile:gap-[12px] mobile:max-w-[82%]"><span className="min-w-0">{next.title.replace(/\s+/g, ' ')}</span> <ArrowUpRight size={34} strokeWidth={1.2} className="flex-none transition-transform duration-200 group-hover:translate-x-[10px]" aria-hidden="true" /></span>
+        <div className="shell">
+          <Link href={`/blog/${next.slug}`} className="group flex justify-between items-end gap-[20px] py-[var(--s-5)] border-b border-line mobile:flex-col mobile:items-start" data-cursor="NEXT">
+            <span className="t-meta uppercase text-fg-4 shrink-0">{t('nextNoteLabel')}</span>
+            <span className="t-title flex gap-[18px] items-end text-right max-w-[26ch] mobile:text-left"><span className="min-w-0">{next.title.replace(/\s+/g, ' ')}</span> <Icon name="arrow" size={28} className="transition-transform duration-fast group-hover:translate-x-[10px]" /></span>
           </Link>
-        </div>
-
-        <div className="w-full px-[clamp(24px,4.2vw,72px)] flex justify-between items-center gap-[24px] pt-[50px] pb-[135px] text-mute mobile:flex-col mobile:items-start">
-          <span className={`${MONO} text-dim`}>{t('contactPrompt')}</span>
-          <Link href="/start-project" className="inline-flex items-center justify-between gap-[30px] border border-[rgba(255,255,255,.65)] min-h-[49px] px-[18px] font-mono text-[12px] tracking-[.03em] whitespace-nowrap [transition:background_.2s,color_.2s] hover:bg-white hover:text-black xs:min-h-[46px]">
-            {t('contactCta')} <ArrowUpRight size={17} aria-hidden="true" />
-          </Link>
+          <div className="flex justify-between items-center gap-[24px] pt-[var(--s-4)] pb-[var(--s-6)] mobile:flex-col mobile:items-start">
+            <span className="t-meta uppercase text-fg-4">{t('contactPrompt')}</span>
+            <Link href="/start-project" className="btn-ghost" data-magnetic>{t('contactCta')} <Icon name="arrow" size={15} /></Link>
+          </div>
         </div>
       </main>
     </>
