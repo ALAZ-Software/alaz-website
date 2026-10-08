@@ -6,6 +6,7 @@ import ContactInfo from '@/components/ContactInfo';
 import { buildMetadata, urlFor } from '@/lib/seo';
 import { fit } from '@/lib/fit';
 import BackgroundVideo from '@/components/BackgroundVideo';
+import PoweredBy from '@/components/PoweredBy';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -40,7 +41,8 @@ export default async function AboutPage({ params }) {
           <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('eyebrowLeft')}</span><span>{t('eyebrowRight')}</span></div>
           <p className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[105px] mobile:mt-[85px]">{t('kicker')}</p>
           <h1 data-reveal="mask" style={fit(heading, '.')} className="fit [--fit-size:clamp(67px,12.4vw,205px)] font-black tracking-[-.075em] leading-[.86] my-[25px] mb-[70px] mobile:[--fit-size:clamp(60px,12.5vw,100px)]">{heading[0]}<br />{heading[1]}<span className="text-[#6e6e6e]">.</span></h1>
-          <div className="flex justify-between items-end gap-[30px] pb-[75px] mobile:pb-[60px] mobile:items-start mobile:flex-col mobile:gap-[20px]"><p className="text-[length:clamp(18px,2vw,27px)] max-w-[550px] tracking-[-.04em] leading-[1.4]">{t('introText')}</p><span className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-dim">{t('introNote')}</span></div>
+          <div className="flex justify-between items-end gap-[30px] pb-[44px] mobile:pb-[36px] mobile:items-start mobile:flex-col mobile:gap-[20px]"><p className="text-[length:clamp(18px,2vw,27px)] max-w-[550px] tracking-[-.04em] leading-[1.4]">{t('introText')}</p><span className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-dim">{t('introNote')}</span></div>
+          <PoweredBy label={tRoot('home.hero.poweredBy')} className="pb-[75px] mobile:pb-[60px]" />
         </div>
       </section>
       <section className="w-full relative bg-[#090909] overflow-hidden">
