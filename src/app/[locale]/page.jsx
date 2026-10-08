@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { buildMetadata } from '@/lib/seo';
+import PoweredBy from '@/components/PoweredBy';
 import { fit } from '@/lib/fit';
 import BackgroundVideo from '@/components/BackgroundVideo';
 
@@ -47,6 +48,7 @@ export default async function HomePage() {
               <p data-reveal="fade" className="text-[length:clamp(22px,2.9vw,48px)] leading-[1.08] tracking-[-.065em] font-extrabold mobile:text-[length:clamp(25px,7vw,39px)] xs:text-[28px]">{t('hero.taglineTop')}<br />{t('hero.taglineBottom')}</p>
               <p data-reveal="fade" style={{ '--reveal-delay': '120ms' }} className="max-w-[290px] text-[#c3c5c8] text-[13px] leading-[1.6] mt-[2px] mr-[9%] mb-0 tablet:mr-[2%] mobile:max-w-[280px]">{t('hero.intro')}</p>
             </div>
+            <PoweredBy label={t('hero.poweredBy')} className="mt-[clamp(32px,3.4vw,56px)] pl-[1.2vw] mobile:pl-0 mobile:mt-[32px]" />
           </div>
           <div className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-[#a6a6a6] pt-[26px] pb-[31px] border-t border-[rgba(255,255,255,.22)] xs:pb-[24px]">
             <a href="#validation" className="flex items-center gap-[10px] hover:text-white">{t('hero.scrollCta')} <ArrowDown size={14} /></a><span className="mobile:hidden">{t('hero.bottomNote')}</span><span className="xs:hidden">01 / 05</span>

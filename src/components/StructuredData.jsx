@@ -25,7 +25,7 @@ export default async function StructuredData() {
     image: OG_IMAGE.url,
     description: DESCRIPTIONS[locale] ?? DESCRIPTIONS.en,
     areaServed: 'Worldwide',
-    foundingDate: '2025',
+    foundingDate: '2026',
     // Keep in sync with `contact.offices` in messages/*.json.
     address: [
       { '@type': 'PostalAddress', streetAddress: '1250 Broadway, 36th Floor', addressLocality: 'New York', addressRegion: 'NY', postalCode: '10001', addressCountry: 'US' },

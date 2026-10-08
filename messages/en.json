@@ -404,13 +404,14 @@
     },
     "hero": {
       "status": "SYSTEM_ACTIVE",
-      "toplineRight": "SOFTWARE STUDIO / EST. 2025",
+      "toplineRight": "SOFTWARE STUDIO / EST. 2026",
       "kicker": "WEB · MOBILE · SYSTEMS — SOFTWARE STUDIO",
       "taglineTop": "NO BULLSHIT.",
       "taglineBottom": "JUST ACTION.",
       "intro": "We design and build web apps, mobile apps and the systems behind them. Built with intent. Engineered to last.",
       "scrollCta": "SCROLL TO EXPLORE",
-      "bottomNote": "PRECISION IS THE STANDARD. NOT THE GOAL."
+      "bottomNote": "PRECISION IS THE STANDARD. NOT THE GOAL.",
+      "poweredBy": "POWERED BY"
     },
     "signal": {
       "a": "ALAZ / SYSTEMS THINKING",
@@ -499,7 +500,7 @@
       "PERMANENCE"
     ],
     "introText": "We build web apps, mobile apps and the systems behind them: simple enough to trust, strong enough to endure.",
-    "introNote": "ALAZ / MANIFESTO 2025",
+    "introNote": "ALAZ / MANIFESTO 2026",
     "originEyebrowLeft": "01 / THE NAME",
     "originEyebrowRight": "WHY WE'RE CALLED ALAZ",
     "originLabel": "ALAZ, N. / TURKISH, ARCHAIC",
@@ -635,7 +636,7 @@
       "BLOG"
     ],
     "introText": "Notes on web and mobile engineering, system architecture, performance, and shipping software that holds up long after launch day.",
-    "introNote": "ALAZ / WRITING 2025",
+    "introNote": "ALAZ / WRITING 2026",
     "articlesAriaLabel": "Blog articles",
     "readMinutesSuffix": "MIN READ",
     "readCta": "READ",
@@ -782,7 +783,7 @@
     "continueCta": "CONTINUE",
     "submitCta": "SEND INQUIRY",
     "submittingCta": "TRANSMITTING...",
-    "formNotation": "ALAZ / 2025"
+    "formNotation": "ALAZ / 2026"
   },
   "legal": {
     "sectionTopLeft": "ALAZ / INFORMATION",

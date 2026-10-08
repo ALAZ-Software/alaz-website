@@ -404,13 +404,14 @@
     },
     "hero": {
       "status": "SİSTEM_AKTİF",
-      "toplineRight": "YAZILIM STÜDYOSU / KUR. 2025",
+      "toplineRight": "YAZILIM STÜDYOSU / KUR. 2026",
       "kicker": "WEB · MOBİL · SİSTEMLER — YAZILIM STÜDYOSU",
       "taglineTop": "LAF DEĞİL.",
       "taglineBottom": "MÜHENDİSLİK.",
       "intro": "Web uygulamalarını, mobil uygulamaları ve arkalarındaki sistemleri tasarlıyor ve geliştiriyoruz. Bilinçli tasarlandı, yıllarca dayanacak şekilde inşa edildi.",
       "scrollCta": "KEŞFETMEK İÇİN KAYDIRIN",
-      "bottomNote": "HASSASİYET BİR HEDEF DEĞİL, STANDARTTIR."
+      "bottomNote": "HASSASİYET BİR HEDEF DEĞİL, STANDARTTIR.",
+      "poweredBy": "POWERED BY"
     },
     "signal": {
       "a": "ALAZ / SİSTEM DÜŞÜNCESİ",
@@ -499,7 +500,7 @@
       "İNŞA EDİYORUZ"
     ],
     "introText": "Web uygulamalarını, mobil uygulamaları ve arkalarındaki sistemleri; güvenilecek kadar sade, yıllarca ayakta kalacak kadar sağlam inşa ediyoruz.",
-    "introNote": "ALAZ / MANİFESTO 2025",
+    "introNote": "ALAZ / MANİFESTO 2026",
     "originEyebrowLeft": "01 / İSİM",
     "originEyebrowRight": "NEDEN ALAZ",
     "originLabel": "ALAZ, İSİM / ESKİ TÜRKÇE",
@@ -635,7 +636,7 @@
       "BLOG"
     ],
     "introText": "Web ve mobil mühendislik, sistem mimarisi, performans ve lansmandan çok sonra da ayakta kalan yazılımlar üzerine stüdyo notları.",
-    "introNote": "ALAZ / YAZILAR 2025",
+    "introNote": "ALAZ / YAZILAR 2026",
     "articlesAriaLabel": "Blog yazıları",
     "readMinutesSuffix": "DK OKUMA",
     "readCta": "OKU",
@@ -782,7 +783,7 @@
     "continueCta": "DEVAM",
     "submitCta": "TALEBİ GÖNDER",
     "submittingCta": "GÖNDERİLİYOR...",
-    "formNotation": "ALAZ / 2025"
+    "formNotation": "ALAZ / 2026"
   },
   "legal": {
     "sectionTopLeft": "ALAZ / BİLGİ",
