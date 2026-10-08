@@ -1,20 +1,23 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
+import Icon from '@/components/Icon';
 import { Link } from '@/i18n/navigation';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { buildMetadata, urlFor } from '@/lib/seo';
 import { fit } from '@/lib/fit';
 
+const GridLines = () => <div className="grid-lines" aria-hidden="true">{Array.from({ length: 12 }, (_, i) => <i key={i} />)}</div>;
+
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'archive.meta' });
   const tSeo = await getTranslations({ locale, namespace: 'seo' });
-  return buildMetadata({ locale, path: '/case-studies', title: t('title'), description: t('description'), keywords: tSeo.raw('keywords.archive') });
+  return buildMetadata({ locale, path: '/case-studies', title: t('title'), description: t('description'), eyebrow: tSeo('caseStudies') });
 }
 
 export default async function ArchivePage({ params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('archive');
   const tSeo = await getTranslations('seo');
   const tRoot = await getTranslations();
@@ -24,32 +27,37 @@ export default async function ArchivePage({ params }) {
 
   return <>
     <BreadcrumbJsonLd crumbs={[{ name: tSeo('breadcrumbHome'), url: urlFor(locale) }, { name: tSeo('caseStudies'), url: urlFor(locale, '/case-studies') }]} />
-    <main className="w-full min-h-[70vh]">
-      <section className="w-full relative bg-[#090909] overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(90deg,rgba(0,0,0,.35),transparent_40%,rgba(0,0,0,.35))] after:pointer-events-none">
-        <video poster="/videos/poster.png" className="absolute inset-0 w-full h-full object-cover opacity-[.55] pointer-events-none" autoPlay loop muted playsInline preload="auto" aria-hidden="true">
-          <source src="/videos/the-work-section.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,9,9,.60)_0%,rgba(9,9,9,.20)_50%,#090909_100%)] pointer-events-none" aria-hidden="true" />
-        <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[128px] relative z-[1] mobile:pt-[100px]">
-          <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right"><span>{t('eyebrowLeft')}</span><span>{t('eyebrowRight')}</span></div>
-          <p className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[clamp(80px,10vw,155px)] mobile:mt-[85px]">{t('kicker')}</p>
-          <h1 data-reveal="mask" style={fit(heading, '.')} className="fit [--fit-size:clamp(84px,16vw,270px)] leading-[.86] tracking-[-.075em] font-black mt-[25px] mb-[60px] mobile:[--fit-size:clamp(75px,17vw,135px)] mobile:mb-[40px]">{heading.join(' ')}<span className="text-[#6e6e6e]">.</span></h1>
-          <div className="flex justify-between items-end gap-[30px] pb-[75px] mobile:pb-[60px] mobile:items-start mobile:flex-col mobile:gap-[20px]"><p className="text-[length:clamp(18px,2vw,27px)] max-w-[550px] tracking-[-.04em] leading-[1.4]">{t('introText')}</p><span className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-dim">{t('introNote', { count: String(projects.length).padStart(2, '0') })}</span></div>
+    <main id="main" className="min-h-[70vh]">
+      <section className="relative overflow-hidden bg-ink">
+        <GridLines />
+        <div className="shell relative z-[1] pt-[calc(var(--header-h)+40px)]">
+          <div className="eyebrow t-meta uppercase" data-reveal="line"><span>{t('eyebrowLeft')}</span><span>{t('eyebrowRight')}</span></div>
+          <p className="t-meta uppercase text-fg-3 mt-[var(--s-6)]" data-reveal="fade">{t('kicker')}</p>
+          <h1 style={fit(heading, '.')} className="fit t-display-1 uppercase mt-[20px] mb-[var(--s-5)]" data-reveal="lines">{heading.join(' ')}<span className="dot">.</span></h1>
+          <div className="grid grid-cols-12 gap-[var(--col-gap)] items-end pb-[var(--s-5)] mobile:flex mobile:flex-col mobile:items-start"><p className="t-lead col-span-7 max-w-[48ch]" data-reveal="fade">{t('introText')}</p><span className="t-meta uppercase text-fg-4 col-span-4 col-start-9 text-right mobile:text-left" data-reveal="fade">{t('introNote', { count: String(projects.length).padStart(2, '0') })}</span></div>
         </div>
       </section>
-      <div className="w-full px-[clamp(24px,4.2vw,72px)]">
-        <div className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] grid grid-cols-[15%_1fr_25%_50px] text-dim py-[18px] border-t border-line mobile:grid-cols-[14%_1fr_30px] mobile:[&>span:nth-child(3)]:hidden"><span>{tableHeaders[0]}</span><span>{tableHeaders[1]}</span><span>{tableHeaders[2]}</span><span className="justify-self-end whitespace-nowrap">{tableHeaders[3]}</span></div>
-        {projects.map((project, i) => <Link data-reveal="fade" style={{ '--reveal-delay': `${i * 60}ms` }} href={`/case-studies/${project.slug}`} className="group relative grid grid-cols-[15%_1fr_25%_50px] items-center min-h-[200px] py-[30px] border-t border-line transition-[padding,background] duration-[250ms] ease-in-out last-of-type:border-b last-of-type:border-line hover:pl-[20px] hover:bg-[#141414] mobile:grid-cols-[14%_1fr_30px] mobile:min-h-[145px] mobile:hover:pl-0 mobile:hover:bg-transparent" key={project.slug}>
-          <span className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-dim">{project.number} /</span>
-          <div className="min-w-0"><h2 style={fit(project.name)} className="fit [--fit-size:clamp(48px,7vw,105px)] [--fit-avail:calc((100vw_-_2*var(--gutter))*.6_-_50px)] tracking-[-.08em] leading-none font-extrabold mobile:[--fit-size:55px] mobile:[--fit-avail:calc((100vw_-_2*var(--gutter))*.86_-_30px)] xs:[--fit-size:43px]">{project.name}</h2><span className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-mute">{project.discipline}</span></div>
-          <span className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-dim mobile:hidden">{project.type}</span>
-          <ArrowUpRight className="justify-self-end" size={28} strokeWidth={1.3} />
-          <div className="absolute z-[2] right-[10%] top-1/2 w-[220px] h-[130px] opacity-0 pointer-events-none -translate-y-[40%] -rotate-4 transition-[opacity,transform] duration-200 group-hover:opacity-100 group-hover:-translate-y-1/2 group-hover:-rotate-4 mobile:hidden"><Image src={project.image} alt={t('previewAlt', { name: project.name })} fill sizes="220px" className={project.colorImage ? 'object-cover' : 'object-cover [filter:grayscale(1)]'} /></div>
-        </Link>)}
-        <div className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex justify-between py-[23px] pb-[155px] text-dim mobile:pb-[100px]"><span>{t('noteLeft')}</span><span>{t('noteRight')}</span></div>
+
+      {/* Index: a row per project; hover colours the row with the product and shows the cover. */}
+      <div className="shell">
+        <div className="t-meta uppercase grid grid-cols-12 gap-[var(--col-gap)] text-fg-4 py-[18px] border-t border-line mobile:hidden" aria-hidden="true"><span className="col-span-1">{tableHeaders[0]}</span><span className="col-span-7">{tableHeaders[1]}</span><span className="col-span-3">{tableHeaders[2]}</span><span className="col-span-1 text-right">{tableHeaders[3]}</span></div>
+        <ul className="border-t border-line mobile:border-t-0">
+          {projects.map((project, i) => <li key={project.slug} data-reveal="fade" data-delay={i * 0.06}>
+            <Link href={`/case-studies/${project.slug}`} style={{ '--project-bg': project.theme?.bg, '--project-fg': project.theme?.fg }} className="project-row group relative grid grid-cols-12 gap-[var(--col-gap)] items-center py-[clamp(28px,3.4vw,52px)] border-b border-line mobile:flex mobile:flex-col mobile:items-start mobile:gap-[16px]" data-cursor="VIEW">
+              <span className="t-meta text-fg-4 col-span-1 group-hover:text-[var(--project-fg)]">{project.number}</span>
+              <span className="col-span-7 min-w-0 flex flex-col gap-[10px]">
+                <h2 style={fit(project.name)} className="fit t-display-1 uppercase [--fit-size:clamp(44px,7vw,120px)] [--fit-avail:calc((100vw_-_2*var(--shell-pad))*.55)] mobile:[--fit-avail:calc(100vw_-_2*var(--shell-pad))] group-hover:text-[var(--project-fg)] transition-colors duration-fast">{project.name}</h2>
+                <span className="t-small text-fg-3 max-w-[60ch] group-hover:text-[var(--project-fg)] transition-colors duration-fast">{project.summary}</span>
+              </span>
+              <span className="t-meta uppercase text-fg-4 col-span-3 group-hover:text-[var(--project-fg)] transition-colors duration-fast">{project.discipline} · {project.type}</span>
+              <Icon name="arrow" size={28} className="col-span-1 justify-self-end group-hover:text-[var(--project-fg)] transition-transform duration-fast group-hover:translate-x-[6px] mobile:hidden" />
+              <span className="project-preview absolute right-[8%] top-1/2 w-[300px] aspect-[16/10] -translate-y-1/2 opacity-0 pointer-events-none overflow-hidden border border-line transition-[opacity,transform] duration-base ease-out group-hover:opacity-100 group-hover:[transform:translateY(-50%)_rotate(-2deg)] mobile:hidden" aria-hidden="true"><Image src={project.image} alt="" fill sizes="300px" className="object-cover" /></span>
+              <span className="relative hidden mobile:block w-full aspect-[16/10] overflow-hidden border border-line" aria-hidden="true"><Image src={project.image} alt="" fill sizes="100vw" className="object-cover" /></span>
+            </Link>
+          </li>)}
+        </ul>
+        <div className="t-meta uppercase flex justify-between items-center gap-[20px] py-[23px] pb-[var(--s-7)] text-fg-4 mobile:flex-col mobile:items-start"><span>{t('noteLeft')}</span><span className="flex items-center gap-[14px]">{t('noteRight')} <Link href="/start-project" className="text-fg inline-flex items-center gap-[8px] hover:text-ember-soft">{t('noteCta')} <Icon name="arrow" size={14} /></Link></span></div>
       </div>
     </main>
   </>;
 }
-
-

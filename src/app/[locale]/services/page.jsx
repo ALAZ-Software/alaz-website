@@ -1,21 +1,27 @@
-import { getTranslations } from 'next-intl/server';
-import { ArrowUpRight } from 'lucide-react';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import Icon from '@/components/Icon';
 import { Link } from '@/i18n/navigation';
 import JsonLd, { BreadcrumbJsonLd, FaqJsonLd } from '@/components/JsonLd';
 import { ORG_ID, buildMetadata, urlFor } from '@/lib/seo';
 import { fit } from '@/lib/fit';
-import BackgroundVideo from '@/components/BackgroundVideo';
+import HeatField from '@/components/HeatField';
+
+const GridLines = () => <div className="grid-lines" aria-hidden="true">{Array.from({ length: 12 }, (_, i) => <i key={i} />)}</div>;
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'servicesPage.meta' });
-  return buildMetadata({ locale, path: '/services', title: t('title'), description: t('description'), keywords: t.raw('keywords') });
+  const tSeo = await getTranslations({ locale, namespace: 'seo' });
+  return buildMetadata({ locale, path: '/services', title: t('title'), description: t('description'), eyebrow: tSeo('services') });
 }
 
 export default async function ServicesPage({ params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'servicesPage' });
   const tAbout = await getTranslations({ locale, namespace: 'about' });
+  const tSeo = await getTranslations({ locale, namespace: 'seo' });
+  const projects = (await getTranslations({ locale })).raw('projects');
   const heading = t.raw('heading');
   const overviewTitle = t.raw('overviewTitle');
   const items = t.raw('items');
@@ -29,238 +35,119 @@ export default async function ServicesPage({ params }) {
   const itemList = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: t('meta.title'),
+    name: `${tSeo('services')} — ALAZ`,
     itemListElement: items.map((item, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: {
-        '@type': 'Service',
-        name: item.title,
-        description: item.description,
-        url: `${url}#${item.id}`,
-        serviceType: item.title,
-        provider: { '@id': ORG_ID },
-        areaServed: 'Worldwide',
-      },
+      item: { '@type': 'Service', name: item.title, description: item.description, url: `${url}#${item.id}`, serviceType: item.title, provider: { '@id': ORG_ID }, areaServed: 'Worldwide' },
     })),
   };
 
   return (
     <>
-      <BreadcrumbJsonLd
-        crumbs={[
-          { name: t('breadcrumbHome'), url: urlFor(locale) },
-          { name: heading.join(' '), url },
-        ]}
-      />
+      <BreadcrumbJsonLd crumbs={[{ name: t('breadcrumbHome'), url: urlFor(locale) }, { name: tSeo('services'), url }]} />
       <JsonLd data={itemList} />
       <FaqJsonLd items={faqs} />
-      <main>
-        {/* Hero Section */}
-        <section className="w-full relative bg-[#090909] overflow-hidden after:content-[''] after:absolute after:inset-0 after:bg-[linear-gradient(90deg,rgba(0,0,0,.35),transparent_40%,rgba(0,0,0,.35))] after:pointer-events-none">
-          <video
-            poster="/videos/poster.png"
-            className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-          >
-            <source src="/videos/services-section.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,9,9,.60)_0%,rgba(9,9,9,.20)_50%,#090909_100%)] pointer-events-none" aria-hidden="true" />
-          <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[128px] relative z-[1] mobile:pt-[100px]">
-            <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
-              <span>{t('eyebrowLeft')}</span>
-              <span>{t('eyebrowRight')}</span>
-            </div>
-            <p className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[105px] mobile:mt-[85px]">
-              {t('kicker')}
-            </p>
-            <h1 data-reveal="mask" style={fit(heading, '.')} className="fit [--fit-size:clamp(67px,12.4vw,205px)] font-black tracking-[-.075em] leading-[.86] my-[25px] mb-[70px] mobile:[--fit-size:clamp(60px,12.5vw,100px)]">
-              {heading[0]}
-              <br />
-              {heading[1]}
-              <span className="text-[#6e6e6e]">.</span>
-            </h1>
-            <div className="flex justify-between items-end gap-[30px] pb-[75px] mobile:pb-[60px] mobile:items-start mobile:flex-col mobile:gap-[20px]">
-              <p data-reveal="fade" className="text-[length:clamp(18px,2vw,27px)] max-w-[550px] tracking-[-.04em] leading-[1.4]">
-                {t('introText')}
-              </p>
-              <span className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-dim">
-                {t('introNote')}
-              </span>
+      <main id="main">
+        <section className="relative overflow-hidden bg-ink">
+          <GridLines />
+          <div className="shell relative z-[1] pt-[calc(var(--header-h)+40px)]">
+            <div className="eyebrow t-meta uppercase" data-reveal="line"><span>{t('eyebrowLeft')}</span><span>{t('eyebrowRight')}</span></div>
+            <p className="t-meta uppercase text-fg-3 mt-[var(--s-6)]" data-reveal="fade">{t('kicker')}</p>
+            <h1 style={fit(heading, '.')} className="fit t-display-1 uppercase mt-[20px] mb-[var(--s-5)]" data-reveal="lines">{heading[0]}<br />{heading[1]}<span className="dot">.</span></h1>
+            <div className="grid grid-cols-12 gap-[var(--col-gap)] items-end pb-[var(--s-5)] mobile:flex mobile:flex-col mobile:items-start">
+              <p className="t-lead col-span-7 max-w-[48ch]" data-reveal="fade">{t('introText')}</p>
+              <span className="t-meta uppercase text-fg-4 col-span-4 col-start-9 text-right mobile:text-left" data-reveal="fade">{t('introNote')}</span>
             </div>
           </div>
         </section>
 
-        {/* Overview Section */}
-        <section className="w-full px-[clamp(24px,4.2vw,72px)] pt-[80px] pb-[40px] bg-[#090909] mobile:pt-[60px]">
-          <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px]">
-            <span>{t('overviewEyebrowLeft')}</span>
-            <span>{t('overviewEyebrowRight')}</span>
+        {/* Sticky index + five service blocks */}
+        <section className="shell bg-ink pb-[var(--s-6)]">
+          <div className="eyebrow t-meta uppercase" data-reveal="line"><span>{t('overviewEyebrowLeft')}</span><span>{t('overviewEyebrowRight')}</span></div>
+          <div className="grid grid-cols-12 gap-[var(--col-gap)] items-end mt-[var(--s-5)] mb-[var(--s-5)] mobile:flex mobile:flex-col mobile:items-start">
+            <h2 style={fit(overviewTitle, '.')} className="fit t-display-1 uppercase col-span-7" data-reveal="lines">{overviewTitle[0]}<br />{overviewTitle[1]}<span className="dot">.</span></h2>
+            <p className="t-body text-fg-3 col-span-4 col-start-9" data-reveal="fade">{t('overviewText')}</p>
           </div>
-          <div className="flex justify-between items-end gap-[40px] mt-[70px] mobile:flex-col mobile:items-start mobile:mt-[50px] mobile:gap-[24px]">
-            <h2 data-reveal="mask" style={fit(overviewTitle, '.')} className="fit [--fit-size:clamp(48px,8vw,130px)] font-black tracking-[-.07em] leading-[.88]">
-              {overviewTitle[0]}
-              <br />
-              {overviewTitle[1]}
-              <span className="text-[#6e6e6e]">.</span>
-            </h2>
-            <p data-reveal="fade" className="text-[15px] leading-[1.7] text-mute max-w-[340px] mobile:max-w-none">{t('overviewText')}</p>
-          </div>
-          <nav aria-label={t('overviewEyebrowRight')} className="flex flex-wrap gap-[10px] mt-[50px]">
-            {items.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="font-mono text-[12px] tracking-[.085em] text-dim border border-line px-[14px] py-[10px] transition-colors duration-200 hover:text-white hover:border-white/40"
-              >
-                {item.number} / {item.title}
-              </a>
-            ))}
-          </nav>
-        </section>
-
-        {/* Core Services Section */}
-        <section className="w-full px-[clamp(24px,4.2vw,72px)] pt-[40px] pb-[100px] bg-[#090909] mobile:pb-[70px]">
-          <div className="flex flex-col">
-            {items.map((item) => (
-              <article
-                data-reveal="fade"
-                key={item.id}
-                id={item.id}
-                itemScope
-                itemType="https://schema.org/Service"
-                className="group border-t border-line py-[50px] scroll-mt-[90px] transition-colors duration-200 hover:bg-[#0f0f0f] px-[15px] -mx-[15px] mobile:py-[35px]"
-              >
-                <meta itemProp="serviceType" content={item.title} />
-                <div className="grid grid-cols-[12%_1fr_36%] gap-[30px] items-start mobile:grid-cols-1 mobile:gap-[20px]">
-                  <div className="flex flex-col gap-[8px]">
-                    <span className="font-mono text-[12px] font-bold tracking-[.085em] text-dim">
-                      {item.number} / {String(items.length).padStart(2, '0')}
-                    </span>
-                    <span className="font-mono text-[12px] font-normal tracking-[.085em] text-mute uppercase">
-                      {item.category}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h2 itemProp="name" style={fit(item.title)} className="fit [--fit-size:clamp(30px,4.5vw,60px)] [--fit-avail:calc((100vw_-_2*var(--gutter))*.52_-_60px)] font-extrabold tracking-[-.06em] leading-[1] text-white mobile:[--fit-avail:calc(100vw_-_2*var(--gutter))]">
-                      {item.title}
-                    </h2>
-                    <p itemProp="description" className="text-[18px] text-white/90 tracking-[-.02em] leading-[1.5] mt-[18px] max-w-[600px]">
-                      {item.description}
-                    </p>
-
-                    <h3 className="font-mono text-[12px] tracking-[.085em] text-dim mt-[34px]">{labels.whatItIs}</h3>
-                    <p className="text-[15px] text-mute leading-[1.7] mt-[10px] max-w-[600px]">{item.whatItIs}</p>
-
-                    <h3 className="font-mono text-[12px] tracking-[.085em] text-dim mt-[30px]">{labels.deliverables}</h3>
-                    <ul className="mt-[12px] max-w-[600px]">
-                      {item.deliverables.map((d) => (
-                        <li key={d} className="flex gap-[14px] text-[15px] text-mute leading-[1.6] py-[9px] border-t border-line first:border-t-0">
-                          <span className="font-mono text-dim" aria-hidden="true">+</span>
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-col gap-[28px] pt-[5px] mobile:pt-0">
-                    <div>
-                      <h3 className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.stack}</h3>
-                      <ul className="flex flex-wrap gap-[8px] mt-[12px]">
-                        {item.stack.map((tech) => (
-                          <li key={tech} className="font-mono text-[12px] tracking-[.05em] text-mute border border-line px-[10px] py-[6px]">{tech}</li>
-                        ))}
+          <div className="grid grid-cols-12 gap-[var(--col-gap)] tablet:flex tablet:flex-col">
+            <nav aria-label={t('overviewEyebrowLeft')} className="col-span-3 tablet:sticky tablet:top-[var(--header-h)] tablet:z-[5] tablet:bg-ink/90 tablet:backdrop-blur tablet:-mx-[var(--shell-pad)] tablet:px-[var(--shell-pad)] tablet:py-[12px]">
+              <ol className="sticky top-[calc(var(--header-h)+24px)] flex flex-col gap-[6px] tablet:flex-row tablet:overflow-x-auto tablet:[scrollbar-width:none] tablet:static">
+                {items.map((item) => <li key={item.id} className="shrink-0"><a href={`#${item.id}`} className="t-meta uppercase text-fg-4 hover:text-fg flex gap-[12px] py-[6px] tablet:border tablet:border-line tablet:px-[12px]"><span>{item.number}</span><span>{item.title}</span></a></li>)}
+              </ol>
+            </nav>
+            <div className="col-span-9 flex flex-col">
+              {items.map((item) => (
+                <article key={item.id} id={item.id} className="border-t border-line py-[var(--s-5)] scroll-mt-[calc(var(--header-h)+16px)] last:border-b" data-reveal="fade">
+                  <div className="flex items-baseline justify-between gap-[20px] t-meta uppercase text-fg-4 mb-[24px]"><span>{item.number} / {String(items.length).padStart(2, '0')}</span><span>{item.category}</span></div>
+                  <h2 style={fit(item.title)} className="fit t-display-2 uppercase [--fit-avail:calc((100vw_-_2*var(--shell-pad))*.7)] tablet:[--fit-avail:calc(100vw_-_2*var(--shell-pad))]">{item.title}</h2>
+                  <p className="t-lead text-fg-2 mt-[22px] max-w-[52ch]">{item.description}</p>
+                  <div className="grid grid-cols-9 gap-[var(--col-gap)] mt-[var(--s-4)] mobile:flex mobile:flex-col">
+                    <div className="col-span-5">
+                      <p className="t-meta uppercase text-fg-4">{labels.whatItIs}</p>
+                      <p className="t-body text-fg-3 mt-[10px] max-w-[56ch]">{item.whatItIs}</p>
+                      <p className="t-meta uppercase text-fg-4 mt-[32px]">{labels.deliverables}</p>
+                      <ul className="mt-[10px] max-w-[56ch]">
+                        {item.deliverables.map((d) => <li key={d} className="flex gap-[14px] t-body text-fg-3 py-[9px] border-t border-line first:border-t-0"><span className="text-ember" aria-hidden="true">—</span><span>{d}</span></li>)}
                       </ul>
                     </div>
-                    <div>
-                      <h3 className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.outcome}</h3>
-                      <p className="text-[14px] leading-[1.7] text-white/85 mt-[10px]">{item.outcome}</p>
-                    </div>
-                    <div>
-                      <h3 className="font-mono text-[12px] tracking-[.085em] text-dim">{labels.bestFor}</h3>
-                      <p className="text-[14px] leading-[1.7] text-mute mt-[10px]">{item.bestFor}</p>
+                    <div className="col-span-3 col-start-7 flex flex-col gap-[28px]">
+                      <div>
+                        <p className="t-meta uppercase text-fg-4">{labels.stack}</p>
+                        <p className="t-small text-fg-2 mt-[10px] leading-[1.9]">{item.stack.join(' · ')}</p>
+                      </div>
+                      <div><p className="t-meta uppercase text-fg-4">{labels.outcome}</p><p className="t-small text-fg-2 mt-[10px]">{item.outcome}</p></div>
+                      <div><p className="t-meta uppercase text-fg-4">{labels.bestFor}</p><p className="t-small text-fg-3 mt-[10px]">{item.bestFor}</p></div>
+                      {item.proof && projects.some((p) => p.slug === item.proof.slug) && (
+                        <div><p className="t-meta uppercase text-fg-4">{labels.proof}</p><p className="t-small mt-[10px]"><Link href={`/case-studies/${item.proof.slug}`} className="text-fg border-b border-line-strong transition-colors duration-fast hover:border-ember">{item.proof.label}</Link></p></div>
+                      )}
+                      <Link href={`/start-project?type=${item.id}`} className="link-draw t-meta uppercase self-start">{labels.cta} <Icon name="arrow" size={14} /></Link>
                     </div>
                   </div>
-                </div>
-              </article>
-            ))}
-            <div className="border-b border-line w-full" />
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* Process Section */}
-        <section className="w-full px-[clamp(24px,4.2vw,72px)] pt-[20px] pb-[110px] bg-[#090909] mobile:pb-[80px]">
-          <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px]">
-            <span>{t('processEyebrowLeft')}</span>
-            <span>{t('processEyebrowRight')}</span>
-          </div>
-          <h2 data-reveal="mask" style={fit(processTitle, '.')} className="fit [--fit-size:clamp(48px,8vw,130px)] font-black tracking-[-.07em] leading-[.88] my-[70px] mobile:my-[50px]">
-            {processTitle[0]}
-            <br />
-            {processTitle[1]}
-            <span className="text-[#6e6e6e]">.</span>
-          </h2>
-          <ol className="grid grid-cols-4 gap-[30px] mobile:grid-cols-1 mobile:gap-0 [&>li]:border-t [&>li]:border-line">
+        {/* Process */}
+        <section className="shell bg-surface py-[var(--s-6)]">
+          <div className="eyebrow t-meta uppercase" data-reveal="line"><span>{t('processEyebrowLeft')}</span><span>{t('processEyebrowRight')}</span></div>
+          <h2 style={fit(processTitle, '.')} className="fit t-display-2 uppercase my-[var(--s-5)]" data-reveal="lines">{processTitle[0]}<br />{processTitle[1]}<span className="dot">.</span></h2>
+          <ol className="grid grid-cols-4 gap-[var(--col-gap)] laptop:grid-cols-2 mobile:grid-cols-1 [&>li]:border-t [&>li]:border-line">
             {processSteps.map((step, i) => (
-              <li key={step.number} data-reveal="fade" style={{ '--reveal-delay': `${i * 80}ms` }} className="pt-[22px] pb-[30px] pr-[10px]">
-                <span className="font-mono text-[12px] tracking-[.085em] text-dim">{step.number} / {String(processSteps.length).padStart(2, '0')}</span>
-                <h3 className="text-[24px] font-extrabold tracking-[-.05em] mt-[14px]">{step.title}</h3>
-                <p className="text-[15px] leading-[1.7] text-mute mt-[12px]">{step.body}</p>
+              <li key={step.number} className="pt-[22px] pb-[30px]" data-reveal="fade" data-delay={i * 0.08}>
+                <span className="t-meta text-fg-4">{step.number} / {String(processSteps.length).padStart(2, '0')}</span>
+                <h3 className="t-title-sm mt-[14px]">{step.title}</h3>
+                <p className="t-small text-fg-3 mt-[12px] max-w-[36ch]">{step.body}</p>
               </li>
             ))}
           </ol>
         </section>
 
-        {/* FAQ Section */}
-        <section className="w-full px-[clamp(24px,4.2vw,72px)] pt-[20px] pb-[120px] bg-[#090909] mobile:pb-[80px]">
-          <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px]">
-            <span>{t('faqEyebrowLeft')}</span>
-            <span>{t('faqEyebrowRight')}</span>
-          </div>
-          <div className="grid grid-cols-[1fr_1.2fr] gap-[60px] mt-[70px] tablet:grid-cols-1 tablet:gap-[40px] mobile:mt-[50px]">
-            <h2 data-reveal="mask" style={fit(faqTitle, '.')} className="fit [--fit-size:clamp(48px,8vw,130px)] [--fit-avail:calc((100vw_-_2*var(--gutter)_-_60px)/2.2)] font-black tracking-[-.07em] leading-[.88] tablet:[--fit-avail:calc(100vw_-_2*var(--gutter))]">
-              {faqTitle[0]}
-              <br />
-              {faqTitle[1]}
-              <span className="text-[#6e6e6e]">.</span>
-            </h2>
-            <div>
+        {/* FAQ */}
+        <section className="shell bg-ink py-[var(--s-6)]">
+          <div className="eyebrow t-meta uppercase" data-reveal="line"><span>{t('faqEyebrowLeft')}</span><span>{t('faqEyebrowRight')}</span></div>
+          <div className="grid grid-cols-12 gap-[var(--col-gap)] mt-[var(--s-5)] tablet:flex tablet:flex-col">
+            <h2 style={fit(faqTitle, '.')} className="fit t-display-2 uppercase col-span-5 [--fit-avail:calc((100vw_-_2*var(--shell-pad))*.4)] tablet:[--fit-avail:calc(100vw_-_2*var(--shell-pad))] self-start sticky top-[calc(var(--header-h)+24px)] tablet:static" data-reveal="lines">{faqTitle[0]}<br />{faqTitle[1]}<span className="dot">.</span></h2>
+            <div className="col-span-6 col-start-7">
               {faqs.map((faq) => (
-                <details key={faq.q} className="group border-t border-line last:border-b py-[22px]">
+                <details key={faq.q} className="faq group border-t border-line last:border-b py-[22px]">
                   <summary className="flex items-center justify-between gap-[20px] cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-                    <h3 className="text-[18px] font-bold tracking-[-.03em] leading-[1.35]">{faq.q}</h3>
-                    <span className="font-mono text-dim text-[18px] shrink-0 group-open:hidden" aria-hidden="true">+</span>
-                    <span className="font-mono text-dim text-[18px] shrink-0 hidden group-open:inline" aria-hidden="true">−</span>
+                    <span className="t-title-sm">{faq.q}</span>
+                    <Icon name="plus" size={18} className="text-fg-4 transition-transform duration-fast group-open:rotate-45" />
                   </summary>
-                  <p className="text-[15px] leading-[1.7] text-mute mt-[14px] max-w-[620px]">{faq.a}</p>
+                  <p className="t-body text-fg-3 mt-[14px] max-w-[60ch]">{faq.a}</p>
                 </details>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="w-full relative bg-[#090909] overflow-hidden">
-          <BackgroundVideo src="/videos/about-end-section.mp4" className="absolute inset-0 w-full h-full object-cover opacity-[.5] pointer-events-none" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,#090909_0%,rgba(9,9,9,.4)_45%,rgba(9,9,9,.55)_100%)] pointer-events-none" aria-hidden="true" />
-          <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[150px] pb-[160px] relative z-[1] flex items-end justify-between gap-[40px] mobile:pt-[95px] mobile:pb-[100px] mobile:items-start mobile:flex-col">
-            <p className="text-[length:clamp(30px,4.5vw,72px)] font-extrabold tracking-[-.07em] leading-[1.05]">
-              {tAbout('endTextTop')}
-              <br />
-              <span className="text-[#777]">{tAbout('endTextBottom')}</span>
-            </p>
-            <Link
-              href="/start-project"
-              className="inline-flex items-center justify-center gap-[22px] bg-white text-[#050505] px-[23px] py-[18px] text-[12px] font-extrabold tracking-[.04em] min-h-[58px] [transition:background_.2s_ease,transform_.2s_ease] hover:bg-[#d5d5d5] hover:[transform:translateY(-2px)] active:[transform:scale(.98)] xs:gap-[12px]"
-            >
-              {tAbout('startCta')} <ArrowUpRight size={17} />
-            </Link>
+        <section className="relative overflow-hidden bg-ink">
+          <div className="heat-field-wrap"><HeatField variant="quiet" /></div>
+          <div className="shell relative z-[1] py-[var(--s-7)] flex items-end justify-between gap-[40px] mobile:flex-col mobile:items-start">
+            <p className="t-display-2 uppercase [--fit-size:clamp(30px,4.5vw,72px)]" data-reveal="lines">{tAbout('endTextTop')}<br /><span className="text-fg-4">{tAbout('endTextBottom')}</span></p>
+            <Link href="/start-project" className="btn" data-magnetic>{tAbout('startCta')} <Icon name="arrow" size={15} /></Link>
           </div>
         </section>
       </main>

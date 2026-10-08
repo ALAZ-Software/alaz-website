@@ -1,6 +1,5 @@
-import React from 'react';
-import { getTranslations } from 'next-intl/server';
-import { ArrowUpRight, Clock } from 'lucide-react';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import Icon from '@/components/Icon';
 import { Link } from '@/i18n/navigation';
 import { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { buildMetadata, urlFor } from '@/lib/seo';
@@ -12,65 +11,59 @@ export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'blogIndex.meta' });
   const tSeo = await getTranslations({ locale, namespace: 'seo' });
-  return buildMetadata({ locale, path: '/blog', title: t('title'), description: t('description'), keywords: tSeo.raw('keywords.blog') });
+  return buildMetadata({ locale, path: '/blog', title: t('title'), description: t('description'), eyebrow: tSeo('blog') });
 }
 
 export default async function BlogIndexPage({ params }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('blogIndex');
   const tSeo = await getTranslations('seo');
   const tRoot = await getTranslations();
   const posts = [...tRoot.raw('blogPosts')].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const [latest, ...rest] = posts;
   const heading = t.raw('heading');
 
   return (
     <>
       <BreadcrumbJsonLd crumbs={[{ name: tSeo('breadcrumbHome'), url: urlFor(locale) }, { name: tSeo('blog'), url: urlFor(locale, '/blog') }]} />
-      <main className="pt-[76px] min-h-[70vh] mobile:pt-[66px]">
-        <div className="w-full px-[clamp(24px,4.2vw,72px)] pt-[52px] mobile:pt-[32px]">
-          <div data-reveal="line" className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex items-center justify-between text-dim border-t border-line pt-[19px] [&_a:hover]:text-white mobile:[&_span:last-child]:max-w-[50%] mobile:[&_span:last-child]:text-right">
-            <span>{t('eyebrowLeft')}</span>
-            <span>{t('eyebrowRight')}</span>
-          </div>
-          <p className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-mute mt-[clamp(80px,10vw,155px)] mobile:mt-[85px]">{t('kicker')}</p>
-          <h1 data-reveal="mask" style={fit(heading, '.')} className="fit [--fit-size:clamp(84px,16vw,270px)] leading-[.86] tracking-[-.075em] font-black mt-[25px] mb-[60px] mobile:[--fit-size:clamp(75px,17vw,135px)] mobile:mb-[40px]">
-            {heading.map((line, i) => <React.Fragment key={line}>{line}{i < heading.length - 1 && <br />}</React.Fragment>)}<span className="text-[#6e6e6e]">.</span>
-          </h1>
-          <div className="flex justify-between items-end gap-[30px] pb-[75px] mobile:pb-[60px] mobile:items-start mobile:flex-col mobile:gap-[20px]">
-            <p data-reveal="fade" className="text-[length:clamp(18px,2vw,27px)] max-w-[550px] tracking-[-.04em] leading-[1.4]">{t('introText')}</p>
-            <span className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] text-dim">{t('introNote')}</span>
-          </div>
+      <main id="main" className="min-h-[70vh]">
+        <div className="shell pt-[calc(var(--header-h)+40px)]">
+          <div className="eyebrow t-meta uppercase" data-reveal="line"><span>{t('eyebrowLeft')}</span><span>{t('eyebrowRight', { count: String(posts.length).padStart(2, '0') })}</span></div>
+          <p className="t-meta uppercase text-fg-3 mt-[var(--s-5)]" data-reveal="fade">{t('kicker')}</p>
+          <h1 style={fit(heading, '.')} className="fit t-display-1 uppercase mt-[20px] mb-[var(--s-4)]" data-reveal="lines">{heading.join(' ')}<span className="dot">.</span></h1>
+          <div className="grid grid-cols-12 gap-[var(--col-gap)] items-end pb-[var(--s-4)] mobile:flex mobile:flex-col mobile:items-start"><p className="t-lead col-span-7 max-w-[48ch]" data-reveal="fade">{t('introText')}</p><span className="t-meta uppercase text-fg-4 col-span-4 col-start-9 text-right mobile:text-left" data-reveal="fade">{t('introNote')}</span></div>
         </div>
 
-        <section className="w-full px-[clamp(24px,4.2vw,72px)]" aria-label={t('articlesAriaLabel')}>
+        <section className="shell" aria-label={t('articlesAriaLabel')}>
+          {/* Latest post, full width */}
+          <Link href={`/blog/${latest.slug}`} className="group grid grid-cols-12 gap-[var(--col-gap)] border-t border-line py-[var(--s-5)] transition-colors duration-fast hover:bg-surface -mx-[var(--shell-pad)] px-[var(--shell-pad)] mobile:flex mobile:flex-col" data-reveal="fade" data-cursor="READ">
+            <div className="t-meta uppercase col-span-3 flex flex-col gap-[8px] text-fg-4"><span className="text-fg-2">{latest.tag}</span><time dateTime={latest.date}>{latest.dateLabel}</time><span>{readingTime(latest.content)} {t('readMinutesSuffix')}</span></div>
+            <div className="col-span-8 col-start-4">
+              <h2 className="t-display-2 uppercase [--fit-size:clamp(32px,4.6vw,80px)] max-w-[18ch]">{latest.title}</h2>
+              <p className="t-lead text-fg-3 mt-[22px] max-w-[52ch]">{latest.excerpt}</p>
+              <span className="link-draw t-meta uppercase mt-[28px]">{t('readCta')} <Icon name="arrow" size={14} /></span>
+            </div>
+          </Link>
           <div className="grid grid-cols-2 border-t border-line mobile:grid-cols-1">
-            {posts.map((post, i) => (
-              <Link data-reveal="fade" style={{ '--reveal-delay': `${(i % 2) * 80}ms` }} href={`/blog/${post.slug}`} className="group flex flex-col border-r border-line border-b border-line p-[32px_32px_30px] min-h-[320px] transition-colors duration-200 ease-in-out even:border-r-0 hover:bg-[#141414] mobile:border-r-0 mobile:min-h-[260px] mobile:py-[26px] mobile:px-0 mobile:first:border-t-0" key={post.slug}>
-                <div className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex justify-between items-center text-dim">
-                  <span className="font-mono border border-[#333] px-[9px] py-[4px] text-[#cfcfcf] tracking-[.06em]">{post.tag}</span>
-                  <time dateTime={post.date}>{post.dateLabel}</time>
-                </div>
-                <h2 className="text-[length:clamp(22px,2.5vw,36px)] tracking-[-.055em] leading-[1.08] font-extrabold my-[20px] mb-[14px] text-white">{post.title}</h2>
-                <p className="text-mute text-[14px] leading-[1.6] flex-1">{post.excerpt}</p>
-                <div className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex justify-between items-center mt-[24px] border-t border-line pt-[16px] text-dim">
-                  <span className="inline-flex items-center gap-[8px]">
-                    <Clock size={13} strokeWidth={1.6} /> {readingTime(post.content)} {t('readMinutesSuffix')}
-                  </span>
-                  <span className="inline-flex items-center gap-[7px] text-[#cfcfcf] transition-[gap,color] duration-200 ease-in-out group-hover:gap-[12px] group-hover:text-white">
-                    {t('readCta')} <ArrowUpRight size={14} strokeWidth={2} />
-                  </span>
+            {rest.map((post, i) => (
+              <Link href={`/blog/${post.slug}`} className="group flex flex-col border-r border-line border-b border-line p-[32px_32px_30px] min-h-[300px] transition-colors duration-fast even:border-r-0 hover:bg-surface mobile:border-r-0 mobile:py-[26px] mobile:px-0" key={post.slug} data-reveal="fade" data-delay={(i % 2) * 0.08} data-cursor="READ">
+                <div className="t-meta uppercase flex justify-between items-center text-fg-4"><span className="text-fg-2">{post.tag}</span><time dateTime={post.date}>{post.dateLabel}</time></div>
+                <h2 className="t-title mt-[20px] mb-[14px] max-w-[22ch]">{post.title}</h2>
+                <p className="t-small text-fg-3 flex-1 max-w-[60ch]">{post.excerpt}</p>
+                <div className="t-meta uppercase flex justify-between items-center mt-[24px] border-t border-line pt-[16px] text-fg-4">
+                  <span>{readingTime(post.content)} {t('readMinutesSuffix')}</span>
+                  <span className="inline-flex items-center gap-[7px] text-fg-2 transition-[gap,color] duration-fast group-hover:gap-[12px] group-hover:text-fg">{t('readCta')} <Icon name="arrow" size={14} /></span>
                 </div>
               </Link>
             ))}
           </div>
-          <div className="font-mono text-[12px] font-normal tracking-[.085em] leading-[1.6] flex justify-between py-[23px] pb-[155px] text-dim mobile:pb-[100px]">
+          <div className="t-meta uppercase flex justify-between py-[23px] pb-[var(--s-7)] text-fg-4 mobile:flex-col mobile:gap-[8px]">
             <span>{t('noteLeft')}</span>
-            <span>{t('noteRight')}</span>
+            <a href="mailto:hello@alaz.pro" className="hover:text-fg">{t('noteRight')}</a>
           </div>
         </section>
       </main>
     </>
   );
 }
-
-

@@ -1,30 +1,26 @@
 {
-  "media": {
-    "earth": "https://horizons-cdn.hostinger.com/1a631f12-80cd-4d30-a12d-eb3a1c5bb682/a97baae44687d408c5ec3f5358f4a507.png",
-    "server": "https://images.hostinger.com/b7153917-045b-4d9f-a8e9-d3267bf93605.png",
-    "wafer": "https://images.hostinger.com/79819ca9-2b4f-40a0-b628-39c7e7abb02c.png",
-    "conduits": "https://images.hostinger.com/34b5c8dc-aea2-4a15-a1ea-7d23314bd149.png",
-    "laboratory": "https://images.hostinger.com/5409df7a-b8d7-46c1-935f-e8bb5f9de990.png"
-  },
   "services": [
     {
       "number": "01",
       "title": "WEB APPLICATIONS",
-      "category": "WEB / SAAS / PLATFORMS",
-      "description": "Web apps, SaaS platforms and admin panels that load fast and stay easy to change as the business grows.",
-      "detail": "From customer portals to multi-tenant SaaS: server-first rendering, typed APIs and a codebase your own team can pick up."
+      "category": "WEB / SAAS / PORTALS",
+      "href": "/services#web-applications",
+      "description": "Web apps, SaaS platforms, customer portals and admin panels that load fast and stay easy to change as the business grows.",
+      "detail": "Next.js, React and TypeScript, server-first rendering, typed APIs and a codebase your own team can pick up."
     },
     {
       "number": "02",
       "title": "MOBILE APPS",
-      "category": "IOS / ANDROID / CROSS-PLATFORM",
-      "description": "iOS and Android apps from one codebase, tested on real devices and shipped to both stores.",
-      "detail": "Flutter or React Native for shared code, native Swift and Kotlin where the hardware needs it, offline-first data, push notifications and store releases handled end to end."
+      "category": "IOS / ANDROID",
+      "href": "/services#mobile-apps",
+      "description": "iOS and Android apps from one Flutter or React Native codebase, tested on real devices and released to both stores.",
+      "detail": "Native Swift and Kotlin where the hardware needs it, offline-first data, push notifications and store releases handled end to end."
     },
     {
       "number": "03",
-      "title": "SYSTEMS & BACKEND",
-      "category": "API / CLOUD / INTEGRATION",
+      "title": "BACKEND & CLOUD",
+      "category": "APIS / INTEGRATIONS / INFRASTRUCTURE",
+      "href": "/services#backend-and-integrations",
       "description": "The APIs, integrations and cloud infrastructure that keep your web and mobile products running under real traffic.",
       "detail": "Typed APIs, payment, CRM and ERP integrations, background jobs, CI/CD and monitoring that alerts you before your customers notice."
     }
@@ -34,7 +30,7 @@
       "slug": "english-vocabulary",
       "number": "01",
       "name": "VOCABULARY",
-      "discipline": "MOBILE APPLICATION",
+      "discipline": "MOBILE APP",
       "type": "LANGUAGE LEARNING / IOS & ANDROID",
       "image": "/projects/vocabulary/cover.png",
       "heroImage": "/projects/vocabulary/hero.png",
@@ -58,14 +54,71 @@
         "SPACED-REPETITION REVIEW",
         "17 WORD GAMES",
         "24 LANGUAGES"
-      ]
+      ],
+      "coverAlt": "Vocabulary app cover: a yellow card titled 'English Vocabulary' with the cat mascot holding an 8000 sign",
+      "heroAlt": "The Vocabulary cat mascot on the app's yellow background",
+      "metaDescription": "A swipe-card app for the 8,000 most common English words, with audio on every card, 17 games and spaced repetition in 24 languages. Built in Flutter by ALAZ.",
+      "headings": {
+        "challenge": [
+          "MAKE IT",
+          "STICK."
+        ],
+        "approach": [
+          "ONE CODEBASE,",
+          "TWO STORES."
+        ],
+        "outcome": [
+          "8,000 WORDS,",
+          "24 LANGUAGES."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Platforms",
+          "value": "iOS and Android"
+        },
+        {
+          "label": "Stack",
+          "value": "Flutter, Firebase, RevenueCat"
+        },
+        {
+          "label": "Our role",
+          "value": "Design, development, release"
+        },
+        {
+          "label": "Status",
+          "value": "Store release in preparation"
+        }
+      ],
+      "galleryAlts": [
+        "Vocabulary home screen: a swipe card for the word “closure” with the 8,000 most common words",
+        "Word detail with translation, pronunciation and an example sentence in the learner’s language",
+        "Level test result and a weekly learning plan",
+        "The games screen listing 17 word games",
+        "A fill-in-the-blank sentence game",
+        "44 topic decks, from travel to business",
+        "Progress screen with streaks, badges and weekly statistics"
+      ],
+      "schema": {
+        "category": "EducationalApplication",
+        "os": "iOS, Android"
+      },
+      "theme": {
+        "bg": "#f5d800",
+        "fg": "#0a0a0a",
+        "accent": "#0a0a0a"
+      }
     },
     {
       "slug": "market-hours",
       "number": "02",
       "name": "MARKET HOURS",
-      "discipline": "MOBILE & WEB",
-      "type": "FINTECH TOOL / FOREX & STOCKS",
+      "discipline": "WEB & MOBILE",
+      "type": "FINTECH / FOREX & STOCKS",
       "image": "/projects/market-hours/cover.jpg",
       "heroImage": "/projects/market-hours/hero.jpg",
       "imageWidth": 1920,
@@ -83,25 +136,90 @@
       "link": {
         "href": "https://markethours.live",
         "label": "MARKETHOURS.LIVE"
+      },
+      "coverAlt": "Market Hours dashboard: a dark world map with the day/night line and markers for open and closed exchanges",
+      "heroAlt": "The Market Hours world map with exchange markers and the live clock",
+      "metaDescription": "Market Hours shows which stock exchanges and forex sessions are open right now on a live day/night map, with holidays, lunch breaks and alarms. Built by ALAZ.",
+      "headings": {
+        "challenge": [
+          "WHAT'S OPEN",
+          "RIGHT NOW?"
+        ],
+        "approach": [
+          "THE RULES,",
+          "BUILT TWICE."
+        ],
+        "outcome": [
+          "NINE EXCHANGES,",
+          "LIVE."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Platforms",
+          "value": "Web, iOS and Android"
+        },
+        {
+          "label": "Stack",
+          "value": "Next.js, Flutter, RevenueCat"
+        },
+        {
+          "label": "Our role",
+          "value": "Design, development, data"
+        },
+        {
+          "label": "Status",
+          "value": "Web live, mobile in preparation",
+          "href": "https://markethours.live"
+        }
+      ],
+      "schema": {
+        "category": "FinanceApplication",
+        "os": "Web, iOS, Android"
+      },
+      "theme": {
+        "bg": "#07110f",
+        "fg": "#ffffff",
+        "accent": "#19c3b1"
       }
     }
   ],
   "blogPosts": [
     {
+      "slug": "how-long-does-it-take-to-build-an-app",
+      "title": "How Long Does It Take to Build a Web or Mobile App?",
+      "excerpt": "Realistic timelines for an MVP, an internal tool and a full platform, what moves them, and how to shorten them without cutting corners.",
+      "tag": "PLANNING",
+      "date": "2026-10-08",
+      "dateLabel": "OCT 8, 2026",
+      "cover": "https://images.hostinger.com/da80e49f-b638-479c-b8a6-486217e4ecb8.png",
+      "coverAlt": "Abstract illustration of a project timeline",
+      "author": {
+        "name": "The ALAZ team",
+        "role": "Web, mobile and backend engineering"
+      },
+      "content": "\"How long will it take?\" is the first question in almost every discovery call, and the honest answer is a range, not a date. This post gives you the ranges we actually quote, what pushes a project to the top or bottom of each range, and what you can do before kick-off to land on the short side.\n\n## The short version\n\n- A focused **MVP or internal tool**, web or mobile, usually takes **4 to 8 weeks** from kick-off to production.\n- A **platform** with several apps, roles and third-party integrations usually takes **2 to 4 months**.\n- Mobile apps add **store review time** on top: typically a day or two for the App Store, and up to a week for a new Google Play developer account.\n- A **rescue or performance project** on an existing codebase is measured in weeks, not months, because the first fixes are usually architectural, not a rewrite.\n\nThese are the numbers behind the answers on our [services page](/services). They assume one small team that owns design, web, mobile and backend together. Splitting the work across three vendors adds coordination time that no estimate can hide.\n\n## What actually sets the timeline\n\nFeatures are only one input. In practice five things decide where a project lands inside a range.\n\n- **How many decisions are already made.** A project with a clear owner, a written list of what is out of scope, and a decision on the first user flow moves twice as fast as one where every screen is a debate. Discovery exists to make those decisions early.\n- **Integrations.** Each payment provider, CRM, ERP or partner API adds its own sandbox, its own quirks and its own approval process. Three integrations can cost as much as the rest of the product.\n- **Roles and permissions.** An app with one kind of user is simple. An app with customers, operators and admins who each see different things needs a permission model, and that model touches every screen.\n- **Design readiness.** If a design system or brand already exists, we build straight into it. If not, the first one or two weeks produce the screens that everything else depends on.\n- **Mobile specifics.** Offline mode, background sync, push notifications and store compliance are not add-ons. Each one is a week of work and testing on real devices.\n\n## Typical ranges, by project type\n\n**Marketing site or landing pages: 1 to 3 weeks.** Content and design are the long pole, not code. Passing Core Web Vitals is part of the definition of done, not a later optimisation.\n\n**Internal tool or dashboard: 3 to 6 weeks.** One or two user roles, a database, a handful of screens and an authentication layer. These are the fastest projects to ship and the ones that pay back first.\n\n**MVP of a web or mobile product: 4 to 8 weeks.** A real product, deliberately small: one core flow done well, analytics, crash reporting and a release pipeline from day one. The point is to learn from real users in week eight, not to launch everything in month six.\n\n**Platform or multi-app product: 2 to 4 months.** A web app, a mobile app and the backend they share, with integrations and several user roles. We phase these: a usable first release in the first six to eight weeks, then increments on top.\n\n**Rescue, audit or performance work: 2 to 6 weeks.** A profiling pass, a written list of what is slow or fragile, then fixes in order of impact. A ground-up rewrite is almost never the answer, which is why this is measured in weeks.\n\n## How we estimate\n\n- **Discovery call, 30 to 45 minutes.** What you are building, who uses it, and what it costs the business if it fails.\n- **Written scope.** A short document: what we will build, what we will leave out on purpose, the phases, the timeline and the price. Not a 40-page proposal.\n- **Phases, not a single deadline.** Each phase ends with working software on a staging link or a test build, so the plan gets corrected every week or two instead of at the end.\n\n## How to shorten the timeline without cutting corners\n\n- Name one decision-maker on your side and keep feedback rounds short.\n- Write down what the first release does *not* include. Every item on that list is a week saved.\n- Bring the accounts early: app store developer accounts, domain access, payment provider and API keys. Waiting for a login is the most common idle week in any project.\n- Prefer boring, proven technology. Exotic choices cost time twice: once to build and again to maintain.\n- Launch the smallest version that real users can use, then iterate. Month eighteen matters more than launch day.\n\n## Get a real estimate\n\nTell us what you are building through the [project form](/start-project) or write to [hello@alaz.pro](mailto:hello@alaz.pro). After a short call you get a written scope with phases, a timeline and a price, usually within a week. Every message is read by an engineer, and we reply within one business day."
+    },
+    {
       "slug": "cost-of-a-slow-website",
       "title": "What Does a Slow Website Actually Cost Your Business?",
-      "excerpt": "A 0.1-second speed-up lifted retail conversions 8.4% in a Deloitte study. What slow pages cost you in sales, ad spend, leads and search, and where to start fixing it.",
+      "excerpt": "A 0.1-second speed-up lifted retail conversions 8.4% in a Deloitte study. What slow pages cost in sales, ad spend, leads and search, and where to start.",
       "tag": "PERFORMANCE",
       "date": "2026-02-22",
       "dateLabel": "FEB 22, 2026",
       "cover": "https://images.hostinger.com/fa2db1a1-b7b8-4447-ba3d-7661427c1fcb.png",
       "author": {
-        "name": "The ALAZ Team",
-        "role": "ENGINEERING STUDIO"
+        "name": "The ALAZ team",
+        "role": "Web, mobile and backend engineering"
       },
-      "content": "Teams spend weeks polishing a hero animation and arguing over the exact shade of a gradient. Then they ship it on a page that takes four seconds to become usable on a mid-range phone, and wonder why conversions drift down every quarter.\n\nSpeed is not a developer chore. It is a line on the balance sheet. Every extra fraction of a second shows up somewhere: in checkout completions, in cost per acquisition, in whether a paid visitor ever sees your form. This post collects the numbers that are actually backed by research, so you can treat performance as a revenue metric rather than a nice-to-have.\n\n## The short version\n\n- A **0.1-second** improvement in mobile site speed lifted retail conversions by **8.4%** and travel conversions by **10.1%** (Deloitte for Google, 37 brands).\n- When a mobile page takes **3 seconds** to load instead of 1, the probability of a bounce rises by **32%**. At **5 seconds** it rises by **90%** (Google).\n- B2B sites that load in **1 second** convert about **3x** better than sites that load in 5 seconds (Portent, 2022).\n- Core Web Vitals are part of how Google judges page experience, and on Google Play, apps above the crash and freeze thresholds become harder to find.\n\n## A tenth of a second, measured\n\nThe most useful study here is *Milliseconds Make Millions*, run by Deloitte and 55 for Google. Over four weeks they tracked 37 retail, travel, luxury and lead-generation brands in Europe and the US, and measured what happened when mobile load times improved by just 0.1 seconds.\n\n- **Retail conversions rose 8.4%.**\n- **Retail average order value rose 9.2%.** People did not only buy more often, they spent more.\n- **Travel conversions rose 10.1%**, the most speed-sensitive category in the study.\n\nA tenth of a second is shorter than a blink. Amazon's often-quoted rule of thumb from its early experiments points the same way: roughly 1% of sales lost for every extra 100 milliseconds.\n\nTo make that concrete, take a store doing $500,000 a month online. If a faster mobile site delivered just a quarter of the uplift Deloitte measured, about 2% more conversions, that is roughly **$10,000 a month, or $120,000 a year**, before you touch pricing, ad spend or product mix. Your number will be different. The direction will not.\n\nThe uncomfortable takeaway for design-led teams: a fast page with a simpler design will usually out-convert a slow page with a prettier one.\n\n## Paying for clicks that never land\n\nGoogle's mobile benchmark data shows how quickly patience runs out:\n\n- As load time goes from 1 to 3 seconds, the probability of a bounce increases **32%**.\n- From 1 to 5 seconds, it increases **90%**.\n\nNow follow the money. You pay for a click on a competitive keyword. The visitor lands, but the headline has not painted, the form has not rendered and your analytics tag has not fired. They leave. The ad platform reports a click; your analytics reports nothing, because the visitor was gone before the tag loaded. The spend looks wasted on bad traffic, when really your own site could not receive it.\n\nSpending more on ads does not fix a leaky page. Stopping the leak does. A landing page that renders its key content in under two seconds turns the same budget into measurable sessions and conversions, and your cost per acquisition drops without touching the campaign.\n\n## B2B: slow pages lose leads\n\nIn B2B the deals are larger and the sales cycles longer, so every lost lead hurts more. Portent's 2022 study of more than 100 million page views found that a B2B site loading in **1 second** converts about **3x** better than one loading in 5 seconds, and about **5x** better than one loading in 10 seconds.\n\nThere is a credibility effect too. A CTO evaluating your platform is quietly evaluating your engineering. A six-second load time tells them, before they read a single feature page, that performance is not a priority for your team. That is not the first impression you want when you are asking someone to trust you with their data or an annual contract.\n\n## Search visibility and Core Web Vitals\n\nGoogle measures real-user experience with Core Web Vitals, judged at the 75th percentile of visits:\n\n- **Largest Contentful Paint (LCP)**: when the main content appears. Good is **2.5 seconds or less**. Heavy hero images, render-blocking CSS and slow servers push it up.\n- **Interaction to Next Paint (INP)**: how quickly the page responds to taps and clicks. Good is **200 milliseconds or less**. INP replaced First Input Delay in March 2024 and is much stricter about long JavaScript tasks.\n- **Cumulative Layout Shift (CLS)**: how much the layout jumps while loading. Good is **0.1 or less**.\n\nTo be precise about rankings: Google says relevance comes first, and a great page experience will not rescue weak content. But page experience is one of the things its ranking systems reward, and when several pages answer a query equally well, the fast and stable one has the edge. Server-rendered pages also hand crawlers ready HTML, which helps large or JavaScript-heavy sites get indexed faster.\n\n## The same math applies to mobile apps\n\nApps pay the same tax in different places: cold-start time, frozen screens, crashes and store ratings. Google Play makes it explicit. If more than **1.09%** of daily active users hit a noticeable crash, or more than **0.47%** hit an \"App Not Responding\" freeze, your app crosses Play's bad-behavior threshold and is likely to be less discoverable. Cross it on specific phone models and Play may also show users a warning on your store listing.\n\nA slow app rarely gets a second launch. Measure start-up time and crash-free sessions as seriously as you measure page speed.\n\n## Where the time actually goes\n\nThe instinct when a site is slow is to buy a bigger server. That is rarely the right first move. Most performance problems are architectural, and a bigger server will not fix a 3 MB JavaScript bundle. These fixes move the needle first:\n\n- **Ship less JavaScript.** Every library is downloaded, parsed and executed on someone's phone. Swap the carousel library for CSS scroll-snap, the date-picker package for a native input, the animation framework for the four transitions you actually use.\n- **Render on the server.** With frameworks like Next.js the browser receives a real page instead of an empty shell and a script tag. Content appears sooner, crawlers get HTML, and only the interactive parts hydrate.\n- **Audit third-party scripts.** Tag managers, chat widgets, heatmaps and A/B testing tools often cost more than your own code. Keep the ones that earn their weight and load the rest after the page is usable.\n- **Fix images and fonts.** Serve AVIF or WebP, set explicit dimensions to prevent layout shift, lazy-load below the fold, and subset and preload fonts.\n- **Look at the backend.** A slow first byte usually means unindexed queries, N+1 database calls or missing caching. No amount of frontend tuning hides a 1.5-second API response.\n\nNone of this needs a bigger server. It needs discipline at the architecture level, where decisions are made once and pay off on every page view and every app launch.\n\n## Measure it in 15 minutes\n\n- **PageSpeed Insights**: real-user Core Web Vitals for your URL (from the Chrome UX Report) plus a Lighthouse lab test.\n- **Search Console, Core Web Vitals report**: which groups of pages fail, on mobile and on desktop.\n- **Your browser's Network tab**: sort by size and see what you actually ship.\n- **For apps**: Android vitals in Google Play Console, and the Xcode Organizer for launch time, hangs and crashes on iOS.\n\n## Sources\n\n- [Deloitte & 55 for Google: Milliseconds Make Millions](https://web.dev/case-studies/milliseconds-make-millions)\n- [Google: Mobile page speed industry benchmarks](https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/)\n- [Portent: Site speed and conversion rate research (2022)](https://www.portent.com/blog/analytics/research-site-speed-hurting-everyones-revenue.htm)\n- [web.dev: Core Web Vitals](https://web.dev/articles/vitals)\n- [Google Search Central: Understanding page experience](https://developers.google.com/search/docs/appearance/page-experience)\n- [Android Developers: Android vitals](https://developer.android.com/topic/performance/vitals)\n\n## Want a second opinion?\n\nIf the audit surfaces work you don't have the bandwidth for, that is what we do. ALAZ builds and fixes [web applications, mobile apps and the backends behind them](/services): server-first architecture, disciplined bundle budgets, fast APIs, and apps that stay under the stores' crash thresholds.\n\nSend a URL or an app store link to `hello@alaz.pro`, plus a Lighthouse report if you have one. We will tell you plainly what is slow, what it is likely costing you and what it takes to fix.",
+      "content": "Teams spend weeks polishing a hero animation and arguing over the exact shade of a gradient. Then they ship it on a page that takes four seconds to become usable on a mid-range phone, and wonder why conversions drift down every quarter.\n\nSpeed is not a developer chore. It is a line on the balance sheet. Every extra fraction of a second shows up somewhere: in checkout completions, in cost per acquisition, in whether a paid visitor ever sees your form. This post collects the numbers that are actually backed by research, so you can treat performance as a revenue metric rather than a nice-to-have.\n\n## The short version\n\n- A **0.1-second** improvement in mobile site speed lifted retail conversions by **8.4%** and travel conversions by **10.1%** (Deloitte for Google, 37 brands).\n- When a mobile page takes **3 seconds** to load instead of 1, the probability of a bounce rises by **32%**. At **5 seconds** it rises by **90%** (Google).\n- B2B sites that load in **1 second** convert about **3x** better than sites that load in 5 seconds (Portent, 2022).\n- Core Web Vitals are part of how Google judges page experience, and on Google Play, apps above the crash and freeze thresholds become harder to find.\n\n## A tenth of a second, measured\n\nThe most useful study here is “Milliseconds Make Millions”, run by Deloitte and 55 for Google. Over four weeks they tracked 37 retail, travel, luxury and lead-generation brands in Europe and the US, and measured what happened when mobile load times improved by just 0.1 seconds.\n\n- **Retail conversions rose 8.4%.**\n- **Retail average order value rose 9.2%.** People did not only buy more often, they spent more.\n- **Travel conversions rose 10.1%**, the most speed-sensitive category in the study.\n\nA tenth of a second is shorter than a blink. Amazon's often-quoted rule of thumb from its early experiments points the same way: roughly 1% of sales lost for every extra 100 milliseconds.\n\nTo make that concrete, take a store doing $500,000 a month online. If a faster mobile site delivered just a quarter of the uplift Deloitte measured, about 2% more conversions, that is roughly **$10,000 a month, or $120,000 a year**, before you touch pricing, ad spend or product mix. Your number will be different. The direction will not.\n\nThe uncomfortable takeaway for design-led teams: a fast page with a simpler design will usually out-convert a slow page with a prettier one.\n\n## Paying for clicks that never land\n\nGoogle's mobile benchmark data shows how quickly patience runs out:\n\n- As load time goes from 1 to 3 seconds, the probability of a bounce increases **32%**.\n- From 1 to 5 seconds, it increases **90%**.\n\nNow follow the money. You pay for a click on a competitive keyword. The visitor lands, but the headline has not painted, the form has not rendered and your analytics tag has not fired. They leave. The ad platform reports a click; your analytics reports nothing, because the visitor was gone before the tag loaded. The spend looks wasted on bad traffic, when really your own site could not receive it.\n\nSpending more on ads does not fix a leaky page. Stopping the leak does. A landing page that renders its key content in under two seconds turns the same budget into measurable sessions and conversions, and your cost per acquisition drops without touching the campaign.\n\n## B2B: slow pages lose leads\n\nIn B2B the deals are larger and the sales cycles longer, so every lost lead hurts more. Portent's 2022 study of more than 100 million page views found that a B2B site loading in **1 second** converts about **3x** better than one loading in 5 seconds, and about **5x** better than one loading in 10 seconds.\n\nThere is a credibility effect too. A CTO evaluating your platform is quietly evaluating your engineering. A six-second load time tells them, before they read a single feature page, that performance is not a priority for your team. That is not the first impression you want when you are asking someone to trust you with their data or an annual contract.\n\n## Search visibility and Core Web Vitals\n\nGoogle measures real-user experience with Core Web Vitals, judged at the 75th percentile of visits:\n\n- **Largest Contentful Paint (LCP)**: when the main content appears. Good is **2.5 seconds or less**. Heavy hero images, render-blocking CSS and slow servers push it up.\n- **Interaction to Next Paint (INP)**: how quickly the page responds to taps and clicks. Good is **200 milliseconds or less**. INP replaced First Input Delay in March 2024 and is much stricter about long JavaScript tasks.\n- **Cumulative Layout Shift (CLS)**: how much the layout jumps while loading. Good is **0.1 or less**.\n\nTo be precise about rankings: Google says relevance comes first, and a great page experience will not rescue weak content. But page experience is one of the things its ranking systems reward, and when several pages answer a query equally well, the fast and stable one has the edge. Server-rendered pages also hand crawlers ready HTML, which helps large or JavaScript-heavy sites get indexed faster.\n\n## The same math applies to mobile apps\n\nApps pay the same tax in different places: cold-start time, frozen screens, crashes and store ratings. Google Play makes it explicit. If more than **1.09%** of daily active users hit a noticeable crash, or more than **0.47%** hit an \"App Not Responding\" freeze, your app crosses Play's bad-behavior threshold and is likely to be less discoverable. Cross it on specific phone models and Play may also show users a warning on your store listing.\n\nA slow app rarely gets a second launch. Measure start-up time and crash-free sessions as seriously as you measure page speed.\n\n## Where the time actually goes\n\nThe instinct when a site is slow is to buy a bigger server. That is rarely the right first move. Most performance problems are architectural, and a bigger server will not fix a 3 MB JavaScript bundle. These fixes move the needle first:\n\n- **Ship less JavaScript.** Every library is downloaded, parsed and executed on someone's phone. Swap the carousel library for CSS scroll-snap, the date-picker package for a native input, the animation framework for the four transitions you actually use.\n- **Render on the server.** With frameworks like Next.js the browser receives a real page instead of an empty shell and a script tag. Content appears sooner, crawlers get HTML, and only the interactive parts hydrate.\n- **Audit third-party scripts.** Tag managers, chat widgets, heatmaps and A/B testing tools often cost more than your own code. Keep the ones that earn their weight and load the rest after the page is usable.\n- **Fix images and fonts.** Serve AVIF or WebP, set explicit dimensions to prevent layout shift, lazy-load below the fold, and subset and preload fonts.\n- **Look at the backend.** A slow first byte usually means unindexed queries, N+1 database calls or missing caching. No amount of frontend tuning hides a 1.5-second API response.\n\nNone of this needs a bigger server. It needs discipline at the architecture level, where decisions are made once and pay off on every page view and every app launch.\n\n## Measure it in 15 minutes\n\n- **PageSpeed Insights**: real-user Core Web Vitals for your URL (from the Chrome UX Report) plus a Lighthouse lab test.\n- **Search Console, Core Web Vitals report**: which groups of pages fail, on mobile and on desktop.\n- **Your browser's Network tab**: sort by size and see what you actually ship.\n- **For apps**: Android vitals in Google Play Console, and the Xcode Organizer for launch time, hangs and crashes on iOS.\n\n## Sources\n\n- [Deloitte & 55 for Google: Milliseconds Make Millions](https://web.dev/case-studies/milliseconds-make-millions)\n- [Google: Mobile page speed industry benchmarks](https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/)\n- [Portent: Site speed and conversion rate research (2022)](https://www.portent.com/blog/analytics/research-site-speed-hurting-everyones-revenue.htm)\n- [web.dev: Core Web Vitals](https://web.dev/articles/vitals)\n- [Google Search Central: Understanding page experience](https://developers.google.com/search/docs/appearance/page-experience)\n- [Android Developers: Android vitals](https://developer.android.com/topic/performance/vitals)\n\n## Want a second opinion?\n\nIf the audit surfaces work you don't have the bandwidth for, that is what we do. ALAZ builds and fixes [web applications, mobile apps and the backends behind them](/services): server-first architecture, disciplined bundle budgets, fast APIs, and apps that stay under the stores' crash thresholds.\n\nSend a URL or an app store link to [hello@alaz.pro](mailto:hello@alaz.pro), plus a Lighthouse report if you have one. We will tell you plainly what is slow, what it is likely costing you and what it takes to fix.",
       "updated": "2026-10-05",
-      "updatedLabel": "OCT 5, 2026"
+      "updatedLabel": "OCT 5, 2026",
+      "coverAlt": "Abstract illustration of a loading web page on a phone"
     },
     {
       "slug": "we-are-officially-live",
@@ -112,67 +230,58 @@
       "dateLabel": "FEB 13, 2026",
       "cover": "https://images.hostinger.com/da80e49f-b638-479c-b8a6-486217e4ecb8.png",
       "author": {
-        "name": "The ALAZ Team",
-        "role": "ENGINEERING STUDIO"
+        "name": "The ALAZ team",
+        "role": "Web, mobile and backend engineering"
       },
-      "content": "ALAZ is open for business. We are a software studio that designs and builds web applications, iOS and Android apps, and the backend systems that keep them running, as one team, from the first sketch to production. This first post explains why we exist, how we work and who we are a good fit for.\n\n## Why we started ALAZ\n\nWe have spent years untangling software that should have been simple. Bloated web bundles. Apps that freeze on a mid-range phone. Integrations that fail silently at 3 a.m. Dashboards that take six seconds to become usable and still ship to production.\n\nMost of that pain is not a technology problem. It is a discipline problem, and very often a handover problem. The web agency, the mobile freelancer and the backend vendor each optimize their own piece, and the bugs live in the seams between them. Decisions get made once under deadline pressure, then frozen, and every new feature pays the tax.\n\nALAZ exists to stop paying that tax by putting the whole product, web, mobile and backend, in the hands of one accountable engineering team.\n\n## What we build\n\n- **Web applications.** SaaS platforms, customer portals, admin panels, internal tools and fast marketing sites. Server-first, typed end to end, and built to pass Core Web Vitals on real devices, not just in a demo.\n- **Mobile applications.** iOS and Android apps from a single cross-platform codebase (Flutter or React Native), with native Swift or Kotlin where the hardware demands it. Offline-first data, push notifications and App Store and Google Play releases included.\n- **Systems and backend.** The APIs your apps talk to, integrations with payment, CRM and ERP systems, background jobs, cloud infrastructure, CI/CD and monitoring.\n- **Rescue and performance work.** Slow pages, crashing apps and legacy code nobody wants to touch, stabilized and modernized step by step instead of rewritten in one risky leap.\n\nThe [services page](/services) lists the deliverables and the stack behind each one.\n\n## How we engineer\n\nWe build against a short list of convictions.\n\n- **Speed is a feature.** Performance budgets are agreed in the first sprint, not bolted on before launch: LCP and INP targets for web, start-up time and crash-free sessions for mobile, response times for APIs.\n- **Types everywhere.** TypeScript on the web and the server; Dart, Swift or Kotlin on mobile. Types catch the bugs that reviews miss and let us refactor without flinching.\n- **Boring technology, on purpose.** Mature tools and predictable patterns mean we can reason about the system at 2 a.m. when something breaks.\n- **Small, replaceable pieces.** Requirements always change. Modular systems absorb the change; monoliths make you pay for it.\n- **You own everything.** Code, cloud accounts, app store listings and documentation belong to you from day one. No lock-in.\n\nNone of this is exotic. The bar is low because most teams optimize for the demo. We optimize for month eighteen.\n\n## What working with us looks like\n\n- **Discovery call (30 to 45 minutes).** What you are building, who it is for, and what it costs the business if it fails.\n- **Written scope and estimate.** A short, plain document: what we will build, what we will deliberately leave out, the phases, the timeline and the price. Not a 40-page proposal.\n- **Build in short increments.** Working software every week or two: a staging link for web, a TestFlight or internal testing build for mobile. You see progress, not slide decks.\n- **Launch and handover.** A zero-downtime release, monitoring, documentation and a walkthrough for your team, with the option to keep us on for maintenance.\n\n## Who we are a good fit for\n\n- Founders turning a prototype or an idea into a real web or mobile product.\n- Companies replacing spreadsheets and brittle legacy tools with software built around their workflow.\n- Teams whose site is slow, whose app crashes, or whose integrations keep breaking.\n- Businesses that want a long-term technical partner, not a vendor that disappears after launch.\n\n## Say hello\n\nTell us what you are building and what is in the way. Write to `hello@alaz.pro` or use the [project form](/start-project). Every message is read by an engineer, and we reply within one business day.\n\nWe are live. Let's build something that holds up.",
+      "content": "ALAZ is open for business. We are a software studio that designs and builds web applications, iOS and Android apps, and the backend systems that keep them running, as one team, from the first sketch to production. This first post explains why we exist, how we work and who we are a good fit for.\n\n## Why we started ALAZ\n\nWe have spent years untangling software that should have been simple. Bloated web bundles. Apps that freeze on a mid-range phone. Integrations that fail silently at 3 a.m. Dashboards that take six seconds to become usable and still ship to production.\n\nMost of that pain is not a technology problem. It is a discipline problem, and very often a handover problem. The web agency, the mobile freelancer and the backend vendor each optimize their own piece, and the bugs live in the seams between them. Decisions get made once under deadline pressure, then frozen, and every new feature pays the tax.\n\nALAZ exists to stop paying that tax by putting the whole product, web, mobile and backend, in the hands of one accountable engineering team.\n\n## What we build\n\n- **Web applications.** SaaS platforms, customer portals, admin panels, internal tools and fast marketing sites. Server-first, typed end to end, and built to pass Core Web Vitals on real devices, not just in a demo.\n- **Mobile applications.** iOS and Android apps from a single cross-platform codebase (Flutter or React Native), with native Swift or Kotlin where the hardware demands it. Offline-first data, push notifications and App Store and Google Play releases included.\n- **Systems and backend.** The APIs your apps talk to, integrations with payment, CRM and ERP systems, background jobs, cloud infrastructure, CI/CD and monitoring.\n- **Rescue and performance work.** Slow pages, crashing apps and legacy code nobody wants to touch, stabilized and modernized step by step instead of rewritten in one risky leap.\n\nThe [services page](/services) lists the deliverables and the stack behind each one.\n\n## How we engineer\n\nWe build against a short list of convictions.\n\n- **Speed is a feature.** Performance budgets are agreed in the first sprint, not bolted on before launch: LCP and INP targets for web, start-up time and crash-free sessions for mobile, response times for APIs.\n- **Types everywhere.** TypeScript on the web and the server; Dart, Swift or Kotlin on mobile. Types catch the bugs that reviews miss and let us refactor without flinching.\n- **Boring technology, on purpose.** Mature tools and predictable patterns mean we can reason about the system at 2 a.m. when something breaks.\n- **Small, replaceable pieces.** Requirements always change. Modular systems absorb the change; monoliths make you pay for it.\n- **You own everything.** Code, cloud accounts, app store listings and documentation belong to you from day one. No lock-in.\n\nNone of this is exotic. The bar is low because most teams optimize for the demo. We optimize for month eighteen.\n\n## What working with us looks like\n\n- **Discovery call (30 to 45 minutes).** What you are building, who it is for, and what it costs the business if it fails.\n- **Written scope and estimate.** A short, plain document: what we will build, what we will deliberately leave out, the phases, the timeline and the price. Not a 40-page proposal.\n- **Build in short increments.** Working software every week or two: a staging link for web, a TestFlight or internal testing build for mobile. You see progress, not slide decks.\n- **Launch and handover.** A zero-downtime release, monitoring, documentation and a walkthrough for your team, with the option to keep us on for maintenance.\n\n## Who we are a good fit for\n\n- Founders turning a prototype or an idea into a real web or mobile product.\n- Companies replacing spreadsheets and brittle legacy tools with software built around their workflow.\n- Teams whose site is slow, whose app crashes, or whose integrations keep breaking.\n- Businesses that want a long-term technical partner, not a vendor that disappears after launch.\n\n## Say hello\n\nTell us what you are building and what is in the way. Write to [hello@alaz.pro](mailto:hello@alaz.pro) or use the [project form](/start-project). Every message is read by an engineer, and we reply within one business day.\n\nWe are live. Tell us what you are building.",
       "updated": "2026-10-05",
-      "updatedLabel": "OCT 5, 2026"
+      "updatedLabel": "OCT 5, 2026",
+      "coverAlt": "Abstract illustration of connected web, mobile and server systems"
     }
   ],
   "nav": {
     "linkLabels": [
-      "CASE STUDIES",
-      "ABOUT",
       "SERVICES",
+      "WORK",
+      "ABOUT",
       "BLOG"
     ],
     "cta": "START A PROJECT"
   },
   "servicesPage": {
     "meta": {
-      "title": "Web, Mobile App & Software Development Services | ALAZ",
-      "description": "Web applications, iOS and Android apps, backend APIs and cloud infrastructure, designed and built by one engineering team. Clean code you own, shipped in short increments.",
-      "keywords": [
-        "custom software development",
-        "web application development",
-        "mobile app development",
-        "iOS app development",
-        "Android app development",
-        "cross-platform app development",
-        "backend development",
-        "API integration",
-        "cloud infrastructure",
-        "SaaS development"
-      ]
+      "title": "Web, Mobile & Backend Development Services",
+      "description": "Web applications, iOS and Android apps, backend APIs and cloud infrastructure, built by one engineering team. Code you own, shipped in short increments."
     },
-    "eyebrowLeft": "SERVICES / 001",
-    "eyebrowRight": "WEB / MOBILE / SYSTEMS",
-    "kicker": "WEB, MOBILE AND THE SYSTEMS BEHIND THEM.",
+    "eyebrowLeft": "SERVICES",
+    "eyebrowRight": "WEB · MOBILE · BACKEND",
+    "kicker": "WHAT WE BUILD, WHAT YOU GET AND THE STACK BEHIND IT",
     "heading": [
-      "SOFTWARE",
-      "ENGINEERING"
+      "WEB, MOBILE",
+      "& BACKEND"
     ],
-    "introText": "We design, build and run web applications, iOS and Android apps, and the backends and cloud infrastructure they depend on. One team, from first sketch to production.",
-    "introNote": "ALAZ / CAPABILITIES 2026",
+    "introText": "We design, build and run web applications, iOS and Android apps, and the APIs and cloud infrastructure they depend on. One team, from the first sketch to production, with the code in your name from day one.",
+    "introNote": "FIVE SERVICES · ONE TEAM",
     "breadcrumbHome": "Home",
-    "overviewEyebrowLeft": "CAPABILITIES / 002",
-    "overviewEyebrowRight": "PRACTICAL BREAKDOWN",
+    "overviewEyebrowLeft": "WHAT WE DO",
+    "overviewEyebrowRight": "FIVE SERVICES",
     "overviewTitle": [
       "WHAT WE",
-      "ACTUALLY DO"
+      "BUILD"
     ],
-    "overviewText": "Most software problems start in the seams: a web team, a mobile team and a backend vendor who never quite agree. We cover all three. Here is exactly what we do, what you get and the stack we trust.",
+    "overviewText": "Most software problems live in the seams between a web team, a mobile team and a backend vendor. We cover all three, so the bugs have nowhere to hide. Here is what we do, what you get and the stack we trust.",
     "itemLabels": {
-      "whatItIs": "THE PROBLEM & SCOPE",
-      "deliverables": "CORE DELIVERABLES",
+      "whatItIs": "THE PROBLEM",
+      "deliverables": "WHAT YOU GET",
       "stack": "STACK",
-      "outcome": "REAL-WORLD OUTCOME",
-      "bestFor": "IDEAL FIT"
+      "outcome": "WHAT IT LEADS TO",
+      "bestFor": "A GOOD FIT FOR",
+      "proof": "IN PRACTICE",
+      "cta": "Start a project like this"
     },
     "items": [
       {
-        "id": "custom-software-development",
+        "id": "web-applications",
         "number": "01",
         "title": "WEB APPLICATIONS & SAAS",
         "category": "WEB / FULL-STACK",
@@ -183,7 +292,7 @@
           "Customer portals, internal tools, operator consoles and dashboards",
           "Clean data models, authentication, payments and permission layers",
           "Marketing sites and landing pages that pass Core Web Vitals",
-          "Well-documented codebases with zero vendor lock-in"
+          "Well-documented codebases with no vendor lock-in"
         ],
         "stack": [
           "Next.js",
@@ -193,11 +302,15 @@
           "PostgreSQL",
           "Tailwind CSS"
         ],
-        "outcome": "A stable, thoroughly tested codebase you own outright. Ships quickly without cutting structural corners.",
-        "bestFor": "Founders launching serious MVPs, or teams replacing brittle legacy tools and messy spreadsheet workflows."
+        "outcome": "A stable, tested codebase you own outright, shipped in short increments without cutting structural corners.",
+        "bestFor": "Founders launching serious MVPs, or teams replacing brittle legacy tools and messy spreadsheet workflows.",
+        "proof": {
+          "slug": "market-hours",
+          "label": "Market Hours, a Next.js dashboard with a live day/night map"
+        }
       },
       {
-        "id": "mobile-app-development",
+        "id": "mobile-apps",
         "number": "02",
         "title": "MOBILE APPLICATIONS",
         "category": "IOS / ANDROID",
@@ -219,10 +332,14 @@
           "Firebase"
         ],
         "outcome": "One codebase, two stores, and an app that starts fast, survives a bad connection and stays under the crash thresholds the stores watch.",
-        "bestFor": "Companies launching a customer-facing app, field and operations teams that need a mobile tool, and products extending an existing web platform to phones."
+        "bestFor": "Companies launching a customer-facing app, field and operations teams that need a mobile tool, and products extending an existing web platform to phones.",
+        "proof": {
+          "slug": "english-vocabulary",
+          "label": "Vocabulary, one Flutter codebase for iOS and Android"
+        }
       },
       {
-        "id": "api-integration",
+        "id": "backend-and-integrations",
         "number": "03",
         "title": "BACKEND, APIs & INTEGRATIONS",
         "category": "BACKEND / INTEGRATION",
@@ -233,7 +350,7 @@
           "Payment gateway, CRM, ERP and billing engine integrations",
           "Resilient webhook handlers with idempotency and replay safety",
           "Background jobs, queues and event-driven pipelines",
-          "Secure LLM and generative AI API implementations"
+          "LLM features on the Claude and OpenAI APIs, with rate limits and cost controls"
         ],
         "stack": [
           "TypeScript",
@@ -244,11 +361,15 @@
           "OpenAPI",
           "Redis"
         ],
-        "outcome": "Reliable data synchronization across your tools, with explicit error logging and zero data loss.",
-        "bestFor": "Businesses operating across multiple SaaS platforms, or platforms integrating deep third-party partner APIs."
+        "outcome": "Data that stays in sync across your tools, with explicit error logging and retries instead of silent failures.",
+        "bestFor": "Businesses operating across multiple SaaS platforms, or platforms integrating deep third-party partner APIs.",
+        "proof": {
+          "slug": "market-hours",
+          "label": "the DST-aware market engine behind Market Hours"
+        }
       },
       {
-        "id": "system-architecture-cloud",
+        "id": "cloud-and-devops",
         "number": "04",
         "title": "CLOUD INFRASTRUCTURE & DEVOPS",
         "category": "INFRASTRUCTURE / RESILIENCE",
@@ -274,7 +395,7 @@
         "bestFor": "Teams dealing with recurring downtime, slow deployment cycles, or systems outgrowing their initial prototype setup."
       },
       {
-        "id": "performance-engineering",
+        "id": "performance-and-modernization",
         "number": "05",
         "title": "PERFORMANCE & MODERNIZATION",
         "category": "SPEED / LEGACY RESCUE",
@@ -299,52 +420,56 @@
         "bestFor": "E-commerce, SaaS and content platforms where latency costs revenue, and teams stuck with a legacy system they can't afford to rewrite."
       }
     ],
-    "processEyebrowLeft": "HOW WE WORK / 003",
-    "processEyebrowRight": "FROM IDEA TO PRODUCTION",
+    "processEyebrowLeft": "HOW WE WORK",
+    "processEyebrowRight": "FROM FIRST CALL TO HANDOVER",
     "processTitle": [
       "HOW WE",
-      "OPERATE"
+      "WORK"
     ],
     "processSteps": [
       {
         "number": "01",
-        "title": "Deep Discovery",
-        "body": "We start with architecture questions, business constraints, and real failure modes. We clarify what needs building and what to intentionally leave out."
+        "title": "Discovery call",
+        "body": "30 to 45 minutes: what you are building, who it is for, and what it costs the business if it fails. We also ask what to leave out on purpose."
       },
       {
         "number": "02",
-        "title": "System Blueprint",
-        "body": "Before touching implementation, we map data models, component hierarchies, and technical trade-offs. No ambiguous specs."
+        "title": "Written scope and estimate",
+        "body": "A short, plain document: what we will build, the phases, the timeline and the price. Not a 40-page proposal."
       },
       {
         "number": "03",
-        "title": "Iterative Execution",
-        "body": "We ship working, test-covered code in short increments. You see functional builds on staging branches, not static slide decks."
+        "title": "Build in short increments",
+        "body": "Working software every week or two: a staging link for web, a TestFlight or internal testing build for mobile. You see progress, not slide decks."
       },
       {
         "number": "04",
-        "title": "Production & Handover",
-        "body": "Zero-downtime cutover, observability configs, and comprehensive documentation. We ensure your team can operate the system with complete confidence."
+        "title": "Launch and handover",
+        "body": "A zero-downtime release, monitoring, documentation and a walkthrough for your team, with the option to keep us on for maintenance."
       }
     ],
-    "faqEyebrowLeft": "FAQ / 004",
-    "faqEyebrowRight": "COMMON QUESTIONS",
+    "faqEyebrowLeft": "FAQ",
+    "faqEyebrowRight": "TEN QUESTIONS",
     "faqTitle": [
-      "QUESTIONS &",
-      "PRACTICAL ANSWERS"
+      "COMMON",
+      "QUESTIONS"
     ],
     "faqs": [
       {
-        "q": "How is ALAZ different from a traditional digital agency?",
-        "a": "Most agencies sell design presentations and outsource implementation to junior subcontractors. ALAZ is run by engineers. You work directly with the people who write your web and mobile code and design your backend, so nothing gets lost in translation."
+        "q": "How is ALAZ different from a digital agency?",
+        "a": "ALAZ is run by engineers. The people who scope your project are the people who write the web and mobile code and design the backend, so nothing gets lost between a sales team and a delivery team. We also ship our own products, Vocabulary and Market Hours, so we know what it takes to keep software running after launch."
       },
       {
         "q": "Do you build apps for both iOS and Android?",
         "a": "Yes. Most projects use one cross-platform codebase (Flutter or React Native) that ships to both the App Store and Google Play. Where a feature needs deep device access, we add native Swift or Kotlin modules. We also handle store accounts, submission and review."
       },
       {
-        "q": "What is the typical timeframe for a project?",
-        "a": "A focused MVP or internal tool, web or mobile, usually takes 4 to 8 weeks from kick-off to production, plus store review time for mobile apps. Platforms with several apps and integrations take 2 to 4 months. After discovery we give you a concrete timeline with phased deliverables."
+        "q": "How long does a project take?",
+        "a": "A focused MVP or internal tool, web or mobile, usually takes 4 to 8 weeks from kick-off to production, plus store review time for mobile apps. Platforms with several apps and integrations take 2 to 4 months. After discovery you get a concrete timeline with phased deliverables."
+      },
+      {
+        "q": "How much does a web or mobile app cost?",
+        "a": "It depends on scope, integrations and the number of user roles, which is why we scope before we quote. As a guide, the budget ranges on our project form start under $25k for a focused tool or MVP and go above $100k for a multi-app platform. You get a written price with phases, not an hourly meter."
       },
       {
         "q": "Which technologies do you use?",
@@ -352,7 +477,7 @@
       },
       {
         "q": "Do we own the source code after delivery?",
-        "a": "Yes, completely. Every line of code, infrastructure configuration, app store listing and document belongs to you from day one. There is no proprietary platform lock-in."
+        "a": "Yes, completely. Every line of code, infrastructure configuration, app store listing and document belongs to you from day one. There is no proprietary platform and no lock-in."
       },
       {
         "q": "Can you take over or rescue an existing product?",
@@ -363,8 +488,12 @@
         "a": "Yes. We can stay on for maintenance (monitoring, security and dependency updates, OS upgrades for mobile, and new features), or hand everything over to your team with documentation and a walkthrough."
       },
       {
+        "q": "Do you work with clients outside Türkiye?",
+        "a": "Yes. We work in English and Turkish from İzmir and New York, which covers European and US working hours, and most of our communication happens asynchronously in writing with a weekly call."
+      },
+      {
         "q": "How do we get started?",
-        "a": "Send a short note through the project form or email hello@alaz.pro. We review every request and reply within one business day to set up a direct technical conversation."
+        "a": "Send a short note through the project form or email hello@alaz.pro. An engineer reads every request and replies within one business day to set up a direct technical conversation."
       }
     ]
   },
@@ -392,340 +521,300 @@
     ]
   },
   "footer": {
-    "talk": "HAVE A SYSTEM IN MIND?",
-    "copyright": "© {year} ALAZ SOFTWARE. ALL RIGHTS RESERVED.",
+    "talk": "HAVE SOMETHING TO BUILD?",
+    "talkCta": "Start a project",
+    "emailLabel": "EMAIL",
+    "navLabel": "PAGES",
+    "navLabels": [
+      "SERVICES",
+      "WORK",
+      "ABOUT",
+      "BLOG",
+      "START A PROJECT"
+    ],
+    "productsLabel": "OUR PRODUCTS",
+    "copyright": "© {year} ALAZ Software. All rights reserved.",
     "backTop": "BACK TO TOP ↑",
     "linkLabels": [
-      "BLOG",
       "LEGAL",
       "PRIVACY"
     ]
   },
   "home": {
     "meta": {
-      "title": "ALAZ — Web, Mobile & Software Engineering Studio",
-      "description": "ALAZ builds web applications, iOS and Android apps, and the backend systems behind them. One engineering team, from first sketch to production."
+      "title": "ALAZ — Web, Mobile & Backend Software Studio in İzmir and New York",
+      "description": "ALAZ designs and builds web applications, iOS and Android apps and the APIs behind them, as one team, from İzmir and New York. Replies within one business day."
     },
     "hero": {
-      "status": "SYSTEM_ACTIVE",
-      "toplineRight": "SOFTWARE STUDIO / EST. 2026",
-      "kicker": "WEB · MOBILE · SYSTEMS — SOFTWARE STUDIO",
-      "taglineTop": "NO BULLSHIT.",
-      "taglineBottom": "JUST ACTION.",
-      "intro": "We design and build web apps, mobile apps and the systems behind them. Built with intent. Engineered to last.",
-      "scrollCta": "SCROLL TO EXPLORE",
-      "bottomNote": "PRECISION IS THE STANDARD. NOT THE GOAL.",
-      "poweredBy": "POWERED BY"
-    },
-    "signal": {
-      "a": "ALAZ / SYSTEMS THINKING",
-      "b": "ENGINEERING WITHOUT COMPROMISE"
-    },
-    "validation": {
-      "eyebrowLeft": "01 / EXTERNAL SIGNAL",
-      "eyebrowRight": "TESTIMONIALS // 03",
-      "heading": [
-        "VALIDATION"
+      "toplineLeft": "SOFTWARE STUDIO · İZMİR & NEW YORK",
+      "toplineRight": "WEB · MOBILE · BACKEND",
+      "kicker": "ALAZ — SOFTWARE STUDIO, EST. 2026",
+      "wordmark": "ALAZ",
+      "taglineTop": "WEB APPS, MOBILE APPS",
+      "taglineBottom": "AND THE BACKENDS BEHIND THEM.",
+      "intro": "We design and build web applications, iOS and Android apps, and the APIs and infrastructure they run on, as one team, from the first sketch to production.",
+      "facts": [
+        {
+          "label": "Vocabulary",
+          "value": "iOS & Android app",
+          "href": "/case-studies/english-vocabulary"
+        },
+        {
+          "label": "Market Hours",
+          "value": "live at markethours.live",
+          "href": "https://markethours.live",
+          "external": true
+        },
+        {
+          "label": "Replies",
+          "value": "within one business day",
+          "href": "/start-project"
+        }
       ],
-      "lead": "The strongest systems earn their reputation in production."
-    },
-    "ticker": [
-      "TRUSTED PARTNERSHIP",
-      "CLIENT SUCCESS",
-      "ARCHITECTURAL INTEGRITY",
-      "UNCOMPROMISING PRECISION"
-    ],
-    "capabilities": {
-      "eyebrowLeft": "02 / WHAT WE DO",
-      "eyebrowRight": "WEB / MOBILE / SYSTEMS",
-      "heading": [
-        "CORE",
-        "CAPABILITIES"
-      ],
-      "exploreCta": "EXPLORE SERVICES"
+      "seeWork": "SEE THE WORK",
+      "email": "hello@alaz.pro"
     },
     "selected": {
-      "eyebrowLeft": "03 / THE OUTPUT",
-      "eyebrowRight": "SELECTED PROJECTS // {count}",
+      "eyebrowLeft": "WORK",
+      "eyebrowRight": "{count} PRODUCTS WE BUILT AND RUN",
       "heading": [
-        "SELECTED",
-        "WORKS"
+        "OUR",
+        "WORK"
       ],
-      "viewAllCta": "VIEW ALL PROJECTS",
-      "imageAlt": "{name} {type} engineering visual",
-      "numberSuffix": "PROJECT"
+      "viewAllCta": "ALL WORK",
+      "liveLabel": "LIVE"
+    },
+    "capabilities": {
+      "eyebrowLeft": "SERVICES",
+      "eyebrowRight": "WEB · MOBILE · BACKEND",
+      "heading": [
+        "WHAT WE",
+        "BUILD"
+      ],
+      "exploreCta": "ALL SERVICES",
+      "lead": "One team for the web app, the mobile app and the backend they share. Scoped in writing, shipped in short increments, handed over with the code in your name."
+    },
+    "writing": {
+      "eyebrowLeft": "BLOG",
+      "eyebrowRight": "LATEST POSTS",
+      "heading": [
+        "FROM THE",
+        "BLOG"
+      ],
+      "allCta": "ALL POSTS",
+      "readCta": "READ"
     },
     "start": {
-      "eyebrowLeft": "04 / INITIATE",
-      "eyebrowRight": "READY WHEN YOU ARE",
-      "badge": "COMMAND SEQUENCE READY",
+      "eyebrowLeft": "START A PROJECT",
+      "eyebrowRight": "REPLY WITHIN ONE BUSINESS DAY",
       "heading": [
-        "START",
+        "START A",
         "PROJECT"
       ],
-      "paragraph": "The next great system starts with a conversation.",
-      "button": "START SEQUENCE",
-      "bottomNote": "DESIGNED WITH INTENT / BUILT TO ENDURE"
+      "paragraph": "Tell us what you are building and what is in the way. An engineer reads every message and replies with questions, not a sales deck.",
+      "button": "START A PROJECT",
+      "emailPrefix": "OR WRITE TO",
+      "bottomNote": "İZMİR · NEW YORK · ENGLISH & TURKISH"
     }
   },
-  "testimonials": [
-    {
-      "number": "01",
-      "quote": "“They brought order to a system that had become impossible to reason about. The new architecture gave our team a clear path forward without slowing down delivery.”",
-      "name": "MERVE T.",
-      "role": "PROJECT MANAGER",
-      "focus": "ARCHITECTURE"
-    },
-    {
-      "number": "02",
-      "quote": "“What stood out was the discipline. Every technical decision had a reason behind it, and the engineering never lost sight of the product we were trying to build.”",
-      "name": "BURAK Y.",
-      "role": "PRODUCT OWNER",
-      "focus": "EXECUTION"
-    },
-    {
-      "number": "03",
-      "quote": "“We needed more than a polished interface. We needed a reliable foundation underneath it. ALAZ understood that distinction from the first conversation.”",
-      "name": "SELIN A.",
-      "role": "E-COMMERCE DIRECTOR",
-      "focus": "RELIABILITY"
-    }
-  ],
   "about": {
     "meta": {
-      "title": "About ALAZ — The Engineering Manifesto",
-      "description": "ALAZ is an independent software studio building web applications, iOS and Android apps, and the backend systems behind them. Data over dogma, brutal efficiency, software built to last."
+      "title": "About — Software Studio in İzmir and New York",
+      "description": "ALAZ is a small software studio founded in 2026 in İzmir and New York. We build web apps, mobile apps and backends for clients, and we ship our own products."
     },
-    "eyebrowLeft": "STUDIO / 001",
-    "eyebrowRight": "OUR OPERATING PRINCIPLES",
-    "kicker": "NOT AN AGENCY. AN ENGINEERING PRACTICE.",
+    "eyebrowLeft": "ABOUT",
+    "eyebrowRight": "SOFTWARE STUDIO, EST. 2026",
+    "kicker": "A SOFTWARE STUDIO, NOT AN AGENCY",
     "heading": [
-      "WE ENGINEER",
-      "PERMANENCE"
+      "THE WORKING",
+      "FLAME"
     ],
-    "introText": "We build web apps, mobile apps and the systems behind them: simple enough to trust, strong enough to endure.",
-    "introNote": "ALAZ / MANIFESTO 2026",
-    "originEyebrowLeft": "01 / THE NAME",
-    "originEyebrowRight": "WHY WE'RE CALLED ALAZ",
-    "originLabel": "ALAZ, N. / TURKISH, ARCHAIC",
+    "introText": "ALAZ is a small software studio in İzmir and New York. We design and build web applications, iOS and Android apps, and the APIs and infrastructure behind them, and we ship our own products so we know what it takes to keep software running after launch.",
+    "introNote": "FOUNDED 2026 · İZMİR · NEW YORK",
+    "originEyebrowLeft": "THE NAME",
+    "originEyebrowRight": "WHAT ALAZ MEANS",
+    "originLabel": "ALAZ — TURKISH, NOUN",
     "originWord": "ALAZ",
-    "originDefinition": "The bright edge of a flame, the point where fire stops smoldering and starts doing real work.",
+    "originDefinition": "The bright, working part of a flame: not the first spark and not the ember, but the heat that actually shapes metal.",
     "originParagraphs": [
-      "Alaz is an old Turkish word most people don't use anymore. Blacksmiths and shepherds used it for the moment a fire stops just burning and gets hot enough to actually shape metal: the working flame, not the first spark or the dying ember.",
-      "We build software the same way. Generating activity is easy, more code, more features, more meetings. Getting a system to hold up under real users and real traffic is the hard part, and that's the bar every project has to clear before we call it finished."
+      "Alaz is an old Turkish word for the working part of a fire, the moment it stops just burning and gets hot enough to shape something. That is the part of the work we care about.",
+      "Generating activity is easy: more code, more features, more meetings. Getting a system to hold up under real users and real traffic is the hard part, and that is the bar every project has to clear before we call it finished."
     ],
-    "imageAlt": "Architectural engineering laboratory with precision workstations",
-    "imageCaption": "FIG. 01 — THE PRACTICE OF PRECISION",
-    "principlesEyebrowLeft": "02 / THE MANIFESTO",
-    "principlesEyebrowRight": "THREE PRINCIPLES / ONE STANDARD",
-    "principles": [
-      {
-        "number": "01",
-        "title": "DATA OVER DOGMA",
-        "body": "Decisions deserve evidence. We question assumptions, measure what matters, and let reality shape the solution."
-      },
-      {
-        "number": "02",
-        "title": "BRUTAL EFFICIENCY",
-        "body": "Every layer should earn its place. We remove complexity instead of hiding it behind a better-looking interface."
-      },
-      {
-        "number": "03",
-        "title": "ENGINEER PERMANENCE",
-        "body": "The best work outlasts the launch. We build maintainable foundations that stay useful when the brief changes."
-      }
-    ],
-    "disciplinesEyebrowLeft": "03 / OUR DISCIPLINES",
-    "disciplinesEyebrowRight": "THE WORK BEHIND THE WORK",
-    "disciplinesHeading": [
-      "ENGINEERING",
-      "IS THE MEDIUM"
-    ],
-    "breakImageAlt": "Precision-etched circuitry and conduits under studio lighting",
-    "breakImageCaption": "FIG. 02 — THE SYSTEMS THAT CONNECT",
-    "processEyebrowLeft": "04 / HOW WE OPERATE",
-    "processEyebrowRight": "ONE PROCESS / EVERY PROJECT",
+    "processEyebrowLeft": "HOW WE WORK",
+    "processEyebrowRight": "THE SAME FOUR STEPS, EVERY PROJECT",
     "processHeading": [
-      "FOUR MOVES",
-      "ZERO GUESSWORK"
+      "HOW WE",
+      "WORK"
     ],
     "processSteps": [
       {
         "number": "01",
-        "title": "DISCOVER",
-        "body": "We start by asking the questions most agencies skip: who's actually going to use this, and what does it cost the business if it fails. That homework happens before anyone opens an editor."
+        "title": "DISCOVERY",
+        "body": "A 30 to 45 minute call: who is going to use this, what it costs the business if it fails, and what to leave out on purpose. That homework happens before anyone opens an editor."
       },
       {
         "number": "02",
-        "title": "ARCHITECT",
-        "body": "A system exists on a whiteboard before it exists in a repo. We work out what needs to be structurally true first, then decide how to build it, not the other way around."
+        "title": "SCOPE",
+        "body": "A system exists on a whiteboard before it exists in a repo. You get a short written scope with phases, a timeline and a price, and we only start when it is agreed."
       },
       {
         "number": "03",
-        "title": "ENGINEER",
-        "body": "Once the architecture holds up, writing the code is the easy part. We release in stages so each piece can be tested and trusted on its own."
+        "title": "BUILD",
+        "body": "Working software every week or two: a staging link for web, a TestFlight or internal testing build for mobile. Each piece is tested and trusted on its own before the next one lands."
       },
       {
         "number": "04",
-        "title": "HARDEN",
-        "body": "Shipping is the halfway point, not the finish line. We stress-test the system, write documentation that's actually usable, and hand it over ready for real traffic, not just a demo."
+        "title": "LAUNCH",
+        "body": "Shipping is the halfway point. A zero-downtime release, monitoring, documentation your team can actually use, and a walkthrough, with the option to keep us on for maintenance."
       }
     ],
-    "endTextTop": "GOOD SYSTEMS ARE INVISIBLE.",
-    "endTextBottom": "THE IMPACT ISN'T.",
-    "startCta": "START A PROJECT"
+    "endTextTop": "HAVE SOMETHING TO BUILD?",
+    "endTextBottom": "TELL US ABOUT IT.",
+    "startCta": "START A PROJECT",
+    "productsEyebrowLeft": "OUR OWN PRODUCTS",
+    "productsEyebrowRight": "BUILT AND RUN BY ALAZ",
+    "productsHeading": [
+      "WE SHIP",
+      "OUR OWN"
+    ],
+    "productsText": "Client work is most of what we do, but we also build and run our own products. They keep us honest about launch day, store reviews, support and month eighteen.",
+    "productsCta": "ALL WORK",
+    "servicesCta": "SEE THE SERVICES"
   },
   "archive": {
     "meta": {
-      "title": "Case Studies — ALAZ Engineering",
-      "description": "ALAZ case studies across web platforms, iOS and Android apps, and backend systems: the problem, the approach and the outcome."
+      "title": "Work — Web & Mobile Apps Built by ALAZ",
+      "description": "Products ALAZ designed, built and shipped: a vocabulary app for iOS and Android and a live market-hours dashboard. The problem, the build and what shipped."
     },
-    "eyebrowLeft": "INDEX / 001",
-    "eyebrowRight": "ARCHIVE / SELECTED WORK",
-    "kicker": "AN INDEX OF WHAT WE BUILD",
+    "eyebrowLeft": "WORK",
+    "eyebrowRight": "BUILT AND RUN BY ALAZ",
+    "kicker": "PRODUCTS WE DESIGNED, BUILT AND SHIPPED",
     "heading": [
       "THE WORK"
     ],
-    "introText": "Technical challenges. Considered solutions. Systems engineered for what comes next.",
-    "introNote": "PROJECTS ON FILE / {count}",
+    "introText": "Two products we built and run ourselves: a vocabulary app for iOS and Android, and a market-hours dashboard that is live on the web. Each page covers the problem, the build and what shipped.",
+    "introNote": "{count} PROJECTS",
     "tableHeaders": [
       "NO.",
-      "PROJECT / DISCIPLINE",
+      "PROJECT",
       "SCOPE",
-      "VIEW"
+      "OPEN"
     ],
-    "noteLeft": "END OF INDEX",
-    "noteRight": "MORE SYSTEMS IN DEVELOPMENT",
-    "previewAlt": "{name} project preview"
+    "noteLeft": "MORE PROJECTS ARE IN PROGRESS.",
+    "noteRight": "HAVE ONE FOR US?",
+    "noteCta": "START A PROJECT"
   },
   "caseStudy": {
     "notFoundHeading": "PROJECT NOT FOUND.",
-    "backToArchive": "BACK TO ARCHIVE",
-    "allCaseStudies": "← ALL CASE STUDIES",
+    "backToArchive": "BACK TO WORK",
+    "allCaseStudies": "← ALL WORK",
     "projectLabel": "PROJECT",
-    "metaTitleTemplate": "{name} — ALAZ Case Study",
-    "metaDescriptionTemplate": "{name}: {summary} Read this ALAZ engineering case study.",
-    "imageAlt": "{name} technical engineering visual",
-    "selectedWorkLabel": "ALAZ / SELECTED WORK",
-    "challengeEyebrow": "01 / THE CHALLENGE",
-    "challengeHeading": [
-      "BUILD FOR",
-      "WHAT'S NEXT."
-    ],
-    "approachEyebrow": "02 / THE APPROACH",
-    "approachHeading": [
-      "PRECISION",
-      "AT EVERY LAYER."
-    ],
-    "outcomeEyebrow": "03 / THE OUTCOME",
-    "outcomeHeading": [
-      "LESS NOISE.",
-      "MORE SIGNAL."
-    ],
-    "deliverableLabel": "DELIVERABLE",
+    "metaTitleTemplate": "{name} — Case Study",
+    "factsLabel": "PROJECT FACTS",
+    "challengeEyebrow": "THE PROBLEM",
+    "approachEyebrow": "THE BUILD",
+    "outcomeEyebrow": "WHAT SHIPPED",
+    "highlightLabel": "HIGHLIGHT",
     "nextProjectLabel": "NEXT PROJECT",
-    "contactPrompt": "HAVE A COMPLEX CHALLENGE?",
-    "contactCta": "LET'S TALK",
-    "galleryEyebrow": "STORE SCREENSHOTS",
-    "galleryAlt": "{name} app screenshot {number}",
-    "visitCta": "VISIT {site}",
+    "contactPrompt": "HAVE A PROJECT LIKE THIS?",
+    "contactCta": "START A PROJECT",
+    "servicesPrompt": "WHAT WE DID HERE",
+    "servicesCta": "SEE THE SERVICES",
+    "galleryEyebrow": "APP SCREENS",
+    "visitCta": "OPEN {site}",
     "storeDownload": "DOWNLOAD ON",
     "storeSoon": "COMING SOON ON"
   },
   "blogIndex": {
     "meta": {
-      "title": "Blog — ALAZ Engineering Studio",
-      "description": "Field notes on web and mobile engineering, backend architecture and performance, written by the ALAZ software studio."
+      "title": "Blog — Notes on Web, Mobile & Backend Engineering",
+      "description": "Plain-language notes from the ALAZ software studio on web performance, mobile apps, backend architecture and how long real projects take."
     },
-    "eyebrowLeft": "BLOG / 001",
-    "eyebrowRight": "FIELD NOTES FROM THE STUDIO",
-    "kicker": "ENGINEERING, IN PLAIN LANGUAGE.",
+    "eyebrowLeft": "BLOG",
+    "eyebrowRight": "{count} POSTS",
+    "kicker": "NOTES FROM BUILDING WEB AND MOBILE PRODUCTS",
     "heading": [
-      "THE",
       "BLOG"
     ],
-    "introText": "Notes on web and mobile engineering, system architecture, performance, and shipping software that holds up long after launch day.",
-    "introNote": "ALAZ / WRITING 2026",
-    "articlesAriaLabel": "Blog articles",
+    "introText": "Plain-language notes on web and mobile engineering, backend architecture, performance and what it takes to ship software that still works in month eighteen.",
+    "introNote": "WRITTEN BY THE ENGINEERS WHO BUILD",
+    "articlesAriaLabel": "Blog posts",
     "readMinutesSuffix": "MIN READ",
     "readCta": "READ",
-    "noteLeft": "MORE FIELD NOTES INCOMING.",
-    "noteRight": "ALAZ / BLOG"
+    "noteLeft": "NEW POSTS LAND HERE FIRST.",
+    "noteRight": "QUESTIONS? HELLO@ALAZ.PRO"
   },
   "blogPost": {
     "notFoundHeading": "POST NOT FOUND.",
     "backToBlogCta": "BACK TO BLOG",
-    "allFieldNotes": "← ALL FIELD NOTES",
+    "allFieldNotes": "← ALL POSTS",
     "blogLabelPrefix": "BLOG",
     "readingSuffix": "MIN READ",
-    "fieldNotesLabel": "ALAZ / FIELD NOTES",
-    "authorIntroBefore": "ALAZ is an independent software studio building web applications, mobile apps and backend systems. Reach us at ",
+    "authorIntroBefore": "ALAZ is a software studio in İzmir and New York that builds web applications, mobile apps and backend systems, and ships its own products. Questions about this post go to ",
     "authorIntroAfter": ".",
-    "nextNoteLabel": "NEXT FIELD NOTE",
-    "contactPrompt": "WANT TO BUILD SOMETHING THAT HOLDS UP?",
+    "aboutLinkLabel": "More about the studio",
+    "nextNoteLabel": "NEXT POST",
+    "contactPrompt": "WORKING ON SOMETHING LIKE THIS?",
     "contactCta": "START A PROJECT",
-    "metaTitleTemplate": "{title} — ALAZ Blog",
-    "coverAlt": "{title} — cover visual",
+    "metaTitleTemplate": "{title}",
     "updatedPrefix": "UPDATED"
   },
   "intake": {
     "meta": {
-      "title": "Start a Project — ALAZ Engineering",
-      "description": "Tell ALAZ about your web app, mobile app or backend project. Three short steps, and we reply within one business day."
+      "title": "Start a Project — Tell Us What You Are Building",
+      "description": "Tell ALAZ about your web app, mobile app or backend project in three short steps. An engineer reads every brief and replies within one business day."
     },
-    "sectionTopLeft": "PROJECT INTAKE / SECURE TRANSMISSION",
-    "sectionTopRight": "ALAZ / NEW ENGAGEMENT",
-    "completeEyebrow": "PROJECT INQUIRY RECEIVED / 001",
+    "sectionTopLeft": "START A PROJECT",
+    "sectionTopRight": "REPLY WITHIN ONE BUSINESS DAY",
+    "completeEyebrow": "BRIEF RECEIVED",
     "completeHeading": [
-      "REQUEST",
-      "RECEIVED"
+      "THANKS,",
+      "GOT IT."
     ],
-    "completeMessageTemplate": "Thank you, {name}. Your project inquiry is safely in our queue. We'll review it and contact you at {email}.",
-    "completeCta": "RETURN TO HOME",
-    "headingEyebrow": "LET'S BUILD SOMETHING THAT LASTS",
+    "completeMessageTemplate": "Thanks, {name}. An engineer will read your brief and reply to {email} within one business day. If it is urgent, write to hello@alaz.pro.",
+    "completeCta": "SEE THE WORK",
+    "headingEyebrow": "THREE SHORT STEPS, ABOUT TWO MINUTES",
     "headingLines": [
       "START A",
       "PROJECT"
     ],
-    "introParagraph": "Good work starts with the right questions. Tell us what you're building.",
-    "asideLabel": "YOUR BRIEF / IN THREE PARTS",
+    "introParagraph": "Tell us what you are building and what is in the way. We reply with real questions, not a sales deck.",
+    "asideLabel": "YOUR BRIEF IN THREE PARTS",
     "steps": [
-      "THE SCOPE",
-      "THE CHALLENGE",
+      "PROJECT TYPE",
+      "THE BRIEF",
       "YOUR DETAILS"
     ],
-    "asideParagraph": "We only ask what we need to understand your challenge. No generic sales pitch. No unnecessary calls.",
-    "asideStatus": "STATUS: ACCEPTING NEW INQUIRIES",
+    "asideParagraph": "We only ask what we need to understand the problem and give you a real estimate. No generic sales pitch, no unnecessary calls.",
+    "asideStatus": "TAKING NEW PROJECTS",
     "stepLabels": [
       "PROJECT TYPE",
-      "PROJECT CONTEXT",
-      "CONTACT DETAILS"
+      "THE BRIEF",
+      "YOUR DETAILS"
     ],
-    "percentCompleteTemplate": "{percent}% COMPLETE",
     "step0": {
-      "heading": "WHAT ARE WE BUILDING?",
-      "paragraph": "Select the discipline closest to your project.",
+      "heading": "WHAT ARE YOU BUILDING?",
+      "paragraph": "Pick the closest fit. We will sort out the details together.",
       "groupAriaLabel": "Project type"
     },
     "types": [
       {
-        "name": "Web App",
-        "detail": "Platforms, SaaS & dashboards"
+        "name": "Web app",
+        "detail": "Platforms, SaaS, portals and dashboards"
       },
       {
-        "name": "Mobile App",
-        "detail": "iOS & Android"
+        "name": "Mobile app",
+        "detail": "iOS and Android"
       },
       {
-        "name": "Systems & Backend",
-        "detail": "APIs, integrations & cloud"
+        "name": "Backend and integrations",
+        "detail": "APIs, integrations and cloud"
       },
       {
-        "name": "Something Else",
-        "detail": "Audit, rescue or custom"
+        "name": "Rescue, audit or something else",
+        "detail": "Slow site, crashing app, legacy code"
       }
     ],
-    "typeIndexSuffix": "TYPE",
     "errors": {
       "projectType": "Select a project type to continue.",
       "projectName": "Enter a project name.",
@@ -734,8 +823,8 @@
       "email": "Enter a valid email address."
     },
     "step1": {
-      "heading": "DEFINE THE CHALLENGE.",
-      "paragraph": "Start with the problem. We'll find the right architecture together."
+      "heading": "WHAT'S THE PROBLEM?",
+      "paragraph": "Start with the problem. We will work out the architecture together."
     },
     "fields": {
       "projectName": {
@@ -744,10 +833,10 @@
       },
       "brief": {
         "label": "WHAT ARE YOU TRYING TO SOLVE?",
-        "placeholder": "Tell us about the system, the challenge, and what success would look like..."
+        "placeholder": "The product, who uses it, what is broken or missing, and what success would look like…"
       },
       "timeline": {
-        "label": "IDEAL TIMELINE",
+        "label": "TIMELINE",
         "placeholder": "Select a timeframe"
       },
       "budget": {
@@ -782,27 +871,29 @@
       "To be discussed"
     ],
     "step2": {
-      "heading": "WHO'S ON THE OTHER END?",
-      "paragraph": "Give us a way to get back to you about your project."
+      "heading": "HOW DO WE REACH YOU?",
+      "paragraph": "A name and an email are enough. We reply within one business day."
     },
-    "privacyNoteBefore": "YOUR DETAILS ARE USED ONLY TO RESPOND TO THIS INQUIRY. ",
-    "privacyNoteCta": "PRIVACY POLICY ↗",
-    "submitErrorFallback": "The transmission could not be completed. Please try again.",
+    "privacyNoteBefore": "YOUR DETAILS ARE USED ONLY TO REPLY TO THIS BRIEF. ",
+    "privacyNoteCta": "PRIVACY POLICY",
+    "submitErrorFallback": "We could not send your brief. Please try again, or email hello@alaz.pro.",
     "prevStep": "PREVIOUS STEP",
     "continueCta": "CONTINUE",
-    "submitCta": "SEND INQUIRY",
-    "submittingCta": "TRANSMITTING...",
-    "formNotation": "ALAZ / 2026"
+    "submitCta": "SEND THE BRIEF",
+    "submittingCta": "SENDING…",
+    "completeSecondaryCta": "BACK TO HOME",
+    "stepCountTemplate": "STEP {step} OF 3",
+    "emailFallbackPrefix": "PREFER EMAIL?"
   },
   "legal": {
-    "sectionTopLeft": "ALAZ / INFORMATION",
+    "sectionTopLeft": "ALAZ",
     "documentLabel": "LAST UPDATED: OCTOBER 2026",
     "backToHome": "← BACK TO HOME",
     "legal": {
       "title": "LEGAL",
       "meta": {
-        "title": "Legal — ALAZ",
-        "description": "Legal information about the ALAZ engineering website."
+        "title": "Legal",
+        "description": "Terms for using alaz.pro: who runs the site, what you may do with it, intellectual property, liability and governing law."
       },
       "sections": [
         {
@@ -846,8 +937,8 @@
     "privacy": {
       "title": "PRIVACY",
       "meta": {
-        "title": "Privacy — ALAZ",
-        "description": "Learn how ALAZ handles information submitted through the project inquiry form."
+        "title": "Privacy",
+        "description": "How ALAZ handles the information you send through the project form: what we collect, why, who sees it, how long we keep it and your rights."
       },
       "sections": [
         {
@@ -891,58 +982,40 @@
     "notFound": {
       "title": "PAGE NOT FOUND",
       "meta": {
-        "title": "Page Not Found — ALAZ",
-        "description": "The requested ALAZ page could not be found."
+        "title": "Page Not Found",
+        "description": "There is nothing at this address on alaz.pro."
       },
-      "body": "This route does not exist. Return to the beginning."
+      "body": "There is nothing at this address. The work, the services and the blog are one click away.",
+      "links": [
+        {
+          "label": "SERVICES",
+          "href": "/services"
+        },
+        {
+          "label": "WORK",
+          "href": "/case-studies"
+        },
+        {
+          "label": "BLOG",
+          "href": "/blog"
+        },
+        {
+          "label": "START A PROJECT",
+          "href": "/start-project"
+        }
+      ]
     }
   },
   "seo": {
     "breadcrumbHome": "Home",
     "services": "Services",
     "about": "About",
-    "caseStudies": "Case Studies",
+    "caseStudies": "Work",
     "blog": "Blog",
-    "startProject": "Start a Project",
-    "keywords": {
-      "home": [
-        "software development company",
-        "web application development",
-        "mobile app development",
-        "iOS and Android app development",
-        "backend and API development",
-        "cloud infrastructure",
-        "custom software development",
-        "ALAZ"
-      ],
-      "about": [
-        "software development studio",
-        "web and mobile development team",
-        "engineering principles",
-        "how we build software",
-        "ALAZ Software"
-      ],
-      "archive": [
-        "software case studies",
-        "web application case study",
-        "mobile app case study",
-        "backend integration project",
-        "ALAZ projects"
-      ],
-      "blog": [
-        "web performance",
-        "mobile app performance",
-        "Core Web Vitals",
-        "software architecture blog",
-        "engineering field notes"
-      ],
-      "startProject": [
-        "start a software project",
-        "web app development quote",
-        "mobile app development quote",
-        "hire a software development studio",
-        "ALAZ contact"
-      ]
-    }
+    "startProject": "Start a project",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "siteTagline": "Web, Mobile & Backend Software Studio",
+    "ogAlt": "ALAZ — web, mobile and backend software studio"
   }
 }

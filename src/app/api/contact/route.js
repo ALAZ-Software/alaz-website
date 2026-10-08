@@ -5,7 +5,7 @@ import { sendInquiryNotification } from '@/lib/mailer';
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { project_type, project_name, brief, timeline, budget, name, email, company } = body;
+    const { project_type, project_name, brief, timeline, budget, name, email, company, locale } = body;
 
     // Basic validation
     if (!name || !name.trim()) {
@@ -35,12 +35,19 @@ export async function POST(request) {
       company: (company || '').trim(),
       ip_address: ip,
     };
+    const lang = locale === 'tr' ? 'tr' : 'en';
 
     // 1. Save to Hostinger MySQL Database (if configured)
     const dbResult = await saveInquiry(inquiryData);
 
     // 2. Send via Hostinger SMTP (if configured)
-    const mailResult = await sendInquiryNotification(inquiryData);
+    const mailResult = await sendInquiryNotification(inquiryData, lang);
+
+    // If neither the database nor the mailbox received the brief, the visitor must know; a silent 200 loses the lead.
+    if (!dbResult.saved && !mailResult.sent) {
+      console.error('[API /api/contact] Inquiry could not be stored or mailed', { db: dbResult, mail: mailResult });
+      return NextResponse.json({ error: 'We could not record your brief right now. Please email hello@alaz.pro.' }, { status: 503 });
+    }
 
     return NextResponse.json({
       success: true,

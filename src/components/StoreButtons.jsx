@@ -4,7 +4,7 @@ const STORES = [
   { key: 'googlePlay', name: 'GOOGLE PLAY', path: 'M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z' },
 ];
 
-const BASE = 'inline-flex items-center gap-[14px] min-h-[56px] px-[18px] border font-mono text-left leading-none [transition:background_.2s,color_.2s,border-color_.2s] xs:px-[14px]';
+const BASE = 'inline-flex items-center gap-[14px] min-h-[56px] px-[18px] border font-mono text-left leading-none transition-[background,color,border-color] duration-fast xs:px-[14px]';
 
 export default function StoreButtons({ links = {}, downloadLabel, soonLabel, className = '' }) {
   return <div className={`flex flex-wrap items-stretch gap-[14px] ${className}`}>
@@ -14,11 +14,11 @@ export default function StoreButtons({ links = {}, downloadLabel, soonLabel, cla
         <svg viewBox="0 0 24 24" className="w-[26px] h-[26px] flex-none" fill="currentColor" aria-hidden="true"><path d={path} /></svg>
         <span className="flex flex-col gap-[7px]">
           <span className="text-[10px] tracking-[.12em] opacity-70">{href ? downloadLabel : soonLabel}</span>
-          <span className="text-[15px] font-semibold tracking-[.06em]">{name}</span>
+          <span className="text-[15px] font-medium tracking-[.06em]">{name}</span>
         </span>
       </>;
       return href
-        ? <a key={key} href={href} target="_blank" rel="noopener noreferrer" className={`${BASE} border-[rgba(255,255,255,.65)] bg-black/30 backdrop-blur-sm hover:bg-white hover:text-black`}>{content}</a>
+        ? <a key={key} href={href} target="_blank" rel="noopener noreferrer" className={`${BASE} border-current hover:bg-[var(--project-fg)] hover:text-[var(--project-bg)]`}>{content}</a>
         : <span key={key} role="link" aria-disabled="true" className={`${BASE} border-[rgba(255,255,255,.22)] bg-black/30 text-[#9a9a9a] cursor-default`}>{content}</span>;
     })}
   </div>;

@@ -2,188 +2,482 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ------------------------------------------------------------------
+   Tokens. Everything on the site reads from these: three surfaces,
+   two hairlines, four text greys, one accent ("alaz": the working edge
+   of the flame), one type scale, one spacing scale, two easings.
+   ------------------------------------------------------------------ */
 @layer base {
   :root {
-    --font-display: var(--font-archivo), 'Science Gothic', 'Archivo', system-ui, -apple-system, sans-serif;
+    color-scheme: dark;
+
+    --font-display: var(--font-archivo), 'Archivo', system-ui, -apple-system, sans-serif;
     --font-body: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
-    --background: 0 0% 4%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 7%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 9%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 12%;
-    --muted-foreground: 220 5% 63%;
-    --accent: 0 0% 100%;
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 17%;
-    --input: 0 0% 17%;
-    --ring: 0 0% 100%;
-    --radius: 0px;
+
+    /* Surfaces */
     --ink: #0a0a0a;
-    --surface: #111;
-    --line: rgba(255, 255, 255, .13);
-    --gray: #9fa3a9;
-    --dim: #7e828a;
-    --white: #fff;
-    /* Horizontal page padding, same as the px-[clamp(24px,4.2vw,72px)] used on every section. */
+    --surface-1: #0e0e0e;
+    --surface-2: #131313;
+    --line: rgba(255, 255, 255, 0.13);
+    --line-strong: rgba(255, 255, 255, 0.24);
+
+    /* Text */
+    --fg-1: #ffffff;
+    --fg-2: #c9cbce;
+    --fg-3: #9a9ea4;
+    --fg-4: #767a80;
+
+    /* Accent: the hot edge. Used only on edges: the wordmark dot, selection,
+       focus, the progress bar, one underline. Never as a fill. */
+    --ember: #ff5a1f;
+    --ember-soft: #ffb454;
+    --ember-hot: #fff4e6;
+    --ember-gradient: linear-gradient(90deg, var(--ember-hot), var(--ember-soft) 40%, var(--ember));
+
+    /* Layout */
     --gutter: clamp(24px, 4.2vw, 72px);
+    --shell: 1680px;
+    --shell-pad: max(var(--gutter), calc((100vw - var(--shell)) / 2));
+    --cols: 12;
+    --col-gap: clamp(16px, 1.6vw, 32px);
+    --header-h: 76px;
+
+    /* Spacing scale */
+    --s-1: 8px;
+    --s-2: 16px;
+    --s-3: 24px;
+    --s-4: 40px;
+    --s-5: 64px;
+    --s-6: clamp(80px, 9vw, 140px);
+    --s-7: clamp(120px, 14vw, 220px);
+
+    /* Motion */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-inout: cubic-bezier(0.76, 0, 0.24, 1);
+    --dur-fast: 200ms;
+    --dur: 600ms;
+    --dur-slow: 900ms;
+
+    /* Kept for the few remaining utilities that read them */
+    --gray: var(--fg-3);
+    --dim: var(--fg-4);
+    --white: var(--fg-1);
   }
 
-  * {
-    box-sizing: border-box;
+  @media (max-width: 760px) {
+    :root { --header-h: 66px; }
   }
+
+  * { box-sizing: border-box; }
 
   html {
-    scroll-padding-top: 78px;
+    scroll-padding-top: calc(var(--header-h) + 8px);
+    scrollbar-color: #2a2a2a var(--ink);
+    scrollbar-gutter: stable;
   }
 
   /* Lenis drives the smooth scrolling; native smooth scroll would fight it. */
-  .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  }
-
-  .lenis.lenis-stopped {
-    overflow: hidden;
-  }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
 
   body {
     margin: 0;
     background: var(--ink);
-    color: var(--white);
+    color: var(--fg-1);
     font-family: var(--font-body);
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-    letter-spacing: -.011em;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    letter-spacing: -0.011em;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
 
-  /* Scroll reveals. Hidden state only applies once the head script set .reveal-ready,
-     so content stays visible without JS. Each element animates once, in 0.6s or less. */
-  .reveal-ready [data-reveal] {
-    transition: opacity .6s cubic-bezier(.22, 1, .36, 1), transform .6s cubic-bezier(.22, 1, .36, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-  }
+  button, input, textarea, select { font: inherit; }
+  button, a, summary, label { -webkit-tap-highlight-color: transparent; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; }
+  img { display: block; max-width: 100%; }
+  ol, ul { list-style: none; margin: 0; padding: 0; }
 
-  .reveal-ready [data-reveal="fade"]:not(.is-revealed) {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-
-  /* Headings and section rules: a slightly longer fade with a small rise.
-     No clip-path here: a zero-area element never counts as intersecting, so it would stay hidden. */
-  .reveal-ready [data-reveal="mask"]:not(.is-revealed) {
-    opacity: 0;
-    transform: translateY(.14em);
-  }
-
-  .reveal-ready [data-reveal="line"]:not(.is-revealed) {
-    opacity: 0;
-  }
-
-  @media (prefers-reduced-motion: reduce), (scripting: none) {
-    .reveal-ready [data-reveal] {
-      transition: none;
-    }
-    .reveal-ready [data-reveal]:not(.is-revealed) {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  button,
-  input,
-  textarea,
-  select {
-    font: inherit;
-  }
-
-  button,
-  a {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  button {
-    cursor: pointer;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-  }
-
-  ::selection {
-    background: white;
-    color: #0a0a0a;
-  }
+  ::selection { background: var(--ember); color: var(--ink); }
+  .bg-white ::selection { background: var(--ink); color: var(--fg-1); }
 
   :focus-visible {
-    outline: 2px solid white;
+    outline: 2px solid var(--ember);
     outline-offset: 4px;
+    border-radius: 1px;
   }
 
-  h1,
-  h2,
-  h3,
-  p,
-  blockquote {
-    margin: 0;
+  /* Browser autofill paints inputs light blue; keep the form on brand. */
+  input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    -webkit-text-fill-color: var(--fg-1);
+    -webkit-box-shadow: 0 0 0 1000px #111 inset;
+    caret-color: var(--fg-1);
+    transition: background-color 9999s ease-in-out 0s;
   }
+  select option { background: #111; color: var(--fg-1); }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, p, blockquote, figure { margin: 0; }
+
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -.02em;
+    font-weight: 900;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
-  h1 {
-    font-weight: 800;
-    letter-spacing: -.035em;
-    line-height: 1.15;
-  }
+  p { text-wrap: pretty; }
 
-  code,
-  pre {
-    font-family: var(--font-mono);
-  }
+  code, pre { font-family: var(--font-mono); }
+  /* Mono only ships 400/500: never let the browser fake a bold. */
+  .font-mono { font-synthesis: none; }
 }
 
+/* ------------------------------------------------------------------
+   Type scale. Seven voices; nothing else sets a font-size on text.
+   Display faces carry word-spacing to compensate for tight tracking.
+   ------------------------------------------------------------------ */
 @layer components {
-  /* Display headings. --fit-size is the design size (set per breakpoint with
-     [--fit-size:...] utilities); --fit-em comes from fit() in lib/fit.js and is the em width
-     of the widest word. The size is capped so that word fits --fit-avail, which defaults to
-     the page column and is overridden for headings that sit in a narrower grid column. */
+  .t-display-1 {
+    --fit-size: clamp(64px, 11vw, 200px);
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: var(--fit-size);
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    word-spacing: 0.08em;
+  }
+  .t-display-2 {
+    --fit-size: clamp(44px, 7vw, 120px);
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: var(--fit-size);
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+    word-spacing: 0.08em;
+  }
+  .t-title {
+    --fit-size: clamp(26px, 3vw, 52px);
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: var(--fit-size);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    word-spacing: 0.06em;
+  }
+  .t-title-sm {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(20px, 1.8vw, 28px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .t-lead {
+    font-size: clamp(18px, 1.6vw, 24px);
+    line-height: 1.4;
+    letter-spacing: -0.015em;
+  }
+  .t-body {
+    font-size: clamp(15px, 1.05vw, 17px);
+    line-height: 1.6;
+  }
+  .t-small {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .t-meta {
+    font-family: var(--font-mono);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Page shell: content never grows past --shell; backgrounds stay full-bleed. */
+  .shell { padding-inline: var(--shell-pad); }
+
+  /* The 12-column hairline grid, drawn inside the shell. */
+  .grid-lines {
+    position: absolute;
+    inset: 0 var(--shell-pad);
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    pointer-events: none;
+  }
+  .grid-lines > i { border-right: 1px solid rgba(255, 255, 255, 0.06); }
+  .grid-lines > i:nth-child(3n) { border-right-color: rgba(255, 255, 255, 0.1); }
+  .grid-lines > i:last-child { border-right: 0; }
+
+  /* Section eyebrow: a hairline plus two meta labels. */
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-2);
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    color: var(--fg-4);
+  }
+  .eyebrow > :last-child { text-align: right; }
+
+  /* Wordmark: Archivo 900 with the ember dot. */
+  .dot { color: var(--ember); }
+
+  /* Display headings. --fit-size is the design size; --fit-em comes from fit() in lib/fit.js
+     and is the em width of the widest word. The size is capped so that word fits --fit-avail. */
   .fit {
-    --fit-avail: calc(100vw - 2 * var(--gutter));
+    --fit-avail: calc(100vw - 2 * var(--shell-pad));
     font-size: min(var(--fit-size), calc(var(--fit-avail) / var(--fit-em, 6)));
     overflow-wrap: break-word;
   }
+  .fit:lang(tr) { line-height: 1; }
 
-  /* Tight display leading collides with Turkish marks: the dot of İ hits the cedilla of Ş/Ç above. */
-  .fit:lang(tr) {
-    line-height: 1;
+  /* Underline that draws from the left on hover. */
+  .link-draw {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 10px;
   }
+  .link-draw::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--fg-1);
+  }
+  .link-draw::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--ember-gradient);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--dur) var(--ease-out);
+    z-index: 1;
+  }
+  .link-draw:hover::before, .link-draw:focus-visible::before { transform: scaleX(1); }
+
+  /* Solid button. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    min-height: 56px;
+    padding: 0 24px;
+    background: var(--fg-1);
+    color: var(--ink);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  }
+  .btn:hover { background: var(--ember-hot); }
+  .btn:active { transform: scale(0.98); }
+
+  /* Outline button. */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 50px;
+    padding: 0 18px;
+    border: 1px solid var(--line-strong);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+  }
+  .btn-ghost:hover { background: var(--fg-1); color: var(--ink); border-color: var(--fg-1); }
+
+  /* Horizontal snap rail for mobile card groups. */
+  .rail {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    margin-inline: calc(-1 * var(--shell-pad));
+    padding-inline: var(--shell-pad);
+    scroll-padding-inline: var(--shell-pad);
+  }
+  .rail::-webkit-scrollbar { display: none; }
+  .rail > * { flex: 0 0 82%; scroll-snap-align: start; }
+
+  /* Touch feedback (hover is gated to hover-capable devices by Tailwind). */
+  .press:active { opacity: 0.6; }
 }
 
-#nprogress .bar {
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.45);
+/* ------------------------------------------------------------------
+   Motion. Reveal targets stay visible until the head script marks the
+   document ready; GSAP then animates them in. Reduced motion: nothing moves.
+   ------------------------------------------------------------------ */
+.reveal-ready [data-reveal]:not(.is-revealed) { opacity: 0; }
+.reveal-ready [data-reveal="line"]:not(.is-revealed) { opacity: 1; }
+.reveal-ready [data-reveal="line"]:not(.is-revealed)::before { transform: scaleX(0); }
+.reveal-ready [data-reveal="lines"] .line { overflow: hidden; }
+
+/* Hairline draw for eyebrows: the border is drawn by a pseudo element so it can scale. */
+.reveal-ready .eyebrow[data-reveal="line"] { border-top-color: transparent; position: relative; }
+.reveal-ready .eyebrow[data-reveal="line"]::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 1px;
+  background: var(--line);
+  transform-origin: left;
 }
+
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  .reveal-ready [data-reveal]:not(.is-revealed) { opacity: 1; transform: none; }
+  .reveal-ready [data-reveal="line"]:not(.is-revealed)::before { transform: none; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* Custom cursor only where a fine pointer exists; the native cursor is never hidden globally. */
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--ember-hot);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width var(--dur-fast) var(--ease-out), height var(--dur-fast) var(--ease-out), opacity var(--dur-fast);
+}
+.cursor.is-active { opacity: 1; }
+.cursor.is-link { width: 44px; height: 44px; background: var(--fg-1); }
+.cursor .cursor-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  opacity: 0;
+}
+.cursor.is-label { width: 72px; height: 72px; background: var(--fg-1); mix-blend-mode: normal; }
+.cursor.is-label .cursor-label { opacity: 1; }
+@media (pointer: coarse), (prefers-reduced-motion: reduce) { .cursor { display: none; } }
+
+/* Page transition curtain. On a first visit the head script adds html.intro so it starts closed. */
+html.intro .curtain { transform: scaleY(1); }
+.curtain {
+  position: fixed;
+  inset: 0;
+  background: var(--ink);
+  z-index: 9000;
+  pointer-events: none;
+  transform: scaleY(0);
+  transform-origin: bottom;
+}
+.curtain .curtain-mark {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(40px, 6vw, 96px);
+  letter-spacing: -0.04em;
+  opacity: 0;
+}
+
+/* Reading progress on long pages. */
+.read-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--ember-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 60;
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------------
+   System layer: print, forced colors, high contrast.
+   ------------------------------------------------------------------ */
+@media print {
+  :root { --ink: #fff; --fg-1: #000; --fg-2: #222; --fg-3: #444; --fg-4: #666; --line: rgba(0,0,0,.2); --line-strong: rgba(0,0,0,.4); }
+  body { background: #fff; color: #000; }
+  header, footer, video, canvas, .cursor, .curtain, .read-progress, [data-print="hide"] { display: none !important; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  main { padding-top: 0 !important; }
+  a[href^="http"]::after { content: ' (' attr(href) ')'; font-size: 0.8em; color: #444; }
+}
+
+@media (forced-colors: active) {
+  .btn, .btn-ghost { border: 1px solid ButtonText; }
+  .eyebrow, .link-draw::after { border-color: CanvasText; }
+  .dot { color: CanvasText; }
+}
+
+/* ------------------------------------------------------------------
+   Header, menu, skip link, heat field.
+   ------------------------------------------------------------------ */
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 12px 16px; background: var(--fg-1); color: var(--ink); font-family: var(--font-mono); font-size: 12px; transform: translateY(-200%); }
+.skip-link:focus { transform: none; }
+
+.site-header {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: transform var(--dur) var(--ease-out), background-color var(--dur-fast) linear, border-color var(--dur-fast) linear;
+}
+.site-header[data-scrolled="true"] { background: rgba(10, 10, 10, 0.92); border-bottom-color: var(--line); }
+.site-header[data-hidden="true"] { transform: translateY(-100%); }
+.site-header[data-open="true"] { background: var(--ink); border-bottom-color: var(--line); }
+
+.nav-link { position: relative; padding: 6px 0; transition: color var(--dur-fast); }
+.nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--ember-gradient); transform: scaleX(0); transform-origin: left; transition: transform var(--dur) var(--ease-out); }
+.nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
+
+.menu-toggle { background: none; border: 0; padding: 10px 0; }
+.site-menu { clip-path: inset(0 0 0 0); }
+
+.heat-field { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+/* Fallback drawn behind the canvas: a static edge when WebGL or motion is unavailable. */
+.heat-field-wrap { position: absolute; inset: 0; overflow: hidden; background: var(--ink); pointer-events: none; }
+.heat-field-wrap::before { content: ''; position: absolute; left: 0; right: 0; top: 80%; height: 1px; background: var(--ember-gradient); opacity: 0.6; box-shadow: 0 0 40px 6px rgba(255, 90, 31, 0.25); }
+.heat-field-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0) 70%, var(--ink) 100%); }
+
+/* Mobile rails: card groups scroll sideways instead of stacking. */
+@media (max-width: 760px) {
+  .rail-mobile { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: calc(-1 * var(--shell-pad)); padding-inline: var(--shell-pad); scroll-padding-inline: var(--shell-pad); }
+  .rail-mobile::-webkit-scrollbar { display: none; }
+  .rail-mobile > * { flex: 0 0 78%; scroll-snap-align: start; }
+}
+
+/* Footer: the wordmark is cropped at the bottom of the page; the dot stays hot. */
+.site-footer .footer-mark { height: 0.62em; overflow: hidden; }
+.site-footer .footer-mark .dot { text-shadow: 0 0 32px rgba(255, 90, 31, 0.6); }
+
+/* Work index rows take the product's colour on hover. */
+.project-row { transition: background-color var(--dur-fast) linear, color var(--dur-fast) linear; }
+@media (hover: hover) {
+  .project-row:hover { background-color: var(--project-bg); color: var(--project-fg); margin-inline: calc(-1 * var(--shell-pad)); padding-inline: var(--shell-pad); }
+  .project-row:hover .project-preview { border-color: transparent; }
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq[open] summary { color: var(--fg-1); }

@@ -1,21 +1,4 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-
+// Thin ember line at the top of long pages. Motion.jsx drives its scale from the scroll position.
 export default function ReadProgress() {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const el = document.documentElement;
-      const scrollTop = el.scrollTop || document.body.scrollTop;
-      const max = el.scrollHeight - el.clientHeight || 1;
-      setProgress(Math.min(100, Math.max(0, (scrollTop / max) * 100)));
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  return <div className="fixed top-0 left-0 h-[2px] bg-white z-[60] transition-[width] duration-[80ms] ease-linear" style={{ width: `${progress}%` }} aria-hidden="true" />;
+  return <div className="read-progress" aria-hidden="true" />;
 }

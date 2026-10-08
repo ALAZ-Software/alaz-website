@@ -33,10 +33,10 @@ export default [
 			'react/display-name': 'off', // Non-critical, component works without displayName
 			'react/jsx-uses-react': 'off', // Not needed in React 17+, non-critical
 			'react/react-in-jsx-scope': 'off', // Not needed in React 17+, non-critical
-			'react/jsx-uses-vars': 'off', // Non-critical, code works fine
+			'react/jsx-uses-vars': 'error',
 			'react/jsx-no-comment-textnodes': 'off', // Non-critical, comments could be visible if put inside the JSX, most cases are just rendering text like '///'
 
-			'no-unused-vars': 'off', // Non-critical, code works fine with unused vars
+			'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
 			'import/no-named-as-default': 'off', // Can cause runtime import errors, usually fine to leave as is
 			'import/no-named-as-default-member': 'off', // Can cause runtime import errors
 
@@ -48,7 +48,7 @@ export default [
 			'import/no-self-import': 'error', // Extremely fast rule, breaking results in infinite loop/bundling error
 
 			// Disable expensive rules for performance
-			'import/no-cycle': 'off', // AI rarely makes this error, and the rule is very slow to run
+			'import/no-cycle': 'off',
 		},
 	},
 	{ files: ['tailwind.config.js', 'postcss.config.js', 'next.config.js'], languageOptions: { globals: globals.node } },
