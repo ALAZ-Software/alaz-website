@@ -11,6 +11,15 @@ import { STORE_LINKS } from '@/lib/stores';
 import StoreButtons from '@/components/StoreButtons';
 
 const titleCase = (s) => s.toLowerCase().replace(/(^|\s)\S/g, (c) => c.toUpperCase());
+// Perceived luminance of a #rrggbb colour; decides whether the header needs dark ink over this hero.
+const isLightColor = (hex = '') => {
+  const m = /^#([0-9a-f]{6})$/i.exec(hex);
+  if (!m) return false;
+  const n = parseInt(m[1], 16);
+  return (0.299 * ((n >> 16) & 255) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255 > 0.6;
+};
+// Names with their own casing (Passport.AI) carry a displayName; the rest are title-cased from the all-caps display name.
+const projectName = (project) => project.displayName ?? titleCase(project.name);
 
 // Slugs come from messages/en.json; anything else is a real 404, not a page that says "not found".
 export const dynamicParams = false;
@@ -29,7 +38,7 @@ export async function generateMetadata({ params }) {
   return buildMetadata({
     locale,
     path: `/case-studies/${project.slug}`,
-    title: t('metaTitleTemplate', { name: titleCase(project.name) }),
+    title: t('metaTitleTemplate', { name: projectName(project) }),
     description: project.metaDescription,
     type: 'article',
     image: { url: absoluteUrl(project.image), width: project.imageWidth ?? 1200, height: project.imageHeight ?? 630, alt: project.coverAlt },
@@ -50,7 +59,7 @@ export default async function CaseStudyPage({ params }) {
   const storeUrls = Object.values(stores ?? {}).filter(Boolean);
   const currentIndex = projects.findIndex((item) => item.slug === slug);
   const next = projects[(currentIndex + 1) % projects.length] || projects[0];
-  const name = titleCase(project.name);
+  const name = projectName(project);
   const url = urlFor(locale, `/case-studies/${project.slug}`);
   const theme = { '--project-bg': project.theme?.bg, '--project-fg': project.theme?.fg, '--project-accent': project.theme?.accent };
 
@@ -91,7 +100,7 @@ export default async function CaseStudyPage({ params }) {
       { name, url },
     ]} />
     <JsonLd data={appSchema} />
-    <main id="main" style={theme}>
+    <main id="main" style={theme} data-hero={isLightColor(project.theme?.bg) ? 'light' : undefined}>
       {/* Hero in the product's own colour: the image is shown, not buried under gradients. */}
       <section className="relative overflow-hidden bg-[var(--project-bg)] text-[var(--project-fg)]">
         <div className="shell relative z-[1] pt-[calc(var(--header-h)+40px)] pb-[var(--s-5)] min-h-[clamp(620px,92vh,980px)] flex flex-col">

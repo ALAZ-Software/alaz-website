@@ -6,8 +6,8 @@ import { BRAND_ALIASES, LEGAL_NAME, LOGO_URL, SITE_NAME, SITE_URL, SOCIAL_PROFIL
 // the Organization / WebSite identity. Per-page schemas (BlogPosting, FAQPage,
 // BreadcrumbList, Service, SoftwareApplication) stack on top via each page's own JSON-LD.
 const DESCRIPTIONS = {
-  en: 'ALAZ (ALAZ Software) is a small software studio in İzmir and New York, founded in 2026. It designs and builds web applications, iOS and Android apps, and the backend systems, APIs and cloud infrastructure behind them, and ships its own products, Vocabulary, Simple Note and Market Hours.',
-  tr: 'ALAZ (ALAZ Yazılım), 2026\'da kurulmuş, İzmir ve New York merkezli küçük bir yazılım stüdyosudur. Web uygulamaları, iOS ve Android uygulamaları ile bunların arkasındaki backend sistemlerini, API\'leri ve bulut altyapısını geliştirir; Vocabulary, Simple Note ve Market Hours adlı kendi ürünlerini yayınlar.',
+  en: 'ALAZ (ALAZ Software) is a small software studio in İzmir and New York, founded in 2026. It designs and builds web applications, iOS and Android apps, and the backend systems, APIs and cloud infrastructure behind them, and ships its own products, Vocabulary, Simple Note, Passport.AI and Market Hours.',
+  tr: 'ALAZ (ALAZ Yazılım), 2026\'da kurulmuş, İzmir ve New York merkezli küçük bir yazılım stüdyosudur. Web uygulamaları, iOS ve Android uygulamaları ile bunların arkasındaki backend sistemlerini, API\'leri ve bulut altyapısını geliştirir; Vocabulary, Simple Note, Passport.AI ve Market Hours adlı kendi ürünlerini yayınlar.',
 };
 
 export default async function StructuredData() {
