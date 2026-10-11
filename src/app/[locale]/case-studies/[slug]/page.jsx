@@ -155,7 +155,7 @@ export default async function CaseStudyPage({ params }) {
 
         <ul className="grid grid-cols-3 border-y border-line mobile:grid-cols-1">
           {project.markers.map((marker, i) => (
-            <li key={marker} className="py-[32px] pr-[24px] border-r border-line last:border-r-0 mobile:py-[20px] mobile:border-r-0 mobile:border-b mobile:border-line mobile:last:border-b-0" data-reveal="fade" data-delay={i * 0.08}>
+            <li key={marker} className="py-[32px] pl-[32px] pr-[24px] first:pl-0 border-r border-line last:border-r-0 mobile:py-[20px] mobile:pl-0 mobile:border-r-0 mobile:border-b mobile:border-line mobile:last:border-b-0" data-reveal="fade" data-delay={i * 0.08}>
               <span className="t-meta uppercase text-fg-4 block mb-[24px] mobile:mb-[10px]">0{i + 1} / {t('highlightLabel')}</span>
               <strong className="t-title-sm">{marker}</strong>
             </li>
