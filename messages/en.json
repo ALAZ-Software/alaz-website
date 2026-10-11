@@ -185,7 +185,19 @@
         "bg": "#07110f",
         "fg": "#ffffff",
         "accent": "#19c3b1"
-      }
+      },
+      "gallery": [
+        "/projects/market-hours/gallery/01.webp",
+        "/projects/market-hours/gallery/02.webp",
+        "/projects/market-hours/gallery/03.webp",
+        "/projects/market-hours/gallery/04.webp"
+      ],
+      "galleryAlts": [
+        "Market Hours clock view: the 24-hour dial with Sydney, Tokyo, London and New York session arcs, the open-now line and the session-hours chart, in the dark theme",
+        "Market Hours alarms: session start and end alarms for London / New York, London and Tokyo with minutes-before offsets, and smart alerts for holidays and DST changes",
+        "Market Hours settings: theme, home view, default layer, CRT effect, reduce motion, time zone, time format and alarm sound options in the dark theme",
+        "Market Hours clock view in the light theme: the same 24-hour session dial and session-hours chart on a white background"
+      ]
     },
     {
       "slug": "simple-note",
@@ -289,7 +301,8 @@
         "/projects/passport-ai/en/03.webp",
         "/projects/passport-ai/en/04.webp",
         "/projects/passport-ai/en/05.webp",
-        "/projects/passport-ai/en/06.webp"
+        "/projects/passport-ai/en/06.webp",
+        "/projects/passport-ai/en/07.webp"
       ],
       "summary": "A photo studio for passport, ID, visa and profile pictures: pick a document from 250 countries and territories, get the face checked on the phone, choose background, outfit and retouching, and export a JPEG, a PNG or a print-ready PDF sheet. Flutter and Firebase, in English and Turkish.",
       "challenge": "An ID photo can be turned down for small things: uneven light, a tilted head, the wrong background, a size that is slightly off. Many people end up in a photo booth or in an image editor. The brief was to take the photo anywhere, catch the common photo problems, such as no face, poor light, blur, a tilted head or closed eyes, before any credits are spent, and return a file cropped to the exact pixel size of the chosen document.",
@@ -300,8 +313,8 @@
         "SERVER-SIDE CREDIT LEDGER",
         "PRINT-READY PDF SHEETS"
       ],
-      "coverAlt": "Passport.AI cover: the name in large type on a paper-coloured background beside three phone screens showing the studio home, the style step and the export step",
-      "heroAlt": "A finished passport photo inside green viewfinder brackets with a Fits size stamp, next to the export card with JPEG, PNG and PDF choices and single, 2-up, 4-up and 6-up layouts",
+      "coverAlt": "Passport.AI cover: the name in large type on a paper-coloured background beside three phone screens from the design: the welcome screen, the style step and the finished result",
+      "heroAlt": "The Dossier design language: a passport photo in green viewfinder brackets with an Approved stamp on a passport-style card, beside the before-and-after slider and the export step on two phones",
       "metaDescription": "Passport.AI is an ID, passport and visa photo studio for iOS and Android with an on-device face check and print-ready exports. Built in Flutter by ALAZ.",
       "headings": {
         "challenge": [
@@ -340,12 +353,13 @@
         }
       ],
       "galleryAlts": [
-        "The document step: a search field, tabs for Countries, Social and Custom size, a recommended US passport card of 51 × 51 mm and an A to Z list of 250 countries",
-        "The photo step before camera access is given: a camera icon in viewfinder brackets, a note that only a reduced copy is used for the face check, and buttons to allow the camera or choose from the gallery",
-        "The style step: the source photo, three framing options, five background colours plus a custom colour, outfit chips and a cost meter showing 100 credits to generate",
-        "The style step scrolled down: ten outfit presets and a keep-my-outfit option, ten retouching options at one credit each and a warning that heavy beautification may be rejected on official documents",
-        "The export step: the finished photo in viewfinder brackets with a Fits size stamp, JPEG, PNG and PDF choices, single, 2-up, 4-up and 6-up layouts and a copies counter",
-        "The credits page: the balance, what generation, downloads, layouts and extras cost, ways to earn credits and a Buy credits button"
+        "The welcome screen: a selfie and its finished passport photo with an Approved stamp, the headline From selfie to official photo, in 2 minutes and a Next button",
+        "The photo step in the camera view: a face inside green viewfinder brackets with an Approved stamp, chips for face sharp, light good and gaze straight, and Retake and Continue buttons",
+        "A rejected photo: red viewfinder brackets and a Photo too dark card with Light, Sharpness and Angle checks, plus Gallery and Retake buttons",
+        "The style step: the source photo, three framing options, five background colours plus a custom one, and a cost meter showing 100 credits with a Generate with AI button",
+        "The generating screen: the photo in viewfinder brackets with a scanning line and a checklist reading face and light analyzed, background set to white, blazer applied, glare removed and cropping to 50 × 60 mm",
+        "The result with a before-and-after slider: the original selfie on the left, the finished passport photo with a white-blue background on the right, and a Close comparison button",
+        "The result and export step: the finished photo with a Fits size stamp, JPEG, PNG and PDF choices, a cost of 1 credit and a Save button"
       ],
       "schema": {
         "category": "MultimediaApplication",
