@@ -6,6 +6,16 @@ import { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { buildMetadata, urlFor } from '@/lib/seo';
 import { fit } from '@/lib/fit';
 import HeatField from '@/components/HeatField';
+import BackgroundVideo from '@/components/BackgroundVideo';
+
+// edge-flame: the loop of the working edge behind "ALAZ." (encoded by scripts/video-encode.sh).
+const EDGE_FLAME = {
+  poster: '/videos/edge-flame/poster.webp',
+  sources: {
+    h264: { 720: '/videos/edge-flame/edge-flame-720.mp4', 1080: '/videos/edge-flame/edge-flame-1080.mp4' },
+    av1: { 720: '/videos/edge-flame/edge-flame-720.av1.mp4', 1080: '/videos/edge-flame/edge-flame-1080.av1.mp4' },
+  },
+};
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
@@ -40,9 +50,9 @@ export default async function AboutPage({ params }) {
         </div>
       </section>
 
-      {/* 01 The name: the flame, drawn by the shader. */}
+      {/* 01 The name: the flame (a filmed loop), with the live shader edge drawn over it. */}
       <section className="relative overflow-hidden bg-ink" aria-labelledby="origin-title">
-        <div className="heat-field-wrap"><HeatField variant="band" /></div>
+        <div className="heat-field-wrap"><BackgroundVideo className="bg-video--edge" poster={EDGE_FLAME.poster} sources={EDGE_FLAME.sources} /><HeatField variant="band" intensity={0.5} /></div>
         <div className="shell relative z-[1] py-[var(--s-6)]">
           <div className="eyebrow t-meta uppercase" data-reveal="line"><span>01 / {t('originEyebrowLeft')}</span><span>{t('originEyebrowRight')}</span></div>
           <p className="t-meta uppercase text-fg-4 mt-[var(--s-5)]" data-reveal="fade">{t('originLabel')}</p>

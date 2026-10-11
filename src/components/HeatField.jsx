@@ -59,7 +59,7 @@ const VARIANTS = {
   ignite: { band: 1.0, intensity: 0.9, y: 0.2, ignite: true },
 };
 
-export default function HeatField({ variant = 'hero', trigger = 'scroll', className = '' }) {
+export default function HeatField({ variant = 'hero', trigger = 'scroll', intensity: intensityOverride, className = '' }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export default function HeatField({ variant = 'hero', trigger = 'scroll', classN
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const gl = canvas.getContext('webgl', { antialias: false, alpha: true, premultipliedAlpha: true, powerPreference: 'low-power' });
     if (!gl) return undefined;
-    const cfg = VARIANTS[variant] ?? VARIANTS.hero;
+    const cfg = { ...(VARIANTS[variant] ?? VARIANTS.hero), ...(intensityOverride != null ? { intensity: intensityOverride } : {}) };
     const wrap = canvas.parentElement;
     wrap?.classList.add('is-live');
 
@@ -139,7 +139,7 @@ export default function HeatField({ variant = 'hero', trigger = 'scroll', classN
       wrap?.classList.remove('is-live');
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [variant, trigger]);
+  }, [variant, trigger, intensityOverride]);
 
   return <canvas ref={ref} className={`heat-field heat-field--${variant} ${className}`} aria-hidden="true" />;
 }

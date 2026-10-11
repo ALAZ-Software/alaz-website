@@ -223,9 +223,9 @@ Kabul: ilk kare neredeyse siyah, son kare Klip 1'in kararlı hâline benziyor (b
 
 **Doğrulama:** lint ve build temiz; Playwright ile 14 sayfa (EN/TR) baştan sona kaydırıldı, beklenen 404 dışında konsol hatası yok; yığılma, geçiş, şerit, iz, kırılma ve tamamlanma ekranı ekran görüntüleriyle kontrol edildi; reduced-motion ve mobilde hepsi kapalı, yatay taşma yok.
 
-**Kalan video işleri (en son, Flow ile):**
+**Video işleri:**
 
-1. About "ALAZ." bölümü: `edge-flame` klibi (bölüm 4'teki prompt) → `scripts/video-encode.sh` ile kodlanır, `BackgroundVideo` ile `band` shader'ının altına girer.
+1. ~~About "ALAZ." bölümü: `edge-flame` klibi~~ **Tamamlandı (11 Ekim).** Flow'dan gelen 1080p, 8 sn klip `scripts/video-encode.sh --loop 1.5` ile dikişsiz döngüye çevrildi (1080p H.264 1,2 MB, AV1 0,24 MB, 720p 0,5 / 0,16 MB, poster 15 KB; 1440p yok, kaynak 1080p). `public/videos/edge-flame/` altında. Kadraj: videodaki alev çizgisi karenin tam ortasında (%50), bu yüzden `.bg-video--edge` kareyi bölümün yukarıdan %38'ine ortalar; shader'ın `band` çizgisi de orada ve üst üste biner (masaüstü, geniş ekran ve mobilde piksel piksel doğrulandı). Shader yoğunluğu 0,8'den 0,5'e indirildi (`HeatField intensity`); alt ve üst kenarlar maskeyle siyaha solar. Reduced-motion ve veri tasarrufunda yalnızca poster.
 2. 404: `edge-out` klibi (opsiyonel).
 3. Ürün hover videoları (C): uygulama kayıtları istenmedi; istenirse Market Hours'un kaydı Playwright ile alınabilir.
 4. Hero'da video yok (karar 1); CTA tutuşması video yerine shader'da yapıldı (karar 2).
