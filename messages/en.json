@@ -186,6 +186,90 @@
         "fg": "#ffffff",
         "accent": "#19c3b1"
       }
+    },
+    {
+      "slug": "simple-note",
+      "number": "03",
+      "name": "SIMPLE NOTE",
+      "discipline": "MOBILE & WEB",
+      "type": "PRODUCTIVITY / NOTES & REMINDERS",
+      "image": "/projects/simple-note/cover-en.png",
+      "heroImage": "/projects/simple-note/hero-en.png",
+      "imageWidth": 1920,
+      "imageHeight": 1200,
+      "colorImage": true,
+      "gallery": [
+        "/projects/simple-note/en/01.webp",
+        "/projects/simple-note/en/02.webp",
+        "/projects/simple-note/en/03.webp",
+        "/projects/simple-note/en/04.webp",
+        "/projects/simple-note/en/05.webp"
+      ],
+      "summary": "A note app that feels like real paper: notes, checklists, reminders and a calendar on a desk, with handwriting, pencil ticks and the sounds of paper. One Flutter codebase for iOS, Android and the web, synced through Firebase.",
+      "challenge": "People who kept a paper notebook for years want the same thing on a phone: write it down in seconds, tick it off, be reminded at the right minute and never lose a page, with or without a connection. Most note apps give them either a blank white box or a workspace with more structure than a shopping list needs.",
+      "approach": "Every screen keeps the paper metaphor: ruled, squared, plain and legal-pad paper, five paper colours, blue, black and red ink, a pushpin for pinned notes, a highlighter and a red pen for circling, with 24 short desk sounds and haptics matched to each action. Writes go to Firestore's local cache first and sync field by field, so two devices, or two people, editing the same list never overwrite each other. Reminders are scheduled on the device, within iOS's pending-notification limit and Android's exact-alarm rules, and a Cloud Function pushes any reminder a phone has not already shown. Accounts are optional: anonymous notes merge into a Google, Apple or e-mail account later.",
+      "outcome": "Simple Note 1.0 is built and being prepared for the App Store, Google Play and the web: notes and checklists, folders, pinned and archived notes, a 30-day trash, search, a month, week and day calendar with a journal page for each day, one-off and recurring reminders, PIN or biometric lock, notes shared by invite link, version history, home-screen widgets, share-sheet capture and JSON or Markdown export. The free plan holds 50 notes; Simple Note Pro, ready for RevenueCat, lifts the cap and unlocks the lock, recurring reminders and version history.",
+      "markers": [
+        "PAPER, INK AND 24 SOUNDS",
+        "FIELD-LEVEL OFFLINE SYNC",
+        "SERVER-BACKED REMINDERS"
+      ],
+      "coverAlt": "Simple Note cover: the name in handwriting on a beige desk beside a blue note, a yellow checklist with a red pushpin, a pink reminder slip and a navy pencil",
+      "heroAlt": "A white ruled sheet with a handwritten weekly plan, a yellow grocery checklist, a pink reminder slip, a locked green note and a navy pencil on a beige desk",
+      "metaDescription": "Simple Note is a note app that feels like real paper: notes, checklists, reminders and a calendar for iOS, Android and web. Built in Flutter by ALAZ.",
+      "headings": {
+        "challenge": [
+          "A NOTEBOOK,",
+          "NOT A WORKSPACE."
+        ],
+        "approach": [
+          "PAPER FIRST,",
+          "OFFLINE FIRST."
+        ],
+        "outcome": [
+          "ONE DESK,",
+          "THREE PLATFORMS."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Platforms",
+          "value": "iOS, Android and web"
+        },
+        {
+          "label": "Stack",
+          "value": "Flutter, Firebase, Cloud Functions"
+        },
+        {
+          "label": "Our role",
+          "value": "Design, development, release"
+        },
+        {
+          "label": "Status",
+          "value": "Store release in preparation"
+        }
+      ],
+      "galleryAlts": [
+        "The Simple Note desk: a My Notes list with a search strip, colour filters, a pinned weekly plan and a grocery checklist on paper cards",
+        "A blue ruled note titled Book ideas with blue-ink handwriting, one word highlighted and a phrase circled in red pen",
+        "A yellow legal-pad checklist titled Groceries: two of five items ticked in pencil and struck through, with a progress bar",
+        "The reminder sheet over a note: repeat options and quick times such as tomorrow morning 09:00 and Monday 09:00",
+        "A locked note shown as a sealed green envelope with a red wax seal, above a handwritten PIN keypad"
+      ],
+      "schema": {
+        "category": "UtilitiesApplication",
+        "subCategory": "Notes and checklists",
+        "os": "iOS, Android, Web"
+      },
+      "theme": {
+        "bg": "#d8ccb4",
+        "fg": "#2a2622",
+        "accent": "#2b3a67"
+      }
     }
   ],
   "blogPosts": [
@@ -392,7 +476,11 @@
           "GitHub Actions"
         ],
         "outcome": "Predictable server costs, automated release cycles, and an infrastructure baseline that does not buckle under traffic spikes.",
-        "bestFor": "Teams dealing with recurring downtime, slow deployment cycles, or systems outgrowing their initial prototype setup."
+        "bestFor": "Teams dealing with recurring downtime, slow deployment cycles, or systems outgrowing their initial prototype setup.",
+        "proof": {
+          "slug": "simple-note",
+          "label": "Simple Note, a Firebase backend with rules tests and CI for iOS, Android and web"
+        }
       },
       {
         "id": "performance-and-modernization",
@@ -560,6 +648,11 @@
           "href": "/case-studies/english-vocabulary"
         },
         {
+          "label": "Simple Note",
+          "value": "note app for iOS, Android & web",
+          "href": "/case-studies/simple-note"
+        },
+        {
           "label": "Market Hours",
           "value": "live at markethours.live",
           "href": "https://markethours.live",
@@ -684,7 +777,7 @@
   "archive": {
     "meta": {
       "title": "Work — Web & Mobile Apps Built by ALAZ",
-      "description": "Products ALAZ designed, built and shipped: a vocabulary app for iOS and Android and a live market-hours dashboard. The problem, the build and what shipped."
+      "description": "Products ALAZ designed, built and shipped: a vocabulary app, a paper-like note app and a live market-hours dashboard. The problem, the build and what shipped."
     },
     "eyebrowLeft": "WORK",
     "eyebrowRight": "BUILT AND RUN BY ALAZ",
@@ -692,7 +785,7 @@
     "heading": [
       "THE WORK"
     ],
-    "introText": "Two products we built and run ourselves: a vocabulary app for iOS and Android, and a market-hours dashboard that is live on the web. Each page covers the problem, the build and what shipped.",
+    "introText": "Three products we built and run ourselves: a vocabulary app for iOS and Android, a note app that feels like real paper, and a market-hours dashboard that is live on the web. Each page covers the problem, the build and what shipped.",
     "introNote": "{count} PROJECTS",
     "tableHeaders": [
       "NO.",
