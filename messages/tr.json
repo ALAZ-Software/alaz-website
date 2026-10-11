@@ -186,6 +186,90 @@
         "fg": "#ffffff",
         "accent": "#19c3b1"
       }
+    },
+    {
+      "slug": "simple-note",
+      "number": "03",
+      "name": "SIMPLE NOTE",
+      "discipline": "MOBİL & WEB",
+      "type": "ÜRETKENLİK / NOT & HATIRLATICI",
+      "image": "/projects/simple-note/cover-tr.png",
+      "heroImage": "/projects/simple-note/hero-tr.png",
+      "imageWidth": 1920,
+      "imageHeight": 1200,
+      "colorImage": true,
+      "gallery": [
+        "/projects/simple-note/tr/01.webp",
+        "/projects/simple-note/tr/02.webp",
+        "/projects/simple-note/tr/03.webp",
+        "/projects/simple-note/tr/04.webp",
+        "/projects/simple-note/tr/05.webp"
+      ],
+      "summary": "Gerçek kağıt hissi veren bir not uygulaması: masa üzerinde notlar, kontrol listeleri, hatırlatıcılar ve takvim; el yazısı, kurşun kalem tikleri ve kağıt sesleriyle. iOS, Android ve web için tek Flutter kod tabanı, Firebase ile eşitleme.",
+      "challenge": "Yıllarca kağıt defter tutmuş insanlar telefonda da aynı şeyi ister: saniyeler içinde yazmak, bitince üstünü çizmek, tam dakikasında hatırlatılmak ve bağlantı olsun olmasın tek bir sayfa bile kaybetmemek. Çoğu not uygulaması ise ya bembeyaz bir kutu ya da bir alışveriş listesinin ihtiyacından çok daha fazla yapı sunan bir çalışma alanı veriyor.",
+      "approach": "Her ekran kağıt metaforunu koruyor: çizgili, kareli, düz ve bloknot kağıdı, beş kağıt rengi, mavi, siyah ve kırmızı mürekkep, sabitlenen notlar için raptiye, fosforlu kalem ve daire içine almak için kırmızı kalem; her eyleme uyan 24 kısa masa sesi ve dokunsal geri bildirimle. Yazılanlar önce Firestore'un yerel önbelleğine gidiyor ve alan alan eşitleniyor; böylece aynı listeyi düzenleyen iki cihaz ya da iki kişi birbirinin üstüne yazmıyor. Hatırlatıcılar cihazda, iOS'un bekleyen bildirim sınırına ve Android'in tam zamanlı alarm kurallarına uyarak planlanıyor; telefonun henüz göstermediği bir hatırlatıcıyı bir Cloud Function gönderiyor. Hesap isteğe bağlı: anonim notlar sonradan Google, Apple ya da e-posta hesabıyla birleşiyor.",
+      "outcome": "Simple Note 1.0 tamamlandı ve App Store, Google Play ve web için yayına hazırlanıyor: not ve kontrol listeleri, klasörler, sabitlenmiş ve arşivlenmiş notlar, 30 günlük çöp kutusu, arama, her güne bir günlük sayfası olan ay, hafta ve gün takvimi, tek seferlik ve tekrarlayan hatırlatıcılar, PIN ya da biyometrik kilit, davet linkiyle paylaşılan notlar, sürüm geçmişi, ana ekran widget'ları, paylaş menüsünden not alma ve JSON ya da Markdown dışa aktarma. Ücretsiz plan 50 not tutuyor; RevenueCat'e hazır Simple Note Pro bu sınırı kaldırıyor, kilidi, tekrarlayan hatırlatıcıları ve sürüm geçmişini açıyor.",
+      "markers": [
+        "KAĞIT, MÜREKKEP VE 24 SES",
+        "ALAN BAZINDA ÇEVRİMDIŞI EŞİTLEME",
+        "SUNUCU YEDEKLİ HATIRLATICILAR"
+      ],
+      "coverAlt": "Simple Note kapağı: bej masada el yazısıyla uygulama adı; yanında mavi bir not, kırmızı raptiyeli sarı kontrol listesi, pembe hatırlatıcı fişi ve lacivert bir kalem",
+      "heroAlt": "Bej masada el yazısıyla haftalık plan yazılmış beyaz çizgili kağıt, sarı market listesi, pembe hatırlatıcı fişi, kilitli yeşil not ve lacivert bir kalem",
+      "metaDescription": "Simple Note, gerçek kağıt hissi veren bir not uygulaması: iOS, Android ve web için not, kontrol listesi, hatırlatıcı ve takvim. ALAZ'ın Flutter ürünü.",
+      "headings": {
+        "challenge": [
+          "DEFTER OLSUN,",
+          "ÇALIŞMA ALANI DEĞİL."
+        ],
+        "approach": [
+          "ÖNCE KAĞIT,",
+          "ÖNCE ÇEVRİMDIŞI."
+        ],
+        "outcome": [
+          "TEK MASA,",
+          "ÜÇ PLATFORM."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Yıl",
+          "value": "2026"
+        },
+        {
+          "label": "Platformlar",
+          "value": "iOS, Android ve web"
+        },
+        {
+          "label": "Teknolojiler",
+          "value": "Flutter, Firebase, Cloud Functions"
+        },
+        {
+          "label": "Rolümüz",
+          "value": "Tasarım, geliştirme, yayın"
+        },
+        {
+          "label": "Durum",
+          "value": "Mağaza yayını hazırlanıyor"
+        }
+      ],
+      "galleryAlts": [
+        "Simple Note masası: arama şeridi, renk filtreleri, sabitlenmiş haftalık plan ve kağıt kartlar üzerinde market listesiyle Notlarım ekranı",
+        "Kitap fikirleri başlıklı mavi çizgili not: mavi mürekkeple el yazısı, vurgulanmış bir kelime ve kırmızı kalemle daire içine alınmış bir ifade",
+        "Market başlıklı sarı bloknot kontrol listesi: beş maddeden ikisi kurşun kalemle tiklenip üstü çizilmiş, ilerleme çubuğuyla",
+        "Notun üstünde hatırlatıcı sayfası: tekrar seçenekleri ve yarın sabah 09:00, Pazartesi 09:00 gibi hızlı saatler",
+        "Kilitli not: kırmızı mühürlü yeşil bir zarf ve altında el yazısıyla PIN tuş takımı"
+      ],
+      "schema": {
+        "category": "UtilitiesApplication",
+        "subCategory": "Not ve kontrol listeleri",
+        "os": "iOS, Android, Web"
+      },
+      "theme": {
+        "bg": "#d8ccb4",
+        "fg": "#2a2622",
+        "accent": "#2b3a67"
+      }
     }
   ],
   "blogPosts": [
@@ -392,7 +476,11 @@
           "GitHub Actions"
         ],
         "outcome": "Öngörülebilir sunucu maliyetleri, hatasız dağıtımlar ve yoğun trafikte teklemeyen bir altyapı.",
-        "bestFor": "Sık sık kesinti yaşayan, yayına çıkmaktan çekinen veya ilk kurulumunu aşmış büyüyen ekipler."
+        "bestFor": "Sık sık kesinti yaşayan, yayına çıkmaktan çekinen veya ilk kurulumunu aşmış büyüyen ekipler.",
+        "proof": {
+          "slug": "simple-note",
+          "label": "Simple Note: kural testleri ve CI ile iOS, Android ve web için Firebase backend'i"
+        }
       },
       {
         "id": "performance-and-modernization",
@@ -560,6 +648,11 @@
           "href": "/case-studies/english-vocabulary"
         },
         {
+          "label": "Simple Note",
+          "value": "iOS, Android ve web için not uygulaması",
+          "href": "/case-studies/simple-note"
+        },
+        {
           "label": "Market Hours",
           "value": "markethours.live'da yayında",
           "href": "https://markethours.live",
@@ -683,7 +776,7 @@
   "archive": {
     "meta": {
       "title": "İşler — ALAZ'ın Geliştirdiği Web ve Mobil Uygulamalar",
-      "description": "ALAZ'ın tasarlayıp geliştirdiği ürünler: iOS ve Android için bir kelime uygulaması ve canlı bir piyasa saatleri panosu. Problem, geliştirme ve yayınlanan."
+      "description": "ALAZ'ın geliştirdiği ürünler: bir kelime uygulaması, kağıt hissi veren bir not uygulaması ve canlı bir piyasa saatleri panosu. Problem, geliştirme, yayınlanan."
     },
     "eyebrowLeft": "İŞLER",
     "eyebrowRight": "ALAZ TARAFINDAN GELİŞTİRİLİP İŞLETİLİYOR",
@@ -691,7 +784,7 @@
     "heading": [
       "İŞLER"
     ],
-    "introText": "Kendimiz geliştirip işlettiğimiz iki ürün: iOS ve Android için bir kelime uygulaması ve web'de yayında olan bir piyasa saatleri panosu. Her sayfa problemi, geliştirmeyi ve yayınlananı anlatır.",
+    "introText": "Kendimiz geliştirip işlettiğimiz üç ürün: iOS ve Android için bir kelime uygulaması, gerçek kağıt hissi veren bir not uygulaması ve web'de yayında olan bir piyasa saatleri panosu. Her sayfa problemi, geliştirmeyi ve yayınlananı anlatır.",
     "introNote": "{count} PROJE",
     "tableHeaders": [
       "NO.",

@@ -10,4 +10,8 @@ export const STORE_LINKS = {
     appStore: '',
     googlePlay: '',
   },
+  'simple-note': {
+    appStore: '',
+    googlePlay: '',
+  },
 };

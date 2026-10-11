@@ -61,6 +61,7 @@ export default async function CaseStudyPage({ params }) {
     name,
     description: project.summary,
     applicationCategory: project.schema?.category,
+    ...(project.schema?.subCategory ? { applicationSubCategory: project.schema.subCategory } : {}),
     operatingSystem: project.schema?.os,
     image: absoluteUrl(project.image),
     ...(project.gallery ? { screenshot: project.gallery.map(absoluteUrl) } : {}),
