@@ -270,6 +270,93 @@
         "fg": "#2a2622",
         "accent": "#2b3a67"
       }
+    },
+    {
+      "slug": "passport-ai",
+      "number": "04",
+      "name": "PASSPORT.AI",
+      "displayName": "Passport.AI",
+      "discipline": "MOBİL UYGULAMA",
+      "type": "FOTOĞRAF / KİMLİK VE VİZE FOTOĞRAFI",
+      "image": "/projects/passport-ai/cover-tr.png",
+      "heroImage": "/projects/passport-ai/hero-tr.png",
+      "imageWidth": 1920,
+      "imageHeight": 1200,
+      "colorImage": true,
+      "gallery": [
+        "/projects/passport-ai/tr/01.webp",
+        "/projects/passport-ai/tr/02.webp",
+        "/projects/passport-ai/tr/03.webp",
+        "/projects/passport-ai/tr/04.webp",
+        "/projects/passport-ai/tr/05.webp",
+        "/projects/passport-ai/tr/06.webp"
+      ],
+      "summary": "Pasaport, kimlik, vize ve profil fotoğrafı için bir stüdyo uygulaması: 250 ülke ve bölgeden belgeni seç, yüzü telefonda kontrol ettir, arka plan, kıyafet ve rötuşu belirle; JPEG, PNG ya da baskıya hazır PDF sayfası olarak dışa aktar. Flutter ve Firebase, Türkçe ve İngilizce.",
+      "challenge": "Kimlik fotoğrafı küçük şeyler yüzünden geri çevrilebilir: dengesiz ışık, eğik duran bir baş, yanlış arka plan, biraz sapan bir ölçü. Çoğu kişi ya vesikalık kabinine ya da bir fotoğraf düzenleme uygulamasına mahkûm kalıyor. Hedef, fotoğrafı her yerde çekebilmek, yüz yok, yetersiz ışık, bulanıklık, eğik baş ya da kapalı göz gibi yaygın sorunları kredi harcanmadan önce yakalamak ve seçilen belgenin piksel ölçüsüne tam kırpılmış bir dosya vermekti.",
+      "approach": "iOS ve Android için Flutter; yüz kontrolü telefonun kendisinde yapılıyor: iOS'ta Apple Vision, Android'de Google ML Kit tek bir platform kanalının arkasında, ışık ve netlik ise Dart'ta ölçülüyor. Bir fotoğraf, yüzün bulunamamasından kapalı gözlere kadar sekiz nedenden herhangi biriyle geri çevrilebiliyor ve uygulama ana sorunu sade bir dille, nasıl düzelteceğine dair bir ipucuyla anlatıyor. Kullanıcı \"AI ile oluştur\" düğmesine dokunana kadar hiçbir şey yüklenmiyor. Sonra küçültülmüş bir kopya yükleniyor ve bir Cloud Function kredileri düşüyor, seçilen arka plan, kıyafet ve rötuşu bir Gemini görsel modeline uygulatıyor ve sonucu belgenin ölçüsüne kırpıyor. Krediler sunucudaki bir defterde tutuluyor; üretim başarısız olursa iade ediliyor. Her belgenin milimetre ya da piksel cinsinden bir ölçüsü var; varsayılan ölçü 35 × 45 mm ICAO standardı, özel boyut da girilebiliyor. Arayüz; vizör köşeleri, eş aralıklı yazı tipiyle gösterilen veriler ve onaylanan fotoğraf için bir damga içeren kâğıt ve mürekkep temalı bir tasarım dilini izliyor.",
+      "outcome": "Passport.AI, dört adımlı akıştan (belge, fotoğraf, stil ve dışa aktarma) arkasındaki Cloud Functions'a kadar bütün yolu kodda kapsıyor. 250 ülke ve bölge kaydını, altı sosyal profil ölçüsünü ve özel ölçüleri, 10 kıyafet ve 10 rötuş seçeneğini kapsıyor; çıktıyı JPEG, PNG ya da kesim çizgili A4 PDF olarak veriyor, PDF'te sayfa başına 1, 2, 4 ya da 6 fotoğraf yer alıyor. Uygulama Türkçe ve İngilizce, açık ve koyu temayla çalışıyor; haftalık, aylık ve yıllık kredi planları RevenueCat SDK'sı üzerinden yürüyor. Sırada sunucunun yayına alınması ve mağaza gönderimi var.",
+      "markers": [
+        "YÜZ KONTROLÜ TELEFONDA",
+        "SUNUCUDA KREDİ DEFTERİ",
+        "BASKIYA HAZIR PDF SAYFALARI"
+      ],
+      "coverAlt": "Passport.AI kapağı: kâğıt renginde zeminde iri puntolarla uygulama adı ve yanında stüdyo ana ekranını, stil adımını ve dışa aktarma adımını gösteren üç telefon ekranı",
+      "heroAlt": "Yeşil vizör köşeleri içinde Ölçüye uygun damgalı bitmiş bir pasaport fotoğrafı ve yanında JPEG, PNG, PDF seçenekleri ile tekli, 2'li, 4'lü ve 6'lı düzenleri olan dışa aktarma kartı",
+      "metaDescription": "Passport.AI, iOS ve Android için kimlik, pasaport ve vize fotoğrafı stüdyosu: cihazda yüz kontrolü, baskıya hazır çıktı. ALAZ tarafından Flutter ile yapıldı.",
+      "headings": {
+        "challenge": [
+          "KÜÇÜK ŞEYLERDEN",
+          "REDDEDİLİR."
+        ],
+        "approach": [
+          "KONTROL TELEFONDA,",
+          "KREDİ SUNUCUDA."
+        ],
+        "outcome": [
+          "DÖRT ADIM,",
+          "250 ÜLKE."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Yıl",
+          "value": "2026"
+        },
+        {
+          "label": "Platformlar",
+          "value": "iOS ve Android"
+        },
+        {
+          "label": "Teknolojiler",
+          "value": "Flutter, Firebase, Gemini, RevenueCat"
+        },
+        {
+          "label": "Rolümüz",
+          "value": "Tasarım, geliştirme"
+        },
+        {
+          "label": "Durum",
+          "value": "Uygulama geliştirildi, sunucu yayını ve mağaza gönderimi sırada"
+        }
+      ],
+      "galleryAlts": [
+        "Belge adımı: arama alanı, Ülkeler, Sosyal ve Özel boyut sekmeleri, 50 × 60 mm'lik önerilen Türkiye pasaport kartı ve A'dan Z'ye 250 ülkelik liste",
+        "Kamera izni verilmeden önceki fotoğraf adımı: vizör köşeleri içinde bir kamera simgesi, yüz kontrolü için yalnızca küçültülmüş bir kopyanın kullanıldığını söyleyen not ve Kameraya izin ver ile Galeriden seç düğmeleri",
+        "Stil adımı: kaynak fotoğraf, üç kadraj seçeneği, beş arka plan rengi ile özel renk, kıyafet seçenekleri ve üretim için 100 kredi gösteren özet kartı",
+        "Aşağı kaydırılmış stil adımı: on hazır kıyafet seçeneği ve Kıyafetim kalsın, her biri +1 kredi olan on rötuş seçeneği ve ağır güzelleştirmenin resmî belgelerde reddedilebileceği uyarısı",
+        "Dışa aktarma adımı: vizör köşeleri içinde Ölçüye uygun damgalı bitmiş fotoğraf, JPEG, PNG ve PDF seçenekleri, tekli, 2'li, 4'lü ve 6'lı düzenler ve kopya sayacı",
+        "Krediler sayfası: bakiye, üretim, indirme, sayfa düzeni ve ekstraların maliyeti, kredi kazanma yolları ve Kredi al düğmesi"
+      ],
+      "schema": {
+        "category": "MultimediaApplication",
+        "subCategory": "Kimlik ve vize fotoğrafı",
+        "os": "iOS, Android"
+      },
+      "theme": {
+        "bg": "#f6f4ef",
+        "fg": "#1b1a17",
+        "accent": "#0b6b4c"
+      }
     }
   ],
   "blogPosts": [
@@ -653,6 +740,11 @@
           "href": "/case-studies/simple-note"
         },
         {
+          "label": "Passport.AI",
+          "value": "iOS ve Android için kimlik fotoğrafı stüdyosu",
+          "href": "/case-studies/passport-ai"
+        },
+        {
           "label": "Market Hours",
           "value": "markethours.live'da yayında",
           "href": "https://markethours.live",
@@ -776,7 +868,7 @@
   "archive": {
     "meta": {
       "title": "İşler — ALAZ'ın Geliştirdiği Web ve Mobil Uygulamalar",
-      "description": "ALAZ'ın geliştirdiği ürünler: bir kelime uygulaması, kağıt hissi veren bir not uygulaması ve canlı bir piyasa saatleri panosu. Problem, geliştirme, yayınlanan."
+      "description": "ALAZ'ın geliştirdiği ürünler: kelime uygulaması, not uygulaması, kimlik fotoğrafı stüdyosu ve piyasa saatleri panosu. Problem, geliştirme ve yayınlanan."
     },
     "eyebrowLeft": "İŞLER",
     "eyebrowRight": "ALAZ TARAFINDAN GELİŞTİRİLİP İŞLETİLİYOR",
@@ -784,7 +876,7 @@
     "heading": [
       "İŞLER"
     ],
-    "introText": "Kendimiz geliştirip işlettiğimiz üç ürün: iOS ve Android için bir kelime uygulaması, gerçek kağıt hissi veren bir not uygulaması ve web'de yayında olan bir piyasa saatleri panosu. Her sayfa problemi, geliştirmeyi ve yayınlananı anlatır.",
+    "introText": "Kendimiz geliştirip işlettiğimiz dört ürün: iOS ve Android için bir kelime uygulaması ve bir kimlik fotoğrafı stüdyosu, gerçek kağıt hissi veren bir not uygulaması ve web'de yayında olan bir piyasa saatleri panosu. Her sayfa problemi, geliştirmeyi ve yayınlananı anlatır.",
     "introNote": "{count} PROJE",
     "tableHeaders": [
       "NO.",

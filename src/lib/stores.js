@@ -14,4 +14,8 @@ export const STORE_LINKS = {
     appStore: '',
     googlePlay: '',
   },
+  'passport-ai': {
+    appStore: '',
+    googlePlay: '',
+  },
 };

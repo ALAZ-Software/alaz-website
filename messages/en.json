@@ -270,6 +270,93 @@
         "fg": "#2a2622",
         "accent": "#2b3a67"
       }
+    },
+    {
+      "slug": "passport-ai",
+      "number": "04",
+      "name": "PASSPORT.AI",
+      "displayName": "Passport.AI",
+      "discipline": "MOBILE APP",
+      "type": "PHOTO / ID & VISA PHOTOS",
+      "image": "/projects/passport-ai/cover-en.png",
+      "heroImage": "/projects/passport-ai/hero-en.png",
+      "imageWidth": 1920,
+      "imageHeight": 1200,
+      "colorImage": true,
+      "gallery": [
+        "/projects/passport-ai/en/01.webp",
+        "/projects/passport-ai/en/02.webp",
+        "/projects/passport-ai/en/03.webp",
+        "/projects/passport-ai/en/04.webp",
+        "/projects/passport-ai/en/05.webp",
+        "/projects/passport-ai/en/06.webp"
+      ],
+      "summary": "A photo studio for passport, ID, visa and profile pictures: pick a document from 250 countries and territories, get the face checked on the phone, choose background, outfit and retouching, and export a JPEG, a PNG or a print-ready PDF sheet. Flutter and Firebase, in English and Turkish.",
+      "challenge": "An ID photo can be turned down for small things: uneven light, a tilted head, the wrong background, a size that is slightly off. Many people end up in a photo booth or in an image editor. The brief was to take the photo anywhere, catch the common photo problems, such as no face, poor light, blur, a tilted head or closed eyes, before any credits are spent, and return a file cropped to the exact pixel size of the chosen document.",
+      "approach": "Flutter for iOS and Android, with the face check on the phone: Apple Vision on iOS and Google ML Kit on Android behind one platform channel, plus light and sharpness measured in Dart. A photo can be turned down for any of eight reasons, from no face to closed eyes, and the app explains the main problem in plain words with a tip for fixing it. Nothing is uploaded until the user taps Generate with AI. Then a reduced copy is uploaded and a Cloud Function charges the credits, asks a Gemini image model to apply the chosen background, outfit and retouching, and crops the result to the document's size. Credits sit in a server-side ledger and come back if generation fails. Every document has a size in millimetres or pixels, with the 35 × 45 mm ICAO size as the default, and custom sizes are allowed. The interface follows a paper-and-ink design language with viewfinder brackets, monospaced data and a stamp for approved photos.",
+      "outcome": "Passport.AI covers the whole path in code, from the four-step flow (document, photo, style and export) to the Cloud Functions behind it. It covers 250 country and territory entries, six social-profile sizes and custom sizes, 10 outfits and 10 retouching options, and exports a JPEG, a PNG or an A4 PDF with cut lines that holds one, two, four or six photos per page. The app runs in English and Turkish, in light and dark themes, and its weekly, monthly and yearly credit plans are handled through the RevenueCat SDK. Deploying the backend and submitting to the stores come next.",
+      "markers": [
+        "FACE CHECK ON THE PHONE",
+        "SERVER-SIDE CREDIT LEDGER",
+        "PRINT-READY PDF SHEETS"
+      ],
+      "coverAlt": "Passport.AI cover: the name in large type on a paper-coloured background beside three phone screens showing the studio home, the style step and the export step",
+      "heroAlt": "A finished passport photo inside green viewfinder brackets with a Fits size stamp, next to the export card with JPEG, PNG and PDF choices and single, 2-up, 4-up and 6-up layouts",
+      "metaDescription": "Passport.AI is an ID, passport and visa photo studio for iOS and Android with an on-device face check and print-ready exports. Built in Flutter by ALAZ.",
+      "headings": {
+        "challenge": [
+          "REJECTED FOR",
+          "SMALL THINGS."
+        ],
+        "approach": [
+          "CHECK ON DEVICE,",
+          "CHARGE ON SERVER."
+        ],
+        "outcome": [
+          "FOUR STEPS,",
+          "250 COUNTRIES."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Year",
+          "value": "2026"
+        },
+        {
+          "label": "Platforms",
+          "value": "iOS and Android"
+        },
+        {
+          "label": "Stack",
+          "value": "Flutter, Firebase, Gemini, RevenueCat"
+        },
+        {
+          "label": "Our role",
+          "value": "Design, development"
+        },
+        {
+          "label": "Status",
+          "value": "App built, backend launch and store submission next"
+        }
+      ],
+      "galleryAlts": [
+        "The document step: a search field, tabs for Countries, Social and Custom size, a recommended US passport card of 51 × 51 mm and an A to Z list of 250 countries",
+        "The photo step before camera access is given: a camera icon in viewfinder brackets, a note that only a reduced copy is used for the face check, and buttons to allow the camera or choose from the gallery",
+        "The style step: the source photo, three framing options, five background colours plus a custom colour, outfit chips and a cost meter showing 100 credits to generate",
+        "The style step scrolled down: ten outfit presets and a keep-my-outfit option, ten retouching options at one credit each and a warning that heavy beautification may be rejected on official documents",
+        "The export step: the finished photo in viewfinder brackets with a Fits size stamp, JPEG, PNG and PDF choices, single, 2-up, 4-up and 6-up layouts and a copies counter",
+        "The credits page: the balance, what generation, downloads, layouts and extras cost, ways to earn credits and a Buy credits button"
+      ],
+      "schema": {
+        "category": "MultimediaApplication",
+        "subCategory": "ID and visa photo maker",
+        "os": "iOS, Android"
+      },
+      "theme": {
+        "bg": "#f6f4ef",
+        "fg": "#1b1a17",
+        "accent": "#0b6b4c"
+      }
     }
   ],
   "blogPosts": [
@@ -653,6 +740,11 @@
           "href": "/case-studies/simple-note"
         },
         {
+          "label": "Passport.AI",
+          "value": "ID photo studio for iOS & Android",
+          "href": "/case-studies/passport-ai"
+        },
+        {
           "label": "Market Hours",
           "value": "live at markethours.live",
           "href": "https://markethours.live",
@@ -777,7 +869,7 @@
   "archive": {
     "meta": {
       "title": "Work — Web & Mobile Apps Built by ALAZ",
-      "description": "Products ALAZ designed, built and shipped: a vocabulary app, a paper-like note app and a live market-hours dashboard. The problem, the build and what shipped."
+      "description": "Products ALAZ built: a vocabulary app, a paper-like note app, an ID photo studio and a market-hours dashboard. The problem, the build and the result."
     },
     "eyebrowLeft": "WORK",
     "eyebrowRight": "BUILT AND RUN BY ALAZ",
@@ -785,7 +877,7 @@
     "heading": [
       "THE WORK"
     ],
-    "introText": "Three products we built and run ourselves: a vocabulary app for iOS and Android, a note app that feels like real paper, and a market-hours dashboard that is live on the web. Each page covers the problem, the build and what shipped.",
+    "introText": "Four products we built and run ourselves: a vocabulary app and an ID photo studio for iOS and Android, a note app that feels like real paper, and a market-hours dashboard that is live on the web. Each page covers the problem, the build and what shipped.",
     "introNote": "{count} PROJECTS",
     "tableHeaders": [
       "NO.",

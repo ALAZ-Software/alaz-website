@@ -448,6 +448,9 @@ html.intro .curtain { transform: scaleY(1); }
 .site-header[data-scrolled="true"] { background: rgba(10, 10, 10, 0.92); border-bottom-color: var(--line); }
 .site-header[data-hidden="true"] { transform: translateY(-100%); }
 .site-header[data-open="true"] { background: var(--ink); border-bottom-color: var(--line); }
+/* A project page with a light hero (paper, yellow): the transparent header switches to dark ink until it gets its own dark background on scroll. */
+body:has(main[data-hero="light"]) .site-header[data-scrolled="false"]:not([data-open="true"]) :is(a:not(.btn), .menu-toggle) { color: #0a0a0a; }
+body:has(main[data-hero="light"]) .site-header[data-scrolled="false"]:not([data-open="true"]) .nav-link:not(.is-active) { color: #4a4944; }
 
 .nav-link { position: relative; padding: 6px 0; transition: color var(--dur-fast); }
 .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--ember-gradient); transform: scaleX(0); transform-origin: left; transition: transform var(--dur) var(--ease-out); }

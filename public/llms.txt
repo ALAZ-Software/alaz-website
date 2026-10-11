@@ -17,6 +17,7 @@ ALAZ is an engineering team, not an agency with account managers: the people who
 
 - [Vocabulary](https://alaz.pro/case-studies/english-vocabulary): a swipe-card app for the 8,000 most common English words, with audio on every card, 17 word games, spaced-repetition review and 24 interface languages. Flutter, iOS and Android.
 - [Simple Note](https://alaz.pro/case-studies/simple-note): a note app that feels like real paper, with notes, checklists, reminders, a calendar, note lock, notes shared by invite link and offline-first sync, for iOS, Android and the web. Flutter and Firebase; store release in preparation.
+- [Passport.AI](https://alaz.pro/case-studies/passport-ai): an ID, passport, visa and profile photo studio for iOS and Android, with 250 country entries, an on-device face check, AI background, outfit and retouching, and JPEG, PNG or print-ready PDF exports. Flutter and Firebase; app built, backend launch and store submission next.
 - [Market Hours](https://alaz.pro/case-studies/market-hours): a live world map and alarm app showing which stock exchanges and forex sessions are open right now, with holidays, lunch breaks and alerts. Web dashboard live at https://markethours.live; mobile app in preparation.
 
 ## Articles
