@@ -40,7 +40,7 @@ function footerReveal(scope) {
   return { trigger: top, start: 'bottom bottom', end: () => `bottom bottom-=${bottom.offsetHeight}`, scrub: true };
 }
 
-function setupReveals(scope) {
+function setupReveals(scope, { late = false } = {}) {
   const triggerFor = (el, start) => ({ trigger: el, start });
 
   const ctx = gsap.context(() => {
@@ -98,16 +98,18 @@ function setupReveals(scope) {
     });
 
     // The footer warms as the page ends: ink -> deep ember, over the footer's full height.
-    const footer = scope.querySelector('.site-footer');
+    // (Once per page: skipped when this pass only picks up elements that arrived late.)
+    const footer = late ? null : scope.querySelector('.site-footer');
     const main = scope.querySelector('main');
     if (footer && main) gsap.fromTo(footer, { backgroundColor: '#0a0a0a' }, { backgroundColor: '#160c06', ease: 'none', scrollTrigger: { trigger: main, start: 'bottom bottom', end: () => `bottom bottom-=${footer.offsetHeight}`, scrub: true } });
     // The wordmark rises into its crop as the curtain opens.
-    const reveal = footerReveal(scope);
+    const reveal = late ? null : footerReveal(scope);
     const mark = scope.querySelector('.site-footer .footer-mark');
     if (reveal && mark) gsap.fromTo(mark, { y: 36 }, { y: 0, ease: 'none', scrollTrigger: reveal });
 
     // Parallax on tall media blocks.
-    scope.querySelectorAll('[data-parallax]').forEach((el) => {
+    scope.querySelectorAll('[data-parallax]:not([data-parallax-on])').forEach((el) => {
+      el.setAttribute('data-parallax-on', '');
       const amount = Number(el.dataset.parallax || 8);
       gsap.fromTo(el, { yPercent: -amount }, { yPercent: amount, ease: 'none', scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
     });
@@ -523,7 +525,9 @@ export default function Motion() {
     ScrollTrigger.getAll().forEach((t) => t.kill());
     if (lenis) lenis.scrollTo(0, { immediate: true }); else window.scrollTo(0, 0);
 
-    let ctx; let offKinetic; let offStacks; let offHaze;
+    let ctx; let offKinetic; let offStacks; let offHaze; let observer; let lateTimer;
+    const lateCtxs = [];
+    const pending = () => document.querySelector('[data-reveal]:not(.is-revealed), [data-parallax]:not([data-parallax-on])');
     const start = () => {
       if (reduced()) {
         document.querySelectorAll('[data-reveal]').forEach((el) => { el.classList.add('is-revealed'); el.removeAttribute('data-reveal'); });
@@ -534,6 +538,19 @@ export default function Motion() {
       offStacks = setupStacks(document.body);
       offHaze = setupHaze(lenis);
       ScrollTrigger.refresh();
+      // Some pages render parts of themselves after hydration (the start-project form waits for its
+      // query string, behind a Suspense boundary). Anything with a reveal that shows up later is wired
+      // the same way, so it never stays hidden waiting for a pass that already ran.
+      observer = new MutationObserver(() => {
+        if (lateTimer || !pending()) return;
+        lateTimer = setTimeout(() => {
+          lateTimer = null;
+          if (!pending()) return;
+          lateCtxs.push(setupReveals(document.body, { late: true }));
+          ScrollTrigger.refresh();
+        }, 60);
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
     };
 
     // A cover lifted on the previous page lands on this page's hero image, which stays hidden
@@ -567,7 +584,9 @@ export default function Motion() {
     first.current = false;
     const offProgress = setupProgress(lenis);
     return () => {
-      ctx?.revert(); offKinetic?.(); offStacks?.(); offHaze?.(); offProgress();
+      observer?.disconnect(); clearTimeout(lateTimer);
+      ctx?.revert(); lateCtxs.forEach((c) => c.revert()); offKinetic?.(); offStacks?.(); offHaze?.(); offProgress();
+      document.querySelectorAll('[data-parallax-on]').forEach((el) => el.removeAttribute('data-parallax-on'));
       if (target) target.style.visibility = '';
     };
   }, [pathname]);
