@@ -1,6 +1,6 @@
 # Arka plan videoları ve Awwwards seviyesi animasyon önerisi
 
-**Durum:** kararlar verildi, Faz 0 uygulandı · **Tarih:** 2026-10-11 · Bkz. bölüm 9
+**Durum:** video dışındaki her şey uygulandı (Faz 0, 2, 3); video işleri en sona, Google Flow ile · **Tarih:** 2026-10-11 · Bkz. bölüm 9 ve 10
 
 ← [Ana rapor](README.md) · [Tasarım uygulaması](22-tasarim-uygulamasi.md) · [Görsel/video eleştirisi](13-gorsel-video-marka.md)
 
@@ -209,3 +209,23 @@ Kabul: ilk kare neredeyse siyah, son kare Klip 1'in kararlı hâline benziyor (b
 - **D — Tutuşur ve soğur:** `.btn`, `.btn-ghost`, nav linkleri ve `.link-draw` hover'da kor kenar çizer (~200 ms) ve beyaza soğur (~400 ms); hizmet satırı başlıkları ve 404 linkleri kor → beyaz-sıcak → beyaz (`.heat-text`). Saf CSS.
 - **E — Perde footer:** footer görünür alana sığıyorsa `sticky` olur, `main` üstünden kayıp onu açar; ısınma tween'i ve footer içeriğinin hafif paralaksı `main`'in sonundan sürülür (sticky elemanın kendi konumu ScrollTrigger'a yanlış ölçüm verir). Sığmıyorsa (mobil) normal akar.
 - **F — Sıcak kenarlı reveal:** `data-reveal="wipe"`: görsel soldan `clip-path` ile açılır, kenarda 1px kor çizgi gider, açılınca söner. Ana sayfa proje kapakları ve case-study hero görselinde. JS yoksa ve reduced-motion'da görsel açık.
+
+## 10. Faz 2 ve 3 (video dışı, uygulandı)
+
+**Karar (11 Ekim):** videolu kısımlar en sona bırakıldı, Google Flow ile yapılacak; video dışındaki tüm fazlar uygulandı.
+
+- **G — Kapak geçişi (liste → detay):** proje kapağına tıklanınca kapak perdenin üstüne kalkar, perde kapanırken ekran ortasına süzülür, yeni sayfada case-study hero görselinin yerine iner ve ona devreder. Kaynaklar: ana sayfa proje kartları, Work index'teki hover önizlemesi (eğimiyle birlikte kalkar, havada düzelir), mobil kapaklar, About'taki ürün küçük görselleri. Hedef `data-morph-target`. Görünür kapak yoksa (klavye, gizli önizleme) normal perde geçişi; yeni sayfa kapağı almazsa 6 sn sonra kendiliğinden söner. Reduced-motion'da yok.
+- **H — Yığılan bloklar:** About "How we work" adımları (`data-stack="peek"`): her adım yapışır, sonraki üstüne gelir ve öncekinin numarası ve başlığı görünür kalır; dört adım bir başlık dizinine dönüşür, sonra tek blok olarak ekrandan çıkar. Services'in beş bloğu (`data-stack="cover"`): uzun bloklar alt kenarından yapışır, sonraki üstüne kayar, önceki hafifçe küçülür ve kararır. Konumlar yapışkan elemanın kendi ölçümünden değil, düzenden hesaplanır (yapışkan eleman yapıştığı konumu raporlar). Services index linkleri, akıştaki işaretçilere taşınan id'lerle aynı yere iner. Yalnız masaüstü (≥1001px, `gsap.matchMedia` ile pencere küçülünce kendini geri alır); JS yoksa ve reduced-motion'da düz liste.
+- **I — Canlı piyasa şeridi:** `MarketTicker` + `src/lib/markets.js`. Market Hours'un dokuz borsası (ASX, TSE, SSE, HKEX, NSE, BIST, XETRA, LSE, NYSE) ve forex; her borsanın normal seans saatleri kendi saat diliminde, yaz saati Intl ile otomatik, öğle araları dahil. "AÇIK · KAPANIŞA 2 SA 14 DK" biçiminde, dakikada bir güncellenir. Tatiller modellenmedi; şerit "NORMAL SEANSLAR" der ve tatiller için markethours.live'a bağlanır. Ana sayfada hero'nun altında ve Market Hours case study'sinde. Saat hesabı 17 elle hesaplanmış vakayla (yaz saati geçişleri, öğle araları, hafta sonları) test edildi. Reduced-motion'da kaymaz, yatay kaydırılır.
+- **J — Isı izi:** ince pointer'da imlecin arkasında beyaz-sıcaktan ambere, kora soğuyan ince bir çizgi (~0,5 sn). Yalnız iz varken çizer; açık zeminlerde görünmez (screen karışımı).
+- **K — Isı kırılması:** hero wordmark'ı ve "START A PROJECT." başlığı sayfa itilirken (scroll hızı ya da bölüm üstünde imleç hareketi) hafifçe dalgalanır, durunca durulur. Tek SVG displacement filtresi; dururken filtre tamamen kaldırılır, maliyet yok.
+- **Form tamamlanınca tutuşma:** brief gönderilince teşekkür ekranının altında soğuk çelik çizgi ~2 saniyede beyaz-sıcağa tutuşur (`HeatField trigger="mount"`).
+
+**Doğrulama:** lint ve build temiz; Playwright ile 14 sayfa (EN/TR) baştan sona kaydırıldı, beklenen 404 dışında konsol hatası yok; yığılma, geçiş, şerit, iz, kırılma ve tamamlanma ekranı ekran görüntüleriyle kontrol edildi; reduced-motion ve mobilde hepsi kapalı, yatay taşma yok.
+
+**Kalan video işleri (en son, Flow ile):**
+
+1. About "ALAZ." bölümü: `edge-flame` klibi (bölüm 4'teki prompt) → `scripts/video-encode.sh` ile kodlanır, `BackgroundVideo` ile `band` shader'ının altına girer.
+2. 404: `edge-out` klibi (opsiyonel).
+3. Ürün hover videoları (C): uygulama kayıtları istenmedi; istenirse Market Hours'un kaydı Playwright ile alınabilir.
+4. Hero'da video yok (karar 1); CTA tutuşması video yerine shader'da yapıldı (karar 2).

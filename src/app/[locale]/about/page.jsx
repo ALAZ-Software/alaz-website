@@ -66,7 +66,7 @@ export default async function AboutPage({ params }) {
         <ul className="grid grid-cols-2 gap-[var(--col-gap)] mobile:grid-cols-1">
           {projects.map((project, i) => <li key={project.slug} className="group border-t border-line pt-[22px]" data-reveal="fade" data-delay={i * 0.1}>
             <Link href={`/case-studies/${project.slug}`} className="flex gap-[22px] items-start mobile:flex-col" data-cursor="VIEW">
-              <span className="relative block w-[200px] shrink-0 aspect-[16/10] overflow-hidden bg-surface-2 border border-line mobile:w-full"><Image src={project.image} alt={project.coverAlt} fill sizes="(max-width: 760px) 100vw, 200px" className="object-cover transition-transform duration-base ease-out group-hover:scale-[1.04]" /></span>
+              <span className="relative block w-[200px] shrink-0 aspect-[16/10] overflow-hidden bg-surface-2 border border-line mobile:w-full" data-morph><Image src={project.image} alt={project.coverAlt} fill sizes="(max-width: 760px) 100vw, 200px" className="object-cover transition-transform duration-base ease-out group-hover:scale-[1.04]" /></span>
               <span className="flex flex-col">
                 <span className="t-meta uppercase text-fg-4">{project.number} / {project.discipline}</span>
                 <span className="t-title mt-[8px] text-fg">{project.name}</span>
@@ -77,12 +77,12 @@ export default async function AboutPage({ params }) {
         </ul>
       </section>
 
-      {/* 03 How we work: steps stack as you scroll. */}
+      {/* 03 How we work: on desktop the steps stack as you scroll, each leaving its title showing (Motion.jsx). */}
       <section className="shell bg-ink py-[var(--s-6)]" aria-labelledby="process-title">
         <div className="eyebrow t-meta uppercase" data-reveal="line"><span>03 / {t('processEyebrowLeft')}</span><span>{t('processEyebrowRight')}</span></div>
         <h2 id="process-title" style={fit(processHeading, '.')} className="fit t-display-2 uppercase my-[var(--s-5)]" data-reveal="lines">{processHeading[0]}<br />{processHeading[1]}<span className="dot">.</span></h2>
-        <ol>
-          {processSteps.map((step, i) => <li key={step.number} className="grid grid-cols-12 gap-[var(--col-gap)] items-start border-t border-line py-[var(--s-4)] last:border-b mobile:grid-cols-[60px_1fr] mobile:gap-[12px]" data-reveal="fade" data-delay={i * 0.06}><span className="t-meta text-fg-4 col-span-1">{step.number} / 04</span><h3 className="t-display-2 uppercase col-span-5 [--fit-size:clamp(32px,4.2vw,72px)]">{step.title}</h3><p className="t-body text-fg-3 col-span-4 col-start-9 max-w-[44ch] mobile:col-start-2 mobile:col-span-1">{step.body}</p></li>)}
+        <ol data-stack="peek">
+          {processSteps.map((step, i) => <li key={step.number} className="bg-ink border-t border-line last:border-b" data-stack-item data-reveal="fade" data-delay={i * 0.06}><div className="grid grid-cols-12 gap-[var(--col-gap)] items-start py-[var(--s-4)] mobile:grid-cols-[60px_1fr] mobile:gap-[12px]" data-stack-inner><span className="t-meta text-fg-4 col-span-1">{step.number} / 04</span><h3 className="t-display-2 uppercase col-span-5 [--fit-size:clamp(32px,4.2vw,72px)]">{step.title}</h3><p className="t-body text-fg-3 col-span-4 col-start-9 max-w-[44ch] mobile:col-start-2 mobile:col-span-1">{step.body}</p></div></li>)}
         </ol>
         <Link href="/services" className="link-draw t-meta uppercase mt-[var(--s-4)]">{t('servicesCta')} <Icon name="arrow" size={14} /></Link>
       </section>

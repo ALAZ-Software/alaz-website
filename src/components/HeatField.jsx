@@ -7,7 +7,8 @@ import { useEffect, useRef } from 'react';
 // follows the pointer and brightens with scroll speed. The canvas is transparent
 // wherever there is no heat, so the ink (or a video) behind it shows through.
 // variant: 'hero' (wide band), 'band' (thin line), 'quiet' (faint glow),
-//          'ignite' (wide band that heats from cold steel to white-hot as its section scrolls in)
+//          'ignite' (wide band that heats from cold steel to white-hot as its section scrolls in;
+//          with trigger="mount" it heats over ~2 s as soon as it appears instead)
 // Reduced motion / no WebGL: a static gradient fallback is drawn by CSS.
 
 const VERT = `attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }`;
@@ -58,7 +59,7 @@ const VARIANTS = {
   ignite: { band: 1.0, intensity: 0.9, y: 0.2, ignite: true },
 };
 
-export default function HeatField({ variant = 'hero', className = '' }) {
+export default function HeatField({ variant = 'hero', trigger = 'scroll', className = '' }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -92,6 +93,7 @@ export default function HeatField({ variant = 'hero', className = '' }) {
     // ignite: temperature follows how far the section has scrolled into view (0 at the bottom edge, 1 once it is 85% up).
     let heat = cfg.ignite ? 0 : 1;
     let frame; let visible = false; let lastScroll = window.scrollY; let lastT = 0;
+    const mountedAt = performance.now();
 
     const resize = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -101,6 +103,7 @@ export default function HeatField({ variant = 'hero', className = '' }) {
     };
     const temperature = () => {
       if (!cfg.ignite) return 1;
+      if (trigger === 'mount') { const k = Math.min(1, Math.max(0, (performance.now() - mountedAt - 250) / 1800)); return 1 - (1 - k) ** 3; }
       const vh = window.innerHeight || 1;
       const top = canvas.getBoundingClientRect().top;
       return Math.min(1, Math.max(0, (vh - top) / (vh * 0.85)));
@@ -136,7 +139,7 @@ export default function HeatField({ variant = 'hero', className = '' }) {
       wrap?.classList.remove('is-live');
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [variant]);
+  }, [variant, trigger]);
 
   return <canvas ref={ref} className={`heat-field heat-field--${variant} ${className}`} aria-hidden="true" />;
 }

@@ -22,7 +22,10 @@ export function Link({ href, onClick, locale, ...rest }) {
     if (!motionBus.closeCurtain) return;
     if (target === pathname && !locale) { event.preventDefault(); motionBus.lenis ? motionBus.lenis.scrollTo(0) : window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
     event.preventDefault();
-    motionBus.closeCurtain(() => router.push(href, locale ? { locale } : undefined));
+    // A visible cover inside the link ([data-morph]) flies to the next page's hero image.
+    const from = [...event.currentTarget.querySelectorAll('[data-morph]')];
+    if (event.currentTarget.hasAttribute('data-morph')) from.unshift(event.currentTarget);
+    motionBus.closeCurtain(() => router.push(href, locale ? { locale } : undefined), { from });
   };
   return <nav.Link href={href} locale={locale} onClick={handleClick} {...rest} />;
 }

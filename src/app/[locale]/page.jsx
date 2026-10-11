@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { buildMetadata } from '@/lib/seo';
 import { fit } from '@/lib/fit';
 import HeatField from '@/components/HeatField';
+import MarketTicker from '@/components/MarketTicker';
 
 const GridLines = () => <div className="grid-lines" aria-hidden="true">{Array.from({ length: 12 }, (_, i) => <i key={i} />)}</div>;
 
@@ -42,7 +43,7 @@ export default async function HomePage({ params }) {
           </div>
           <div className="my-auto py-[clamp(48px,8vh,120px)]">
             <p className="t-meta uppercase text-fg-3 mb-[12px]" data-reveal="fade">{t('hero.kicker')}</p>
-            <p className="font-display font-black leading-[.8] tracking-[-.03em] -ml-[.044em] whitespace-nowrap text-[length:clamp(96px,17vw,340px)]" aria-hidden="true" data-reveal="lines" data-kinetic="compress">{[...t('hero.wordmark')].map((ch, i) => <span key={i} className="k">{ch}</span>)}<span className="dot text-[.7em] tracking-[-.1em]">.</span></p>
+            <p className="font-display font-black leading-[.8] tracking-[-.03em] -ml-[.044em] whitespace-nowrap text-[length:clamp(96px,17vw,340px)]" aria-hidden="true" data-reveal="lines" data-kinetic="compress" data-haze>{[...t('hero.wordmark')].map((ch, i) => <span key={i} className="k">{ch}</span>)}<span className="dot text-[.7em] tracking-[-.1em]">.</span></p>
             <div className="grid grid-cols-12 gap-[var(--col-gap)] mt-[clamp(36px,5vw,72px)] mobile:flex mobile:flex-col mobile:gap-[24px]">
               <h1 id="hero-title" className="t-title uppercase col-span-7 max-w-[16ch]" data-reveal="lines" data-delay="0.15">{t('hero.taglineTop')}<br />{t('hero.taglineBottom')}</h1>
               <p className="t-body text-fg-2 col-span-4 col-start-9 max-w-[38ch] mobile:max-w-none" data-reveal="fade" data-delay="0.35">{t('hero.intro')}</p>
@@ -62,6 +63,9 @@ export default async function HomePage({ params }) {
         </div>
       </section>
 
+      {/* Live proof from one of the products: which markets are open right now. */}
+      <MarketTicker />
+
       {/* Work: the products are the proof. */}
       <section className="shell bg-surface pb-[var(--s-5)]" id="work" aria-labelledby="work-title">
         <div className="eyebrow t-meta uppercase" data-reveal="line"><span>{t('selected.eyebrowLeft')}</span><span>{t('selected.eyebrowRight', { count })}</span></div>
@@ -72,7 +76,7 @@ export default async function HomePage({ params }) {
         <div className="grid grid-cols-12 gap-x-[var(--col-gap)] gap-y-[var(--s-5)] mobile:flex mobile:flex-col mobile:gap-y-[40px]">
           {projects.map((project, i) => (
             <article key={project.slug} className={cn('group flex flex-col col-span-6', i % 2 === 1 && 'laptop:col-span-6 wide:mt-[var(--s-6)]')}>
-              <Link href={`/case-studies/${project.slug}`} className="relative block aspect-[16/10] w-full overflow-hidden bg-surface-2 border border-line" aria-label={project.name} data-cursor="VIEW" data-reveal="wipe" data-delay={i * 0.1}>
+              <Link href={`/case-studies/${project.slug}`} className="relative block aspect-[16/10] w-full overflow-hidden bg-surface-2 border border-line" aria-label={project.name} data-cursor="VIEW" data-reveal="wipe" data-delay={i * 0.1} data-morph>
                 <Image src={project.image} alt={project.coverAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]" data-parallax="6" />
               </Link>
               <div className="pt-[22px] pb-[20px] border-b border-line flex flex-col" data-reveal="fade" data-delay={i * 0.1 + 0.15}>
@@ -142,7 +146,7 @@ export default async function HomePage({ params }) {
           <div className="eyebrow t-meta uppercase mt-[var(--s-4)] text-fg-2" data-reveal="line"><span>{t('start.eyebrowLeft')}</span><span>{t('start.eyebrowRight')}</span></div>
           <div className="my-auto py-[var(--s-5)] grid grid-cols-12 gap-[var(--col-gap)] items-end mobile:flex mobile:flex-col mobile:items-start">
             <div className="col-span-8">
-              <h2 id="start-title" style={fit(startHeading, '.')} className="fit t-display-1 uppercase" data-reveal="lines">{startHeading[0]}<br />{startHeading[1]}<span className="dot">.</span></h2>
+              <h2 id="start-title" style={fit(startHeading, '.')} className="fit t-display-1 uppercase" data-reveal="lines" data-haze>{startHeading[0]}<br />{startHeading[1]}<span className="dot">.</span></h2>
               <p className="t-body text-fg-2 max-w-[52ch] mt-[28px]" data-reveal="fade">{t('start.paragraph')}</p>
             </div>
             <div className="col-span-4 flex flex-col gap-[18px] items-start laptop:items-start">
