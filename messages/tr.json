@@ -185,7 +185,19 @@
         "bg": "#07110f",
         "fg": "#ffffff",
         "accent": "#19c3b1"
-      }
+      },
+      "gallery": [
+        "/projects/market-hours/gallery/01.webp",
+        "/projects/market-hours/gallery/02.webp",
+        "/projects/market-hours/gallery/03.webp",
+        "/projects/market-hours/gallery/04.webp"
+      ],
+      "galleryAlts": [
+        "Market Hours saat görünümü: Sydney, Tokyo, Londra ve New York seans yaylarıyla 24 saatlik kadran, şu an açık olanlar satırı ve seans saatleri grafiği, koyu temada",
+        "Market Hours alarmları: London / NY, Londra ve Tokyo için seans başı ve sonu alarmları ile kaç dakika önce uyarılacağı, tatil ve yaz saati değişimi için akıllı uyarılar",
+        "Market Hours ayarları: tema, ana görünüm, varsayılan katman, CRT efekti, hareketi azaltma, saat dilimi, saat biçimi ve alarm sesi seçenekleri, koyu temada",
+        "Açık temada Market Hours saat görünümü: beyaz zeminde aynı 24 saatlik seans kadranı ve seans saatleri grafiği"
+      ]
     },
     {
       "slug": "simple-note",
@@ -289,7 +301,8 @@
         "/projects/passport-ai/tr/03.webp",
         "/projects/passport-ai/tr/04.webp",
         "/projects/passport-ai/tr/05.webp",
-        "/projects/passport-ai/tr/06.webp"
+        "/projects/passport-ai/tr/06.webp",
+        "/projects/passport-ai/tr/07.webp"
       ],
       "summary": "Pasaport, kimlik, vize ve profil fotoğrafı için bir stüdyo uygulaması: 250 ülke ve bölgeden belgeni seç, yüzü telefonda kontrol ettir, arka plan, kıyafet ve rötuşu belirle; JPEG, PNG ya da baskıya hazır PDF sayfası olarak dışa aktar. Flutter ve Firebase, Türkçe ve İngilizce.",
       "challenge": "Kimlik fotoğrafı küçük şeyler yüzünden geri çevrilebilir: dengesiz ışık, eğik duran bir baş, yanlış arka plan, biraz sapan bir ölçü. Çoğu kişi ya vesikalık kabinine ya da bir fotoğraf düzenleme uygulamasına mahkûm kalıyor. Hedef, fotoğrafı her yerde çekebilmek, yüz yok, yetersiz ışık, bulanıklık, eğik baş ya da kapalı göz gibi yaygın sorunları kredi harcanmadan önce yakalamak ve seçilen belgenin piksel ölçüsüne tam kırpılmış bir dosya vermekti.",
@@ -300,8 +313,8 @@
         "SUNUCUDA KREDİ DEFTERİ",
         "BASKIYA HAZIR PDF SAYFALARI"
       ],
-      "coverAlt": "Passport.AI kapağı: kâğıt renginde zeminde iri puntolarla uygulama adı ve yanında stüdyo ana ekranını, stil adımını ve dışa aktarma adımını gösteren üç telefon ekranı",
-      "heroAlt": "Yeşil vizör köşeleri içinde Ölçüye uygun damgalı bitmiş bir pasaport fotoğrafı ve yanında JPEG, PNG, PDF seçenekleri ile tekli, 2'li, 4'lü ve 6'lı düzenleri olan dışa aktarma kartı",
+      "coverAlt": "Passport.AI kapağı: kâğıt renginde zeminde iri puntolarla uygulama adı ve yanında tasarımdan üç telefon ekranı: karşılama ekranı, stil adımı ve bitmiş sonuç",
+      "heroAlt": "Dossier tasarım dili: pasaport tarzı bir kartta, yeşil vizör köşeleri içinde Onaylandı damgalı pasaport fotoğrafı ve yanında öncesi/sonrası kaydırıcısı ile dışa aktarma adımını gösteren iki telefon",
       "metaDescription": "Passport.AI, iOS ve Android için kimlik, pasaport ve vize fotoğrafı stüdyosu: cihazda yüz kontrolü, baskıya hazır çıktı. ALAZ tarafından Flutter ile yapıldı.",
       "headings": {
         "challenge": [
@@ -340,12 +353,13 @@
         }
       ],
       "galleryAlts": [
-        "Belge adımı: arama alanı, Ülkeler, Sosyal ve Özel boyut sekmeleri, 50 × 60 mm'lik önerilen Türkiye pasaport kartı ve A'dan Z'ye 250 ülkelik liste",
-        "Kamera izni verilmeden önceki fotoğraf adımı: vizör köşeleri içinde bir kamera simgesi, yüz kontrolü için yalnızca küçültülmüş bir kopyanın kullanıldığını söyleyen not ve Kameraya izin ver ile Galeriden seç düğmeleri",
-        "Stil adımı: kaynak fotoğraf, üç kadraj seçeneği, beş arka plan rengi ile özel renk, kıyafet seçenekleri ve üretim için 100 kredi gösteren özet kartı",
-        "Aşağı kaydırılmış stil adımı: on hazır kıyafet seçeneği ve Kıyafetim kalsın, her biri +1 kredi olan on rötuş seçeneği ve ağır güzelleştirmenin resmî belgelerde reddedilebileceği uyarısı",
-        "Dışa aktarma adımı: vizör köşeleri içinde Ölçüye uygun damgalı bitmiş fotoğraf, JPEG, PNG ve PDF seçenekleri, tekli, 2'li, 4'lü ve 6'lı düzenler ve kopya sayacı",
-        "Krediler sayfası: bakiye, üretim, indirme, sayfa düzeni ve ekstraların maliyeti, kredi kazanma yolları ve Kredi al düğmesi"
+        "Karşılama ekranı: bir selfie ve onun Onaylandı damgalı bitmiş pasaport fotoğrafı, iki dakikada selfie'den resmî fotoğrafa başlığı ve İleri düğmesi",
+        "Kamera görünümündeki fotoğraf adımı: yeşil vizör köşeleri içinde Onaylandı damgalı bir yüz, yüz net, ışık iyi ve bakış düz etiketleri ile Yeniden çek ve Devam et düğmeleri",
+        "Reddedilen fotoğraf: kırmızı vizör köşeleri ve Işık, Netlik ve Açı kontrollerini gösteren Fotoğraf çok karanlık kartı, Galeri ve Yeniden çek düğmeleri",
+        "Stil adımı: kaynak fotoğraf, üç kadraj seçeneği, beş arka plan rengi ile özel renk ve 100 kredi gösteren özet kartı ile AI ile oluştur düğmesi",
+        "Oluşturma ekranı: vizör köşeleri içinde tarama çizgili fotoğraf ve yüz ile ışık analizi, zeminin beyaza çevrilmesi, blazer, parlamaların temizlenmesi ve 50 × 60 mm'ye kırpma adımlarını sayan liste",
+        "Öncesi/sonrası kaydırıcılı sonuç: solda özgün selfie, sağda açık mavi-beyaz zeminli bitmiş pasaport fotoğrafı ve Karşılaştırmayı kapat düğmesi",
+        "Sonuç ve dışa aktarma adımı: Ölçüye uygun damgalı bitmiş fotoğraf, JPEG, PNG ve PDF seçenekleri, 1 kredilik indirme bedeli ve Kaydet düğmesi"
       ],
       "schema": {
         "category": "MultimediaApplication",
