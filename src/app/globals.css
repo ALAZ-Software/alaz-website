@@ -496,6 +496,20 @@ body:has(main[data-hero="light"]) .site-header[data-scrolled="false"]:not([data-
 
 /* Background media sits under the canvas inside .heat-field-wrap. */
 .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+/* edge-flame: a 16:9 frame whose flame line (the middle of the frame) sits where the shader's band line is,
+   38% down the section. It is black above and below the line, so it may end inside the section: the edges fade. */
+.bg-video.bg-video--edge {
+  inset: auto;
+  left: 50%;
+  top: 38%;
+  width: max(100%, 900px);
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: fill;
+  transform: translate(-50%, -50%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+}
 
 /* Hot-edge reveal: media opens from the left; a thin ember line rides the edge and fades once open. */
 .reveal-ready [data-reveal="wipe"]:not(.is-revealed) { opacity: 1; clip-path: inset(0 100% 0 0); }
