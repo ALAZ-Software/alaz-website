@@ -484,3 +484,75 @@ body:has(main[data-hero="light"]) .site-header[data-scrolled="false"]:not([data-
 }
 .faq summary::-webkit-details-marker { display: none; }
 .faq[open] summary { color: var(--fg-1); }
+
+/* ------------------------------------------------------------------
+   Working-edge motion additions: media under the shader, the hot-edge
+   reveal, the ignite-and-cool hover grammar, the kinetic wordmark and
+   the curtain footer. Reduced motion: nothing moves, nothing is hidden.
+   ------------------------------------------------------------------ */
+
+/* The shader canvas is transparent where there is no heat; while WebGL runs, the static fallback line hides. */
+.heat-field-wrap.is-live::before { display: none; }
+
+/* Background media sits under the canvas inside .heat-field-wrap. */
+.bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Hot-edge reveal: media opens from the left; a thin ember line rides the edge and fades once open. */
+.reveal-ready [data-reveal="wipe"]:not(.is-revealed) { opacity: 1; clip-path: inset(0 100% 0 0); }
+.reveal-ready [data-reveal="wipe"].is-revealed { opacity: 1; clip-path: inset(0 calc(100% - var(--wipe, 100) * 1%) 0 0); }
+[data-reveal="wipe"]::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  left: calc(var(--wipe, 100) * 1% - 2px);
+  width: 2px;
+  background: linear-gradient(180deg, var(--ember-hot), var(--ember-soft) 40%, var(--ember));
+  box-shadow: 0 0 36px 8px rgba(255, 90, 31, 0.55);
+  opacity: var(--edge, 0);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Ignite and cool: on hover an ember edge draws in (~200 ms), then cools to white (~400 ms):
+   it stays as a white line on dark surfaces and vanishes into light buttons. */
+@keyframes ignite {
+  0% { transform: scaleX(0); filter: none; }
+  35% { transform: scaleX(1); filter: none; }
+  100% { transform: scaleX(1); filter: saturate(0) brightness(2.2); }
+}
+@keyframes heat-text {
+  0% { color: var(--ember); }
+  45% { color: var(--ember-hot); }
+  100% { color: var(--fg-1); }
+}
+.btn, .btn-ghost { position: relative; overflow: hidden; }
+.btn::after, .btn-ghost::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--ember-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-fast) var(--ease-out);
+  pointer-events: none;
+}
+.btn:hover::after, .btn:focus-visible::after, .btn-ghost:hover::after, .btn-ghost:focus-visible::after,
+.nav-link:hover:not(.is-active)::after,
+.link-draw:hover::before, .link-draw:focus-visible::before { animation: ignite 650ms var(--ease-out) forwards; }
+@media (hover: hover) {
+  .group:hover .heat-text, .heat-text:hover { animation: heat-text 800ms var(--ease-out) forwards; }
+}
+
+/* Kinetic wordmark: each letter carries its own width so scroll and the pointer can drive Archivo's wdth axis. */
+[data-kinetic] .k { font-variation-settings: 'wdth' 100; }
+
+/* Curtain footer: the wordmark block sticks to the bottom of the viewport under the footer's
+   content, which scrolls up to reveal it. The footer itself must not clip (no overflow: hidden). */
+.site-footer .footer-top { position: relative; z-index: 1; background: inherit; }
+.site-footer .footer-bottom { position: sticky; bottom: 0; z-index: 0; }
+
+@media (prefers-reduced-motion: reduce), (scripting: none) {
+  .reveal-ready [data-reveal="wipe"]:not(.is-revealed) { clip-path: none; }
+  [data-reveal="wipe"]::after { display: none; }
+}

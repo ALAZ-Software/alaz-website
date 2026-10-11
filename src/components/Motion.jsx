@@ -11,10 +11,13 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 // One motion system for the whole site:
 //  - Lenis smooth scroll on the GSAP ticker, shared with ScrollTrigger
-//  - reveals: data-reveal="lines" (masked line rise), "fade" (rise), "line" (hairline draw)
+//  - reveals: data-reveal="lines" (masked line rise), "fade" (rise), "line" (hairline draw),
+//             "wipe" (media opens from the left behind a hot edge)
 //  - header: transparent at the top, solid after 40px, hidden while scrolling down
 //  - page transitions: a curtain closes on link click and opens when the next page mounts
 //  - custom cursor + magnetic buttons on fine pointers
+//  - kinetic wordmark: Archivo's width axis follows the scroll and the pointer
+//  - curtain footer: the footer content slides up to reveal the wordmark block, which warms and settles
 //  - reading progress bar
 // Everything is skipped under prefers-reduced-motion; the CSS then keeps content visible.
 
@@ -23,7 +26,19 @@ const reduced = () => typeof window !== 'undefined' && window.matchMedia('(prefe
 
 export const motionBus = { lenis: null, closeCurtain: null };
 
+// The footer's wordmark block is sticky under the footer content; it is uncovered while the content's
+// bottom edge travels from the viewport bottom up to the block's height. ScrollTrigger must measure the
+// scrolling block (.footer-top), never the sticky one: a sticky element's own position lies to it.
+function footerReveal(scope) {
+  const top = scope.querySelector('.site-footer .footer-top');
+  const bottom = scope.querySelector('.site-footer .footer-bottom');
+  if (!top || !bottom) return null;
+  return { trigger: top, start: 'bottom bottom', end: () => `bottom bottom-=${bottom.offsetHeight}`, scrub: true };
+}
+
 function setupReveals(scope) {
+  const triggerFor = (el, start) => ({ trigger: el, start });
+
   const ctx = gsap.context(() => {
     scope.querySelectorAll('[data-reveal="lines"]:not(.is-revealed)').forEach((el) => {
       const split = new SplitText(el, { type: 'lines', linesClass: 'line' });
@@ -38,8 +53,7 @@ function setupReveals(scope) {
       const inners = el.querySelectorAll('.line-inner');
       gsap.set(inners, { yPercent: 110 });
       ScrollTrigger.create({
-        trigger: el,
-        start: 'top 88%',
+        ...triggerFor(el, 'top 88%'),
         once: true,
         onEnter: () => gsap.to(inners, { yPercent: 0, duration: 1.1, ease: EASE, stagger: 0.07, delay: Number(el.dataset.delay || 0), onComplete: () => { split.revert(); el.removeAttribute('data-reveal'); } }),
       });
@@ -49,8 +63,7 @@ function setupReveals(scope) {
       el.classList.add('is-revealed');
       gsap.set(el, { opacity: 0, y: 24 });
       ScrollTrigger.create({
-        trigger: el,
-        start: 'top 90%',
+        ...triggerFor(el, 'top 90%'),
         once: true,
         onEnter: () => gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: EASE, delay: Number(el.dataset.delay || 0), clearProps: 'transform', onComplete: () => el.removeAttribute('data-reveal') }),
       });
@@ -60,16 +73,34 @@ function setupReveals(scope) {
       el.classList.add('is-revealed');
       el.style.setProperty('--draw', 0);
       ScrollTrigger.create({
-        trigger: el,
-        start: 'top 92%',
+        ...triggerFor(el, 'top 92%'),
         once: true,
         onEnter: () => gsap.to(el, { '--draw': 1, duration: 1.2, ease: 'power3.out', onComplete: () => el.removeAttribute('data-reveal') }),
       });
     });
 
-    // The footer warms as the page ends: ink -> deep ember.
+    // Media opens from the left; the ember line on its edge fades once the image is fully open.
+    scope.querySelectorAll('[data-reveal="wipe"]:not(.is-revealed)').forEach((el) => {
+      el.classList.add('is-revealed');
+      el.style.setProperty('--wipe', 0);
+      el.style.setProperty('--edge', 1);
+      ScrollTrigger.create({
+        ...triggerFor(el, 'top 85%'),
+        once: true,
+        onEnter: () => gsap.timeline({ delay: Number(el.dataset.delay || 0), onComplete: () => el.removeAttribute('data-reveal') })
+          .to(el, { '--wipe': 100, duration: 1.3, ease: EASE })
+          .to(el, { '--edge': 0, duration: 0.5, ease: 'power2.out' }, '-=0.55'),
+      });
+    });
+
+    // The footer warms as the page ends: ink -> deep ember, over the footer's full height.
     const footer = scope.querySelector('.site-footer');
-    if (footer) gsap.fromTo(footer, { backgroundColor: '#0a0a0a' }, { backgroundColor: '#160c06', ease: 'none', scrollTrigger: { trigger: footer, start: 'top bottom', end: 'bottom bottom', scrub: true } });
+    const main = scope.querySelector('main');
+    if (footer && main) gsap.fromTo(footer, { backgroundColor: '#0a0a0a' }, { backgroundColor: '#160c06', ease: 'none', scrollTrigger: { trigger: main, start: 'bottom bottom', end: () => `bottom bottom-=${footer.offsetHeight}`, scrub: true } });
+    // The wordmark rises into its crop as the curtain opens.
+    const reveal = footerReveal(scope);
+    const mark = scope.querySelector('.site-footer .footer-mark');
+    if (reveal && mark) gsap.fromTo(mark, { y: 36 }, { y: 0, ease: 'none', scrollTrigger: reveal });
 
     // Parallax on tall media blocks.
     scope.querySelectorAll('[data-parallax]').forEach((el) => {
@@ -78,6 +109,64 @@ function setupReveals(scope) {
     });
   }, scope);
   return ctx;
+}
+
+// Kinetic wordmark. Each letter is a .k span; its Archivo width axis is driven by two things:
+//  - scroll: the hero mark compresses (100 -> 78) as its section leaves; the footer mark arrives
+//    compressed and settles to 100 as the page ends,
+//  - the pointer (fine pointers only): letters near it widen by up to 22 and spring back.
+// Nothing ever grows wider than the design width except under the pointer, so fit() stays valid.
+function setupKinetic() {
+  const marks = [...document.querySelectorAll('[data-kinetic]')];
+  if (!marks.length) return () => {};
+  const fine = window.matchMedia('(pointer: fine)').matches;
+  const reveal = footerReveal(document);
+  const pointer = { x: -1e4, y: -1e4 };
+
+  const items = marks.map((el) => {
+    const state = { el, chars: [], cur: [], boost: [], base: 100, active: false };
+    const collect = () => { state.chars = [...el.querySelectorAll('.k')]; state.cur = state.chars.map(() => NaN); state.boost = state.chars.map(() => 0); };
+    collect();
+    state.collect = collect;
+    if (el.dataset.kinetic === 'settle' && reveal) {
+      ScrollTrigger.create({ ...reveal, onUpdate: (st) => { state.base = 88 + 12 * st.progress; } });
+      state.base = 88;
+    } else {
+      ScrollTrigger.create({ trigger: el.closest('section') || el, start: 'top top', end: 'bottom top', scrub: true, onUpdate: (st) => { state.base = 100 - 22 * st.progress; } });
+    }
+    state.io = new IntersectionObserver(([entry]) => { state.active = entry.isIntersecting; }, { rootMargin: '50px' });
+    state.io.observe(el);
+    return state;
+  });
+
+  const tick = () => {
+    items.forEach((s) => {
+      if (!s.active) return;
+      // The line reveal (SplitText) swaps the letters out and back; re-collect when they went stale.
+      if (!s.chars.length || !s.chars[0].isConnected) s.collect();
+      const rects = fine ? s.chars.map((c) => c.getBoundingClientRect()) : null;
+      s.chars.forEach((c, i) => {
+        let target = 0;
+        if (rects) {
+          const r = rects[i];
+          const dist = Math.hypot((pointer.x - (r.left + r.width / 2)) / (r.width * 1.6), (pointer.y - (r.top + r.height / 2)) / (r.height * 1.2));
+          target = 22 * Math.max(0, 1 - dist);
+        }
+        s.boost[i] += (target - s.boost[i]) * 0.14;
+        const w = s.base + s.boost[i];
+        if (Math.abs(w - s.cur[i]) > 0.05 || Number.isNaN(s.cur[i])) { s.cur[i] = w; c.style.fontVariationSettings = `'wdth' ${w.toFixed(2)}`; }
+      });
+    });
+  };
+  gsap.ticker.add(tick);
+  const onMove = (e) => { pointer.x = e.clientX; pointer.y = e.clientY; };
+  const onLeave = () => { pointer.x = -1e4; pointer.y = -1e4; };
+  if (fine) { window.addEventListener('pointermove', onMove, { passive: true }); document.documentElement.addEventListener('mouseleave', onLeave); }
+  return () => {
+    gsap.ticker.remove(tick);
+    items.forEach((s) => { s.io.disconnect(); s.chars.forEach((c) => { c.style.fontVariationSettings = ''; }); });
+    if (fine) { window.removeEventListener('pointermove', onMove); document.documentElement.removeEventListener('mouseleave', onLeave); }
+  };
 }
 
 function setupHeader(lenis) {
@@ -199,7 +288,7 @@ export default function Motion() {
     return () => { motionBus.closeCurtain = null; };
   }, []);
 
-  // Per route: reset scroll, open the curtain, wire reveals and the progress bar.
+  // Per route: reset scroll, open the curtain, wire reveals, the kinetic marks and the progress bar.
   useEffect(() => {
     const lenis = lenisRef.current;
     const curtain = document.querySelector('.curtain');
@@ -207,13 +296,14 @@ export default function Motion() {
     ScrollTrigger.getAll().forEach((t) => t.kill());
     if (lenis) lenis.scrollTo(0, { immediate: true }); else window.scrollTo(0, 0);
 
-    let ctx;
+    let ctx; let offKinetic;
     const start = () => {
       if (reduced()) {
         document.querySelectorAll('[data-reveal]').forEach((el) => { el.classList.add('is-revealed'); el.removeAttribute('data-reveal'); });
         return;
       }
       ctx = setupReveals(document.body);
+      offKinetic = setupKinetic();
       ScrollTrigger.refresh();
     };
 
@@ -239,7 +329,7 @@ export default function Motion() {
     }
     first.current = false;
     const offProgress = setupProgress(lenis);
-    return () => { ctx?.revert(); offProgress(); };
+    return () => { ctx?.revert(); offKinetic?.(); offProgress(); };
   }, [pathname]);
 
   return null;

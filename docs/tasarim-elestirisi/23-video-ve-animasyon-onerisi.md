@@ -1,6 +1,6 @@
 # Arka plan videoları ve Awwwards seviyesi animasyon önerisi
 
-**Durum:** öneri, karar bekliyor · **Tarih:** 2026-10-11
+**Durum:** kararlar verildi, Faz 0 uygulandı · **Tarih:** 2026-10-11 · Bkz. bölüm 9
 
 ← [Ana rapor](README.md) · [Tasarım uygulaması](22-tasarim-uygulamasi.md) · [Görsel/video eleştirisi](13-gorsel-video-marka.md)
 
@@ -193,3 +193,19 @@ Kabul: ilk kare neredeyse siyah, son kare Klip 1'in kararlı hâline benziyor (b
 
 - Flow'da Veo 3.1, "Frames to Video" (ilk/son kare) ve Extend: [YourStory](https://yourstory.com/ai-story/google-veo-31-flow-ai-editing-tool), [DataCamp Veo 3.1 rehberi](https://www.datacamp.com/tutorial/veo-3-1-complete-guide-with-examples), [getimg.ai](https://getimg.ai/blog/google-veo-3-1-review), [Atlas Cloud Flow rehberi](https://www.atlascloud.ai/blog/guides/google-flow-veo-3.1-guide)
 - 1080p ve 4K (upscale) çıkış: [Storyboard18](https://www.storyboard18.com/how-it-works/google-expands-veo-3-1-with-vertical-video-support-and-youtube-integration-87665.htm), [Mobigyaan](https://www.mobigyaan.com/google-veo-3-1-update-native-916-video-4k-output), [DataNorth](https://datanorth.ai/blog/google-veo-what-is-it-and-why-is-it-important)
+
+## 9. Kararlar ve Faz 0 (uygulandı)
+
+**Kararlar (11 Ekim):** hero'da video yok · CTA'da scroll'la tutuşma · Flow planı 1080p · uygulama kayıtları yok · markethours API'si yok · Faz 0 videolardan bağımsız başlasın.
+
+**Flow'a karşı kodla üretim.** Fotogerçekçi görüntü (gerçek metal, gerçek alev dokusu) bu ortamda üretilemez; o iş Flow'un. Kodla üretilen (prosedürel) döngü mümkündür: shader kareleri headless tarayıcıda render edilip ffmpeg ile kodlanır. Artıları: matematiksel olarak dikişsiz döngü, paletin birebir tutması, deterministik sonuç, küçük dosya. Eksisi: fiziksel doku yok, sonuç "sitenin shader'ının videosu" gibi okunur. Kararların sonucu: CTA tutuşması için video gerekmiyor, doğrudan shader'da scroll'a bağlı sıcaklık olarak yapıldı (sıfır bayt). Geriye yalnızca About "ALAZ." bölümü kalıyor; orası için Flow'dan tek klip (edge-flame) ya da istenirse prosedürel bir aday üretilip yan yana bakılır.
+
+**Faz 0'da yapılanlar:**
+
+- `HeatField` artık alfa ile çiziyor (mürekkep CSS'ten, sıcak olmayan yer şeffaf): altına video girebilir. WebGL çalışırken CSS'teki statik yedek çizgi gizlenir. Yeni `ignite` varyantı: kenar soğuk çelik griden koyu kırmızıya, kor'a, ambere ve beyaz-sıcağa, bölüm görünür alana girdikçe ısınır (bölümün üstü ekran altından %85'e çıkana kadar); sonra scroll hızı ve imleç tepkisi normal devam eder. Ana sayfa "Start a project" bölümünde kullanıldı.
+- `BackgroundVideo` bileşeni (`src/components/BackgroundVideo.jsx`): poster önce, dosya görünürlüğe yaklaşınca; reduced-motion ve veri tasarrufunda hiç; ekran dışında durur; 1440/1080/720 ve AV1/H.264 seçimi JS'te. Henüz bir yerde kullanılmıyor; About klibi gelince `heat-field-wrap` içine canvas'ın altına girer.
+- `scripts/video-encode.sh`: ses atma, crossfade loop, siyahı `#0a0a0a`'ya eşleme, 10-bit AV1 + H.264 (720/1080/1440, kaynaktan büyük boy atlanır), WebP poster. Sentetik klipte doğrulandı.
+- **A — Kinetik wordmark:** Archivo variable (`wdth` ekseni) yüklendi. Hero "ALAZ" bölüm çıkarken 100 → 78'e sıkışır; ince imleçte yakın harfler 22'ye kadar genişler ve geri yaylanır. Footer wordmark'ı 88'de gelir, sayfa biterken 100'e oturur.
+- **D — Tutuşur ve soğur:** `.btn`, `.btn-ghost`, nav linkleri ve `.link-draw` hover'da kor kenar çizer (~200 ms) ve beyaza soğur (~400 ms); hizmet satırı başlıkları ve 404 linkleri kor → beyaz-sıcak → beyaz (`.heat-text`). Saf CSS.
+- **E — Perde footer:** footer görünür alana sığıyorsa `sticky` olur, `main` üstünden kayıp onu açar; ısınma tween'i ve footer içeriğinin hafif paralaksı `main`'in sonundan sürülür (sticky elemanın kendi konumu ScrollTrigger'a yanlış ölçüm verir). Sığmıyorsa (mobil) normal akar.
+- **F — Sıcak kenarlı reveal:** `data-reveal="wipe"`: görsel soldan `clip-path` ile açılır, kenarda 1px kor çizgi gider, açılınca söner. Ana sayfa proje kapakları ve case-study hero görselinde. JS yoksa ve reduced-motion'da görsel açık.

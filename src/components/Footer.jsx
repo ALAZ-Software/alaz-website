@@ -7,7 +7,9 @@ const NAV_HREFS = ['/services', '/case-studies', '/about', '/blog', '/start-proj
 const LEGAL_HREFS = ['/legal', '/privacy'];
 
 // The footer is a destination: a real CTA, every main page, the products, the two offices,
-// and the wordmark cooling at the bottom of the page.
+// and the wordmark cooling at the bottom of the page. The wordmark block (.footer-bottom) is a
+// curtain: it sticks under the footer's content and is revealed as the page ends while the ink
+// warms and the letters settle to their full width (Motion.jsx).
 export default async function Footer() {
   const t = await getTranslations('footer');
   const tc = await getTranslations('contact');
@@ -16,8 +18,8 @@ export default async function Footer() {
   const nav = NAV_HREFS.map((href, i) => ({ href, label: t.raw('navLabels')[i] }));
   const legal = LEGAL_HREFS.map((href, i) => ({ href, label: t.raw('linkLabels')[i] }));
 
-  return <footer className="site-footer relative overflow-hidden bg-ink border-t border-line">
-    <div className="shell pt-[var(--s-6)] pb-[var(--s-4)] grid grid-cols-12 gap-[var(--col-gap)] tablet:flex tablet:flex-col tablet:gap-[40px]">
+  return <footer className="site-footer relative bg-ink border-t border-line">
+    <div className="footer-top shell pt-[var(--s-6)] pb-[var(--s-4)] grid grid-cols-12 gap-[var(--col-gap)] tablet:flex tablet:flex-col tablet:gap-[40px]">
       <div className="col-span-6 min-w-0">
         <p className="t-display-2 uppercase max-w-[12ch]" data-reveal="lines">{t('talk')}</p>
         <Link href="/start-project" className="link-draw t-meta uppercase mt-[28px]">{t('talkCta')} <Icon name="arrow" size={14} /></Link>
@@ -43,8 +45,9 @@ export default async function Footer() {
       </nav>
       <div className="col-span-3 col-start-10"><ContactInfo /></div>
     </div>
+    <div className="footer-bottom">
     <div className="shell relative pt-[var(--s-4)]" aria-hidden="true">
-      <p className="footer-mark font-display font-black leading-[.78] tracking-[-.03em] -ml-[.044em] whitespace-nowrap text-[length:clamp(120px,22vw,440px)] text-fg-2 select-none">ALAZ<span className="dot text-[.7em] tracking-[-.1em]">.</span></p>
+      <p className="footer-mark font-display font-black leading-[.78] tracking-[-.03em] -ml-[.044em] whitespace-nowrap text-[length:clamp(120px,22vw,440px)] text-fg-2 select-none" data-kinetic="settle">{[...'ALAZ'].map((ch, i) => <span key={i} className="k">{ch}</span>)}<span className="dot text-[.7em] tracking-[-.1em]">.</span></p>
     </div>
     <div className="shell border-t border-line min-h-[80px] flex items-center justify-between gap-[24px] text-fg-4 tablet:flex-wrap tablet:py-[22px]">
       <span className="t-meta">{t('copyright', { year: new Date().getFullYear() })}</span>
@@ -52,6 +55,7 @@ export default async function Footer() {
         {legal.map((l) => <Link key={l.href} href={l.href} className="hover:text-fg">{l.label}</Link>)}
       </div>
       <a href="#top" className="t-meta uppercase whitespace-nowrap hover:text-fg">{t('backTop')}</a>
+    </div>
     </div>
   </footer>;
 }

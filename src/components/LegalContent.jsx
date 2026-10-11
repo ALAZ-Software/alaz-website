@@ -16,7 +16,7 @@ export default async function LegalContent({ type }) {
       {missing ? <>
           <p className="t-lead text-fg-3 max-w-[40ch] mb-[var(--s-4)]" data-reveal="fade">{t('notFound.body')}</p>
           <ul className="flex flex-col border-t border-line max-w-[560px] mb-[var(--s-5)]">
-            {t.raw('notFound.links').map((l, i) => <li key={l.href} data-reveal="fade" data-delay={i * 0.06}><Link href={l.href} className="group flex items-center justify-between py-[20px] border-b border-line t-title-sm uppercase hover:text-ember-hot">{l.label} <Icon name="arrow" size={20} className="transition-transform duration-fast group-hover:translate-x-[6px]" /></Link></li>)}
+            {t.raw('notFound.links').map((l, i) => <li key={l.href} data-reveal="fade" data-delay={i * 0.06}><Link href={l.href} className="group flex items-center justify-between py-[20px] border-b border-line t-title-sm uppercase heat-text">{l.label} <Icon name="arrow" size={20} className="transition-transform duration-fast group-hover:translate-x-[6px]" /></Link></li>)}
           </ul>
         </> : <div className="grid grid-cols-12 gap-[var(--col-gap)] tablet:flex tablet:flex-col">
           <aside className="col-span-3 tablet:hidden"><ol className="sticky top-[calc(var(--header-h)+24px)] flex flex-col gap-[8px] border-t border-line pt-[16px]">{sections.map((s, i) => <li key={s.heading}><a href={`#s-${i}`} className="t-meta text-fg-4 hover:text-fg block py-[2px]">{s.heading}</a></li>)}</ol></aside>

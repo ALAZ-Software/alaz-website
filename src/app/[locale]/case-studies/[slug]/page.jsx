@@ -118,7 +118,7 @@ export default async function CaseStudyPage({ params }) {
                 {storeUrls.length > 0 && <StoreButtons links={stores} downloadLabel={t('storeDownload')} soonLabel={t('storeSoon')} />}
               </div>}
             </div>
-            <div className="col-span-5 col-start-8 relative aspect-[16/10] overflow-hidden mobile:w-full" data-reveal="fade" data-delay="0.2">
+            <div className="col-span-5 col-start-8 relative aspect-[16/10] overflow-hidden mobile:w-full" data-reveal="wipe" data-delay="0.2">
               <Image src={project.heroImage ?? project.image} alt={project.heroAlt} fill sizes="(max-width: 760px) 100vw, 40vw" className="object-cover" priority data-parallax="5" />
             </div>
           </div>
