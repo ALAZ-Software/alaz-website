@@ -75,9 +75,11 @@ export default async function ServicesPage({ params }) {
                 {items.map((item) => <li key={item.id} className="shrink-0"><a href={`#${item.id}`} className="t-meta uppercase text-fg-4 hover:text-fg flex gap-[12px] py-[6px] tablet:border tablet:border-line tablet:px-[12px]"><span>{item.number}</span><span>{item.title}</span></a></li>)}
               </ol>
             </nav>
-            <div className="col-span-9 flex flex-col">
-              {items.map((item) => (
-                <article key={item.id} id={item.id} className="border-t border-line py-[var(--s-5)] scroll-mt-[calc(var(--header-h)+16px)] last:border-b" data-reveal="fade">
+            <div className="col-span-9 flex flex-col" data-stack="cover">
+              {items.map((item) => [
+                // In-flow anchor: a stuck block reports its stuck position, so links target this marker instead.
+                <span key={`${item.id}-anchor`} id={item.id} className="block h-0 scroll-mt-[calc(var(--header-h)+16px)]" aria-hidden="true" />,
+                <article key={item.id} className="bg-ink border-t border-line last:border-b" data-stack-item data-reveal="fade"><div className="py-[var(--s-5)]" data-stack-inner>
                   <div className="flex items-baseline justify-between gap-[20px] t-meta uppercase text-fg-4 mb-[24px]"><span>{item.number} / {String(items.length).padStart(2, '0')}</span><span>{item.category}</span></div>
                   <h2 style={fit(item.title)} className="fit t-display-2 uppercase [--fit-avail:calc((100vw_-_2*var(--shell-pad))*.7)] tablet:[--fit-avail:calc(100vw_-_2*var(--shell-pad))]">{item.title}</h2>
                   <p className="t-lead text-fg-2 mt-[22px] max-w-[52ch]">{item.description}</p>
@@ -103,8 +105,8 @@ export default async function ServicesPage({ params }) {
                       <Link href={`/start-project?type=${item.id}`} className="link-draw t-meta uppercase self-start">{labels.cta} <Icon name="arrow" size={14} /></Link>
                     </div>
                   </div>
-                </article>
-              ))}
+                </div></article>,
+              ])}
             </div>
           </div>
         </section>

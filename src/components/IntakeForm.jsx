@@ -7,6 +7,7 @@ import Icon from '@/components/Icon';
 import { Link } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { fit } from '@/lib/fit';
+import HeatField from '@/components/HeatField';
 
 const initial = { project_type: '', project_name: '', brief: '', timeline: '', budget: '', name: '', email: '', company: '' };
 
@@ -103,8 +104,10 @@ export default function IntakeForm() {
 
   return <>
     <main id="main" className={cn('shell relative', complete ? 'min-h-dvh pt-[var(--header-h)] pb-0 flex flex-col' : 'pt-[calc(var(--header-h)+40px)] pb-[var(--s-7)] min-h-screen')}>
-      <div className="eyebrow t-meta uppercase" data-reveal="line"><span>{t('sectionTopLeft')}</span><span>{t('sectionTopRight')}</span></div>
-      {complete ? <div className="max-w-[950px] pt-[clamp(100px,14vw,190px)] pb-[70px] flex-1 w-full !max-w-none flex flex-col items-center justify-center text-center !py-[clamp(48px,8vh,110px)]">
+      <div className="eyebrow t-meta uppercase relative z-[1]" data-reveal="line"><span>{t('sectionTopLeft')}</span><span>{t('sectionTopRight')}</span></div>
+      {/* Brief sent: the edge ignites from cold steel behind the thank-you. */}
+      {complete && <div className="heat-field-wrap !top-[30%] [mask-image:linear-gradient(to_bottom,transparent,#000_40%)]"><HeatField variant="ignite" trigger="mount" /></div>}
+      {complete ? <div className="relative z-[1] max-w-[950px] pt-[clamp(100px,14vw,190px)] pb-[70px] flex-1 w-full !max-w-none flex flex-col items-center justify-center text-center !py-[clamp(48px,8vh,110px)]">
           <div className="h-[68px] w-[68px] border border-ember text-ember grid place-items-center mb-[32px]"><Icon name="check" size={32} /></div>
           <span className="t-meta uppercase text-fg-3">{t('completeEyebrow')}</span>
           <h1 style={fit(completeHeading, '.')} className="fit t-display-1 uppercase my-[25px] mb-[32px]">{completeHeading[0]}<br />{completeHeading[1]}<span className="dot">.</span></h1>

@@ -11,7 +11,8 @@ import { DEFAULT_TITLE, SITE_NAME, SITE_URL, TITLE_TEMPLATE } from '@/lib/seo';
 import '../globals.css';
 
 // latin-ext carries the Turkish glyphs (İ, ı, Ğ, ğ, Ş, ş); without it they fall back to a system font.
-const archivo = Archivo({ subsets: ['latin', 'latin-ext'], weight: ['700', '900'], variable: '--font-archivo', display: 'swap' });
+// Archivo is loaded as a variable font with its width axis: the wordmark compresses and widens (see Motion.jsx).
+const archivo = Archivo({ subsets: ['latin', 'latin-ext'], axes: ['wdth'], variable: '--font-archivo', display: 'swap' });
 const inter = Inter({ subsets: ['latin', 'latin-ext'], weight: ['400', '500', '700'], variable: '--font-inter', display: 'swap' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin', 'latin-ext'], weight: ['400', '500'], variable: '--font-jetbrains-mono', display: 'swap' });
 

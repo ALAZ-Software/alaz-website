@@ -51,8 +51,8 @@ export default async function ArchivePage({ params }) {
               </span>
               <span className="t-meta uppercase text-fg-4 col-span-3 group-hover:text-[var(--project-fg)] transition-colors duration-fast">{project.discipline} · {project.type}</span>
               <Icon name="arrow" size={28} className="col-span-1 justify-self-end group-hover:text-[var(--project-fg)] transition-transform duration-fast group-hover:translate-x-[6px] mobile:hidden" />
-              <span className="project-preview absolute right-[8%] top-1/2 w-[300px] aspect-[16/10] -translate-y-1/2 opacity-0 pointer-events-none overflow-hidden border border-line transition-[opacity,transform] duration-base ease-out group-hover:opacity-100 group-hover:[transform:translateY(-50%)_rotate(-2deg)] mobile:hidden" aria-hidden="true"><Image src={project.image} alt="" fill sizes="300px" className="object-cover" /></span>
-              <span className="relative hidden mobile:block w-full aspect-[16/10] overflow-hidden border border-line" aria-hidden="true"><Image src={project.image} alt="" fill sizes="100vw" className="object-cover" /></span>
+              <span className="project-preview absolute right-[8%] top-1/2 w-[300px] aspect-[16/10] -translate-y-1/2 opacity-0 pointer-events-none overflow-hidden border border-line transition-[opacity,transform] duration-base ease-out group-hover:opacity-100 group-hover:[transform:translateY(-50%)_rotate(-2deg)] mobile:hidden" aria-hidden="true" data-morph><Image src={project.image} alt="" fill sizes="300px" className="object-cover" /></span>
+              <span className="relative hidden mobile:block w-full aspect-[16/10] overflow-hidden border border-line" aria-hidden="true" data-morph><Image src={project.image} alt="" fill sizes="100vw" className="object-cover" /></span>
             </Link>
           </li>)}
         </ul>

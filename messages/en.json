@@ -1216,5 +1216,26 @@
     "privacy": "Privacy",
     "siteTagline": "Web, Mobile & Backend Software Studio",
     "ogAlt": "ALAZ — web, mobile and backend software studio"
+  },
+  "markets": {
+    "label": "MARKETS NOW",
+    "regular": "REGULAR SESSIONS",
+    "holidays": "HOLIDAYS ON",
+    "ariaLabel": "Which stock exchanges and the forex market are in their regular session right now, from Market Hours",
+    "fx": "FOREX",
+    "open": "OPEN",
+    "closed": "CLOSED",
+    "lunch": "LUNCH BREAK",
+    "next": {
+      "close": "CLOSES IN {time}",
+      "lunch": "BREAKS IN {time}",
+      "open": "OPENS IN {time}",
+      "reopen": "REOPENS IN {time}"
+    },
+    "units": {
+      "d": "{n}D",
+      "h": "{n}H",
+      "m": "{n}M"
+    }
   }
 }

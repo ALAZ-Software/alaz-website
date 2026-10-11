@@ -9,6 +9,7 @@ import { LOGO_URL, ORG_ID, SITE_NAME, absoluteUrl, buildMetadata, urlFor } from 
 import { fit } from '@/lib/fit';
 import { STORE_LINKS } from '@/lib/stores';
 import StoreButtons from '@/components/StoreButtons';
+import MarketTicker from '@/components/MarketTicker';
 
 const titleCase = (s) => s.toLowerCase().replace(/(^|\s)\S/g, (c) => c.toUpperCase());
 // Perceived luminance of a #rrggbb colour; decides whether the header needs dark ink over this hero.
@@ -118,7 +119,7 @@ export default async function CaseStudyPage({ params }) {
                 {storeUrls.length > 0 && <StoreButtons links={stores} downloadLabel={t('storeDownload')} soonLabel={t('storeSoon')} />}
               </div>}
             </div>
-            <div className="col-span-5 col-start-8 relative aspect-[16/10] overflow-hidden mobile:w-full" data-reveal="fade" data-delay="0.2">
+            <div className="col-span-5 col-start-8 relative aspect-[16/10] overflow-hidden mobile:w-full" data-reveal="wipe" data-delay="0.2" data-morph-target>
               <Image src={project.heroImage ?? project.image} alt={project.heroAlt} fill sizes="(max-width: 760px) 100vw, 40vw" className="object-cover" priority data-parallax="5" />
             </div>
           </div>
@@ -132,6 +133,7 @@ export default async function CaseStudyPage({ params }) {
             <dd className="t-small font-medium mt-[6px] text-fg">{fact.href ? <a href={fact.href} target="_blank" rel="noopener noreferrer" className="border-b border-line-strong hover:border-ember">{fact.value}</a> : fact.value}</dd>
           </div>)}
         </dl>
+        {project.slug === 'market-hours' && <MarketTicker bare />}
 
         <Section id="problem-title" eyebrow={t('challengeEyebrow')} heading={project.headings.challenge} body={project.challenge} />
         <Section id="build-title" eyebrow={t('approachEyebrow')} heading={project.headings.approach} body={project.approach} />
