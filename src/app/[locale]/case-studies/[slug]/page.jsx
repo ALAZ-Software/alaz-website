@@ -9,7 +9,6 @@ import { LOGO_URL, ORG_ID, SITE_NAME, absoluteUrl, buildMetadata, urlFor } from 
 import { fit } from '@/lib/fit';
 import { STORE_LINKS } from '@/lib/stores';
 import StoreButtons from '@/components/StoreButtons';
-import MarketTicker from '@/components/MarketTicker';
 
 const titleCase = (s) => s.toLowerCase().replace(/(^|\s)\S/g, (c) => c.toUpperCase());
 // Perceived luminance of a #rrggbb colour; decides whether the header needs dark ink over this hero.
@@ -133,7 +132,6 @@ export default async function CaseStudyPage({ params }) {
             <dd className="t-small font-medium mt-[6px] text-fg">{fact.href ? <a href={fact.href} target="_blank" rel="noopener noreferrer" className="border-b border-line-strong hover:border-ember">{fact.value}</a> : fact.value}</dd>
           </div>)}
         </dl>
-        {project.slug === 'market-hours' && <MarketTicker bare />}
 
         <Section id="problem-title" eyebrow={t('challengeEyebrow')} heading={project.headings.challenge} body={project.challenge} />
         <Section id="build-title" eyebrow={t('approachEyebrow')} heading={project.headings.approach} body={project.approach} />

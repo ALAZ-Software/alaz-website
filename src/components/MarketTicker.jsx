@@ -10,7 +10,7 @@ import { EXCHANGES, exchangeStatus, forexStatus } from '@/lib/markets';
 // in its own time zone (daylight saving included); holidays live on markethours.live, linked here.
 // The server renders the names only, so the markup never disagrees with the client clock.
 // Motion: a slow drift, paused on hover; under reduced motion it is a plain scrollable row.
-export default function MarketTicker({ bare = false }) {
+export default function MarketTicker() {
   const t = useTranslations('markets');
   const [now, setNow] = useState(null);
 
@@ -53,20 +53,15 @@ export default function MarketTicker({ bare = false }) {
     </ul>
   );
 
-  const strip = (
-    <div className="flex items-center gap-[clamp(16px,2vw,32px)] min-h-[54px] t-meta uppercase">
-      <span className="shrink-0 text-fg-3 flex items-center gap-[10px]"><span className="text-fg">{t('label')}</span><span className="laptop:hidden">· {t('regular')}</span></span>
-      <div className="ticker relative flex-1 min-w-0 overflow-hidden" aria-busy={now ? undefined : true}>
-        <div className="ticker-track flex w-max">{list(false)}{list(true)}</div>
-      </div>
-      <a href="https://markethours.live" target="_blank" rel="noopener noreferrer" className="shrink-0 inline-flex items-center gap-[8px] text-fg-3 hover:text-fg mobile:hidden">{t('holidays')} <span className="text-fg">MARKETHOURS.LIVE</span> <Icon name="external" size={12} /></a>
-    </div>
-  );
-
   return (
-    // bare: inside a page shell between two ruled blocks, so it draws no border of its own.
-    <section className={bare ? undefined : 'border-b border-line bg-ink'} aria-label={t('ariaLabel')}>
-      {bare ? strip : <div className="shell">{strip}</div>}
+    <section className="border-b border-line bg-ink" aria-label={t('ariaLabel')}>
+      <div className="shell flex items-center gap-[clamp(16px,2vw,32px)] min-h-[54px] t-meta uppercase">
+        <span className="shrink-0 text-fg-3 flex items-center gap-[10px]"><span className="text-fg">{t('label')}</span><span className="laptop:hidden">· {t('regular')}</span></span>
+        <div className="ticker relative flex-1 min-w-0 overflow-hidden" aria-busy={now ? undefined : true}>
+          <div className="ticker-track flex w-max">{list(false)}{list(true)}</div>
+        </div>
+        <a href="https://markethours.live" target="_blank" rel="noopener noreferrer" className="shrink-0 inline-flex items-center gap-[8px] text-fg-3 hover:text-fg mobile:hidden">{t('holidays')} <span className="text-fg">MARKETHOURS.LIVE</span> <Icon name="external" size={12} /></a>
+      </div>
     </section>
   );
 }
