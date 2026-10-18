@@ -1335,26 +1335,5 @@
     "privacy": "Gizlilik",
     "siteTagline": "Web, Mobil ve Backend Yazılım Stüdyosu",
     "ogAlt": "ALAZ — web, mobil ve backend yazılım stüdyosu"
-  },
-  "markets": {
-    "label": "PİYASALAR ŞU AN",
-    "regular": "NORMAL SEANSLAR",
-    "holidays": "TATİLLER",
-    "ariaLabel": "Hangi borsaların ve forex piyasasının şu an normal seansta olduğu, Market Hours verisiyle",
-    "fx": "FOREX",
-    "open": "AÇIK",
-    "closed": "KAPALI",
-    "lunch": "ÖĞLE ARASI",
-    "next": {
-      "close": "KAPANIŞA {time}",
-      "lunch": "ARAYA {time}",
-      "open": "AÇILIŞA {time}",
-      "reopen": "SEANSA {time}"
-    },
-    "units": {
-      "d": "{n} G",
-      "h": "{n} SA",
-      "m": "{n} DK"
-    }
   }
 }
