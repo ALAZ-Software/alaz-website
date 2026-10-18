@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import { buildMetadata } from '@/lib/seo';
 import { fit } from '@/lib/fit';
 import HeatField from '@/components/HeatField';
-import MarketTicker from '@/components/MarketTicker';
 
 const GridLines = () => <div className="grid-lines" aria-hidden="true">{Array.from({ length: 12 }, (_, i) => <i key={i} />)}</div>;
 
@@ -62,9 +61,6 @@ export default async function HomePage({ params }) {
           </div>
         </div>
       </section>
-
-      {/* Live proof from one of the products: which markets are open right now. */}
-      <MarketTicker />
 
       {/* Work: the products are the proof. */}
       <section className="shell bg-surface pb-[var(--s-5)]" id="work" aria-labelledby="work-title">
