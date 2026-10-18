@@ -1,6 +1,7 @@
 // App Store and Google Play links for the project pages, keyed by project slug.
 // Leave a link empty until the app is published: its button then shows as "coming soon".
 // Paste the full store URL when it goes live and the button turns into a working link.
+// The buttons only appear once a link exists, or earlier when comingSoon is set.
 export const STORE_LINKS = {
   'english-vocabulary': {
     appStore: '', // https://apps.apple.com/app/...
@@ -9,6 +10,7 @@ export const STORE_LINKS = {
   'market-hours': {
     appStore: '',
     googlePlay: '',
+    comingSoon: true,
   },
   'simple-note': {
     appStore: '',
@@ -17,5 +19,10 @@ export const STORE_LINKS = {
   'passport-ai': {
     appStore: '',
     googlePlay: '',
+  },
+  setupbook: {
+    appStore: '',
+    googlePlay: '',
+    comingSoon: true,
   },
 };

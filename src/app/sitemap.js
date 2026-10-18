@@ -23,7 +23,7 @@ const STATIC_PATHS = [
 // A project's cover and screenshots are localised, so its image list is resolved per locale.
 const projectImages = (locale, slug) => {
   const project = (MESSAGES[locale] ?? en).projects.find((p) => p.slug === slug);
-  return [project.image, ...(project.gallery ?? [])].filter(Boolean).map(absoluteUrl);
+  return [project.image, ...(project.webGallery ?? []), ...(project.gallery ?? [])].filter(Boolean).map(absoluteUrl);
 };
 
 const dynamicPaths = [

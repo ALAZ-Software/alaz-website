@@ -371,6 +371,118 @@
         "fg": "#1b1a17",
         "accent": "#0b6b4c"
       }
+    },
+    {
+      "slug": "setupbook",
+      "number": "05",
+      "name": "SETUPBOOK",
+      "displayName": "SetupBook",
+      "discipline": "WEB & MOBİL",
+      "type": "FİNANS ARACI / İŞLEM GÜNLÜĞÜ",
+      "image": "/projects/setupbook/cover-tr.jpg",
+      "heroImage": "/projects/setupbook/cover-tr.jpg",
+      "imageWidth": 1920,
+      "imageHeight": 1200,
+      "colorImage": true,
+      "summary": "İşlemlerini elle giren yatırımcılar için bir işlem günlüğü: bir işlemi 30 saniyede kaydet; kazanma oranını, kâr faktörünü, beklentiyi, drawdown'u ve her hatanın maliyetini gerçekte ne yaptığına göre hesaplanmış olarak gör. Web'de setupbook.io adresinde yayında, mobil uygulamalar yakında.",
+      "challenge": "Çoğu işlem günlüğü ya üçüncü haftada doldurulmayı bırakan bir tablodur ya da kazanma oranını gösterip nasıl hesapladığını söylemeyen bir araç. İşlem yapma biçimini değiştiren rakamlar, yani bir kuralı çiğnemenin neye mal olduğu, A setup'larının gerçekten kazandırıp kazandırmadığı ve bir prop hesabın drawdown limitine ne kadar yaklaştığı, bir tablonun hiç hesaplamadığı rakamlardır.",
+      "approach": "Firebase Auth, Firestore ve Storage üzerinde TypeScript, Tailwind ve shadcn/ui ile Next.js 16; Türkçe ve İngilizce, koyu ve açık temada. Üründeki her rakam, elle çıkarılmış bir doğrulama tablosuna karşı test edilen saf fonksiyonlardan oluşan tek bir modülden geliyor: dolumlardan, kısmi çıkışlardan ve pozisyon eklemelerinden K/Z, planlanan stoptan R, kazanma oranı, kâr faktörü, beklenti, drawdown, tutarlılık ve formülü ekranda gösterilen bir trader skoru. Dört adımlı işlem formu siz yazarken K/Z'yi, riski ve R'yi hesaplıyor; işlem öncesi kontrol listesi ve hata etiketleri disiplini bir rakama çeviriyor; işlemler MT4 ve MT5 raporlarından, Binance'ten, TradingView'dan ya da sütun eşleme ile herhangi bir CSV'den içe aktarılabiliyor. Firestore güvenlik kuralları her kullanıcının verisini yalnızca o kullanıcının okuyabilmesini sağlıyor ve kurallar emülatörde test ediliyor.",
+      "outcome": "SetupBook setupbook.io adresinde yayında: bir panel, işlem tablosu ve K/Z takvimi, sembole, stratejiye ve seansa göre ayrılmış analizler, gün notları, ruh hâli ve hafta değerlendirmeleri olan bir günlük, kendi istatistikleriyle stratejilerden oluşan bir playbook, prop firma limitleri, herkese açık paylaşım kartları ve iki dilli bir blog ile kullanım kılavuzu. Bu sayfadaki ekranlar demo hesaptan alındı. iOS ve Android için yerel uygulamalar yakında geliyor.",
+      "markers": [
+        "HER RAKAM TEST EDİLDİ",
+        "HER HATANIN MALİYETİ",
+        "PROP FİRMA LİMİTLERİ"
+      ],
+      "link": {
+        "href": "https://setupbook.io",
+        "label": "SETUPBOOK.IO"
+      },
+      "coverAlt": "Bir tarayıcı penceresinde ve telefonda SetupBook: net K/Z, hata maliyeti, disiplin, kazanma oranı ve sermaye eğrisiyle panel ve +320,00 $ ile +2,13R kazandıran bir NQ işlemi",
+      "heroAlt": "Demo hesaptan SetupBook paneli ve yanında telefonda bir işlemin detayı",
+      "metaDescription": "SetupBook; kazanma oranını, kâr faktörünü, beklentiyi, drawdown'u ve her hatanın maliyetini hesaplayan bir işlem günlüğü. setupbook.io'da yayında. ALAZ yapımı.",
+      "headings": {
+        "challenge": [
+          "KİMSENİN",
+          "YAPMADIĞI HESAP."
+        ],
+        "approach": [
+          "TEK FORMÜL,",
+          "HER EKRAN."
+        ],
+        "outcome": [
+          "30 SANİYEDE",
+          "KAYITTA."
+        ]
+      },
+      "facts": [
+        {
+          "label": "Yıl",
+          "value": "2026"
+        },
+        {
+          "label": "Platformlar",
+          "value": "Web; iOS ve Android yakında"
+        },
+        {
+          "label": "Teknolojiler",
+          "value": "Next.js, TypeScript, Firebase"
+        },
+        {
+          "label": "Rolümüz",
+          "value": "Tasarım, geliştirme, veri"
+        },
+        {
+          "label": "Durum",
+          "value": "Web yayında, mobil uygulamalar yakında",
+          "href": "https://setupbook.io"
+        }
+      ],
+      "schema": {
+        "category": "FinanceApplication",
+        "subCategory": "İşlem günlüğü",
+        "os": "Web, iOS, Android"
+      },
+      "theme": {
+        "bg": "#0b0b0c",
+        "fg": "#ffffff",
+        "accent": "#2962ff"
+      },
+      "gallery": [
+        "/projects/setupbook/tr/01.webp",
+        "/projects/setupbook/tr/02.webp",
+        "/projects/setupbook/tr/03.webp",
+        "/projects/setupbook/tr/04.webp",
+        "/projects/setupbook/tr/05.webp",
+        "/projects/setupbook/tr/06.webp",
+        "/projects/setupbook/tr/07.webp",
+        "/projects/setupbook/tr/08.webp"
+      ],
+      "galleryAlts": [
+        "Telefonda panel: açık GBPUSD ve US30 pozisyonları, 30 günde +577,00 $ net K/Z, −415,00 $ hata maliyeti, %66,7 disiplin ve %54,5 kazanma oranı",
+        "Panelin aşağısı: zararlı işlemleri kırmızıyla işaretlenmiş sermaye eğrisi ve en iyi ile en kötü günü gösteren günlük net K/Z çubukları",
+        "Ekim 2026 işlem takvimi: her günün net sonucu ve işlem sayısı, kârlı günler yeşil, zararlı günler kırmızı",
+        "Analiz: net K/Z, kazanma oranı, 2,34 kâr faktörü, +0,33R beklenti, ortalama kazanç ve kayıp, seriler, toparlanma ve en büyük kazanca bağımlılık",
+        "Analizin aşağısı: −%3,5 dip noktasıyla drawdown grafiği ve sembole göre sonuçlar",
+        "Bir işlemin detayı: NQ long, +320,00 $ ve +2,13R, planlanan 2,8R'ye karşı gerçekleşen 2,13R, 30 dakikalık tutma süresi ve giriş, çıkış, stop ve hedef fiyatları",
+        "Günlük: Ekim ayının işlem günleri, her günün net K/Z'si ve işlem sayısıyla",
+        "Açık temada panel: açık pozisyonlar, net K/Z, hata maliyeti, disiplin ve kazanma oranı"
+      ],
+      "webGallery": [
+        "/projects/setupbook/tr/web/01.webp",
+        "/projects/setupbook/tr/web/02.webp",
+        "/projects/setupbook/tr/web/03.webp",
+        "/projects/setupbook/tr/web/04.webp",
+        "/projects/setupbook/tr/web/05.webp",
+        "/projects/setupbook/tr/web/06.webp"
+      ],
+      "webGalleryAlts": [
+        "Panel: açık pozisyonlar, net K/Z ve hata maliyetinden maksimum drawdown'a sekiz KPI kartı, sermaye eğrisi ve günlük net K/Z grafiği",
+        "Analiz: KPI kartları, formülü bileşenlerine ayrılmış 76 puanlık trader skoru, drawdown grafiği ve sembole, stratejiye ve seansa göre dağılımlar",
+        "Ekim 2026 işlem takvimi: ayın neti, tutarlılık, en iyi ve en kötü gün, her günün sonucu ve haftalık toplamlar",
+        "Bir işlemin detayı: +320,00 $ ve +2,13R ile NQ long; fiyatlar, dolumlar, MAE ve MFE'den çıkış analizi ve değerlendirme",
+        "Playbook: kriterleri, işlem sayısı, kazanma oranı, neti ve ortalama R'siyle on bir strateji, FVG stratejisinin giriş kriterleri ve her kuralın ne sıklıkla uygulandığını gösteren işlem öncesi kontrol listesi",
+        "Hesaplar: bir gerçek hesap, günlük kayıp, maksimum drawdown ve kâr hedefi çubuklarıyla iki prop firma hesabı ve bir demo hesap"
+      ]
     }
   ],
   "blogPosts": [
@@ -765,6 +877,12 @@
           "external": true
         },
         {
+          "label": "SetupBook",
+          "value": "setupbook.io'da yayında",
+          "href": "https://setupbook.io",
+          "external": true
+        },
+        {
           "label": "Cevap",
           "value": "bir iş günü içinde",
           "href": "/start-project"
@@ -882,7 +1000,7 @@
   "archive": {
     "meta": {
       "title": "İşler — ALAZ'ın Geliştirdiği Web ve Mobil Uygulamalar",
-      "description": "ALAZ'ın geliştirdiği ürünler: kelime uygulaması, not uygulaması, kimlik fotoğrafı stüdyosu ve piyasa saatleri panosu. Problem, geliştirme ve yayınlanan."
+      "description": "ALAZ'ın geliştirdiği ürünler: kelime uygulaması, not uygulaması, kimlik fotoğrafı stüdyosu, piyasa saatleri panosu ve işlem günlüğü. Problem, geliştirme ve yayınlanan."
     },
     "eyebrowLeft": "İŞLER",
     "eyebrowRight": "ALAZ TARAFINDAN GELİŞTİRİLİP İŞLETİLİYOR",
@@ -890,7 +1008,7 @@
     "heading": [
       "İŞLER"
     ],
-    "introText": "Kendimiz geliştirip işlettiğimiz dört ürün: iOS ve Android için bir kelime uygulaması ve bir kimlik fotoğrafı stüdyosu, gerçek kağıt hissi veren bir not uygulaması ve web'de yayında olan bir piyasa saatleri panosu. Her sayfa problemi, geliştirmeyi ve yayınlananı anlatır.",
+    "introText": "Kendimiz geliştirip işlettiğimiz beş ürün: iOS ve Android için bir kelime uygulaması ve bir kimlik fotoğrafı stüdyosu, gerçek kağıt hissi veren bir not uygulaması, web'de yayında olan bir piyasa saatleri panosu ve bir işlem günlüğü. Her sayfa problemi, geliştirmeyi ve yayınlananı anlatır.",
     "introNote": "{count} PROJE",
     "tableHeaders": [
       "NO.",
@@ -921,7 +1039,9 @@
     "galleryEyebrow": "UYGULAMA EKRANLARI",
     "visitCta": "{site} AÇ",
     "storeDownload": "İNDİR",
-    "storeSoon": "YAKINDA"
+    "storeSoon": "YAKINDA",
+    "webGalleryEyebrow": "WEB EKRANLARI",
+    "mobileGalleryEyebrow": "MOBİL EKRANLAR"
   },
   "blogIndex": {
     "meta": {
