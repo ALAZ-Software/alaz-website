@@ -19,6 +19,7 @@ ALAZ is an engineering team, not an agency with account managers: the people who
 - [Simple Note](https://alaz.pro/case-studies/simple-note): a note app that feels like real paper, with notes, checklists, reminders, a calendar, note lock, notes shared by invite link and offline-first sync, for iOS, Android and the web. Flutter and Firebase; store release in preparation.
 - [Passport.AI](https://alaz.pro/case-studies/passport-ai): an ID, passport, visa and profile photo studio for iOS and Android, with 250 country entries, an on-device face check, AI background, outfit and retouching, and JPEG, PNG or print-ready PDF exports. Flutter and Firebase; app built, backend launch and store submission next.
 - [Market Hours](https://alaz.pro/case-studies/market-hours): a live world map and alarm app showing which stock exchanges and forex sessions are open right now, with holidays, lunch breaks and alerts. Web dashboard live at https://markethours.live; mobile app in preparation.
+- [SetupBook](https://alaz.pro/case-studies/setupbook): a trading journal for traders who log trades by hand, computing win rate, profit factor, expectancy, drawdown and the cost of every mistake, with a P&L calendar, analytics, journal, playbook, prop-firm limits and imports from MT4/MT5, Binance, TradingView and CSV. Next.js and Firebase, in English and Turkish. Live at https://setupbook.io; iOS and Android apps coming soon.
 
 ## Articles
 

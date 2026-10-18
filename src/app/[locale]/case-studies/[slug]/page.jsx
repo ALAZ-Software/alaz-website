@@ -56,7 +56,9 @@ export default async function CaseStudyPage({ params }) {
   if (!project) notFound();
 
   const stores = STORE_LINKS[project.slug];
-  const storeUrls = Object.values(stores ?? {}).filter(Boolean);
+  const storeUrls = [stores?.appStore, stores?.googlePlay].filter(Boolean);
+  const showStores = storeUrls.length > 0 || Boolean(stores?.comingSoon);
+  const screenshots = [...(project.webGallery ?? []), ...(project.gallery ?? [])];
   const currentIndex = projects.findIndex((item) => item.slug === slug);
   const next = projects[(currentIndex + 1) % projects.length] || projects[0];
   const name = projectName(project);
@@ -73,7 +75,7 @@ export default async function CaseStudyPage({ params }) {
     ...(project.schema?.subCategory ? { applicationSubCategory: project.schema.subCategory } : {}),
     operatingSystem: project.schema?.os,
     image: absoluteUrl(project.image),
-    ...(project.gallery ? { screenshot: project.gallery.map(absoluteUrl) } : {}),
+    ...(screenshots.length ? { screenshot: screenshots.map(absoluteUrl) } : {}),
     ...(project.link ? { url: project.link.href, browserRequirements: 'Requires JavaScript' } : {}),
     ...(storeUrls.length ? { installUrl: storeUrls, sameAs: storeUrls } : {}),
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
@@ -109,13 +111,14 @@ export default async function CaseStudyPage({ params }) {
             <span>{t('projectLabel')} / {project.number}</span>
           </div>
           <div className="grid grid-cols-12 gap-[var(--col-gap)] items-end mt-auto pt-[var(--s-5)] mobile:flex mobile:flex-col mobile:items-start">
-            <div className="col-span-7">
+            {/* A size container, so the title fits the column itself (100cqw), scrollbar and gaps included. */}
+            <div className="col-span-7 [container-type:inline-size] mobile:w-full">
               <p className="t-meta uppercase opacity-70 mb-[20px]" data-reveal="fade">{project.type} / {project.discipline}</p>
-              <h1 style={fit(project.name, '.')} className="fit t-display-1 uppercase mb-[24px] [--fit-avail:calc((100vw_-_2*var(--shell-pad))*.58)] mobile:[--fit-avail:calc(100vw_-_2*var(--shell-pad))]" data-reveal="lines">{project.name}<span className="dot">.</span></h1>
+              <h1 style={fit(project.name, '.')} className="fit t-display-1 uppercase mb-[24px] [--fit-avail:100cqw]" data-reveal="lines">{project.name}<span className="dot">.</span></h1>
               <p className="t-lead max-w-[42ch] opacity-90" data-reveal="fade">{project.summary}</p>
-              {(project.link || storeUrls.length > 0) && <div className="mt-[32px] flex flex-wrap items-stretch gap-[14px]" data-reveal="fade">
+              {(project.link || showStores) && <div className="mt-[32px] flex flex-wrap items-stretch gap-[14px]" data-reveal="fade">
                 {project.link && <a href={project.link.href} target="_blank" rel="noopener noreferrer" className="btn-ghost !border-current hover:!bg-[var(--project-fg)] hover:!text-[var(--project-bg)]" data-magnetic>{t('visitCta', { site: project.link.label })} <Icon name="external" size={15} /></a>}
-                {storeUrls.length > 0 && <StoreButtons links={stores} downloadLabel={t('storeDownload')} soonLabel={t('storeSoon')} />}
+                {showStores && <StoreButtons links={stores} downloadLabel={t('storeDownload')} soonLabel={t('storeSoon')} />}
               </div>}
             </div>
             <div className="col-span-5 col-start-8 relative aspect-[16/10] overflow-hidden mobile:w-full" data-reveal="wipe" data-delay="0.2" data-morph-target>
@@ -137,10 +140,26 @@ export default async function CaseStudyPage({ params }) {
         <Section id="build-title" eyebrow={t('approachEyebrow')} heading={project.headings.approach} body={project.approach} />
         <Section id="shipped-title" eyebrow={t('outcomeEyebrow')} heading={project.headings.outcome} body={project.outcome} />
 
+        {project.webGallery?.length > 0 && (
+          <section className="py-[var(--s-5)] border-t border-line" aria-labelledby="web-gallery-title">
+            <div className="t-meta uppercase flex justify-between text-fg-4 mb-[30px]">
+              <h2 id="web-gallery-title" className="font-normal text-inherit">{t('webGalleryEyebrow')}</h2>
+              <span>{String(project.webGallery.length).padStart(2, '0')}</span>
+            </div>
+            <ul className="rail-mobile grid grid-cols-2 gap-[var(--col-gap)] mobile:grid-cols-none">
+              {project.webGallery.map((src, i) => (
+                <li key={src} className="relative aspect-[16/10] overflow-hidden border border-line bg-surface-2" data-reveal="fade" data-delay={(i % 2) * 0.07}>
+                  <Image src={src} alt={project.webGalleryAlts?.[i] ?? `${name} ${i + 1}`} fill sizes="(max-width: 760px) 78vw, 50vw" className="object-cover" />
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         {project.gallery?.length > 0 && (
           <section className="py-[var(--s-5)] border-t border-line" aria-labelledby="gallery-title">
             <div className="t-meta uppercase flex justify-between text-fg-4 mb-[30px]">
-              <h2 id="gallery-title" className="font-normal text-inherit">{t('galleryEyebrow')}</h2>
+              <h2 id="gallery-title" className="font-normal text-inherit">{t(project.webGallery ? 'mobileGalleryEyebrow' : 'galleryEyebrow')}</h2>
               <span>{String(project.gallery.length).padStart(2, '0')}</span>
             </div>
             <ul className="rail-mobile grid grid-cols-4 gap-[var(--col-gap)] mobile:grid-cols-none">
@@ -167,9 +186,9 @@ export default async function CaseStudyPage({ params }) {
           <Link href="/services" className="text-fg inline-flex items-center gap-[8px] hover:text-ember-soft">{t('servicesCta')} <Icon name="arrow" size={14} /></Link>
         </div>
 
-        <Link href={`/case-studies/${next.slug}`} style={{ '--project-bg': next.theme?.bg, '--project-fg': next.theme?.fg }} className="project-row group flex justify-between items-end gap-[20px] py-[var(--s-5)] border-b border-line -mx-[var(--shell-pad)] px-[var(--shell-pad)]" data-cursor="NEXT">
+        <Link href={`/case-studies/${next.slug}`} style={{ '--project-bg': next.theme?.bg, '--project-fg': next.theme?.fg }} className="project-row group flex justify-between items-end gap-[20px] py-[var(--s-5)] border-b border-line -mx-[var(--shell-pad)] px-[var(--shell-pad)] mobile:flex-col mobile:items-start" data-cursor="NEXT">
           <span className="t-meta uppercase text-fg-4 shrink-0 group-hover:text-[var(--project-fg)]">{t('nextProjectLabel')} / {next.number}</span>
-          <span className="t-display-2 uppercase flex gap-[18px] items-center text-right group-hover:text-[var(--project-fg)] transition-colors duration-fast [--fit-size:clamp(28px,4vw,72px)]">
+          <span className="t-display-2 uppercase flex gap-[18px] items-center text-right mobile:text-left group-hover:text-[var(--project-fg)] transition-colors duration-fast [--fit-size:clamp(28px,4vw,72px)]">
             <span className="min-w-0">{next.name}</span> <Icon name="arrow" size={34} className="transition-transform duration-fast group-hover:translate-x-[10px]" />
           </span>
         </Link>
