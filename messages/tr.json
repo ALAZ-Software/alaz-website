@@ -1041,7 +1041,14 @@
     "storeDownload": "İNDİR",
     "storeSoon": "YAKINDA",
     "webGalleryEyebrow": "WEB EKRANLARI",
-    "mobileGalleryEyebrow": "MOBİL EKRANLAR"
+    "mobileGalleryEyebrow": "MOBİL EKRANLAR",
+    "legalLabel": "UYGULAMA BELGELERİ",
+    "legalDocs": {
+      "privacy": "GİZLİLİK POLİTİKASI",
+      "terms": "KULLANIM ŞARTLARI",
+      "delete-account": "HESAP SİLME",
+      "support": "DESTEK"
+    }
   },
   "blogIndex": {
     "meta": {

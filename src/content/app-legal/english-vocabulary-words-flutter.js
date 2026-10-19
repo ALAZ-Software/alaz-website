@@ -8,6 +8,8 @@ import {
 
 const app = {
   repo: 'english-vocabulary-words-flutter',
+  // The case study (messages/*.json projects[].slug) that links to these documents.
+  project: 'english-vocabulary',
   name: 'English Vocabulary: 8000 Words',
   platforms: 'iOS and Android',
   updated: '2026-10-19',

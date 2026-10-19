@@ -8,6 +8,8 @@ import {
 
 const app = {
   repo: 'simple-note-flutter',
+  // The case study (messages/*.json projects[].slug) that links to these documents.
+  project: 'simple-note',
   name: 'Simple Note',
   platforms: 'iOS, Android, macOS and web',
   updated: '2026-10-19',
