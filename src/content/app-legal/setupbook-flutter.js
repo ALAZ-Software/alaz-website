@@ -10,6 +10,8 @@ import {
 // texts follow the web app's legal documents (setupbook-web: content/legal/*.md) and add the store parts.
 const app = {
   repo: 'setupbook-flutter',
+  // The case study (messages/*.json projects[].slug) that links to these documents.
+  project: 'setupbook',
   name: 'SetupBook',
   platforms: 'iOS and Android',
   updated: '2026-10-19',

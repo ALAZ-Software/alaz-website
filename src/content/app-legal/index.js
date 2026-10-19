@@ -16,3 +16,5 @@ export const APP_LEGAL_DOCS = {
 export const APPS = [englishVocabulary, marketHours, simpleNote, passportIdPhoto, setupbook];
 
 export const findApp = (repo) => APPS.find((app) => app.repo === repo);
+
+export const findAppByProject = (slug) => APPS.find((app) => app.project === slug);

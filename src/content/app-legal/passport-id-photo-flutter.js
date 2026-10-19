@@ -8,6 +8,8 @@ import {
 
 const app = {
   repo: 'passport-id-photo-flutter',
+  // The case study (messages/*.json projects[].slug) that links to these documents.
+  project: 'passport-ai',
   name: 'Passport.AI',
   platforms: 'iOS and Android',
   updated: '2026-10-19',

@@ -8,6 +8,7 @@ import JsonLd, { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { LOGO_URL, ORG_ID, SITE_NAME, absoluteUrl, buildMetadata, urlFor } from '@/lib/seo';
 import { fit } from '@/lib/fit';
 import { STORE_LINKS } from '@/lib/stores';
+import { APP_LEGAL_DOCS, findAppByProject } from '@/content/app-legal';
 import StoreButtons from '@/components/StoreButtons';
 
 const titleCase = (s) => s.toLowerCase().replace(/(^|\s)\S/g, (c) => c.toUpperCase());
@@ -58,6 +59,7 @@ export default async function CaseStudyPage({ params }) {
   const stores = STORE_LINKS[project.slug];
   const storeUrls = [stores?.appStore, stores?.googlePlay].filter(Boolean);
   const showStores = storeUrls.length > 0 || Boolean(stores?.comingSoon);
+  const legalApp = findAppByProject(project.slug);
   const screenshots = [...(project.webGallery ?? []), ...(project.gallery ?? [])];
   const currentIndex = projects.findIndex((item) => item.slug === slug);
   const next = projects[(currentIndex + 1) % projects.length] || projects[0];
@@ -180,6 +182,14 @@ export default async function CaseStudyPage({ params }) {
             </li>
           ))}
         </ul>
+
+        {/* The app's privacy policy, terms, account deletion and support pages. They are English only, so a plain link to the unprefixed path skips the /tr redirect. */}
+        {legalApp && <nav aria-label={t('legalLabel')} className="t-meta uppercase flex justify-between items-center gap-[20px] py-[24px] border-b border-line text-fg-4 mobile:flex-col mobile:items-start">
+          <span>{t('legalLabel')}</span>
+          <ul className="flex flex-wrap gap-x-[28px] gap-y-[10px]">
+            {Object.keys(APP_LEGAL_DOCS).map((doc) => <li key={doc}><a href={`/${doc}/${legalApp.repo}`} hrefLang="en" className="text-fg inline-flex items-center gap-[8px] hover:text-ember-soft">{t(`legalDocs.${doc}`)} <Icon name="arrow" size={14} /></a></li>)}
+          </ul>
+        </nav>}
 
         <div className="t-meta uppercase flex justify-between items-center gap-[20px] py-[24px] border-b border-line text-fg-4 mobile:flex-col mobile:items-start">
           <span>{t('servicesPrompt')}</span>

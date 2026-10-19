@@ -8,6 +8,8 @@ import {
 
 const app = {
   repo: 'market-hours-forex-stocks-flutter',
+  // The case study (messages/*.json projects[].slug) that links to these documents.
+  project: 'market-hours',
   name: 'Market Hours: Forex & Stocks',
   platforms: 'iOS and Android',
   updated: '2026-10-19',
