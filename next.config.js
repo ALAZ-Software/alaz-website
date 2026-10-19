@@ -22,6 +22,11 @@ const nextConfig = {
 			// The ALPHA / BETA / GAMMA placeholder projects were removed; send their old URLs to the archive.
 			{ source: '/case-studies/:slug(alpha|beta|gamma)', destination: '/case-studies', permanent: true },
 			{ source: '/tr/case-studies/:slug(alpha|beta|gamma)', destination: '/tr/case-studies', permanent: true },
+			// The app documents (privacy, terms, account deletion, support) exist in English only.
+			{ source: '/tr/:doc(privacy|terms|delete-account|support)/:app', destination: '/:doc/:app', permanent: true },
+			// The site's own terms are the Legal page; /terms on its own is where people look for them.
+			{ source: '/terms', destination: '/legal', permanent: false },
+			{ source: '/tr/terms', destination: '/tr/legal', permanent: false },
 			{
 				source: '/:path*',
 				has: [{ type: 'host', value: 'www.alaz.pro' }],

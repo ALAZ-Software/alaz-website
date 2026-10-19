@@ -40,8 +40,9 @@ export function urlFor(locale, path = '') {
   return `${SITE_URL}/${locale}${clean}`;
 }
 
-export function languageAlternates(path = '') {
-  const languages = Object.fromEntries(routing.locales.map((l) => [l, urlFor(l, path)]));
+// `locales` narrows the list for pages that exist in fewer languages (the English-only app documents).
+export function languageAlternates(path = '', locales = routing.locales) {
+  const languages = Object.fromEntries(locales.map((l) => [l, urlFor(l, path)]));
   languages['x-default'] = urlFor(routing.defaultLocale, path);
   return languages;
 }
@@ -59,6 +60,7 @@ export function buildMetadata({
   type = 'website',
   robots,
   extraOpenGraph = {},
+  locales = routing.locales,
 }) {
   const url = urlFor(locale, path);
   const fullTitle = absoluteTitle ? title : `${title} | ${SITE_NAME}`;
@@ -67,7 +69,7 @@ export function buildMetadata({
     title: absoluteTitle ? { absolute: title } : title,
     description,
     ...(robots ? { robots } : {}),
-    alternates: { canonical: url, languages: languageAlternates(path) },
+    alternates: { canonical: url, languages: languageAlternates(path, locales) },
     openGraph: {
       type,
       url,
@@ -75,7 +77,7 @@ export function buildMetadata({
       title: fullTitle,
       description,
       locale: ogLocale(locale),
-      alternateLocale: routing.locales.filter((l) => l !== locale).map(ogLocale),
+      alternateLocale: locales.filter((l) => l !== locale).map(ogLocale),
       images,
       ...extraOpenGraph,
     },

@@ -1,5 +1,6 @@
 import { routing } from '@/i18n/routing';
 import { absoluteUrl, languageAlternates, urlFor } from '@/lib/seo';
+import { APP_LEGAL_DOCS, APPS } from '@/content/app-legal';
 import en from '../../messages/en.json';
 import tr from '../../messages/tr.json';
 
@@ -29,12 +30,14 @@ const projectImages = (locale, slug) => {
 const dynamicPaths = [
   ...en.projects.map((p) => ({ path: `/case-studies/${p.slug}`, priority: 0.6, changeFrequency: 'monthly', images: (locale) => projectImages(locale, p.slug) })),
   ...en.blogPosts.map((p) => ({ path: `/blog/${p.slug}`, priority: 0.6, changeFrequency: 'monthly', lastModified: postDate(p), images: p.cover ? [p.cover] : undefined })),
+  // The app documents are English only.
+  ...APPS.flatMap((app) => Object.keys(APP_LEGAL_DOCS).map((doc) => ({ path: `/${doc}/${app.repo}`, priority: 0.2, changeFrequency: 'yearly', lastModified: new Date(app.updated), locales: [routing.defaultLocale] }))),
 ];
 
 // lastModified is only emitted where a real date exists; a fake "now" trains crawlers to ignore it.
 export default function sitemap() {
-  return [...STATIC_PATHS, ...dynamicPaths].flatMap(({ path, priority, changeFrequency, lastModified, images }) =>
-    routing.locales.map((locale) => {
+  return [...STATIC_PATHS, ...dynamicPaths].flatMap(({ path, priority, changeFrequency, lastModified, images, locales = routing.locales }) =>
+    locales.map((locale) => {
       const imageList = typeof images === 'function' ? images(locale) : images;
       return {
         url: urlFor(locale, path),
@@ -42,7 +45,7 @@ export default function sitemap() {
         changeFrequency,
         priority,
         ...(imageList?.length ? { images: imageList } : {}),
-        alternates: { languages: languageAlternates(path) },
+        alternates: { languages: languageAlternates(path, locales) },
       };
     }),
   );

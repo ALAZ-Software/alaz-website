@@ -32,7 +32,8 @@ const renderInline = (text) => {
   return nodes;
 };
 
-export default function Markdown({ content }) {
+// `className` replaces the long-form article styling of the wrapper (the legal pages use body text).
+export default function Markdown({ content, className = 'max-w-[68ch] text-fg-2 text-[length:clamp(16px,1.3vw,19px)] leading-[1.72] [hyphens:auto] mobile:text-[16px]' }) {
   const lines = content.split('\n');
   const blocks = [];
   let list = null;
@@ -103,5 +104,5 @@ export default function Markdown({ content }) {
   flushPara();
   flushList();
 
-  return <div className="max-w-[68ch] text-fg-2 text-[length:clamp(16px,1.3vw,19px)] leading-[1.72] [hyphens:auto] mobile:text-[16px]">{blocks}</div>;
+  return <div className={className}>{blocks}</div>;
 }
