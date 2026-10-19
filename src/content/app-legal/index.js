@@ -1,5 +1,4 @@
 import englishVocabulary from './english-vocabulary-words-flutter';
-import fiskeSoccerGame from './fiske-soccer-game-flutter';
 import marketHours from './market-hours-forex-stocks-flutter';
 import passportIdPhoto from './passport-id-photo-flutter';
 import setupbook from './setupbook-flutter';
@@ -14,6 +13,6 @@ export const APP_LEGAL_DOCS = {
 };
 
 // One entry per app, named after its GitHub repository.
-export const APPS = [englishVocabulary, marketHours, simpleNote, passportIdPhoto, setupbook, fiskeSoccerGame];
+export const APPS = [englishVocabulary, marketHours, simpleNote, passportIdPhoto, setupbook];
 
 export const findApp = (repo) => APPS.find((app) => app.repo === repo);
